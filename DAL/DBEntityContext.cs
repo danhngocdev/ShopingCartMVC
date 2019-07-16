@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class DBEntityContext: DbContext
+    public class DBEntityContext: DbContext
     {
         public DBEntityContext():base("name=defaultConnection")
         {

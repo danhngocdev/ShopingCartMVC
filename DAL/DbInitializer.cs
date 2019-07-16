@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class DbInitializer: DropCreateDatabaseIfModelChanges<DBEntityContext>
+  public  class DbInitializer: DropCreateDatabaseIfModelChanges<DBEntityContext>
     {
         protected override void Seed(DBEntityContext context)
         {

@@ -5,15 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
+using Repository;
+using Repository.Interface;
 
 namespace Service
 {
-    class CategoryService : IServices<Category>
+   public class CategoryService : IServices<Category>
     {
-        private IServices<Category> repository;
+        private IRepository<Category> repository;
         public CategoryService()
         {
-            repository = new CategoryRepository(new DBEntityContext());
+            repository = new CategoryReponsitory(new DBEntityContext());
         }
         public int Delete(int id)
         {

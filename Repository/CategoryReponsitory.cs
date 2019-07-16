@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DAL;
+using Model;
 using Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,18 +9,37 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class CategoryReponsitory : IRepository<Category>, IDisposable
+    public class CategoryReponsitory : IRepository<Category>, IDisposable
     {
-       
+        private DBEntityContext context;
+        public CategoryReponsitory(DBEntityContext context)
+        {
+            this.context = context;
+        }
 
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
+            context.Categories.Remove(item);
+            return context.SaveChanges();
         }
 
+        private bool disposed = false;
+        public void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public IEnumerable<Category> Filter(Category t)
@@ -29,17 +49,18 @@ namespace Repository
 
         public IEnumerable<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Categories.ToList();
         }
 
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Categories.Where(c => c.ID == id).SingleOrDefault();
         }
 
         public int Insert(Category t)
         {
-            throw new NotImplementedException();
+            context.Categories.Add(t);
+            return context.SaveChanges();
         }
 
         public IEnumerable<Category> Search(string searchString)
@@ -49,7 +70,8 @@ namespace Repository
 
         public int Update(Category t)
         {
-            throw new NotImplementedException();
+            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+            return context.SaveChanges();
         }
     }
 }
