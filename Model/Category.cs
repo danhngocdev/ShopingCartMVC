@@ -14,7 +14,7 @@ namespace Model
         [Required(ErrorMessage = "Tên danh mục không được để trống")]
         [RegularExpression(@"[\w]+",ErrorMessage = "Tên danh mục không được chức các ký tự đặc biệt")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Slug không được để trống")]
         public string Slug { get; set; }
         [Required]
         public int ParentID { get; set; }
