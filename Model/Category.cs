@@ -18,5 +18,8 @@ namespace Model
         public string Slug { get; set; }
         [Required]
         public int ParentID { get; set; }
+        [Required]
+        public bool Status { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
