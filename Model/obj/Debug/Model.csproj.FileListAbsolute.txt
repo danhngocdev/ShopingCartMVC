@@ -1,0 +1,11 @@
+E:\ShopingCart\Model\bin\Debug\Model.dll.config
+E:\ShopingCart\Model\bin\Debug\Model.dll
+E:\ShopingCart\Model\bin\Debug\Model.pdb
+E:\ShopingCart\Model\bin\Debug\EntityFramework.dll
+E:\ShopingCart\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\ShopingCart\Model\bin\Debug\EntityFramework.xml
+E:\ShopingCart\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\ShopingCart\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\ShopingCart\Model\obj\Debug\Model.csproj.CopyComplete
+E:\ShopingCart\Model\obj\Debug\Model.dll
+E:\ShopingCart\Model\obj\Debug\Model.pdb

@@ -17,8 +17,6 @@ namespace Model
         [Required(ErrorMessage = "Slug không được để trống")]
         public string Slug { get; set; }
         [Required]
-        public int ParentID { get; set; }
-        [Required]
         public bool Status { get; set; }
         public ICollection<Product> Products { get; set; }
     }

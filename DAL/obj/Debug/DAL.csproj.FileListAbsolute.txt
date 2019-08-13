@@ -1,0 +1,15 @@
+E:\ShopingCart\DAL\bin\Debug\DAL.dll.config
+E:\ShopingCart\DAL\bin\Debug\DAL.dll
+E:\ShopingCart\DAL\bin\Debug\DAL.pdb
+E:\ShopingCart\DAL\bin\Debug\EntityFramework.dll
+E:\ShopingCart\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\ShopingCart\DAL\bin\Debug\Model.dll
+E:\ShopingCart\DAL\bin\Debug\Model.pdb
+E:\ShopingCart\DAL\bin\Debug\Model.dll.config
+E:\ShopingCart\DAL\bin\Debug\EntityFramework.xml
+E:\ShopingCart\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\ShopingCart\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\ShopingCart\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\ShopingCart\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\ShopingCart\DAL\obj\Debug\DAL.dll
+E:\ShopingCart\DAL\obj\Debug\DAL.pdb

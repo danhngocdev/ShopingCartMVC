@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Model
 {
@@ -20,15 +21,18 @@ namespace Model
         [Required]
         public string Content { get; set; }
         [Required]
+        public string Images { get; set; }
         public float Price { get; set; }
         public float? Sale_Price { get; set; }
         public int Category_ID { get; set; }
-
+        [XmlArray]
+        public string MoreImages { get; set; }
         public DateTime? Created { get; set; }
         public bool? Status { get; set; }
 
         [ForeignKey("Category_ID")]
         public Category Categorys { get; set; }
-        public ICollection<Product_Img> Product_Img { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
 }

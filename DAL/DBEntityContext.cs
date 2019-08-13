@@ -15,5 +15,17 @@ namespace DAL
             Database.SetInitializer<DBEntityContext>(new DbInitializer());
         }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Model.Action> Actions { get; set; }
+        public DbSet<RoleAction> RoleActions { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+
     }
 }
