@@ -30,11 +30,6 @@ namespace Model
             [Required(ErrorMessage = "Address is required"), MinLength(6), MaxLength(50)]
             public String Address { get; set; }
             [Required(ErrorMessage = "Department is required"), MinLength(2), MaxLength(30)]
-            public string Department { get; set; }
-            [Required(ErrorMessage = "Position is required"), MinLength(2), MaxLength(30)]
-            public string Position { get; set; }
-            public string Avatar { get; set; }
-            public string Note { get; set; }
             public bool Status { get; set; }
             public ICollection<UserGroup> UserGroups { get; set; }
             public virtual Role Role { get; set; }
