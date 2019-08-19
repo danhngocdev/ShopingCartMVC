@@ -29,7 +29,7 @@ namespace Model
             public string Email { get; set; }
             [Required(ErrorMessage = "Address is required"), MinLength(6), MaxLength(50)]
             public String Address { get; set; }
-            [Required(ErrorMessage = "Department is required"), MinLength(2), MaxLength(30)]
+            
             public bool Status { get; set; }
             public ICollection<UserGroup> UserGroups { get; set; }
             public virtual Role Role { get; set; }

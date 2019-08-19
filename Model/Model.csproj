@@ -52,6 +52,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="Group.cs" />
+    <Compile Include="LoginModel.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Product.cs" />

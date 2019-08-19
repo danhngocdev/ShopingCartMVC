@@ -15,5 +15,7 @@ namespace Repository.Interface
         int Update(T t);
         int Delete(int id);
         T GetById(int id);
+        int Login(LoginModel model, bool isLoginAdmin = false);
+       
     }
 }
