@@ -48,11 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs" />
     <Compile Include="Action.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="FeedBack.cs" />
+    <Compile Include="Footer.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="LoginModel.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuType.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Product.cs" />

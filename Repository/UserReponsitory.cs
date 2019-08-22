@@ -38,12 +38,31 @@ namespace Repository
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Users.Find(id);
         }
 
-        public int Insert(User t)
+        public User GetByUserName(string UserName)
         {
-            throw new NotImplementedException();
+            return context.Users.Where(s => s.UserName == UserName).SingleOrDefault();
+        }
+
+        public int Insert(User user)
+        {
+            user.Role = context.Roles.Where(s => s.RoleId == user.RoleId).SingleOrDefault();
+            context.Users.Add(new User()
+            {
+                UserName = user.UserName,
+                Password = user.Password,
+                CreatedDate = DateTime.Now,
+                EditedDate = DateTime.Now,
+                FullName = user.FullName,
+                Phone = user.Phone,
+                Email = user.Email,
+                Address = user.Address,
+                Status = user.Status
+            });
+            return context.SaveChanges();
+
         }
 
         public int Login(LoginModel model, bool isLoginAdmin = false)
@@ -61,7 +80,7 @@ namespace Repository
                     //if (result.RoleId == CommonConstants.Admin_Role || result.RoleId == CommonConstants.Manager_Role)
                     if (res != null)
                     {
-                        if (result.Password == Encryptor.MD5Hash(model.Password))
+                        if (result.Password == /*Encryptor.MD5Hash(*/model.Password)
                         {
                             return 1;
                         }

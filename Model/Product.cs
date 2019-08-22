@@ -25,9 +25,10 @@ namespace Model
         public float Price { get; set; }
         public float? Sale_Price { get; set; }
         public int Category_ID { get; set; }
-        [XmlArray]
+        [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
         public DateTime? Created { get; set; }
+        public DateTime? ModifileDate { get; set; }
         public bool? Status { get; set; }
 
         [ForeignKey("Category_ID")]

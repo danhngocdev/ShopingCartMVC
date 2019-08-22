@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,7 @@ namespace Service.Interface
         int Update(T t);
         int Delete(int id);
         T GetById(int id);
+        T GetByUserName(string UserName);
+        int Login(LoginModel model, bool isLoginAdmin = false);
     }
 }

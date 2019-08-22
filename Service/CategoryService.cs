@@ -38,9 +38,19 @@ namespace Service
             return repository.GetById(id);
         }
 
+        public Category GetByUserName(string UserName)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(Category t)
         {
             return repository.Insert(t);
+        }
+
+        public int Login(LoginModel model, bool isLoginAdmin = false)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Category> Search(string searchString)

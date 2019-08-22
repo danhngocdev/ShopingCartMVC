@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 namespace Model
 {
     public class Category
-    {   
+    {
         [Key]
         public int ID { get; set; }
         [Required(ErrorMessage = "Tên danh mục không được để trống")]
-        [RegularExpression(@"[\w]+",ErrorMessage = "Tên danh mục không được chức các ký tự đặc biệt")]
+        [RegularExpression(@"[\w]+", ErrorMessage = "Tên danh mục không được chức các ký tự đặc biệt")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Slug không được để trống")]
         public string Slug { get; set; }
         [Required]
+        public int ParentID { get; set; }
         public bool Status { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? ModifileDate { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }

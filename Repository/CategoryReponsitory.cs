@@ -73,5 +73,15 @@ namespace Repository
             context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }
+
+        public int Login(LoginModel model, bool isLoginAdmin = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category GetByUserName(string UserName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

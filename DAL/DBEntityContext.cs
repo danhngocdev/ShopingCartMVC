@@ -26,6 +26,11 @@ namespace DAL
         public DbSet<Model.Action> Actions { get; set; }
         public DbSet<RoleAction> RoleActions { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Footer> Footers { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<MenuType> MenuTypes { get; set; }
 
     }
 }
