@@ -74,12 +74,14 @@ namespace Repository
             return context.SaveChanges();
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+        
+
+        public Category GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
 
-        public Category GetByUserName(string UserName)
+        public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }

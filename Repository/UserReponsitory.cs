@@ -65,46 +65,18 @@ namespace Repository
 
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+        
+
+        public bool Login(string username, string password)
         {
-            var result = context.Users.SingleOrDefault(u => u.UserName == model.UserName);
-            var res = context.Roles.Where(x => x.RoleId == result.RoleId);
-            if (result == null)
+            var res = context.Users.Count(s => s.UserName == username && s.Password == password);
+            if (res>0)
             {
-                return 0;
+                return true;
             }
             else
             {
-                if (isLoginAdmin == true)
-                {
-                    //if (result.RoleId == CommonConstants.Admin_Role || result.RoleId == CommonConstants.Manager_Role)
-                    if (res != null)
-                    {
-                        if (result.Password == /*Encryptor.MD5Hash(*/model.Password)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return -2;
-                        }
-                    }
-                    else
-                    {
-                        return -3;
-                    }
-                }
-                else
-                {
-                    if (result.Password == model.Password)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return -2;
-                    }
-                }
+                return false;
             }
 
         }

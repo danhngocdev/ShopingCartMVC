@@ -22,29 +22,22 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Login(LoginModel model, bool isLoginAdmin = false)
+        public ActionResult Login(LoginModel model)
         {
-
-
             if (ModelState.IsValid)
             {
-
-               var res = userService.Login(model,true);
-                if (res>0)
-                {
-                    return RedirectToAction("Index", "HomeAdmin");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "False");
-                }
-
-
+                var res = userService.Login(model.UserName, model.Password);
+                    if (res)
+                    {
+                        var user = userService.GetByUserName(model.UserName);
+                        return RedirectToAction("Index", "HomeAdmin");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Login sai");
+                    }
             }
-            
             return View("Index");
-           
-            
         }
     }
 }
