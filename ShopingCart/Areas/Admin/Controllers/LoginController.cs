@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
@@ -29,7 +30,12 @@ namespace ShopingCart.Areas.Admin.Controllers
                 var res = userService.Login(model.UserName, model.Password);
                     if (res)
                     {
+
                         var user = userService.GetByUserName(model.UserName);
+                        Session["Admin"] =user.FullName;
+                   
+
+
                         return RedirectToAction("Index", "HomeAdmin");
                     }
                     else
@@ -39,5 +45,6 @@ namespace ShopingCart.Areas.Admin.Controllers
             }
             return View("Index");
         }
+       
     }
 }
