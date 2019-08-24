@@ -16,7 +16,6 @@ namespace Model
         public string Name { get; set; }
         [Required(ErrorMessage = "Slug không được để trống")]
         public string Slug { get; set; }
-        [Required]
         public int ParentID { get; set; }
         public bool Status { get; set; }
         public DateTime? CreatedDate { get; set; }
