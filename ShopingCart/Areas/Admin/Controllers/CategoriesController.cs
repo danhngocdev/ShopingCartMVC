@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model;
-using ShopingCart.Models;
 using Service;
 
 namespace ShopingCart.Areas.Admin.Controllers
