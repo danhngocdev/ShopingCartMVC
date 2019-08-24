@@ -17,6 +17,6 @@ namespace Service.Interface
         int Delete(int id);
         T GetById(int id);
         T GetByUserName(string UserName);
-        int Login(LoginModel model, bool isLoginAdmin = false);
+        bool Login(string username, string password);
     }
 }

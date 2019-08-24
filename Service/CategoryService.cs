@@ -48,7 +48,8 @@ namespace Service
             return repository.Insert(t);
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+        
+        public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }

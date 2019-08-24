@@ -22,5 +22,6 @@ namespace ShopingCart.Models
         public System.Data.Entity.DbSet<Model.Category> Categories { get; set; }
 
         public System.Data.Entity.DbSet<Model.Product> Products { get; set; }
+
     }
 }

@@ -41,7 +41,7 @@ namespace Service
 
         public User GetByUserName(string UserName)
         {
-            throw new NotImplementedException();
+            return repository.GetByUserName(UserName);
         }
 
         public int Insert(User t)
@@ -49,9 +49,11 @@ namespace Service
             return repository.Insert(t);
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+       
+
+        public bool Login(string username, string password)
         {
-          return  repository.Login(model, isLoginAdmin);
+            return repository.Login(username, password);
         }
 
         public IEnumerable<User> Search(string searchString)

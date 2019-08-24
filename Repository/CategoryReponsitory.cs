@@ -20,8 +20,12 @@ namespace Repository
         public int Delete(int id)
         {
             var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
-            context.Categories.Remove(item);
-            return context.SaveChanges();
+            if (item.Status == false)
+            {
+                context.Categories.Remove(item);
+                context.SaveChanges();
+            }
+            return 0;
         }
 
         private bool disposed = false;
@@ -59,6 +63,7 @@ namespace Repository
 
         public int Insert(Category t)
         {
+            t.CreatedDate = DateTime.Now;
             context.Categories.Add(t);
             return context.SaveChanges();
         }
@@ -70,16 +75,19 @@ namespace Repository
 
         public int Update(Category t)
         {
+            t.ModifileDate = DateTime.Now;
             context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+        
+
+        public Category GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
 
-        public Category GetByUserName(string UserName)
+        public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }
