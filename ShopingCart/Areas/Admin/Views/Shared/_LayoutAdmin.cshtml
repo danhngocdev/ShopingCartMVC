@@ -23,7 +23,7 @@
 		 folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="~/Asset/Backend/dist/css/skins/_all-skins.min.css">
 
-	
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -224,7 +224,7 @@
 							</span>
 						</a>
 						<ul class="treeview-menu">
-							<li><a href="https://localhost:44347/Admin/Categories"><i class="fa fa-circle-o"></i>Xem Danh mục</a></li>
+							<li><a href="https://localhost:44347/Admin/Category"><i class="fa fa-circle-o"></i>Xem Danh mục</a></li>
 							<li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
 						</ul>
 					</li>
@@ -239,7 +239,7 @@
 						<ul class="treeview-menu">
 							<li><a href="https://localhost:44347/Admin/Products"><i class="fa fa-circle-o"></i> Xem Sản phẩm</a></li>
 							<li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-							
+
 						</ul>
 					</li>
 					<li>
@@ -325,17 +325,16 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<section class="content-header">
-				<h1>
-					Blank page
-					<small>it all starts here</small>
-				</h1>
-				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li><a href="#">Examples</a></li>
-					<li class="active">Blank page</li>
-				</ol>
-			</section>
+			<div style="float:right;width:300px">
+				<div class="alert alert-success" hidden>
+					<strong>Save Successfully!</strong> 
+				</div>
+				<div class="alert alert-danger" hidden>
+					<strong>Save fall.Please try again!</strong> 
+				</div>
+			</div>
+			
+			
 
 			<!-- Main content -->
 			<section class="content">
@@ -565,10 +564,34 @@
 	<script src="~/Asset/Backend/dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="~/Asset/Backend/dist/js/demo.js"></script>
+
 	<script>
 		$(document).ready(function () {
 			$('.sidebar-menu').tree()
 		})
 	</script>
+	
+<script type="text/javascript">
+		$(document).ready(function () {
+
+			if ('@TempData["message"]' == "Added") {
+				$(".alert-success").show();
+				window.setTimeout(function() {
+          $(".alert-success").slideUp(1000, function(){
+        $(this).remove();
+          });
+         }, 5000);
+       }
+			if ('@TempData["message"]' == 'false') {
+				$(".alert-danger").show();
+				window.setTimeout(function() {
+          $(".alert-danger").slideUp(1000, function(){
+        $(this).remove();
+          });
+         }, 5000);
+			}
+    });
+</script>
+
 </body>
 </html>

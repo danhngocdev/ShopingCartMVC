@@ -10,7 +10,8 @@
 <p>
 	@Html.ActionLink("Create New", "Create")
 </p>
-<div></div>
+
+
 @using (Html.BeginForm("Index", "Products", FormMethod.Get))
 {
 	<div class="row">
@@ -106,3 +107,5 @@
 
 </table>
 @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
+
+
