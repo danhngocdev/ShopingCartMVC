@@ -67,13 +67,12 @@
     <Compile Include="Slider.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserGroup.cs" />
+    <Compile Include="ViewModel\OrderDetailDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

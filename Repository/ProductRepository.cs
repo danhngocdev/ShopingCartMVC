@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Model;
+using PagedList;
 using Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -49,14 +50,21 @@ namespace Repository
             return context.SaveChanges();
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public IEnumerable<Product> Search(string searchString)
+		public bool Login(string username, string password)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<Product> Search(string searchString, int Page, int Pagesize)
         {
-            throw new NotImplementedException();
+			var model = context.Products.ToList();
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				model = model.Where(x => x.Name.Contains(searchString)).ToList();
+			}
+			return model.OrderByDescending(x => x.Created).ToPagedList(Page, Pagesize);
         }
 
         public int Update(Product t)

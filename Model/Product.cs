@@ -32,7 +32,7 @@ namespace Model
         public bool? Status { get; set; }
 
         [ForeignKey("Category_ID")]
-        public Category Categorys { get; set; }
+        public virtual Category Categorys { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
 
     }

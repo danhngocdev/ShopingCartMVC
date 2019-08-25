@@ -54,12 +54,12 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Category> Search(string searchString)
-        {
-            return repository.Search(searchString);
-        }
+		public IEnumerable<Category> Search(string searchString, int Page, int Pagesize)
+		{
+			throw new NotImplementedException();
+		}
 
-        public int Update(Category t)
+		public int Update(Category t)
         {
             return repository.Update(t);
         }

@@ -56,12 +56,12 @@ namespace Service
             return repository.Login(username, password);
         }
 
-        public IEnumerable<User> Search(string searchString)
-        {
-            throw new NotImplementedException();
-        }
+		public IEnumerable<User> Search(string searchString, int Page, int Pagesize)
+		{
+			throw new NotImplementedException();
+		}
 
-        public int Update(User t)
+		public int Update(User t)
         {
             throw new NotImplementedException();
         }

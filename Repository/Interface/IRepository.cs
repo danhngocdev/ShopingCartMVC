@@ -10,7 +10,7 @@ namespace Repository.Interface
     public interface IRepository<T> where T:class
     {
         IEnumerable<T> GetAll();
-        IEnumerable<T> Search(string searchString);
+        IEnumerable<T> Search(string searchString,int Page,int Pagesize);
         IEnumerable<T> Filter(T t);
         int Insert(T t);
         int Update(T t);

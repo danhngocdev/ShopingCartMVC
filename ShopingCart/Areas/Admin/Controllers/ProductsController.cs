@@ -21,9 +21,11 @@ namespace ShopingCart.Areas.Admin.Controllers
             _categoryService = new CategoryService();
         }
         // GET: Admin/Products
-        public ActionResult Index()
+        public ActionResult Index(string searchString,int Page=1,int PageSize=1)
         {
-            return View(_productService.GetAll());
+			ViewBag.searchString = searchString;
+
+			return View(_productService.Search(searchString,Page,PageSize));
         }
 
        
@@ -41,6 +43,7 @@ namespace ShopingCart.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+				product.Created = DateTime.Now;
                 _productService.Insert(product);
                 return RedirectToAction("Index");
             }
@@ -69,6 +72,7 @@ namespace ShopingCart.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+				product.ModifileDate = DateTime.Now;
                 _productService.Update(product);
                 return RedirectToAction("Index");
             }

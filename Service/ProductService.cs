@@ -48,14 +48,15 @@ namespace Service
             return repository.Insert(t);
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
-        {
-            throw new NotImplementedException();
-        }
+     
+		public bool Login(string username, string password)
+		{
+			throw new NotImplementedException();
+		}
 
-        public IEnumerable<Product> Search(string searchString)
+		public IEnumerable<Product> Search(string searchString, int Page, int Pagesize)
         {
-            throw new NotImplementedException();
+			return repository.Search(searchString, Page, Pagesize);
         }
 
         public int Update(Product t)

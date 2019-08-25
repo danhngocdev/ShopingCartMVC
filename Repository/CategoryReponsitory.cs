@@ -68,10 +68,7 @@ namespace Repository
             return context.SaveChanges();
         }
 
-        public IEnumerable<Category> Search(string searchString)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public int Update(Category t)
         {
@@ -91,5 +88,10 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
-    }
+
+		public IEnumerable<Category> Search(string searchString, int Page, int Pagesize)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

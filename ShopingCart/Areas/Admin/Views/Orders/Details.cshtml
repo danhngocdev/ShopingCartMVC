@@ -1,0 +1,131 @@
+﻿@model  IEnumerable<Model.ViewModel.OrderDetailDTO>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+	<div>
+		<form method="POST">
+			<div class="panel panel-title">
+				<div class="panel-heading">Thông tin khách Hàng</div>
+				<div class="panel-body">
+					<table class="table">
+
+						<tbody>
+							<tr>
+								<td>Tên khách hàng</td>
+								<td>Ngày đặt hàng</td>
+								<td>Số điện thoại</td>
+								<td>Địa chỉ</td>
+								<td>Email</td>
+
+							</tr>
+							<tr>
+								<td>@ViewBag.Order.Name</td>
+								<td>@ViewBag.Order.Created</td>
+								<td>@ViewBag.Order.Phone</td>
+								<td>@ViewBag.Order.Address</td>
+								<td>@ViewBag.Order.Email</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<input name="Name" hidden="hidden" value="@ViewBag.Order.Name" />
+			<input name="Created" hidden="hidden" value="@ViewBag.Order.Created" />
+			<input name="Phone" hidden="hidden" value="@ViewBag.Order.Phone" />
+			<input name="Address" hidden="hidden" value="@ViewBag.Order.Address" />
+			<input name="Email" hidden="hidden" value="@ViewBag.Order.Email" />
+
+			@if (ViewBag.Order.Status)
+			{
+				<p>
+					Trạng thái giao hàng: <select name="Status">
+						<option value="false" >Đang chờ</option>
+						<option value="true" selected>Xác nhận</option>
+						@*<option value="true">Đang giao</option>
+					<option value="false">Đã giao</option>*@
+					</select>
+					<button type="submit" class="btn btn-primary">Xử lý</button>
+				</p>
+			}
+			else
+			{
+				<p>
+					Trạng thái giao hàng: <select name="Status">
+						<option value="false" selected>Đang chờ</option>
+						<option value="true" >Xác nhận</option>
+						@*<option value="true">Đang giao</option>
+					<option value="false">Đã giao</option>*@
+					</select>
+					<button type="submit" class="btn btn-primary">Xử lý</button>
+				</p>
+			}
+
+		</form>
+	</div>
+	<table class="table table-hover">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Oder_ID)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.NameProduct)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Images)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Sale_Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Total)
+			</th>
+
+		</tr>
+		
+		@foreach (var item in Model)
+		{
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Oder_ID)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.NameProduct)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Images)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Price)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Sale_Price)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Total)
+		</td>
+		<td hidden="hidden">
+			@Html.DisplayFor(modelItem => item.ToltalPrice)
+		</td>
+		
+
+	</tr>
+		}
+
+	</table>
+	<span>Tổng tiền:@ViewBag.ToltalPrice </span>
+	
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>
