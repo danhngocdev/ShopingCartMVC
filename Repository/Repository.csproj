@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CategoryReponsitory.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="ProductReponsitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserReponsitory.cs" />
   </ItemGroup>

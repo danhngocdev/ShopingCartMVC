@@ -13,21 +13,6 @@ E:\ShopingCart\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\ShopingCart\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\ShopingCart\DAL\obj\Debug\DAL.dll
 E:\ShopingCart\DAL\obj\Debug\DAL.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll.config
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.dll.config
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.xml
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CopyComplete
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.pdb
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.pdb
@@ -43,3 +28,33 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CoreCompileInpu
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\DAL.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\Model.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\DAL\obj\Debug\DAL.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\DAL.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\DAL.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\DAL.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\EntityFramework.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\Model.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\Model.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\Model.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\EntityFramework.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\obj\Debug\DAL.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\DAL\obj\Debug\DAL.pdb

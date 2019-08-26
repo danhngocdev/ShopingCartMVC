@@ -19,10 +19,15 @@ namespace Model
         [Required]
         public string Slug { get; set; }
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
         [Required]
+        [DataType(DataType.ImageUrl)]
         public string Images { get; set; }
+        [Required (ErrorMessage ="Vui Lòng Nhập giá sản phẩm")]
+        [Range(0,float.MaxValue,ErrorMessage ="giá không được âm")]
         public float Price { get; set; }
+       
         public float? Sale_Price { get; set; }
         public int Category_ID { get; set; }
         [Column(TypeName = "xml")]

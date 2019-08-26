@@ -16,24 +16,6 @@ E:\ShopingCart\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
 E:\ShopingCart\Repository\obj\Debug\Repository.csproj.CopyComplete
 E:\ShopingCart\Repository\obj\Debug\Repository.dll
 E:\ShopingCart\Repository\obj\Debug\Repository.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll.config
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.dll.config
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.pdb
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.dll.config
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.xml
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CopyComplete
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.dll
-C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.pdb
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.pdb
@@ -52,3 +34,39 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.C
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Repository.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\DAL.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\Model.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CopyComplete
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Repository.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Repository.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Repository.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\DAL.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\EntityFramework.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Model.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\DAL.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\DAL.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Model.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\Model.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\EntityFramework.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CopyComplete
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\obj\Debug\Repository.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Repository\obj\Debug\Repository.pdb
