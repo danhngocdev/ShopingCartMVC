@@ -11,14 +11,16 @@ namespace Repository.Interface
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> Search(string searchString);
-        IEnumerable<T> Filter(T t);
         int Insert(T t);
         int Update(T t);
         int Delete(int id);
         T GetById(int id);
         T GetByUserName(string UserName);
         bool Login(string username,string password);
-    
+        IEnumerable<T> ListProductHot();
+        IEnumerable<T> ListProductSale();
+        IEnumerable<T> ListProductNew();
+
 
 
     }

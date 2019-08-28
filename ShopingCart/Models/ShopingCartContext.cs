@@ -23,5 +23,6 @@ namespace ShopingCart.Models
 
         public System.Data.Entity.DbSet<Model.Product> Products { get; set; }
 
+        public System.Data.Entity.DbSet<Model.Slider> Sliders { get; set; }
     }
 }

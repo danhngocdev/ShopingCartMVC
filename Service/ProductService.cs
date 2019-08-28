@@ -16,17 +16,14 @@ namespace Service
         private IRepository<Product> repository;
         public ProductService()
         {
-            repository = new ProductRepository(new DBEntityContext());
+            repository = new ProductReponsitory(new DBEntityContext());
         }
         public int Delete(int id)
         {
-          return  repository.Delete(id);
+            return repository.Delete(id);
         }
 
-        public IEnumerable<Product> Filter(Product t)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public IEnumerable<Product> GetAll()
         {
@@ -48,7 +45,23 @@ namespace Service
             return repository.Insert(t);
         }
 
-        public int Login(LoginModel model, bool isLoginAdmin = false)
+        public IEnumerable<Product> ListProductHot()
+        {
+            return repository.ListProductHot();
+        }
+
+        public IEnumerable<Product> ListProductNew()
+        {
+            return repository.ListProductNew();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {
+            return repository.ListProductSale();
+
+        }
+
+        public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }

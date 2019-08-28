@@ -46,10 +46,7 @@ namespace Repository
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<Category> Filter(Category t)
-        {
-            throw new NotImplementedException();
-        }
+   
 
         public IEnumerable<Category> GetAll()
         {
@@ -88,6 +85,21 @@ namespace Repository
         }
 
         public bool Login(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Category> ListProductHot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Category> ListProductSale()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Category> ListProductNew()
         {
             throw new NotImplementedException();
         }

@@ -1,0 +1,152 @@
+﻿@model List<Model.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="space-custom"></div>
+<!-- breadcrumb start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Trang Chủ</a></li>
+            <li class="active">Giỏ Hàng</li>
+        </ol>
+    </div>
+</div>
+<!-- breadcrumb end -->
+<!-- cart-main-area start -->
+@if (Model.Count > 0)
+{
+    <div class="cart-main-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <form action="#">
+                        <div class="table-content table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">Hình ảnh</th>
+                                        <th class="product-name">Sản Phẩm</th>
+                                        <th class="product-price">giá</th>
+                                        <th class="product-quantity">Số Lượng</th>
+                                        <th class="product-subtotal">Tổng Tiền</th>
+                                        <th class="product-remove">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        var total = (item.Product.Price * item.Quantity);
+                                        <tr>
+                                            <td class="product-thumbnail"><a href=""><img src="@item.Product.Images" alt="" /></a></td>
+                                            <td class="product-name"><a href="#">@item.Product.Name</a></td>
+                                            <td class="product-price"><span class="amount">@item.Product.Price</span></td>
+                                            <td class="product-quantity"><input type="number" value="@item.Quantity" /></td>
+                                            <td class="product-subtotal">@total</td>
+                                            <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-sm-7 col-xs-12">
+                                <div class="buttons-cart">
+                                    <input type="submit" value="Update Cart" />
+                                    <a href="#">Thanh Toán</a>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-5 col-xs-12">
+                                <div class="cart_totals">
+                                    <h2>Cart Totals</h2>
+                                    <table>
+                                        <tbody>
+                                            <tr class="cart-subtotal">
+                                                <th>Subtotal</th>
+                                                <td><span class="amount">£215.00</span></td>
+                                            </tr>
+                                            <tr class="order-total">
+                                                <th>Total</th>
+                                                <td>
+                                                    <strong><span class="amount">£215.00</span></strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="wc-proceed-to-checkout">
+                                        <a href="checkout.html">Tiến Hành Thanh Toán</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+   <p class="alert-danger">chưa có sản phẩm</p>
+}
+
+<!-- cart-main-area end -->
+<!-- service-area start -->
+<div class="service-area pt-70 pb-40 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30">
+                    <div class="service-icon">
+                        <i class="pe-7s-world"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>FREE SHIPPING</h3>
+                        <p>Free shipping on all UK orders</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30">
+                    <div class="service-icon">
+                        <i class="pe-7s-refresh"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>FREE EXCHANGE</h3>
+                        <p>30 days return on all items</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30 sm-mrg">
+                    <div class="service-icon">
+                        <i class="pe-7s-headphones"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>PREMIUM SUPPORT</h3>
+                        <p>We support online 24 hours a day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="single-service mb-30 xs-mrg sm-mrg">
+                    <div class="service-icon">
+                        <i class="pe-7s-gift"></i>
+                    </div>
+                    <div class="service-title">
+                        <h3>BLACK FRIDAY</h3>
+                        <p>Shocking discount on every friday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

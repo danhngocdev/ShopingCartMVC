@@ -21,3 +21,26 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CoreCompile
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\Model.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\Model.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\Model.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\obj\Debug\Model.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Model\obj\Debug\Model.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\Model.dll.config
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\Model.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\Model.pdb
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\EntityFramework.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\EntityFramework.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\obj\Debug\Model.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\Model\obj\Debug\Model.pdb
