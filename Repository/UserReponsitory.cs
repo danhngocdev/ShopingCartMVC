@@ -20,16 +20,25 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
-
+        private bool disposed = false;
+        public void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<User> Filter(User t)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public IEnumerable<User> GetAll()
         {
@@ -88,6 +97,21 @@ namespace Repository
 		}
 
 		public int Update(User t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListProductHot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListProductSale()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListProductNew()
         {
             throw new NotImplementedException();
         }

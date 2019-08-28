@@ -15,11 +15,9 @@ namespace Model
             public int ID { get; set; }
             public string Text { get; set; }
             public int DisplayOrder { get; set; }
-            public int TypeID { get; set; }
-            public string Target { get; set; }
+            public string Link { get; set; }
             public bool Status { get; set; }
-            [ForeignKey("TypeID")]
-            public MenuType MenuType { get; set; }
+           
         
     }
 }

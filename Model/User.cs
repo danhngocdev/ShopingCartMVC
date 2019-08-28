@@ -20,7 +20,6 @@ namespace Model
             [Required(ErrorMessage = "Password is required"), MinLength(5), MaxLength(100)]
             public string Password { get; set; }
             [Compare("Password", ErrorMessage = "The Password and Password Email fields do not match.")]
-            public string ConfirmPassword { get; set; }
             public DateTime? CreatedDate { get; set; }
             public DateTime? EditedDate { get; set; }
             [Required(ErrorMessage = "Full Name is required"), MinLength(6), MaxLength(50)]

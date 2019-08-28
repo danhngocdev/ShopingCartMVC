@@ -50,7 +50,20 @@ namespace Repository
             return context.SaveChanges();
         }
 
-        
+		public IEnumerable<Product> ListProductHot()
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<Product> ListProductNew()
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<Product> ListProductSale()
+		{
+			throw new NotImplementedException();
+		}
 
 		public bool Login(string username, string password)
 		{

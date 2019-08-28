@@ -19,7 +19,7 @@ namespace Model
 		public string Phone { get; set; }
 		public string Address { get; set; }
 		public DateTime? Created { get; set; }
-		public bool Status { get; set; }
+		public int Status { get; set; }
 		[ForeignKey("User_ID")]
 		public virtual User Users { get; set; }
 		public ICollection<OrderDetail> OdersDetail { get; set; }

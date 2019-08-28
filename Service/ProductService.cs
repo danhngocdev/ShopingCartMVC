@@ -16,17 +16,14 @@ namespace Service
         private IRepository<Product> repository;
         public ProductService()
         {
-            repository = new ProductRepository(new DBEntityContext());
+            repository = new ProductReponsitory(new DBEntityContext());
         }
         public int Delete(int id)
         {
-          return  repository.Delete(id);
+            return repository.Delete(id);
         }
 
-        public IEnumerable<Product> Filter(Product t)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public IEnumerable<Product> GetAll()
         {
@@ -48,18 +45,38 @@ namespace Service
             return repository.Insert(t);
         }
 
-     
-		public bool Login(string username, string password)
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Product> Search(string searchString, int Page, int Pagesize)
+        public IEnumerable<Product> ListProductHot()
         {
-			return repository.Search(searchString, Page, Pagesize);
+            return repository.ListProductHot();
         }
 
-        public int Update(Product t)
+        public IEnumerable<Product> ListProductNew()
+        {
+            return repository.ListProductNew();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {
+            return repository.ListProductSale();
+
+        }
+
+        public bool Login(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> Search(string searchString)
+        {
+            throw new NotImplementedException();
+        }
+
+		public IEnumerable<Product> Search(string searchString, int Page, int Pagesize)
+		{
+			return repository.Search(searchString, Page, Pagesize);
+		}
+
+		public int Update(Product t)
         {
             return repository.Update(t);
         }
