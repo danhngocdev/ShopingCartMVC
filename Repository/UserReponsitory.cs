@@ -100,5 +100,20 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<User> ListProductHot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListProductSale()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> ListProductNew()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

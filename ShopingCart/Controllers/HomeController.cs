@@ -10,12 +10,17 @@ namespace ShopingCart.Controllers
     public class HomeController : Controller
     {
         private MenuService menuService;
+        private ProductService productService;
         public HomeController()
         {
+            productService = new ProductService();
             menuService = new MenuService();
         }
         public ActionResult Index()
         {
+            ViewBag.ListProductHot = productService.ListProductHot();
+            ViewBag.ListProductNew = productService.ListProductNew();
+            ViewBag.ListProductSale = productService.ListProductSale();
             return View();
         }
 

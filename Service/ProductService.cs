@@ -45,6 +45,22 @@ namespace Service
             return repository.Insert(t);
         }
 
+        public IEnumerable<Product> ListProductHot()
+        {
+            return repository.ListProductHot();
+        }
+
+        public IEnumerable<Product> ListProductNew()
+        {
+            return repository.ListProductNew();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {
+            return repository.ListProductSale();
+
+        }
+
         public bool Login(string username, string password)
         {
             throw new NotImplementedException();

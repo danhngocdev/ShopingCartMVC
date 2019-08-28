@@ -35,7 +35,7 @@ namespace Model
         public DateTime? Created { get; set; }
         public DateTime? ModifileDate { get; set; }
         public bool? Status { get; set; }
-        
+        public bool? TopHot { get; set; }
 
         [ForeignKey("Category_ID")]
         public Category Categorys { get; set; }

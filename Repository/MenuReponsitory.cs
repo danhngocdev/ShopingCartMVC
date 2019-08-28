@@ -75,5 +75,20 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Menu> ListProductHot()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Menu> ListProductSale()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Menu> ListProductNew()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

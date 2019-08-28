@@ -85,5 +85,20 @@ namespace Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+        public IEnumerable<Product> ListProductHot()
+        {
+            return context.Products.Where(s => s.TopHot == true && s.Status == true).OrderByDescending(s => s.Created).Take(8).ToList();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {
+            return context.Products.ToList();
+        }
+
+        public IEnumerable<Product> ListProductNew()
+        {
+            return context.Products.Where(s => s.Created > DateTime.Now).Take(8).ToList();
+        }
     }
 }

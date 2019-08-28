@@ -12,6 +12,12 @@ namespace ShopingCart
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+              name: "Add Cart",
+              url: "them-vao-gio-hang",
+              defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+              namespaces: new[] { "ShopingCart.Controllers" }
+          );
 
             routes.MapRoute(
                 name: "Default",
