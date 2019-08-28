@@ -46,10 +46,7 @@ namespace Repository
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<Category> Filter(Category t)
-        {
-            throw new NotImplementedException();
-        }
+   
 
         public IEnumerable<Category> GetAll()
         {

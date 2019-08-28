@@ -41,10 +41,7 @@ namespace Repository
             this.disposed = true;
         }
 
-        public IEnumerable<Product> Filter(Product t)
-        {
-            throw new NotImplementedException();
-        }
+  
 
         public IEnumerable<Product> GetAll()
         {
@@ -85,7 +82,8 @@ namespace Repository
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

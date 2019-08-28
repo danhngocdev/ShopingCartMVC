@@ -23,10 +23,7 @@ namespace Service
             return repository.Delete(id);
         }
 
-        public IEnumerable<Product> Filter(Product t)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public IEnumerable<Product> GetAll()
         {

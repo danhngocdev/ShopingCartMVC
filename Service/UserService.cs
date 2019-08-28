@@ -24,10 +24,7 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> Filter(User t)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public IEnumerable<User> GetAll()
         {

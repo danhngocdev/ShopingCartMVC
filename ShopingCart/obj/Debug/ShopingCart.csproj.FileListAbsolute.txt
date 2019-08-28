@@ -276,7 +276,6 @@ C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart
 C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj.CopyComplete
 C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.dll
 C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.pdb
-C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\ShopingCart.dll.config
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\ShopingCart.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\ShopingCart.pdb
@@ -289,6 +288,7 @@ C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\csi.rs
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\ndngoc2\Desktop\New folder\ShopingCartMVC\ShopingCart\bin\roslyn\Microsoft.CSharp.Core.targets

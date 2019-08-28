@@ -32,7 +32,7 @@ namespace ShopingCart.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(userService.GetAll().Any(x=>x.UserName == user.UserName))
+                if(userService.GetAll().Any(x=>x.UserName == user.UserName ))
                 {
                     ModelState.AddModelError("Username", "Tài Khoản Đã Tồn Tại");
                     return View();

@@ -57,7 +57,6 @@
     <Compile Include="Group.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="MenuType.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Product.cs" />
