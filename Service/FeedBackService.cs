@@ -11,56 +11,54 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public class ContactService : IServices<Contact>
+    public class FeedBackService : IServices<FeedBack>
     {
-        private IRepository<Contact> repository;
-        public ContactService()
+        private IRepository<FeedBack> repository;
+        public FeedBackService()
         {
-            repository = new ContactReponsitory(new DBEntityContext());
+            repository = new FeedBackReponsitory(new DBEntityContext());
         }
         public int Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> GetAll()
+        public IEnumerable<FeedBack> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Contact GetById(int id)
+        public FeedBack GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Contact GetByUserName(string UserName)
+        public FeedBack GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
 
         public Contact GetContact()
         {
-            return repository.GetContact();
+            throw new NotImplementedException();
         }
 
-       
+        public int Insert(FeedBack t)
+        {
+            return repository.Insert(t);
+        }
 
-        public int Insert(Contact t)
+        public IEnumerable<FeedBack> ListProductHot()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> ListProductHot()
+        public IEnumerable<FeedBack> ListProductNew()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> ListProductNew()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Contact> ListProductSale()
+        public IEnumerable<FeedBack> ListProductSale()
         {
             throw new NotImplementedException();
         }
@@ -70,12 +68,12 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> Search(string searchString, int Page, int Pagesize)
+        public IEnumerable<FeedBack> Search(string searchString, int Page, int Pagesize)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(Contact t)
+        public int Update(FeedBack t)
         {
             throw new NotImplementedException();
         }

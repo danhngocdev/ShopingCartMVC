@@ -40,6 +40,7 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.xml
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\obj\Debug\Model.dll

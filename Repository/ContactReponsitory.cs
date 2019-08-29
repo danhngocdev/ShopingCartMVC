@@ -54,10 +54,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Insert(Contact t)
-        {
-            throw new NotImplementedException();
-        }
+   
 
         public IEnumerable<Contact> ListProductHot()
         {
@@ -92,6 +89,11 @@ namespace Repository
         public Contact GetContact()
         {
             return context.Contacts.Single(x => x.Status == true);
+        }
+
+        public int Insert(Contact t)
+        {
+            throw new NotImplementedException();
         }
     }
 }

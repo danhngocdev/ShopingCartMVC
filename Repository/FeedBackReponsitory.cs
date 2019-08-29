@@ -1,66 +1,69 @@
 ﻿using DAL;
 using Model;
-using Repository;
 using Repository.Interface;
-using Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service
+namespace Repository
 {
-    public class ContactService : IServices<Contact>
+    public class FeedBackReponsitory : IRepository<FeedBack>, IDisposable
     {
-        private IRepository<Contact> repository;
-        public ContactService()
+        private DBEntityContext context;
+        public FeedBackReponsitory(DBEntityContext context)
         {
-            repository = new ContactReponsitory(new DBEntityContext());
+            this.context = context;
         }
+
         public int Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> GetAll()
+        public void Dispose()
         {
             throw new NotImplementedException();
         }
 
-        public Contact GetById(int id)
+        public IEnumerable<FeedBack> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Contact GetByUserName(string UserName)
+        public FeedBack GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public FeedBack GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
 
         public Contact GetContact()
         {
-            return repository.GetContact();
+            throw new NotImplementedException();
         }
 
-       
+        public int Insert(FeedBack t)
+        {
+            context.FeedBacks.Add(t);
+            return context.SaveChanges();
+        }
 
-        public int Insert(Contact t)
+        public IEnumerable<FeedBack> ListProductHot()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> ListProductHot()
+        public IEnumerable<FeedBack> ListProductNew()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> ListProductNew()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Contact> ListProductSale()
+        public IEnumerable<FeedBack> ListProductSale()
         {
             throw new NotImplementedException();
         }
@@ -70,12 +73,12 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> Search(string searchString, int Page, int Pagesize)
+        public IEnumerable<FeedBack> Search(string searchString, int Page, int Pagesize)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(Contact t)
+        public int Update(FeedBack t)
         {
             throw new NotImplementedException();
         }

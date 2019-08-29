@@ -3487,6 +3487,7 @@
     <Content Include="Asset\FrontEnd\js\ajax-mail.js" />
     <Content Include="Asset\FrontEnd\js\bootstrap.min.js" />
     <Content Include="Asset\FrontEnd\js\CartJs.js" />
+    <Content Include="Asset\FrontEnd\js\Contact.js" />
     <Content Include="Asset\FrontEnd\js\headroom.min.js" />
     <Content Include="Asset\FrontEnd\js\jquery-ui.min.js" />
     <Content Include="Asset\FrontEnd\js\jquery.nivo.slider.pack.js" />
@@ -3758,6 +3759,7 @@
     <Content Include="Views\Shared\MainMenu.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
