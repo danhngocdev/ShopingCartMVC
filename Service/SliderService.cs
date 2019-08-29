@@ -38,6 +38,11 @@ namespace Service
             throw new NotImplementedException();
         }
 
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(Slider t)
         {
             return repository.Insert(t);

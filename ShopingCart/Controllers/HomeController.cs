@@ -1,4 +1,5 @@
-﻿using Service;
+﻿using Model;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace ShopingCart.Controllers
 {
     public class HomeController : Controller
     {
+        private const string CartSession = "CartSession";
         private MenuService menuService;
         private ProductService productService;
         public HomeController()
@@ -31,6 +33,17 @@ namespace ShopingCart.Controllers
             return PartialView(menuService.GetAll());
         }
 
+        [ChildActionOnly]
+        public ActionResult HeaderCart()
+        {
+            var cart = Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

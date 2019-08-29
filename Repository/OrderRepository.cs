@@ -45,7 +45,12 @@ namespace Repository
 			throw new NotImplementedException();
 		}
 
-		public int Insert(Order t)
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Insert(Order t)
 		{
 			context.Orders.Add(t);
 		return	context.SaveChanges();

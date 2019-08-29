@@ -25,10 +25,10 @@ namespace Model
         [DataType(DataType.ImageUrl)]
         public string Images { get; set; }
         [Required (ErrorMessage ="Vui Lòng Nhập giá sản phẩm")]
-        [Range(0,float.MaxValue,ErrorMessage ="giá không được âm")]
-        public float Price { get; set; }
+        [Range(0,double.MaxValue,ErrorMessage ="giá không được âm")]
+        public double Price { get; set; }
        
-        public float? Sale_Price { get; set; }
+        public double? Sale_Price { get; set; }
         public int Category_ID { get; set; }
         [Column(TypeName = "xml")]
         public string MoreImages { get; set; }

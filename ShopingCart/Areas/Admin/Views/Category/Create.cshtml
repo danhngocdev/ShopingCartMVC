@@ -38,10 +38,6 @@
                 @Html.DropDownList("ParentID",
                    (IEnumerable<SelectListItem>)ViewBag.ParentID,
                    "Select Category",new {@class = "form-control"})
-                @*@Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control" } })*@
-                @*@Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })*@
-                @*@Html.DropDownList("ParentID", null, new { @class = "form-control" })*@
-                @*//@Html.DropDownList("ParentID", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
             </div>
         </div>

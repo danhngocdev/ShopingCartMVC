@@ -40,6 +40,11 @@ namespace Service
             throw new NotImplementedException();
         }
 
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(Menu t)
         {
             throw new NotImplementedException();

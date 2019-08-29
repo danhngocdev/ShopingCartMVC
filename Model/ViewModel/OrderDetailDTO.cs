@@ -10,12 +10,12 @@ namespace Model.ViewModel
 	{
 		public int Product_Id { get; set; }
 		public int Oder_ID { get; set; }
-		public float Price { get; set; }
+		public double Price { get; set; }
 		public double Quantity { get; set; }
-		public float Total { get; set; }
+		public double Total { get; set; }
 		public string NameProduct { get; set; }
 		public string Images { get; set; }
-		public float? Sale_Price { get; set; }
+		public double? Sale_Price { get; set; }
 		public double ToltalPrice { get; set; }
 	}
 }

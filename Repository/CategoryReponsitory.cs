@@ -108,5 +108,10 @@ namespace Repository
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

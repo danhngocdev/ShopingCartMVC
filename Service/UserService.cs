@@ -41,6 +41,11 @@ namespace Service
             return repository.GetByUserName(UserName);
         }
 
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(User t)
         {
             return repository.Insert(t);

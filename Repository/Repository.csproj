@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryReponsitory.cs" />
+    <Compile Include="ContactReponsitory.cs" />
     <Compile Include="Interface\IOrderDetailRepository.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="MenuReponsitory.cs" />

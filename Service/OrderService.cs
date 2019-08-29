@@ -43,7 +43,12 @@ namespace Service
 			return repository.GetByUserName(UserName);
 		}
 
-		public int Insert(Order t)
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Insert(Order t)
 		{
 			return repository.Insert(t);
 		}

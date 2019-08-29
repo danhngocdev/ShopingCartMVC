@@ -47,6 +47,11 @@ namespace Repository
             throw new NotImplementedException();
         }
 
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(Slider t)
         {
             t.Created = DateTime.Now;

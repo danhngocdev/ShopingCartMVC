@@ -1,7 +1,41 @@
-﻿
+﻿@model Model.Contact
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Liên Hệ";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section footer{
+    <script
+            src="https://maps.googleapis.com/maps/api/js">
+    </script>
+    <script>
+
+        // This example displays a marker at the center of Australia.
+        // When the user clicks the marker, an info window opens.
+
+        function initMap() {
+            var uluru = { lat: -25.363, lng: 131.044 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+
+            var contentString = '@Model.Content';
+               ;
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Địa Chỉ'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
 }
 
 <div class="space-custom"></div>
@@ -32,18 +66,8 @@
                 <div class="contact-info">
                     <h3>Thông Tin Liên Hệ</h3>
                     <ul>
-                        <li>
-                            <i class="fa fa-map-marker"></i> <strong>Địa Chỉ</strong>
-                            1234 Pall Mall Street, London England
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope"></i> <strong>Số Điện Thoạis</strong>
-                            (800) 0123 4567 890
-                        </li>
-                        <li>
-                            <i class="fa fa-mobile"></i> <strong>Email</strong>
-                            <a href="#">info@bootexperts.com</a>
-                        </li>
+                       @Html.Raw(Model.Content)
+                       
                     </ul>
                 </div>
             </div>

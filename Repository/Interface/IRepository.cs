@@ -20,6 +20,7 @@ namespace Repository.Interface
         IEnumerable<T> ListProductHot();
         IEnumerable<T> ListProductSale();
         IEnumerable<T> ListProductNew();
+        Contact GetContact();
 
 
 

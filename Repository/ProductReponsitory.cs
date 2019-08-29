@@ -111,5 +111,10 @@ namespace Repository
 			}
 			return model.OrderByDescending(x => x.Created).ToPagedList(Page, Pagesize);
 		}
-	}
+
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

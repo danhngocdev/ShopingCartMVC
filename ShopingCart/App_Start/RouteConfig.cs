@@ -25,6 +25,12 @@ namespace ShopingCart
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] {"ShopingCart.Controllers"}
             );
+            routes.MapRoute(
+              name: "Lien He",
+              url: "lien-he",
+              defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ShopingCart.Controllers" }
+          );
 
         }
     }

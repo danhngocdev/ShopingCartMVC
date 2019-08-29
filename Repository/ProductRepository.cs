@@ -44,6 +44,11 @@ namespace Repository
             throw new NotImplementedException();
         }
 
+        public Contact GetContact()
+        {
+            throw new NotImplementedException();
+        }
+
         public int Insert(Product t)
         {
             context.Products.Add(t);

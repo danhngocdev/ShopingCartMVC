@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model;
 using Service;
-
+using System.Web.Script.Serialization;
 namespace ShopingCart.Controllers
 {
     public class CartController : Controller
@@ -27,6 +27,35 @@ namespace ShopingCart.Controllers
                 list = (List<CartItem>)cart;
             }
             return View(list);
+        }
+        public JsonResult Update(string cartModel)
+        {
+            var JsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
+            var SessionCart = (List<CartItem>)Session[CartSession];
+            foreach (var item in SessionCart)
+            {
+                var jsonitem = JsonCart.SingleOrDefault(x => x.Product.Id == item.Product.Id);
+                if (jsonitem!=null)
+                {
+                    item.Quantity = jsonitem.Quantity;
+                }
+            }
+            Session[CartSession] = SessionCart;
+            return Json(new
+            {
+                status = true
+            });
+        }
+        public JsonResult Delete(int id)
+        {
+            var SessionCart = (List<CartItem>)Session[CartSession];
+            SessionCart.RemoveAll(x => x.Product.Id == id);
+            Session[CartSession] = SessionCart;
+            return Json(new
+            {
+                status = true
+            });
+
         }
         public ActionResult AddItem(int productID,int quantity)
         {
