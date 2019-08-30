@@ -57,6 +57,15 @@ namespace ShopingCart.Controllers
             });
 
         }
+        public JsonResult DeleteAll()
+        {
+            Session[CartSession] = null;
+            return Json(new
+            {
+                status = true
+            });
+
+        }
         public ActionResult AddItem(int productID,int quantity)
         {
             var product = productService.GetById(productID);

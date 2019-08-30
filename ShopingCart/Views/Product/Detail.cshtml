@@ -3,6 +3,12 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Model.Product)ViewBag.Category;
+    String str = Model.MoreImages; 
+  
+        // using the method 
+        String[] strlist = str.Split(';'); 
+  
+      
 }
 
 <div class="space-custom"></div>
@@ -31,45 +37,26 @@
                                 <a class="popup-link" href="@Model.Images">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        <div class="tab-pane" id="profile">
-                            <div class="pro-large-img">
-                                <img src="img/product/2.jpg" alt="" />
-                                <a class="popup-link" href="img/product/2.jpg">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                        <div class="tab-pane" id="index_1">
+                            @foreach (var items in strlist)
+                            {
+                                <div class="pro-large-img">
+                                    <img src="img/product/2.jpg" alt="" />
+                                    <a class="popup-link" href="@items">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                </div>
+
+                            }
                             </div>
-                        </div>
-                        <div class="tab-pane" id="messages">
-                            <div class="pro-large-img">
-                                <img src="img/product/3.jpg" alt="" />
-                                <a class="popup-link" href="img/product/3.jpg">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings">
-                            <div class="pro-large-img">
-                                <img src="img/product/4.jpg" alt="" />
-                                <a class="popup-link" href="img/product/4.jpg">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings2">
-                            <div class="pro-large-img">
-                                <img src="img/product/5.jpg" alt="" />
-                                <a class="popup-link" href="img/product/5.jpg">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="settings3">
-                            <div class="pro-large-img">
-                                <img src="img/product/6.jpg" alt="" />
-                                <a class="popup-link" href="img/product/6.jpg">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
+                      
                     </div>
                     <!-- Nav tabs -->
                     <div class="details-tab">
-                        <div class="active"><a href="#home" data-toggle="tab"><img src="img/product/1.jpg" alt="" /></a></div>
-                        <div><a href="#profile" data-toggle="tab"><img src="img/product/2.jpg" alt="" /></a></div>
-                        <div><a href="#messages" data-toggle="tab"><img src="img/product/3.jpg" alt="" /></a></div>
-                        <div><a href="#settings" data-toggle="tab"><img src="img/product/4.jpg" alt="" /></a></div>
-                        <div><a href="#settings2" data-toggle="tab"><img src="img/product/5.jpg" alt="" /></a></div>
-                        <div><a href="#settings3" data-toggle="tab"><img src="img/product/6.jpg" alt="" /></a></div>
+                        <div class="active"><a href="#home" data-toggle="tab"><img src="@Model.Images" alt="" /></a></div>
+                        @foreach (var item in strlist)
+                        {
+                            <div><a href="#index_1" data-toggle="tab"><img src="@item" alt="" /></a></div>
+                        }
+
                     </div>
                 </div>
             </div>

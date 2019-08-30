@@ -14,7 +14,7 @@ namespace Model
         [Key]
         [Required]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui Lòng Nhập Tên Sản Phẩm")]
         public string Name { get; set; }
         [Required]
         public string Slug { get; set; }
@@ -30,7 +30,6 @@ namespace Model
        
         public double? Sale_Price { get; set; }
         public int Category_ID { get; set; }
-        [Column(TypeName = "xml")]
         public string MoreImages { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? ModifileDate { get; set; }
