@@ -37,7 +37,7 @@
 						</p>
 						<p class="form-row pd-left">
 							<label for="password">Passwords <span class="required">*</span></label>
-							@Html.TextBoxFor(model => model.Password, new { @class = "form-control form-control-user" })
+							@Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user" })
 						</p>
 						<p class="form-row ">
 							<input type="submit" value="Login" name="login" class="theme-button marL0">

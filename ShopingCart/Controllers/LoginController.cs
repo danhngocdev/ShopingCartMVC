@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service;
+using ShopingCart.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,12 +26,12 @@ namespace ShopingCart.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var res = _userService.Login(model.UserName, model.Password);
+				var res = _userService.Login(model.UserName, Encryptor.MD5Hash(model.Password));
 				if (res)
 				{
 
 					var user = _userService.GetByUserName(model.UserName);
-					Session["User"] = user.UserId;
+					Session["User"] = user;
 					return RedirectToAction("Index", "Order");
 				}
 				else
@@ -39,6 +40,11 @@ namespace ShopingCart.Controllers
 				}
 			}
 			return View("Index");
+		}
+		public ActionResult LogOut()
+		{
+			Session["User"] = null;
+			return Redirect("/");
 		}
     }
 }

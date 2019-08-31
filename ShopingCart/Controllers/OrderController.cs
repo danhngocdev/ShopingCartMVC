@@ -25,7 +25,8 @@ namespace ShopingCart.Controllers
 			var t = Session["CartSession"];
 			if (Session["User"] != null)
 			{
-				int id =int.Parse(Session["User"].ToString());
+				var currentUser =(User)Session["User"];
+				int id = currentUser.UserId;
 				var user =_userService.GetById(id);
 				ViewBag.User = user;
 			}

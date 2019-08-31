@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service;
+using ShopingCart.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Web.Security;
 namespace ShopingCart.Areas.Admin.Controllers
 {
     public class LoginController : Controller
-    {
+	{
         private UserService userService;
         public LoginController()
         {
@@ -27,7 +28,7 @@ namespace ShopingCart.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var res = userService.Login(model.UserName, model.Password);
+                var res = userService.Login(model.UserName, Encryptor.MD5Hash(model.Password));
                     if (res)
                     {
 
