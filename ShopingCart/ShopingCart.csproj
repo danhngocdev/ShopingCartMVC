@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder">
-      <HintPath>..\..\..\Downloads\ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>..\..\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -143,6 +143,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ResgiterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3501,6 +3502,18 @@
     <Content Include="Asset\FrontEnd\register.html" />
     <Content Include="Asset\FrontEnd\shop.html" />
     <Content Include="Asset\FrontEnd\style.css" />
+    <Content Include="Contents\Uploads\files\download %281%29.jpg" />
+    <Content Include="Contents\Uploads\files\download.jpg" />
+    <Content Include="Contents\Uploads\images\59879971_984130785310705_427847642546962432_n.jpg" />
+    <Content Include="Contents\Uploads\images\image3.png" />
+    <Content Include="Contents\Uploads\images\image4.png" />
+    <Content Include="Contents\Uploads\images\tải xuống.png" />
+    <Content Include="Contents\Uploads\_thumbs\Files\download %281%29.jpg" />
+    <Content Include="Contents\Uploads\_thumbs\Files\download.jpg" />
+    <Content Include="Contents\Uploads\_thumbs\Images\59879971_984130785310705_427847642546962432_n.jpg" />
+    <Content Include="Contents\Uploads\_thumbs\Images\image3.png" />
+    <Content Include="Contents\Uploads\_thumbs\Images\image4.png" />
+    <Content Include="Contents\Uploads\_thumbs\Images\tải xuống.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3760,13 +3773,13 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\HeaderCart.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\User\" />
-    <Folder Include="Contents\Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

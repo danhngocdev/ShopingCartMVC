@@ -61,6 +61,7 @@ namespace Repository
 
         public int Insert(Product product)
         {
+			product.Created = DateTime.Now;
             context.Products.Add(product);
             return context.SaveChanges();
         }
@@ -77,6 +78,7 @@ namespace Repository
 
         public int Update(Product t)
         {
+			t.ModifileDate = DateTime.Now;
             context.Entry(t).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }

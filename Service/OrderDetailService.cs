@@ -24,6 +24,13 @@ namespace Service
 			return repository.GetAll(id);
 		}
 
+		
+
+		public int Inserts(Order order, List<OrderDetail> orderDetails)
+		{
+			return repository.Inserts(order, orderDetails);
+		}
+
 		public int Update(OrderDetail t)
 		{
 			return repository.Update(t);

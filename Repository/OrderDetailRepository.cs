@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-	public class OrderDetailRepository :  IOrderDetailRepository
+	public class OrderDetailRepository :  IOrderDetailRepository,IRepository<OrderDetail>
 	{
 		private DBEntityContext context;
 		public OrderDetailRepository(DBEntityContext context)
@@ -18,7 +18,10 @@ namespace Repository
 			this.context = context;
 		}
 
-		
+		public int Delete(int id)
+		{
+			throw new NotImplementedException();
+		}
 
 		public IList<OrderDetailDTO> GetAll(int id)
 		{
@@ -41,6 +44,90 @@ namespace Repository
 			return result;
 		}
 
+		public IEnumerable<OrderDetail> GetAll()
+		{
+			throw new NotImplementedException();
+		}
+
+		public OrderDetail GetById(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public OrderDetail GetByUserName(string UserName)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Contact GetContact()
+		{
+			throw new NotImplementedException();
+		}
+
+		public int Insert(OrderDetail t)
+		{
+			context.OrderDetails.Add(t);
+			return context.SaveChanges();
+		}
+
+		public int Inserts(Order order, OrderDetail orderDetail)
+		{
+			throw new NotImplementedException();
+		}
+
+		public int Inserts(Order order, List<OrderDetail> orderDetails)
+		{
+			using (var transaction = context.Database.BeginTransaction())
+			{
+				try
+				{
+					order.Created = DateTime.Now;
+					context.Orders.Add(order);
+					context.SaveChanges();
+					var firstOrder = context.Orders.OrderByDescending(x => x.Created).FirstOrDefault();
+					foreach (var item in orderDetails)
+					{
+						item.Oder_ID = firstOrder.ID;
+						context.OrderDetails.Add(item);
+						context.SaveChanges();
+					}
+
+
+					transaction.Commit();
+				}
+				catch (Exception ex)
+				{
+					transaction.Rollback();
+					return 0;
+				}
+			}
+			return 1;
+		}
+
+		public IEnumerable<OrderDetail> ListProductHot()
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<OrderDetail> ListProductNew()
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<OrderDetail> ListProductSale()
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Login(string username, string password)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<OrderDetail> Search(string searchString, int Page, int Pagesize)
+		{
+			throw new NotImplementedException();
+		}
 
 		public int Update(OrderDetail t)
 		{

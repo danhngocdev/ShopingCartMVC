@@ -33,7 +33,7 @@ namespace Service
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+			return repository.GetById(id);
         }
 
         public User GetByUserName(string UserName)

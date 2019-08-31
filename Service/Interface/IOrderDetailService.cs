@@ -12,5 +12,6 @@ public	interface IOrderDetailService
 	{
 		IList<OrderDetailDTO> GetAll(int id);
 		int Update(OrderDetail t);
+		int Inserts(Order order, List<OrderDetail> orderDetail);
 	}
 }

@@ -1,74 +1,82 @@
 ﻿@model List<Model.Menu>
-    <header class="header-pos">
-        <div class="header-area header-middle">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2 col-sm-3 col-xs-12">
-                        <div class="logo">
-                            <a href="index.html"><img src="~/Asset/FrontEnd/images/logo.png" alt="" width="70px;"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-10 col-sm-9 col-xs-12 text-right xs-center">
-                        <div class="main-menu display-inline hidden-sm hidden-xs">
-                            <nav>
-                                <ul>
-                                    @foreach (var item in Model)
-                                    {
-                                        <li>
-                                            <a href="@item.Link">@item.Text</a>
-                                        </li>
-                                            <!-- <ul class="submenu">
-                <li><a href="index.html">home version 1</a></li>
-                <li><a href="index-2.html">home version 2</a></li>
-                <li><a href="index-3.html">home version 3</a></li>
-                <li><a href="index-4.html">home version 4</a></li>
-            </ul> -->
-                                            }
-                                    </ul>
-                              
-                            </nav>
-                        </div>
-                        <div class="search-block-top display-inline">
-                            <div class="icon-search"></div>
-                            <div class="toogle-content">
-                                <form action="#" id="searchbox">
-                                    <input type="text" placeholder="Search" />
-                                    <button class="button-search"></button>
-                                </form>
-                            </div>
-                        </div>
-                       @{ Html.RenderAction("HeaderCart", "Home");}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mobile-menu-area visible-sm visible-xs">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="mobile-menu">
-                            <nav id="mobile-menu-active">
-                                <ul>
-                                    @foreach (var item in Model)
-                                    {
+	<header class="header-pos">
+		<div style="float:right;width:300px;position:relative;position:absolute;top:50px;right100px">
+			<div class="alert alert-success" hidden>
+				<strong>Save Successfully!</strong>
+			</div>
+			<div class="alert alert-danger" hidden>
+				<strong>Save fall.Please try again!</strong>
+			</div>
+		</div>
+		<div class="header-area header-middle">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2 col-sm-3 col-xs-12">
+						<div class="logo">
+							<a href="index.html"><img src="~/Asset/FrontEnd/images/logo.png" alt="" width="70px;"></a>
+						</div>
+					</div>
+					<div class="col-md-10 col-sm-9 col-xs-12 text-right xs-center">
+						<div class="main-menu display-inline hidden-sm hidden-xs">
+							<nav>
+								<ul>
+									@foreach (var item in Model)
+									{
+										<li>
+											<a href="@item.Link">@item.Text</a>
+										</li>
+										<!-- <ul class="submenu">
+										<li><a href="index.html">home version 1</a></li>
+										<li><a href="index-2.html">home version 2</a></li>
+										<li><a href="index-3.html">home version 3</a></li>
+										<li><a href="index-4.html">home version 4</a></li>
+									</ul> -->
+									}
+								</ul>
+
+							</nav>
+						</div>
+						<div class="search-block-top display-inline">
+							<div class="icon-search"></div>
+							<div class="toogle-content">
+								<form action="#" id="searchbox">
+									<input type="text" placeholder="Search" />
+									<button class="button-search"></button>
+								</form>
+							</div>
+						</div>
+						@{ Html.RenderAction("HeaderCart", "Home");}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mobile-menu-area visible-sm visible-xs">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mobile-menu">
+							<nav id="mobile-menu-active">
+								<ul>
+									@foreach (var item in Model)
+									{
 
 
-                                        <li>
-                                            <a href="@item.Link">@item.Text</a>
-                                            <!-- <ul>
-                <li><a href="index.html">home version 1</a></li>
-                <li><a href="index-2.html">home version 2</a></li>
-                <li><a href="index-3.html">home version 3</a></li>
-                <li><a href="index-4.html">home version 4</a></li>
-            </ul> -->
-                                        </li>
-                                    
-                                    }
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+										<li>
+											<a href="@item.Link">@item.Text</a>
+											<!-- <ul>
+											<li><a href="index.html">home version 1</a></li>
+											<li><a href="index-2.html">home version 2</a></li>
+											<li><a href="index-3.html">home version 3</a></li>
+											<li><a href="index-4.html">home version 4</a></li>
+										</ul> -->
+										</li>
+
+									}
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>

@@ -275,9 +275,7 @@ C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\DAL.pdb
 C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\DAL.dll.config
 C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj.CopyComplete
 C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.dll
-C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.Mvc.dll
 C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.xml
-C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.Mvc.xml
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\ShopingCart.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\ShopingCart.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\ShopingCart.pdb
@@ -373,3 +371,4 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.pdb
+C:\Users\PC\Desktop\ShopingCartMVC\ShopingCart\bin\CKFinder.dll

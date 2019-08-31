@@ -1,112 +1,113 @@
-﻿
+﻿@model Model.LoginModel
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
 <div class="breadcrumb-area">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Shop</a></li>
-            <li class="active">Wishlist</li>
-        </ol>
-    </div>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-home"></i></a></li>
+			<li><a href="#">Shop</a></li>
+			<li class="active">Wishlist</li>
+		</ol>
+	</div>
 </div>
 <!-- breadcrumb end -->
 <!-- login-area start -->
 <!-- Content   ================================================== -->
 <div class="user-login pb-60">
-    <div class="container">
-        <div class="row">
-            <div class="centered-title text-center">
-                <h2>Login</h2>
-                <div class="clear"></div>
-                <em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
-            </div>
-            <div class="clear"></div>
-            <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-                <div class="row">
-                    <form action="#" method="post" class="login-form">
-                        <p class="form-row pd-right">
-                            <label for="username">Username or email <span class="required">*</span></label>
-                            <input type="text" name="username" id="username" class="form-controller">
-                        </p>
-                        <p class="form-row pd-left">
-                            <label for="password">Passwords <span class="required">*</span></label>
-                            <input type="password" name="password" id="password" class="form-controller">
-                        </p>
-                        <p class="form-row ">
-                            <input type="submit" value="Login" name="login" class="theme-button marL0">
-                            <label class="inline" for="rememberme">
-                                <input type="checkbox" value="forever" id="rememberme" name="rememberme"> Remember me
-                            </label>
-                        </p>
-                        <p class="lost_password">
-                            <a href="#">Lost your password?</a>
-                        </p>
-                    </form>
-                </div>
-            </div>
-            <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
+	<div class="container">
+		<div class="row">
+			<div class="centered-title text-center">
+				<h2>Login</h2>
+				<div class="clear"></div>
+				<em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
+			</div>
+			<div class="clear"></div>
+			<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+				<div class="row">
+					<form action="#" method="post" class="login-form">
+						@Html.ValidationSummary(false, "", "error")
+						<p class="form-row pd-right">
+							<label for="username">Username or email <span class="required">*</span></label>
+							@Html.TextBoxFor(model => model.UserName, new { @class = "form-control form-control-user", @autofocus = "autofocus" })
+						</p>
+						<p class="form-row pd-left">
+							<label for="password">Passwords <span class="required">*</span></label>
+							@Html.TextBoxFor(model => model.Password, new { @class = "form-control form-control-user" })
+						</p>
+						<p class="form-row ">
+							<input type="submit" value="Login" name="login" class="theme-button marL0">
+							<label class="inline" for="rememberme">
+								@Html.CheckBoxFor(model => model.RememberMe)
+							</label>
+						</p>
+						<p class="lost_password">
+							<a href="#">Lost your password?</a>
+						</p>
+					</form>
+				</div>
+			</div>
+			<!-- /.col-md-6 -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.container -->
 </div>
 <!-- #content -->
 <!-- login-area end -->
 <!-- service-area start -->
 <div class="service-area pt-70 pb-40 gray-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-world"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE SHIPPING</h3>
-                        <p>Free shipping on all UK orders</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-refresh"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE EXCHANGE</h3>
-                        <p>30 days return on all items</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-headphones"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>PREMIUM SUPPORT</h3>
-                        <p>We support online 24 hours a day</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 xs-mrg sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-gift"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>BLACK FRIDAY</h3>
-                        <p>Shocking discount on every friday</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-world"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE SHIPPING</h3>
+						<p>Free shipping on all UK orders</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-refresh"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE EXCHANGE</h3>
+						<p>30 days return on all items</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-headphones"></i>
+					</div>
+					<div class="service-title">
+						<h3>PREMIUM SUPPORT</h3>
+						<p>We support online 24 hours a day</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 xs-mrg sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-gift"></i>
+					</div>
+					<div class="service-title">
+						<h3>BLACK FRIDAY</h3>
+						<p>Shocking discount on every friday</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 

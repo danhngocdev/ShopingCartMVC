@@ -39,7 +39,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			{
 				TempData["message"] = "false";
 			}
-			return RedirectToAction("Index");
+			return RedirectToAction("Details");
 			
 			
 		}
