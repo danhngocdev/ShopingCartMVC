@@ -3,12 +3,11 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Model.Product)ViewBag.Category;
-    String str = Model.MoreImages; 
-  
-        // using the method 
-        String[] strlist = str.Split(';'); 
-  
-      
+    String str =Model.Images+ ";" + Model.MoreImages;
+
+    // using the method 
+    String[] ListImages = new String[20];
+    ListImages = str.Split(';');
 }
 
 <div class="space-custom"></div>
@@ -28,37 +27,59 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-5">
+              
+
                 <div class="product-zoom">
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="home">
-                            <div class="pro-large-img">
-                                <img src="@Model.Images" alt="" />
-                                <a class="popup-link" href="@Model.Images">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="index_1">
-                            @foreach (var items in strlist)
-                            {
-                                <div class="pro-large-img">
-                                    <img src="img/product/2.jpg" alt="" />
-                                    <a class="popup-link" href="@items">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
-                                </div>
-
-                            }
-                            </div>
-                      
-                    </div>
-                    <!-- Nav tabs -->
-                    <div class="details-tab">
-                        <div class="active"><a href="#home" data-toggle="tab"><img src="@Model.Images" alt="" /></a></div>
-                        @foreach (var item in strlist)
+                        @{int i = 0;}
+                        @foreach (var item in ListImages)
                         {
-                            <div><a href="#index_1" data-toggle="tab"><img src="@item" alt="" /></a></div>
+                            
+                            if (i == 0)
+                            {
+                                <div class="tab-pane active" id="@("item"+i)">
+                                    <div class="pro-large-img">
+                                        <img src="@item" alt="" />
+                                        <a class="popup-link" href="@item">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="tab-pane" id="@("item"+i)">
+                                    <div class="pro-large-img">
+                                        <img src="@item" alt="" />
+                                        <a class="popup-link" href="@item">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            }
+                            i++;
+
+                        }
+
+
+                    </div>
+                            <!-- Nav tabs -->
+                    <div class="details-tab">
+                        @{int i1 = 0;}
+                        @foreach (var item in ListImages)
+                        {
+
+                            if (i1 == 0)
+                            {
+                                <div class="active"><a href="@("#item"+i1)" data-toggle="tab"><img src="@item" alt="" /></a></div>
+                            }
+                            else
+                            {
+                                <div><a href="@("#item"+i1)" data-toggle="tab"><img src="@item" alt="" /></a></div>
+                            }
+                            i1++;
+
                         }
 
                     </div>
-                </div>
+                        </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7">
                 <div class="product-details">

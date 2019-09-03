@@ -101,7 +101,7 @@ namespace Repository
 
         public IEnumerable<Product> ListProductNew()
         {
-            return context.Products.Where(s => s.Created > DateTime.Now).Take(8).ToList();
+            return context.Products.Where(s => s.Status == true).OrderByDescending(s => s.Created).Take(8).ToList();
         }
 
 		public IEnumerable<Product> Search(string searchString, int Page, int Pagesize)
