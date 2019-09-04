@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace ShopingCart.Controllers
 {
     public class ProductController : Controller
@@ -17,6 +18,7 @@ namespace ShopingCart.Controllers
         // GET: Product
         public ActionResult Index()
         {
+            ViewBag.ListProduct = productService.GetAll();
             return View();
         }
         public ActionResult Detail(int id)

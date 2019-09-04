@@ -13,8 +13,11 @@ namespace ShopingCart.Controllers
         private const string CartSession = "CartSession";
         private MenuService menuService;
         private ProductService productService;
+        private SliderService sliderService;
+
         public HomeController()
         {
+            sliderService = new SliderService();
             productService = new ProductService();
             menuService = new MenuService();
         }
@@ -31,6 +34,12 @@ namespace ShopingCart.Controllers
         {
             
             return PartialView(menuService.GetAll());
+        }
+
+        [ChildActionOnly]
+        public ActionResult Slider()
+        {
+            return PartialView(sliderService.GetAll());
         }
 
         [ChildActionOnly]

@@ -6,13 +6,7 @@
 }
 <!-- header end -->
 <!-- slider-container start -->
-<div class="slider-container">
-    <!-- Slider Image -->
-    <div id="mainSlider" class="nivoSlider slider-image">
-        <img src="https://www.w3schools.com/w3css/img_mountains_wide.jpg" alt="" title="#htmlcaption1" />
-        <img src="~/Asset/FrontEnd/img/slider/2.jpg" alt="" title="#htmlcaption2" />
-    </div>
-</div>
+@{Html.RenderAction("Slider", "Home");}
 <!-- slider-container end -->
 <!-- banner-area start -->
 <div class="banner-area pt-70">
@@ -54,15 +48,15 @@
                                     <div class="product-wrapper mb-40">
                                         <div class="product-img">
                                             <a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
-                                            @{ if(item.TopHot.HasValue == true)
+                                            @{ if (item.TopHot.HasValue == true)
                                                 {
-                                            <span class="new-label-hot">Hot</span>
+                                                    <span class="new-label-hot">Hot</span>
                                                 }
                                                 else
                                                 {
-                                            <span>OOOOO</span>
-                                                    }
+                                                    <span>OOOOO</span>
                                                 }
+                                            }
                                             <div class="product-action">
                                                 <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
                                                 <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>

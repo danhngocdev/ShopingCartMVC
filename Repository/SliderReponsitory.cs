@@ -39,7 +39,7 @@ namespace Repository
 
         public Slider GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Sliders.Where(s => s.ID == id).SingleOrDefault();
         }
 
         public Slider GetByUserName(string UserName)

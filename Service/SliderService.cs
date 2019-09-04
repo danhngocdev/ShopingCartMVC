@@ -30,7 +30,7 @@ namespace Service
 
         public Slider GetById(int id)
         {
-            throw new NotImplementedException();
+            return repository.GetById(id);
         }
 
         public Slider GetByUserName(string UserName)

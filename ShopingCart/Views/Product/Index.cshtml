@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+     var ListProduct = (List<Model.Product>)ViewBag.ListProduct;
 }
 
 <div class="space-custom"></div>
@@ -22,88 +23,18 @@
         <div class="row">
             <div class="col-md-3 col-sm-4">
                 <div class="column">
-                    <h2 class="title-block">Catalog</h2>
+                    <h2 class="title-block">Danh Mục Sản Phẩm</h2>
                     <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Availability</h3>
                         <ul class="sidebar-menu">
                             <li><a href="#">In stock <span>(13)</span></a></li>
                             <li><a href="#">In stock <span>(13)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Condition</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#">New <span>(11)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Manufacturer</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#"> Fashion Manufacturer  <span>(13)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Manufacturer</h3>
-                        <div class="price-filter">
-                            <p>
-                                <label for="amount">Range:</label>
-                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                            </p>
-                            <div id="slider-range"></div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Size</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#"> S  <span>(13)</span></a></li>
-                            <li><a href="#"> M  <span>(15)</span></a></li>
-                            <li><a href="#"> L  <span>(6)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Size</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#"> Beige  <span>(2)</span></a></li>
-                            <li><a href="#"> White <span>(4)</span></a></li>
-                            <li><a href="#"> Black  <span>(4)</span></a></li>
-                            <li><a href="#"> Orange   <span>(6)</span></a></li>
-                            <li><a href="#"> Blue  <span>(4)</span></a></li>
-                            <li><a href="#"> Green  <span>(1)</span></a></li>
-                            <li><a href="#"> Yellow  <span>(5)</span></a></li>
-                            <li><a href="#">  Pink <span>(2)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Compositions</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#">  Cotton  <span>(2)</span></a></li>
-                            <li><a href="#"> Polyester <span>(4)</span></a></li>
-                            <li><a href="#"> Viscose  <span>(4)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Styles</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#">   Casual  <span>(2)</span></a></li>
-                            <li><a href="#"> Dressy  <span>(4)</span></a></li>
-                            <li><a href="#"> Girly  <span>(4)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Properties</h3>
-                        <ul class="sidebar-menu">
-                            <li><a href="#">Colorful Dress <span>(2)</span></a></li>
-                            <li><a href="#">Maxi Dress <span>(4)</span></a></li>
-                            <li><a href="#">Midi Dress <span>(4)</span></a></li>
-                            <li><a href="#">Short Dress <span>(3)</span></a></li>
-                            <li><a href="#">Short Sleeve <span>(2)</span></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-9 col-sm-8">
                 <h2 class="page-heading mt-40">
-                    <span class="cat-name">Sofa</span>
+                    <span class="cat-name">Tất Cả Sản Phẩm</span>
                     <span class="heading-counter">There are 13 products.</span>
                 </h2>
                 <div class="shop-page-bar">
@@ -149,391 +80,44 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/5.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
+                                    @foreach (var item in ListProduct)
+                                    {
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="product-wrapper mb-40">
+                                                <div class="product-img">
+
+                                                    <a href="#"><img src="@item.Images" alt="" /></a>
+                                                    <span class="new-label">New</span>
+                                                    <div class="product-action">
+                                                        <a href="cart.html"><i class="pe-7s-cart"></i></a>
+                                                        <a href="#"><i class="pe-7s-like"></i></a>
+                                                        <a href="#"><i class="pe-7s-folder"></i></a>
+                                                        <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/6.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
+                                                <div class="product-content">
+                                                    <div class="pro-title">
+                                                        <h3><a href="product-details.html">@item.Name</a></h3>
                                                     </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
+                                                    <div class="price-reviews">
+                                                        <div class="price-box">
+                                                            <span class="price product-price">$262.00</span>
+                                                            <span class="old-price product-price">$262.00</span>
+                                                        </div>
+                                                        <div class="pro-rating">
+                                                            <a href="#"><i class="fa fa-star-o"></i></a>
+                                                            <a href="#"><i class="fa fa-star-o"></i></a>
+                                                            <a href="#"><i class="fa fa-star-o"></i></a>
+                                                            <a href="#"><i class="fa fa-star-o"></i></a>
+                                                            <a href="#"><i class="fa fa-star-o"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/4.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/12.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/3.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/5.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/12.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/3.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/4.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/5.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/6.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6">
-                                        <div class="product-wrapper mb-40">
-                                            <div class="product-img">
-                                                <a href="#"><img src="~/Asset/FrontEnd/img/product/7.jpg" alt="" /></a>
-                                                <span class="new-label">New</span>
-                                                <div class="product-action">
-                                                    <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                    <a href="#"><i class="pe-7s-like"></i></a>
-                                                    <a href="#"><i class="pe-7s-folder"></i></a>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="pro-title">
-                                                    <h3><a href="product-details.html">Cras Neque Metus</a></h3>
-                                                </div>
-                                                <div class="price-reviews">
-                                                    <div class="price-box">
-                                                        <span class="price product-price">$262.00</span>
-                                                        <span class="old-price product-price">$262.00</span>
-                                                    </div>
-                                                    <div class="pro-rating">
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
+
+
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
