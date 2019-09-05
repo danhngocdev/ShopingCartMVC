@@ -78,3 +78,7 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.C
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Repository\obj\Debug\Repository.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\PagedList.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\PagedList.Mvc.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\PagedList.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Repository\bin\Debug\PagedList.Mvc.xml

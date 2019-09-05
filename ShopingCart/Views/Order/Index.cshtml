@@ -1,12 +1,12 @@
 ﻿
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var items = (List<Model.CartItem>)Session["CartSession"];
-	var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var items = (List<Model.CartItem>)Session["CartSession"];
+    var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
+    double TotalMoney = 0;
 }
 
-}
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
 <div class="breadcrumb-area">
@@ -150,7 +150,7 @@ else
 										@foreach (var item in items)
 										{
 
-
+                                            TotalMoney += (item.Product.Price * item.Quantity);
 											<tr class="cart_item">
 												<td class="product-name">
 													@item.Product.Name <strong class="product-quantity"> × @item.Quantity</strong>
@@ -167,9 +167,9 @@ else
 											<td><span class="amount">£215.00</span></td>
 										</tr>
 										<tr class="order-total">
-											<th>Order Total</th>
+											<th>Tổng Tiền</th>
 											<td>
-												<strong><span class="amount">£215.00</span></strong>
+												<strong><span class="amount">@TotalMoney</span></strong>
 											</td>
 										</tr>
 									</tfoot>

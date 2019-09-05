@@ -86,3 +86,5 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\Service\obj\Debug\Service.csproj.CoreCom
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Service\obj\Debug\Service.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Service\obj\Debug\Service.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Service\obj\Debug\Service.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Service\bin\Debug\PagedList.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\Service\bin\Debug\PagedList.xml

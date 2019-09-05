@@ -377,3 +377,12 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.csproj.CopyComplete
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\obj\Debug\ShopingCart.pdb
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\BotDetect.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\BotDetect.Web.Mvc.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.dll.config
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\PagedList.xml
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\CKFinder.dll
+C:\Users\nguye\OneDrive\Desktop\ShopingCartMVC\ShopingCart\bin\CKFinder.pdb
