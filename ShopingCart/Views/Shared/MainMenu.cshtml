@@ -1,7 +1,7 @@
-﻿@model List<Model.Menu>
+﻿@model List<Model.Category>
 	@{ 
-		var user = (Model.User)Session["User"];
-		
+        var user = (Model.User)Session["User"];
+
 	}
 	<header class="header-pos">
 		<div style="float:right;width:300px;position:relative;position:absolute;top:50px;right100px">
@@ -23,63 +23,35 @@
 					<div class="col-md-10 col-sm-9 col-xs-12 text-right xs-center">
 						<div class="main-menu display-inline hidden-sm hidden-xs">
 							<nav>
-								<ul>
-									@foreach (var item in Model)
-									{
-										<li>
-											<a href="@item.Link">@item.Text</a>
-										</li>
-										<!-- <ul class="submenu">
-						<li><a href="index.html">home version 1</a></li>
-						<li><a href="index-2.html">home version 2</a></li>
-						<li><a href="index-3.html">home version 3</a></li>
-						<li><a href="index-4.html">home version 4</a></li>
-					</ul> -->
-									}
-									<li>
-										<a href="shop.html">Phòng Khách</a>
-										<ul class="submenu">
-											<li><a href="index.html">home version 1</a></li>
-											<li><a href="index-2.html">home version 2</a></li>
-											<li><a href="index-3.html">home version 3</a></li>
-											<li><a href="index-4.html">home version 4</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Nhà Bếp</a>
-										<ul class="submenu">
-											<li><a href="index.html">home version 1</a></li>
-											<li><a href="index-2.html">home version 2</a></li>
-											<li><a href="index-3.html">home version 3</a></li>
-											<li><a href="index-4.html">home version 4</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="shop.html">Phòng Ngủ</a>
-										<ul class="submenu">
-											<li><a href="index.html">home version 1</a></li>
-											<li><a href="index-2.html">home version 2</a></li>
-											<li><a href="index-3.html">home version 3</a></li>
-											<li><a href="index-4.html">home version 4</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">Thiết Bị Phụ Kiện</a>
-										<ul class="submenu">
-											<li><a href="blog.html">blog</a></li>
-											<li><a href="blog-details.html">blog-details</a></li>
-											<li><a href="blog-right-sidebar.html">blog-right-sidebar</a></li>
-											<li><a href="cart.html">cart</a></li>
-											<li><a href="checkout.html">checkout</a></li>
-											<li><a href="contact.html">contact</a></li>
-											<li><a href="login.html">login</a></li>
-											<li><a href="product-details.html">product-details</a></li>
-											<li><a href="register.html">register</a></li>
-											<li><a href="shop.html">shop</a></li>
-											<li><a href="wishlist.html">wishlist</a></li>
-										</ul>
-									</li>
-								</ul>
+                                <ul>
+                                    <li>
+                                        <a href="">Trang Chủ</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Giới Thiệu</a>
+                                    </li>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <li>
+                                            <a href="">@item.Name</a>
+                                            @Html.Action("LoadChilden","Home", new {parentID = item.ID })
+                                        </li>
+                                    }
+                                    @*<li>
+                                        <a href="shop.html">Phòng Khách</a>
+                                        <ul class="submenu">
+                                            <li><a href="index.html">home version 1</a></li>
+                                            <li><a href="index-2.html">home version 2</a></li>
+                                            <li><a href="index-3.html">home version 3</a></li>
+                                            <li><a href="index-4.html">home version 4</a></li>
+                                        </ul>
+                                    </li>*@
+                                 
+                                    <li>
+                                        <a href="">Liên Hệ</a>
+                                    </li>
+                                </ul>
 
 							</nav>
 						</div>
@@ -107,23 +79,26 @@
 					<div class="col-md-12">
 						<div class="mobile-menu">
 							<nav id="mobile-menu-active">
-								<ul>
-									@foreach (var item in Model)
-									{
+                                <ul>
+                                    <li>
+                                        <a href="">Trang Chủ</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Giới Thiệu</a>
+                                    </li>
+                                    @foreach (var item in Model)
+                                    {
+                                        <li>
+                                            <a href="">@item.Name</a>
+                                            @Html.Action("LoadChilden", "Home", new { parentID = item.ID })
+                                        </li>
+                                    }
+                                    <li>
+                                        <a href="">Liên Hệ</a>
+                                    </li>
 
 
-										<li>
-											<a href="@item.Link">@item.Text</a>
-											<!-- <ul>
-											<li><a href="index.html">home version 1</a></li>
-											<li><a href="index-2.html">home version 2</a></li>
-											<li><a href="index-3.html">home version 3</a></li>
-											<li><a href="index-4.html">home version 4</a></li>
-										</ul> -->
-										</li>
-
-									}
-								</ul>
+                                </ul>
 							</nav>
 						</div>
 					</div>

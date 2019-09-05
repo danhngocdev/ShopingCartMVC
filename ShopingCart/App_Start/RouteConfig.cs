@@ -12,6 +12,8 @@ namespace ShopingCart
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{*botdetect}",
+      new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
             routes.MapRoute(
               name: "Add Cart",
               url: "them-vao-gio-hang",

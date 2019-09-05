@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DAL;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -14,26 +15,44 @@ namespace ShopingCart.Controllers
         private MenuService menuService;
         private ProductService productService;
         private SliderService sliderService;
+        private CategoryService categoryService;
 
         public HomeController()
         {
             sliderService = new SliderService();
             productService = new ProductService();
             menuService = new MenuService();
+            categoryService = new CategoryService();
+            
         }
         public ActionResult Index()
         {
+
             ViewBag.ListProductHot = productService.ListProductHot();
             ViewBag.ListProductNew = productService.ListProductNew();
             ViewBag.ListProductSale = productService.ListProductSale();
             return View();
         }
+        public PartialViewResult LoadChilden(int parentID)
+        {
+            List<Category> lst = new List<Category>();
+            using( var context = new DBEntityContext())
+            {
+                lst = context.Categories.Where(s => s.ParentID == parentID).ToList();
+            }
+            ViewBag.Count = lst.Count();
+            return PartialView("LoadChilden",lst);
+        }
 
         [ChildActionOnly]
         public ActionResult MainMenu()
         {
-            
-            return PartialView(menuService.GetAll());
+            List<Category> lst = new List<Category>();
+            using (var context = new DBEntityContext())
+            {
+                lst = context.Categories.Where(s => s.ParentID == null).ToList();
+            }
+            return PartialView(lst);
         }
 
         [ChildActionOnly]

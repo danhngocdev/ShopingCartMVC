@@ -53,6 +53,7 @@ namespace Repository
             return context.Categories.ToList();
         }
 
+
         public Category GetById(int id)
         {
             return context.Categories.Where(c => c.ID == id).SingleOrDefault();

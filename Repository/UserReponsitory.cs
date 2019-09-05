@@ -58,18 +58,7 @@ namespace Repository
         public int Insert(User user)
         {
             user.Role = context.Roles.Where(s => s.RoleId == user.RoleId).SingleOrDefault();
-            context.Users.Add(new User()
-            {
-                UserName = user.UserName,
-                Password = user.Password,
-                CreatedDate = DateTime.Now,
-                EditedDate = DateTime.Now,
-                FullName = user.FullName,
-                Phone = user.Phone,
-                Email = user.Email,
-                Address = user.Address,
-                Status = user.Status
-            });
+            context.Users.Add(user);
             return context.SaveChanges();
 
         }

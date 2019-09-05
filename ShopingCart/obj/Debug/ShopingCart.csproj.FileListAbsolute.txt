@@ -327,6 +327,8 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\roslyn\vbc.rsp
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\roslyn\VBCSCompiler.exe
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Antlr3.Runtime.dll
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\BotDetect.dll
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\BotDetect.Web.Mvc.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\CKFinder.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\EntityFramework.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\EntityFramework.SqlServer.dll
@@ -335,6 +337,7 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Microsoft.Web.Infrastruc
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Model.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Newtonsoft.Json.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Service.dll
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Helpers.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Mvc.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Optimization.dll
@@ -352,6 +355,8 @@ C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Service.pdb
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\Service.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\EntityFramework.xml
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\EntityFramework.SqlServer.xml
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.xml
+C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Data.SQLite.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Helpers.xml
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Mvc.xml
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\ShopingCart\bin\System.Web.Optimization.xml

@@ -1,4 +1,6 @@
-﻿using Model;
+﻿using BotDetect.Web.Mvc;
+using Model;
+using Model.ViewModel;
 using Service;
 using ShopingCart.Common;
 using System;
@@ -16,9 +18,36 @@ namespace ShopingCart.Controllers
 		{
 			_userService = new UserService();
 		}
+
+
         // GET: Login
         public ActionResult Index()
         {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        [CaptchaValidationActionFilter("CaptchaCode", "registerCaptcha", "Mã Xác Nhận Không Đúng!")]
+        public ActionResult Register(RegisterUser r)
+        {
+            if (ModelState.IsValid)
+            {
+                User u = new User();
+    
+                u.UserName = r.UserName;
+                u.FullName = r.FullName;
+                u.Email = r.Email;
+                u.Phone = r.Phone;
+                u.Password = Encryptor.MD5Hash(r.PassWord);
+                u.Address = r.Address;
+                _userService.Insert(u);
+                return RedirectToAction("Login");
+
+            }
             return View();
         }
 		[HttpPost]
@@ -46,5 +75,6 @@ namespace ShopingCart.Controllers
 			Session["User"] = null;
 			return Redirect("/");
 		}
+       
     }
 }

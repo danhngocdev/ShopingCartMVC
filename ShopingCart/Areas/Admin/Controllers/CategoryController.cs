@@ -50,7 +50,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpGet]
 		public ActionResult Edit(int id)
 		{
-			ViewBag.ParentID = new SelectList(category.GetAll(), "ID", "Name", category.GetById(id).ParentID);
+			ViewBag.ParentID = new SelectList(category.GetAll().Where(s=> s.ParentID == null), "ID", "Name", category.GetById(id).ParentID);
 			return View(category.GetById(id));
 		}
 		[HttpPost]
