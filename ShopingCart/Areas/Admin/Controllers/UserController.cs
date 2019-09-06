@@ -12,9 +12,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
+	    private RoleService roleService;
         private UserService userService;
         public UserController()
         {
+			roleService=new RoleService();
             userService = new UserService();
         }
         // GET: Admin/User
@@ -52,6 +54,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpGet]
 		public ActionResult Edit(int id)
 		{
+			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 			return View(userService.GetById(id));
 		}
 		[HttpPost]
@@ -73,6 +76,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 				}
 				return RedirectToAction("Index");
 			}
+			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 			return View();
 
 		}

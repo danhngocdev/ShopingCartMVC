@@ -55,7 +55,6 @@
     <Compile Include="Contact.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="Footer.cs" />
-    <Compile Include="Group.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Order.cs" />
@@ -66,7 +65,6 @@
     <Compile Include="RoleAction.cs" />
     <Compile Include="Slider.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UserGroup.cs" />
     <Compile Include="ViewModel\OrderDetailDTO.cs" />
     <Compile Include="ViewModel\RegisterUser.cs" />
   </ItemGroup>

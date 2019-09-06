@@ -7,75 +7,58 @@ using DAL;
 using Model;
 using PagedList;
 using Repository.Interface;
+using Action = Model.Action;
 
 namespace Repository
 {
-	public class RoleActionRepository:IRepository<RoleAction>
+	public class RoleActionRepository : IRoleActionRepository
 	{
 		private DBEntityContext context;
 		public RoleActionRepository(DBEntityContext context)
 		{
 			this.context = context;
 		}
-		public IEnumerable<RoleAction> GetAll()
+
+		public List<Action> ListActions(int id)
 		{
-			throw new NotImplementedException();
+			var currentActions = context.RoleActions.Where(x => x.RoleId.Equals(id)).ToList();
+			var listActions = context.Actions.ToList();
+			foreach (var item in currentActions)
+			{
+				listActions.Remove(context.Actions.SingleOrDefault(x=>x.ActionId.Equals(item.ActionId)));
+			}
+
+			return listActions;
 		}
 
-		public IEnumerable<RoleAction> Search(string searchString, int Page, int Pagesize)
+		public List<Action> ListCurrentRole(int id)
 		{
-			var model = context.RoleActions.ToList();
-			return model.OrderByDescending(x => x.RoleId).ToPagedList(Page, Pagesize);
+			var currentActions = context.RoleActions.Where(x => x.RoleId.Equals(id)).ToList();
+			List<Action> listActions = new List<Action>();
+			if (currentActions.Count==0) return new List<Action>();
+			foreach (var item in currentActions)
+			{
+				var current = context.Actions.SingleOrDefault(s => s.ActionId.Equals(item.ActionId));
+				listActions.Add(current);
+			}
+			return listActions;
 		}
 
-		public int Insert(RoleAction t)
+		public int AddActions(List<RoleAction> items)
 		{
-			throw new NotImplementedException();
+			context.RoleActions.AddRange(items);
+			return context.SaveChanges();
 		}
 
-		public int Update(RoleAction t)
+		public int RemoveActions(List<RoleAction> items)
 		{
-			throw new NotImplementedException();
-		}
-
-		public int Delete(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public RoleAction GetById(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public RoleAction GetByUserName(string UserName)
-		{
-			throw new NotImplementedException();
-		}
-
-		public bool Login(string username, string password)
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductHot()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductSale()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductNew()
-		{
-			throw new NotImplementedException();
-		}
-
-		public Contact GetContact()
-		{
-			throw new NotImplementedException();
+			var listRoleAction = new List<RoleAction>();
+			foreach (var item in items)
+			{
+				listRoleAction.Add(context.RoleActions.FirstOrDefault(s=>s.ActionId.Equals(item.ActionId)&&s.RoleId.Equals(item.RoleId)));
+			}
+			context.RoleActions.RemoveRange(listRoleAction);
+			return context.SaveChanges();
 		}
 	}
 }

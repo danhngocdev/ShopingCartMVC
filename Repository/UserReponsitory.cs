@@ -96,7 +96,7 @@ namespace Repository
 			var currentItem = context.Users.Find(t.UserId);
 			if (currentItem != null)
 			{
-				currentItem.RoleId = 1;
+				currentItem.RoleId = t.RoleId;
 				currentItem.Password = t.Password;
 				currentItem.EditedDate=DateTime.Now;
 				currentItem.Address = t.Address;

@@ -8,74 +8,36 @@ using Model;
 using Repository;
 using Repository.Interface;
 using Service.Interface;
+using Action = Model.Action;
 
 namespace Service
 {
-	public class RoleActionService : IServices<RoleAction>
+	public class RoleActionService : IRoleActionService
 	{
-		private IRepository<RoleAction> repository;
+		private IRoleActionRepository repository;
 		public RoleActionService()
 		{
 			repository = new RoleActionRepository(new DBEntityContext());
 		}
-		public IEnumerable<RoleAction> GetAll()
+
+		public List<Action> ListActions(int id)
 		{
-			throw new NotImplementedException();
+			return repository.ListActions(id);
 		}
 
-		public IEnumerable<RoleAction> Search(string searchString, int Page, int Pagesize)
+		public List<Action> ListCurrentRole(int id)
 		{
-			return repository.Search(searchString, Page, Pagesize);
+			return repository.ListCurrentRole(id);
 		}
 
-		public int Insert(RoleAction t)
+		public int AddActions(List<RoleAction> items)
 		{
-			throw new NotImplementedException();
+			return repository.AddActions(items);
 		}
 
-		public int Update(RoleAction t)
+		public int RemoveActions(List<RoleAction> items)
 		{
-			throw new NotImplementedException();
-		}
-
-		public int Delete(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public RoleAction GetById(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public RoleAction GetByUserName(string UserName)
-		{
-			throw new NotImplementedException();
-		}
-
-		public bool Login(string username, string password)
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductHot()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductSale()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<RoleAction> ListProductNew()
-		{
-			throw new NotImplementedException();
-		}
-
-		public Contact GetContact()
-		{
-			throw new NotImplementedException();
+			return repository.RemoveActions(items);
 		}
 	}
 }

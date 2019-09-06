@@ -12,11 +12,7 @@ namespace ShopingCart.Common
 		public int ActionId { get; set; }
 		protected override bool AuthorizeCore(HttpContextBase httpContext)
 		{
-			//var isAuthorized = base.AuthorizeCore(httpContext);
-			//if (!isAuthorized)
-			//{
-			//	return false;
-			//}
+			
 			var session = (LoginModel)HttpContext.Current.Session[CommonConstants.USER_SESSION];
 			if (session == null)
 			{
@@ -28,10 +24,8 @@ namespace ShopingCart.Common
 			{
 				return true;
 			}
-			else
-			{
-				return false;
-			}
+
+			return false;
 		}
 		private List<int> GetCredentialByLoggedInUser( )
 		{

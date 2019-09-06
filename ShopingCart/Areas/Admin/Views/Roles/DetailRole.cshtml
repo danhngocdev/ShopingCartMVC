@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Model.Action>
+@{
+	ViewBag.Title = "DetailRole";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="box">
+	<div class="box-body">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="@Url.Action("DetailRole", "Roles", new { id = @ViewBag.RoleId })">Current Action in Roles</a></li>
+			<li><a href="@Url.Action("Actions", "Roles", new { id = @ViewBag.RoleId })">List Action</a></li>
+		</ul>
+		<div class="box-body">
+			<table id="example1" class="table table-bordered table-hover">
+				<thead>
+					<tr role="row">
+						<th><input type="checkbox" /></th>
+						<th>
+							Action Name
+						</th>
+						<th>
+							Description
+						</th>
+
+						<th></th>
+					</tr>
+				</thead>
+				@using (@Html.BeginForm("RemoveActions", "Roles", FormMethod.Post))
+				{
+					foreach (var item in Model)
+					{
+						<tr>
+							<td><input name="checkbox" value="@item.ActionId" type="checkbox" /></td>
+							<td>
+								@Html.DisplayFor(currentItem => item.ActionName)
+							</td>
+							<td>
+								@Html.DisplayFor(currentItem => item.Description)
+							</td>
+
+						</tr>
+					}
+					<button type="submit">Delete</button>
+				}
+
+			</table>
+		</div>
+	</div>
+</div>
