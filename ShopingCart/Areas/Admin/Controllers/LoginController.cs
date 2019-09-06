@@ -11,10 +11,12 @@ using System.Web.Security;
 namespace ShopingCart.Areas.Admin.Controllers
 {
     public class LoginController : Controller
-	{
+    {
+	    private LoginService loginService;
         private UserService userService;
         public LoginController()
         {
+			loginService=new LoginService();
             userService = new UserService();
         }
 
@@ -34,8 +36,14 @@ namespace ShopingCart.Areas.Admin.Controllers
 
                         var user = userService.GetByUserName(model.UserName);
                         Session["Admin"] =user.FullName;
-                   
+                   Session.Add(CommonConstants.SESSION_CREDENTIALS,loginService.GetListAction(user.UserName));
+				   var userSession=new LoginModel
+				   {
+					   UserName = user.UserName,
+					   
+				   };
 
+					Session.Add(CommonConstants.USER_SESSION, userSession);
 
                         return RedirectToAction("Index", "HomeAdmin");
                     }

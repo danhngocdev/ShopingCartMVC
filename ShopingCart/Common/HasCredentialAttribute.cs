@@ -22,7 +22,7 @@ namespace ShopingCart.Common
 			{
 				return false;
 			}
-			List<int> privilegeLevels = this.GetCredentialByLoggedInUser(session.UserName); // Call another method to get rights of the user from DB
+			List<int> privilegeLevels = this.GetCredentialByLoggedInUser(); // Call another method to get rights of the user from DB
 
 			if (privilegeLevels.Contains(this.ActionId))
 			{
@@ -33,7 +33,7 @@ namespace ShopingCart.Common
 				return false;
 			}
 		}
-		private List<int> GetCredentialByLoggedInUser(string userName)
+		private List<int> GetCredentialByLoggedInUser( )
 		{
 			var credentials = (List<int>)HttpContext.Current.Session[CommonConstants.SESSION_CREDENTIALS];
 			return credentials;

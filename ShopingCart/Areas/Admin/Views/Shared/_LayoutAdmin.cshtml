@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="~/Asset/Backend/bower_components/font-awesome/css/font-awesome.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="~/Asset/Backend/bower_components/Ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" href="~/Asset/Backend/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="~/Asset/Backend/dist/css/AdminLTE.min.css">
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -566,7 +567,21 @@
 	<script src="~/Asset/Backend/dist/js/demo.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/tinymce.min.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/config.js"></script>
-	<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	
+	<script src="~/Asset/Backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script>
+	$(function () {
+		//$('#example1').DataTable()
+		$('#example1').DataTable({
+			'paging'      : false,
+			'lengthChange': true,
+			'searching'   : false,
+			'ordering'    : true,
+			'info'        : true,
+			'autoWidth': false,
+		})
+	})
+</script>
 	@RenderSection("Scripts", required: false);
 	<script>
         $(document).ready(function () {

@@ -1,0 +1,106 @@
+﻿@model PagedList.IPagedList<Model.User>
+@using PagedList.Mvc
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Quản Lý User</h3>
+		@using (Html.BeginForm("Index", "User", FormMethod.Get))
+		{
+			<div class="row">
+				<div class="col-md-4">
+					<input type="text" name="searchString" value="@ViewBag.searchString" />
+				</div>
+				<div class="col-md-4">
+					<button type="submit">Tìm kiếm</button>
+				</div>
+			</div>
+		}
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table id="example1" class="table table-bordered table-hover">
+			<thead>
+				<tr role="row">
+					<th>
+						RoleName
+					</th>
+					<th>
+						UserName
+					</th>
+					
+					<th>
+						CreatedDate
+					</th>
+					<th>
+						EditedDate
+					</th>
+					<th>
+						FullName
+					</th>
+					<th>
+						Phone
+					</th>
+					<th>
+						Email
+					</th>
+					<th>
+						Address
+					</th>
+					<th>
+						Status
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Role.RoleName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.UserName)
+					</td>
+					
+					<td>
+						@Html.DisplayFor(modelItem => item.CreatedDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.EditedDate)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.FullName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Phone)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Address)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Status)
+					</td>
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+						@Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+						@Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+					</td>
+				</tr>
+			}
+			
+		</table>
+	</div>
+	<!-- /.box-body -->
+</div>
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
