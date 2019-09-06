@@ -327,11 +327,15 @@
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
 			<div style="float:right;width:300px">
-				<div class="alert alert-success" hidden>
-					<strong>Save Successfully!</strong>
+				<div style="position:absolute;z-index:9999" class="alert alert-success alert-dismissible" hidden>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<h4><i class="icon fa fa-check"></i> Alert!</h4>
+					Success alert preview. This alert is dismissable.
 				</div>
-				<div class="alert alert-danger" hidden>
-					<strong>Save fall.Please try again!</strong>
+				<div style="position:absolute;z-index:9999;" class="alert alert-warning alert-dismissible" hidden>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<h4><i class="icon fa fa-warning"></i> Alert!</h4>
+					Warning alert preview. This alert is dismissable.
 				</div>
 			</div>
 
@@ -567,21 +571,21 @@
 	<script src="~/Asset/Backend/dist/js/demo.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/tinymce.min.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/config.js"></script>
-	
-	<script src="~/Asset/Backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script>
-	$(function() {
-		$('#example1').DataTable({
-			'paging': false,
-			'lengthChange': true,
-			'searching': false,
-			'ordering': true,
-			'info': true,
-			'autoWidth': false,
-		})
-	});
-</script>
 
+	<script src="~/Asset/Backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script>
+		$(function () {
+			$('#example1').DataTable({
+				'paging': false,
+				'lengthChange': true,
+				'searching': false,
+				'ordering': true,
+				'info': true,
+				'autoWidth': false,
+			})
+		});
+	</script>
+	
 	@RenderSection("Scripts", required: false);
 	<script>
 		$(document).ready(function () {

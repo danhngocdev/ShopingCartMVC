@@ -56,7 +56,6 @@ namespace ShopingCart.Areas.Admin.Controllers
 					var currentItem=new RoleAction();
 					currentItem.RoleId = roleId;
 					currentItem.ActionId = item;
-					currentItem.IsTrue = true;
 					listRoleActions.Add(currentItem);
 				}
 
