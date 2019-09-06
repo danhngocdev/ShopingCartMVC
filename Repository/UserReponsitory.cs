@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace Repository
 {
@@ -42,12 +43,12 @@ namespace Repository
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+	        return context.Users.ToList();
         }
 
         public User GetById(int id)
         {
-            return context.Users.Find(id);
+	        return context.Users.Find(id);
         }
 
         public User GetByUserName(string UserName)
@@ -82,12 +83,30 @@ namespace Repository
 
 		public IEnumerable<User> Search(string searchString, int Page, int Pagesize)
 		{
-			throw new NotImplementedException();
+			var model = context.Users.ToList();
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				model = model.Where(x => x.FullName.Contains(searchString)).ToList();
+			}
+			return model.OrderByDescending(x => x.CreatedDate).ToPagedList(Page, Pagesize);
 		}
 
 		public int Update(User t)
-        {
-            throw new NotImplementedException();
+		{
+			var currentItem = context.Users.Find(t.UserId);
+			if (currentItem != null)
+			{
+				currentItem.RoleId = 1;
+				currentItem.Password = t.Password;
+				currentItem.EditedDate=DateTime.Now;
+				currentItem.Address = t.Address;
+				currentItem.Email = t.Email;
+				currentItem.Phone = t.Phone;
+				currentItem.Status = t.Status;
+				currentItem.UserName = t.UserName;
+			}
+			context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+		return	context.SaveChanges();
         }
 
         public IEnumerable<User> ListProductHot()
