@@ -69,6 +69,7 @@
     <Compile Include="UserGroup.cs" />
     <Compile Include="ViewModel\OrderDetailDTO.cs" />
     <Compile Include="ViewModel\RegisterUser.cs" />
+    <Compile Include="WishList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,10 +1,9 @@
-﻿
+﻿@model List<Model.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var ListProduct = (List<Model.Product>)ViewBag.ListProduct;
     var ListCategory = (List<Model.Category>)ViewBag.ListCategory;
-
+    var category = (Model.Category)ViewBag.Category;
 }
 
 <div class="space-custom"></div>
@@ -13,8 +12,8 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Trang Chủ</a></li>
-            <li class="active">Sản Phẩm</li>
+            <li><a href="#">Danh Mục Sản Phẩm</a></li>
+            <li class="active">@category.Name</li>
         </ol>
     </div>
 </div>
@@ -42,7 +41,7 @@
             <div class="col-md-9 col-sm-8">
                 <h2 class="page-heading mt-40">
                     <span class="cat-name">Tất Cả Sản Phẩm</span>
-                    <span class="heading-counter">Có Tất Cả @ListProduct.Count() Sản Phẩm</span>
+                    <span class="heading-counter">@*Có Tất Cả @ListProduct.Count() Sản Phẩm*@</span>
                 </h2>
                 <div class="shop-page-bar">
                     <div>
@@ -50,7 +49,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="row">
-                                    @foreach (var item in ListProduct)
+                                    @foreach (var item in Model)
                                     {
                                         <div class="col-md-4 col-sm-6">
                                             <div class="product-wrapper mb-40">
@@ -70,7 +69,7 @@
                                                     </div>
                                                     <div class="price-reviews">
                                                         <div class="price-box">
-                                                            <span class="price product-price">$262.00</span>
+                                                            <span class="price product-price">@item.Price/span>
                                                             <span class="old-price product-price">$262.00</span>
                                                         </div>
                                                         <div class="pro-rating">
@@ -85,6 +84,8 @@
                                             </div>
                                         </div>
                                     }
+
+
 
 
                                 </div>

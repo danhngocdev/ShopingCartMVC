@@ -16,13 +16,15 @@ namespace ShopingCart.Controllers
         private ProductService productService;
         private SliderService sliderService;
         private CategoryService categoryService;
-
+        private WishListService wishListService;
+   
         public HomeController()
         {
             sliderService = new SliderService();
             productService = new ProductService();
             menuService = new MenuService();
             categoryService = new CategoryService();
+            wishListService = new WishListService();
             
         }
         public ActionResult Index()
@@ -77,6 +79,19 @@ namespace ShopingCart.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
+        }
+        [HttpPost]
+        public JsonResult Create(WishList c)
+        {
+            if(Session["User"]!= null)
+            {
+                wishListService.Insert(c);
+            }
+           
+            return Json(new
+            {
+                status = true
+            });
         }
 
         public ActionResult Contact()

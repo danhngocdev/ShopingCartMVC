@@ -39,6 +39,7 @@ namespace Service
         {
             throw new NotImplementedException();
         }
+     
 
         public Contact GetContact()
         {

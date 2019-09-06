@@ -38,6 +38,12 @@ namespace ShopingCart
          defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
          namespaces: new[] { "ShopingCart.Controllers" }
      );
+            routes.MapRoute(
+             name: "Danh Muc San Pham",
+           url: "danh-muc-san-pham/{Slug}-{Id}",
+    defaults: new { controller = "Product", action = "CategoryViewDetail", id = UrlParameter.Optional },
+    namespaces: new[] { "ShopingCart.Controllers" }
+);
 
             routes.MapRoute(
                 name: "Default",

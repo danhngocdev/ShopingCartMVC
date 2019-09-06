@@ -34,9 +34,9 @@ namespace Model
             public bool Status { get; set; }
             public ICollection<UserGroup> UserGroups { get; set; }
             public virtual Role Role { get; set; }
-          
-            //public ICollection<UserGroup> UserGroups { get; set; }
-            //public virtual Role Role { get; set; }
+            public ICollection<WishList> wishLists { get; set; }
+        //public ICollection<UserGroup> UserGroups { get; set; }
+        //public virtual Role Role { get; set; }
 
-        }
+    }
 }

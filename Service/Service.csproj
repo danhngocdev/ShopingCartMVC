@@ -51,8 +51,12 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="FeedBackService.cs" />
+    <Compile Include="Interface\ILoginService.cs" />
     <Compile Include="Interface\IOrderDetailService.cs" />
     <Compile Include="Interface\IServices.cs" />
+    <Compile Include="Interface\IWishListService.cs" />
+    <Compile Include="WishListService.cs" />
+    <Compile Include="LoginService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="MenuService.cs" />
     <Compile Include="OrderDetailService.cs" />

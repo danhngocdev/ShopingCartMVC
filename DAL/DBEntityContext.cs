@@ -30,6 +30,7 @@ namespace DAL
         public DbSet<Footer> Footers { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<WishList> wishLists { get; set; }
 
     }
 }

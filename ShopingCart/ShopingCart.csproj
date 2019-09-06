@@ -52,7 +52,7 @@
       <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="CKFinder">
-      <HintPath>..\..\ckfinder\bin\Debug\CKFinder.dll</HintPath>
+      <HintPath>..\..\..\Downloads\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -3507,6 +3507,7 @@
     <Content Include="Asset\FrontEnd\js\plugins.js" />
     <Content Include="Asset\FrontEnd\js\vendor\jquery-1.12.0.min.js" />
     <Content Include="Asset\FrontEnd\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Asset\FrontEnd\js\WishList.js" />
     <Content Include="Asset\FrontEnd\login.html" />
     <Content Include="Asset\FrontEnd\product-details.html" />
     <Content Include="Asset\FrontEnd\register.html" />
@@ -3787,6 +3788,7 @@
     <Content Include="Views\Shared\Slider.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Shared\LoadChilden.cshtml" />
+    <Content Include="Views\Product\CategoryViewDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

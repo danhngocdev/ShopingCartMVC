@@ -4,6 +4,9 @@
     var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
     var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
 }
+@section footer{
+    <script src="~/Asset/FrontEnd/js/WishList.js"></script>
+}
 <!-- header end -->
 <!-- slider-container start -->
 @{Html.RenderAction("Slider", "Home");}
