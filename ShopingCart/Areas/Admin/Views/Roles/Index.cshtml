@@ -1,40 +1,49 @@
 ﻿@model IEnumerable<Model.Role>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+	<div class="box">
+		<h2 style="text-align:center">Managerment Roles</h2>
+		<p>
+			<a class="btn btn-primary" href="@Url.Action("Create")">Create New</a>	
+		</p>
+		<div class="box-body">
+			<table id="example1" class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.RoleName)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Description)
+						</th>
+						<th></th>
+					</tr>
+				</thead>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RoleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.RoleName)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Description)
+							</td>
+							<td>
+								<a style="margin-left:30px;font-size:20px;" href="@Url.Action("Edit", new { id=item.RoleId })"><i class="fa fa-fw  fa-pencil"></i></a>
+								<a style="margin-left:30px;font-size:20px;" href="@Url.Action("DetailRole", new { id=item.RoleId })"><i class="fa fa-fw fa-list"></i></a>
+								<a style="margin-left:30px;font-size:20px;" href="@Url.Action("Delete", new { id=item.RoleId })"><i class="fa fa-fw fa-trash"></i></a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RoleId }) |
-            @Html.ActionLink("Details", "DetailRole", new { id=item.RoleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RoleId })
-        </td>
-    </tr>
-}
+							</td>
+						</tr>
+					}
 
-</table>
+				</tbody>
+			</table>
+		</div>
+	</div>

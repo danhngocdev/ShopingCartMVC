@@ -53,6 +53,7 @@
     <Compile Include="CartItem.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="FavoriteProduct.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="Footer.cs" />
     <Compile Include="LoginModel.cs" />

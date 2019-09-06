@@ -33,16 +33,17 @@ namespace ShopingCart.Areas.Admin.Controllers
 				var res = userService.Login(model.UserName, Encryptor.MD5Hash(model.Password));
 				if (res)
 				{
-
 					var user = userService.GetByUserName(model.UserName);
-					Session["Admin"] = user.FullName;
+					if (!user.Status)
+					{
+						ModelState.AddModelError("", "Tài khoản của bạn hiện đang bị khóa");
+						return View("Index"); 
+					}
 					Session.Add(CommonConstants.SESSION_CREDENTIALS, loginService.GetListAction(user.UserName));
 					var userSession = new LoginModel
 					{
 						UserName = user.UserName,
-
 					};
-
 					Session.Add(CommonConstants.USER_SESSION, userSession);
 
 					return RedirectToAction("Index", "HomeAdmin");

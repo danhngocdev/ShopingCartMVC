@@ -32,7 +32,6 @@ C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CoreCompileInput
 C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.dll
 C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.pdb
-C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\Model.dll.config
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\Model.dll
 C:\Users\ndngoc2\Desktop\ShopingCartMVC\Model\bin\Debug\Model.pdb
@@ -56,3 +55,4 @@ C:\Users\nmnhat\Desktop\testingOnlne\ShopingCartMVC\Model\obj\Debug\Model.csproj
 C:\Users\nmnhat\Desktop\testingOnlne\ShopingCartMVC\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\nmnhat\Desktop\testingOnlne\ShopingCartMVC\Model\obj\Debug\Model.dll
 C:\Users\nmnhat\Desktop\testingOnlne\ShopingCartMVC\Model\obj\Debug\Model.pdb
+C:\Users\PC\Desktop\ShopingCartMVC\Model\obj\Debug\Model.csprojAssemblyReference.cache

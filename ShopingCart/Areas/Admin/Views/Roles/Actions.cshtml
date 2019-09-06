@@ -10,41 +10,43 @@
 			<li><a href="@Url.Action("DetailRole", "Roles", new { id = @ViewBag.RoleId })">Current Action in Roles</a></li>
 			<li class="active"><a href="@Url.Action("Actions", "Roles", new { id = @ViewBag.RoleId })">List Action</a></li>
 		</ul>
-		
-		<div class="box-body">
-			<table id="example1" class="table table-bordered table-hover">
-				<thead>
-					<tr role="row">
-						<th></th>
-						<th>
-							Action Name
-						</th>
-						<th>
-							Description
-						</th>
-
-						<th></th>
-					</tr>
-				</thead>
-				@using (@Html.BeginForm("AddActions", "Roles", FormMethod.Post))
-				{
-					foreach (var item in Model)
-					{
-						<tr>
-							<td><input name="checkbox" value="@item.ActionId" type="checkbox" /></td>
-							<td>
-								@Html.DisplayFor(currentItem => item.ActionName)
-							</td>
-							<td>
-								@Html.DisplayFor(currentItem => item.Description)
-							</td>
-
+		<h2 style="text-align:center">List Action</h2>
+		@using (@Html.BeginForm("AddActions", "Roles", FormMethod.Post))
+		{
+			<div class="box-body">
+				<button class="btn btn-primary" style="float:right" type="submit">add</button>
+				<table id="example1" class="table table-bordered table-hover">
+					<thead>
+						<tr role="row">
+							<th><input name="ListAdd" class="ListAdd" type="checkbox" /></th>
+							<th>
+								Action Name
+							</th>
+							<th>
+								Description
+							</th>
 						</tr>
-					}
-					<button type="submit">add</button>
-				}
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td><input name="checkbox" value="@item.ActionId" type="checkbox" /></td>
+								<td>
+									@Html.DisplayFor(currentItem => item.ActionName)
+								</td>
+								<td>
+									@Html.DisplayFor(currentItem => item.Description)
+								</td>
 
-			</table>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		}
+		<div>
+			<a class="btn btn-primary" href="@Url.Action("Index")">Back to List</a>
 		</div>
 	</div>
 </div>

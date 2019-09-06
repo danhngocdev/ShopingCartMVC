@@ -6,20 +6,20 @@
 	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-
-
-
 <div class="box">
 	<div class="box-header">
 		<h3 class="box-title">Quản Lý User</h3>
 		@using (Html.BeginForm("Index", "User", FormMethod.Get))
 		{
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-2">
 					<input type="text" name="searchString" value="@ViewBag.searchString" />
 				</div>
-				<div class="col-md-4">
-					<button type="submit">Tìm kiếm</button>
+				<div class="col-md-2">
+					<button class="btn btn-primary" type="submit">Tìm kiếm</button>
+				</div>
+				<div class="col-md-6">
+
 				</div>
 			</div>
 		}

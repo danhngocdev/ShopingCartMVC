@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopingCart.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace ShopingCart.Areas.Admin.Controllers
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = Session["Admin"];
+            var session = Session[CommonConstants.SESSION_CREDENTIALS];
 
             if (session == null)
             {
