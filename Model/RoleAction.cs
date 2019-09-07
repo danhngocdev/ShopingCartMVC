@@ -16,7 +16,6 @@ namespace Model
         public int RoleId { get; set; }
         [ForeignKey("Action")]
         public int ActionId { get; set; }
-        public bool IsTrue { get; set; }
         public virtual Role Role { get; set; }
         public virtual Action Action { get; set; }
     }

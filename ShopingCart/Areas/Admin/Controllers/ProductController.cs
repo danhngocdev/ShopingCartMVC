@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
@@ -18,6 +19,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			product = new ProductService();
 		}
 		// GET: Admin/Category
+		[HasCredential(ActionId = 1)]
 		public ActionResult Index()
 		{
 			return View(product.GetAll());

@@ -53,6 +53,7 @@
     <Compile Include="FeedBackService.cs" />
     <Compile Include="Interface\ILoginService.cs" />
     <Compile Include="Interface\IOrderDetailService.cs" />
+    <Compile Include="Interface\IRoleActionService.cs" />
     <Compile Include="Interface\IServices.cs" />
     <Compile Include="Interface\IWishListService.cs" />
     <Compile Include="WishListService.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="OrderDetailService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleActionService.cs" />
+    <Compile Include="RoleService.cs" />
     <Compile Include="SliderService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
