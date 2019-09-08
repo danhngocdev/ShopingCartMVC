@@ -30,18 +30,21 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View(roleService.GetAll());
 		}
 
-		public ActionResult DetailRole(int id)
+		public ActionResult DetailRole(int id, string searchString, int Page = 1, int PageSize = 10)
 		{
 			Session["RoleIdDelete"] = id;
 			ViewBag.RoleId = id;
-			return View(roleActionService.ListCurrentRole(id));
+			ViewBag.Role = roleService.GetById(id);
+			ViewBag.searchString = searchString;
+			return View(roleActionService.ListCurrentRole(id,searchString,Page,PageSize));
 		}
 
-		public ActionResult Actions(int id)
+		public ActionResult Actions(int id, string searchString, int Page = 1, int PageSize = 10)
 		{
 			Session["RoleIdAddNew"] = id;
 			ViewBag.RoleId = id;
-			return View(roleActionService.ListActions(id));
+			ViewBag.searchString = searchString;
+			return View(roleActionService.ListActions(id,searchString,Page,PageSize));
 		}
 		[HttpPost]
 		public ActionResult AddActions(int[] checkbox)
@@ -116,6 +119,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "Added";
 				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("RoleName", "Role Name Đã Tồn Tại");
+					return View();
+				}
 				else
 				{
 					TempData["message"] = "false";
@@ -149,6 +157,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "Added";
 				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("RoleName", "Role Name Đã Tồn Tại");
+					return View();
+				}
 				else
 				{
 					TempData["message"] = "false";
@@ -165,6 +178,10 @@ namespace ShopingCart.Areas.Admin.Controllers
 			if (result > 0)
 			{
 				TempData["message"] = "Added";
+			}else if (result == -1)
+			{
+				TempData["message"] = "Ex";
+				TempData["data"] = "Role đang được sử dụng! Bạn không thể xóa";
 			}
 			else
 			{

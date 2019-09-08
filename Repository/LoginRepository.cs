@@ -8,7 +8,7 @@ using Repository.Interface;
 
 namespace Repository
 {
-public	class LoginRepository:ILoginRepository
+	public class LoginRepository : ILoginRepository
 	{
 		private DBEntityContext context;
 		public LoginRepository(DBEntityContext context)
@@ -19,18 +19,18 @@ public	class LoginRepository:ILoginRepository
 		{
 			var user = context.Users.Single(x => x.UserName == userName);
 			var data = (from a in context.RoleActions
-				join b in context.Roles on a.RoleId equals b.RoleId
-				join c in context.Actions on a.ActionId equals c.ActionId
-				where b.RoleId == user.RoleId
-				select new
-				{
-					RoleId = a.RoleId,
-					ActionId = a.ActionId
-				}).AsEnumerable().Select(x => new Model.RoleAction()
-			{
-				RoleId = x.RoleId,
-				ActionId = x.ActionId
-			});
+						join b in context.Roles on a.RoleId equals b.RoleId
+						join c in context.Actions on a.ActionId equals c.ActionId
+						where b.RoleId == user.RoleId
+						select new
+						{
+							RoleId = a.RoleId,
+							ActionId = a.ActionId
+						}).AsEnumerable().Select(x => new Model.RoleAction()
+						{
+							RoleId = x.RoleId,
+							ActionId = x.ActionId
+						});
 			return data.Select(x => x.ActionId).ToList();
 		}
 	}

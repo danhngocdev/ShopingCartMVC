@@ -29,19 +29,38 @@ public	class RoleRepository:IRepository<Role>
 
 		public int Insert(Role t)
 		{
+			var roles = context.Roles.ToList();
+
+			if (roles.Any(x => x.RoleName.ToLower().Equals(t.RoleName.ToLower()))) return -2;
+
 			context.Roles.Add(t);
 			return context.SaveChanges();
 		}
 
 		public int Update(Role t)
 		{
-			context.Entry(t).State = EntityState.Modified;
+			var roles = context.Roles.ToList();
+			roles.Remove(GetById(t.RoleId));
+
+			if (roles.Any(x => x.RoleName.ToLower().Equals(t.RoleName.ToLower()))) return -2;
+
+			var currentItem = GetById(t.RoleId);
+			currentItem.Description = t.Description;
+			currentItem.RoleName = t.RoleName;
+			context.Entry(currentItem).State = EntityState.Modified;
 			return context.SaveChanges();
 		}
 
 		public int Delete(int id)
 		{
+			var roleActionList = context.RoleActions.ToList();
+			var usersList = context.Users.ToList();
 			var currentItem = context.Roles.Find(id);
+
+			if (usersList.Any(x => x.RoleId == currentItem.RoleId)) return -1;
+
+			if (roleActionList.Any(x => x.RoleId == currentItem.RoleId)) return -1;
+
 			if(currentItem!=null)context.Roles.Remove(currentItem);
 			return context.SaveChanges();
 		}

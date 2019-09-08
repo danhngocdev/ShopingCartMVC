@@ -19,11 +19,14 @@ namespace Repository
 
         public int Delete(int id)
         {
-            var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
+			var productList = context.Products.ToList();
+			var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
+			if (productList.Any(x => x.Category_ID == id)) return -1;
+            
             if (item.Status == false)
             {
                 context.Categories.Remove(item);
-                context.SaveChanges();
+              return  context.SaveChanges();
             }
             return 0;
         }
@@ -61,8 +64,13 @@ namespace Repository
 
         public int Insert(Category t)
         {
-            t.CreatedDate = DateTime.Now;
+			var categories = context.Categories.ToList();
+
+			if (categories.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
+
+			t.CreatedDate = DateTime.Now;
             context.Categories.Add(t);
+
             return context.SaveChanges();
         }
 
@@ -73,8 +81,18 @@ namespace Repository
 
         public int Update(Category t)
         {
-            t.ModifileDate = DateTime.Now;
-            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+			var currentItem = context.Categories.Find(t.ID);
+			var categories = context.Categories.ToList();
+			categories.Remove(currentItem);
+
+			if (categories.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
+
+			currentItem.ModifileDate = DateTime.Now;
+			currentItem.Name = t.Name;
+			currentItem.ParentID = t.ParentID;
+			currentItem.Slug = t.Slug;
+			currentItem.Status = t.Status;
+            context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }
 

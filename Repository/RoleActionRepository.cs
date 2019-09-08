@@ -19,7 +19,7 @@ namespace Repository
 			this.context = context;
 		}
 
-		public List<Action> ListActions(int id)
+		public IEnumerable<Action> ListActions(int id, string searchString, int Page, int Pagesize)
 		{
 			var currentActions = context.RoleActions.Where(x => x.RoleId.Equals(id)).ToList();
 			var listActions = context.Actions.ToList();
@@ -27,21 +27,30 @@ namespace Repository
 			{
 				listActions.Remove(context.Actions.SingleOrDefault(x=>x.ActionId.Equals(item.ActionId)));
 			}
-
-			return listActions;
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				listActions = listActions.Where(x => x.ActionName.Contains(searchString)).ToList();
+			}
+		
+			return listActions.OrderByDescending(x => x.ActionId).ToPagedList(Page, Pagesize);
 		}
 
-		public List<Action> ListCurrentRole(int id)
+		public IEnumerable<Action> ListCurrentRole(int id, string searchString, int Page, int Pagesize)
 		{
 			var currentActions = context.RoleActions.Where(x => x.RoleId.Equals(id)).ToList();
-			List<Action> listActions = new List<Action>();
-			if (currentActions.Count==0) return new List<Action>();
+			var listActions = new List<Action>();
+			if (currentActions.Count==0) return listActions.OrderByDescending(x => x.ActionId).ToPagedList(Page, Pagesize);
 			foreach (var item in currentActions)
 			{
 				var current = context.Actions.SingleOrDefault(s => s.ActionId.Equals(item.ActionId));
 				listActions.Add(current);
 			}
-			return listActions;
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				listActions = listActions.Where(x => x.ActionName.Contains(searchString)).ToList();
+			}
+			var list = context.Actions.ToList();
+			return listActions.OrderByDescending(x => x.ActionId).ToPagedList(Page, Pagesize);
 		}
 
 		public int AddActions(List<RoleAction> items)

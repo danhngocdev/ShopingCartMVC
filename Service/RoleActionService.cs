@@ -20,14 +20,14 @@ namespace Service
 			repository = new RoleActionRepository(new DBEntityContext());
 		}
 
-		public List<Action> ListActions(int id)
+		public IEnumerable<Action> ListActions(int id, string searchString, int Page, int Pagesize)
 		{
-			return repository.ListActions(id);
+			return repository.ListActions(id,searchString,Page,Pagesize);
 		}
 
-		public List<Action> ListCurrentRole(int id)
+		public IEnumerable<Action> ListCurrentRole(int id, string searchString, int Page, int Pagesize)
 		{
-			return repository.ListCurrentRole(id);
+			return repository.ListCurrentRole(id, searchString, Page, Pagesize);
 		}
 
 		public int AddActions(List<RoleAction> items)

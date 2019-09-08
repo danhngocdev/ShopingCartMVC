@@ -215,14 +215,14 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MAIN NAVIGATION</li>
-					<li class="treeview">
+					<li>
 						<a href="https://localhost:44347/Admin/Category">
 							<i class="fa fa-dashboard"></i> <span>Quản Lý Danh mục</span>
 						</a>
 
 					</li>
-					<li class="treeview">
-						<a href="https://localhost:44347/Admin/Product">
+					<li>
+						<a href="@Url.Action("Index","product")">
 							<i class="fa fa-files-o"></i>
 							<span>Quản lý sản phẩm</span>
 							<span class="pull-right-container">
@@ -253,11 +253,10 @@
 
 						</ul>
 					</li>
-					<li class="treeview">
+					<li>
 						<a href="https://localhost:44347/Admin/slider">
 							<i class="fa fa-laptop"></i>
 							<span>Quản lý slider</span>
-
 						</a>
 					</li>
 					<li class="treeview">
@@ -533,6 +532,26 @@
 			 immediately after the control sidebar -->
 		<div class="control-sidebar-bg"></div>
 	</div>
+	
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 style="color:red" class="modal-title">Warning</h4>
+					</div>
+					<div class="modal-body">
+						@TempData["data"]
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- ./wrapper -->
 	<!-- jQuery 3 -->
 	<script src="~/Asset/Backend/bower_components/jquery/dist/jquery.min.js"></script>
@@ -548,7 +567,6 @@
 	<script src="~/Asset/Backend/dist/js/demo.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/tinymce.min.js"></script>
 	<script src="~/Asset/Backend/vendor/tinymce/config.js"></script>
-
 	<script src="~/Asset/Backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script>
 		$(function () {
@@ -601,14 +619,14 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-
-			if ('@TempData["message"]' == "Added") {
+			if ('@TempData["message"]' == "Added" ) {
 				$(".alert-success").show();
-				window.setTimeout(function() {
-					$(".alert-success").slideUp(1000, function(){
+				window.setTimeout(function () {
+					$(".alert-success").slideUp(1000, function () {
 						$(this).remove();
 					});
-				}, 5000);
+					//window.location.reload();
+				}, 3000);
 			}
 			if ('@TempData["message"]' == 'false') {
 				$(".alert-danger").show();
@@ -616,8 +634,13 @@
 					$(".alert-danger").slideUp(1000, function(){
 						$(this).remove();
 					});
-				}, 5000);
+				}, 3000);
 			}
+			if ('@TempData["message"]' == 'Ex') {
+				setTimeout(function () {
+					$("#exampleModalCenter").modal();
+				}, 200);
+			};
 		});
 	</script>
 

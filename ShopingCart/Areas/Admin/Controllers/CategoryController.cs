@@ -32,11 +32,16 @@ namespace ShopingCart.Areas.Admin.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-
 				var result = category.Insert(c);
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
+				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "category Name Đã Tồn Tại");
+					ViewBag.ParentID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
 				}
 				else
 				{
@@ -50,7 +55,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpGet]
 		public ActionResult Edit(int id)
 		{
-			ViewBag.ParentID = new SelectList(category.GetAll().Where(s=> s.ParentID == null), "ID", "Name", category.GetById(id).ParentID);
+			ViewBag.ParentID = new SelectList(category.GetAll().Where(s => s.ParentID == null), "ID", "Name", category.GetById(id).ParentID);
 			return View(category.GetById(id));
 		}
 		[HttpPost]
@@ -64,6 +69,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "Added";
 				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "category Name Đã Tồn Tại");
+					ViewBag.ParentID = new SelectList(category.GetAll().Where(s => s.ParentID == null), "ID", "Name", category.GetById(c.ID).ParentID);
+					return View();
+				}
 				else
 				{
 					TempData["message"] = "false";
@@ -76,7 +87,20 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 		public ActionResult Delete(int id)
 		{
-			category.Delete(id);
+			var result = category.Delete(id);
+			if (result > 0)
+			{
+				TempData["message"] = "Added";
+			}
+			else if (result == -1)
+			{
+				TempData["message"] = "Ex";
+				TempData["data"] = "Role đang được sử dụng! Bạn không thể xóa";
+			}
+			else
+			{
+				TempData["message"] = "false";
+			}
 			return RedirectToAction("Index");
 		}
 

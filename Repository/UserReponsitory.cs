@@ -58,7 +58,11 @@ namespace Repository
 
         public int Insert(User user)
         {
-            user.Role = context.Roles.Where(s => s.RoleId == user.RoleId).SingleOrDefault();
+			var userList = context.Users.ToList();
+			if (userList.Any(x => x.UserName.ToLower().Equals(user.UserName.ToLower()))) return -1;
+			user.Role = context.Roles.Where(s => s.RoleId == user.RoleId).SingleOrDefault();
+			user.Status = true;
+			user.CreatedDate = DateTime.Now;
             context.Users.Add(user);
             return context.SaveChanges();
 
@@ -93,7 +97,11 @@ namespace Repository
 
 		public int Update(User t)
 		{
+			var userList = context.Users.ToList();
 			var currentItem = context.Users.Find(t.UserId);
+			userList.Remove(currentItem);
+			if (userList.Any(x => x.UserName.ToLower().Equals(t.UserName.ToLower()))) return -1;
+			
 			if (currentItem != null)
 			{
 				currentItem.RoleId = t.RoleId;
@@ -104,6 +112,8 @@ namespace Repository
 				currentItem.Phone = t.Phone;
 				currentItem.Status = t.Status;
 				currentItem.UserName = t.UserName;
+				currentItem.FullName = t.FullName;
+				currentItem.ConfirmPassword = t.Password;
 			}
 			context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
 		return	context.SaveChanges();

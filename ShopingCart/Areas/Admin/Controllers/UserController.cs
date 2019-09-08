@@ -20,7 +20,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             userService = new UserService();
         }
         // GET: Admin/User
-        public ActionResult Index(string searchString, int Page = 1, int PageSize = 2)
+        public ActionResult Index(string searchString, int Page = 1, int PageSize = 15)
         {
 	        ViewBag.searchString = searchString;
 			return View(userService.Search(searchString,Page,PageSize));
@@ -54,8 +54,10 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpGet]
 		public ActionResult Edit(int id)
 		{
-			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
-			return View(userService.GetById(id));
+			var user = userService.GetById(id);
+			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName",user.RoleId);
+			ViewBag.user = userService.GetById(id);
+			return View(user);
 		}
 		[HttpPost]
 		[ValidateInput(false)]
@@ -69,6 +71,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
+				}else if (result == -1)
+				{
+					ModelState.AddModelError("Username", "Tài Khoản Đã Tồn Tại");
+					ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
+					return View();
 				}
 				else
 				{
@@ -77,8 +84,8 @@ namespace ShopingCart.Areas.Admin.Controllers
 				return RedirectToAction("Index");
 			}
 			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
+			ViewBag.user = userService.GetById(user.UserId);
 			return View();
-
 		}
 
 	}

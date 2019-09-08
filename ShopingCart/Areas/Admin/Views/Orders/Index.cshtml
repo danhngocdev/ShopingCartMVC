@@ -59,7 +59,22 @@
 								@Html.DisplayFor(modelItem => item.Created)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Status)
+								@if (item.Status == 0)
+								{
+										 <label class="btn btn-primary">Đang chờ</label>
+								}
+								else if (item.Status == 1)
+								{
+									 <label class="btn btn-primary">Xác Nhận</label>
+								}
+								else if (ViewBag.Order.Status == 2)
+								{
+									 <label class="btn btn-primary">Đang giao</label>
+								}
+								else
+								{
+									 <label class="btn btn-success">Hoàn thành</label>
+								}
 							</td>
 							<td>
 

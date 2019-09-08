@@ -21,8 +21,5 @@ namespace Repository.Interface
         IEnumerable<T> ListProductSale();
         IEnumerable<T> ListProductNew();
         Contact GetContact();
-
-
-
     }
 }

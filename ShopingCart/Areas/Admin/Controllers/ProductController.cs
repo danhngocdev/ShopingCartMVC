@@ -19,10 +19,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 			product = new ProductService();
 		}
 		// GET: Admin/Category
-		[HasCredential(ActionId = 1)]
-		public ActionResult Index()
+		//[HasCredential(ActionId = 1)]
+		public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
 		{
-			return View(product.GetAll());
+			ViewBag.searchString = searchString;
+			return View(product.Search(searchString,Page,PageSize));
 		}
 		[HttpGet]
 		public ActionResult Create()
@@ -46,6 +47,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
+				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "Product Name Đã Tồn Tại");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
 				}
 				else
 				{
@@ -74,6 +81,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "Added";
 				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "Product Name Đã Tồn Tại");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
+				}
 				else
 				{
 					TempData["message"] = "false";
@@ -90,6 +103,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 			if (result > 0)
 			{
 				TempData["message"] = "Added";
+			}
+			else if (result == -1)
+			{
+				TempData["message"] = "Ex";
+				TempData["data"] = "Role đang được sử dụng! Bạn không thể xóa";
 			}
 			else
 			{

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Model.Action>
+﻿@model PagedList.IPagedList<Model.Action>
+@using PagedList.Mvc
+
 @{
 	ViewBag.Title = "DetailRole";
 	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -11,8 +13,21 @@
 			<li class="active"><a href="@Url.Action("DetailRole", "Roles", new { id = @ViewBag.RoleId })">Current Action in Roles</a></li>
 			<li><a href="@Url.Action("Actions", "Roles", new { id = @ViewBag.RoleId })">List Action</a></li>
 		</ul>
-		<h1 style="text-align:center">List Action Detail</h1>
+		<h1 style="text-align:center">List Action Detail in Role @ViewBag.Role.RoleName</h1>
+		@using (Html.BeginForm("DetailRole", "Roles", FormMethod.Get))
+		{
+			<div class="row">
+				<div class="col-md-2">
+					<input type="text" placeholder="Search Actions Name" name="searchString" value="@ViewBag.searchString" />
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn-primary" type="submit">Tìm kiếm</button>
+				</div>
+				<div class="col-md-6">
 
+				</div>
+			</div>
+		}
 		@using (@Html.BeginForm("RemoveActions", "Roles", FormMethod.Post))
 		{
 
@@ -49,8 +64,10 @@
 				</table>
 			</div>
 		}
+		@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
 		<div>
 			<a class="btn btn-primary" href="@Url.Action("Index")">Back to List</a>
 		</div>
+
 	</div>
 </div>

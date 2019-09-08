@@ -51,6 +51,7 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="FeedBackService.cs" />
+    <Compile Include="FooterService.cs" />
     <Compile Include="Interface\ILoginService.cs" />
     <Compile Include="Interface\IOrderDetailService.cs" />
     <Compile Include="Interface\IRoleActionService.cs" />

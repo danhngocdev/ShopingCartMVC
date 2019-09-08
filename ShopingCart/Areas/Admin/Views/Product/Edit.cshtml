@@ -46,7 +46,7 @@
 					<div class="form-group">
 						@Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label col-md-2" })
 						<div class="col-md-10">
-							@Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.EditorFor(model => model.Images, new { htmlAttributes = new { data_multiple = "false", @class = "form-control uploadfile" } })
 							@Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
 						</div>
 					</div>
@@ -78,7 +78,7 @@
 					<div class="form-group">
 						@Html.LabelFor(model => model.MoreImages, htmlAttributes: new { @class = "control-label col-md-2" })
 						<div class="col-md-10">
-							@Html.EditorFor(model => model.MoreImages, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.EditorFor(model => model.MoreImages, new { htmlAttributes = new { data_multiple = "true", @class = "form-control uploadfile" } })
 							@Html.ValidationMessageFor(model => model.MoreImages, "", new { @class = "text-danger" })
 						</div>
 					</div>
@@ -124,3 +124,33 @@
 			</div>
 		</div>
 </div>
+@section Scripts {
+			<script src="~/Asset/ckeditor/ckeditor.js"></script>
+			<script src="~/Asset/ckfinder/ckfinder.js"></script>
+			<script>
+				$(function () {
+					CKEDITOR.replace("Content");
+					$(".uploadfile").click(function () {
+						var ip = $(this);
+						var finder = new CKFinder();
+						finder.selectActionFunction = function (url, file, files) {
+							if (ip.data("multiple") == true) {
+								var imgs = "";
+								$.each(files, function () {
+									imgs += $(this)[0].url + ";"
+									ip.after("<img src='" + $(this)[0].url + "' width='75px'/>");
+								})
+								ip.val(imgs);
+							} else {
+								ip.val(url);
+								ip.after("<img src='" + url + "' width='75px'/>");
+							}
+
+						}
+						finder.popup();
+
+					});
+
+				})
+			</script>
+		}

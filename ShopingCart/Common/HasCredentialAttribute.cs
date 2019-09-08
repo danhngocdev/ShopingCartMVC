@@ -27,6 +27,13 @@ namespace ShopingCart.Common
 
 			return false;
 		}
+		protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+		{
+			filterContext.Result = new ViewResult
+			{
+				ViewName = "~/Areas/Admin/Views/Shared/Error401.cshtml"
+			};
+		}
 		private List<int> GetCredentialByLoggedInUser( )
 		{
 			var credentials = (List<int>)HttpContext.Current.Session[CommonConstants.SESSION_CREDENTIALS];

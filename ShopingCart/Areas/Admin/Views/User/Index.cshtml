@@ -8,12 +8,12 @@
 
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title">Quản Lý User</h3>
+		<h2 style="text-align:center" >Quản Lý User</h2>
 		@using (Html.BeginForm("Index", "User", FormMethod.Get))
 		{
 			<div class="row">
 				<div class="col-md-2">
-					<input type="text" name="searchString" value="@ViewBag.searchString" />
+					<input type="text" placeholder="Search for full name" name="searchString" value="@ViewBag.searchString" />
 				</div>
 				<div class="col-md-2">
 					<button class="btn btn-primary" type="submit">Tìm kiếm</button>
@@ -35,7 +35,7 @@
 					<th>
 						UserName
 					</th>
-					
+
 					<th>
 						CreatedDate
 					</th>
@@ -69,7 +69,7 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.UserName)
 					</td>
-					
+
 					<td>
 						@Html.DisplayFor(modelItem => item.CreatedDate)
 					</td>
@@ -92,15 +92,15 @@
 						@Html.DisplayFor(modelItem => item.Status)
 					</td>
 					<td>
-						@Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
-						@Html.ActionLink("Details", "Details", new { id = item.UserId }) |
-						@Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+						<a class="btn btn-primary" style="margin-left:30px;font-size:10px;" href="@Url.Action("Edit", new { id=item.UserId })"><i class="fa fa-fw  fa-pencil"></i></a>
+					
 					</td>
 				</tr>
 			}
-			
+
 		</table>
+		@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
 	</div>
 	<!-- /.box-body -->
 </div>
-@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
+
