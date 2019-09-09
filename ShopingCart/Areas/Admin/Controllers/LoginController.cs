@@ -14,8 +14,10 @@ namespace ShopingCart.Areas.Admin.Controllers
 	{
 		private LoginService loginService;
 		private UserService userService;
+		private RoleService roleService;
 		public LoginController()
 		{
+			roleService=new RoleService();
 			loginService = new LoginService();
 			userService = new UserService();
 		}
@@ -38,6 +40,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 					{
 						ModelState.AddModelError("", "Tài khoản của bạn hiện đang bị khóa");
 						return View("Index"); 
+					}
+
+					if (roleService.GetById(user.RoleId).RoleName.ToLower().Equals("member"))
+					{
+						ModelState.AddModelError("", "Tài khoản của bạn không có quyền truy cập vào trang admin");
+						return View("Index");
 					}
 					Session.Add(CommonConstants.SESSION_CREDENTIALS, loginService.GetListAction(user.UserName));
 					var userSession = new LoginModel

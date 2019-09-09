@@ -627,32 +627,33 @@
 		})
 	</script>
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			if ('@TempData["message"]' == "Added" ) {
-				$(".alert-success").show();
-				window.setTimeout(function () {
-					$(".alert-success").slideUp(1000, function () {
-						$(this).remove();
-					});
-					//window.location.reload();
-				}, 3000);
-			}
-			if ('@TempData["message"]' == 'false') {
-				$(".alert-danger").show();
-				window.setTimeout(function() {
-					$(".alert-danger").slideUp(1000, function(){
-						$(this).remove();
-					});
-				}, 3000);
-			}
-			if ('@TempData["message"]' == 'Ex') {
-				setTimeout(function () {
-					$("#exampleModalCenter").modal();
-				}, 200);
-			};
-		});
-	</script>
+<script type="text/javascript">
+	
+	$(function () {
+		if ('@TempData["message"]' == "Added" ) {
+			$(".alert-success").show();
+			window.setTimeout(function () {
+				$(".alert-success").slideUp(1000, function () {
+					$(this).remove();
+				});
+				//window.location.reload();
+			}, 3000);
+		}
+		if ('@TempData["message"]' == 'false') {
+			$(".alert-danger").show();
+			window.setTimeout(function() {
+				$(".alert-danger").slideUp(1000, function(){
+					$(this).remove();
+				});
+			}, 3000);
+		}
+		if ('@TempData["message"]' == 'Ex') {
+			setTimeout(function () {
+				$("#exampleModalCenter").modal();
+			}, 200);
+		};
+	});
+</script>
 
 </body>
 </html>

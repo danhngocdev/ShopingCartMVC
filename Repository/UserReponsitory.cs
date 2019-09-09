@@ -58,7 +58,7 @@ namespace Repository
         {
 			var userList = context.Users.ToList();
 			if (userList.Any(x => x.UserName.ToLower().Equals(user.UserName.ToLower()))) return -1;
-			var currentRole = context.Roles.OrderBy(x=>x.RoleId).FirstOrDefault();
+			var currentRole = context.Roles.FirstOrDefault(x=>x.RoleName.ToLower().Equals("member"));
 			if (currentRole != null)
 			{
 				var currentUser=new User
