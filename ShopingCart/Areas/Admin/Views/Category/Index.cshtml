@@ -5,7 +5,7 @@
 	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="box">
-	<h2 style="text-align:center">Managerment Categories</h2>
+	<h2 style="text-align:center">Quản lý danh mục</h2>
 	<p>
 		<a class="btn btn-primary" href="@Url.Action("Create")">Create New</a>
 	</p>
@@ -17,19 +17,19 @@
 						@Html.DisplayNameFor(model => model.ID)
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.Name)
+						Tên
 					</th>
 					<th>
 						@Html.DisplayNameFor(model => model.Slug)
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.Status)
+						Trạng thái
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.CreatedDate)
+						Ngày tạo
 					</th>
 					<th>
-						@Html.DisplayNameFor(model => model.ModifileDate)
+						Ngày sửa
 					</th>
 					<th></th>
 				</tr>
