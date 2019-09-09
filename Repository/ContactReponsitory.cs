@@ -54,23 +54,6 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-   
-
-        public IEnumerable<Contact> ListProductHot()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Contact> ListProductNew()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Contact> ListProductSale()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Login(string username, string password)
         {
             throw new NotImplementedException();

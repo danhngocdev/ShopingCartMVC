@@ -17,9 +17,7 @@ namespace Service.Interface
         T GetById(int id);
         T GetByUserName(string UserName);
         bool Login(string username, string password);
-        IEnumerable<T> ListProductHot();
-        IEnumerable<T> ListProductSale();
-        IEnumerable<T> ListProductNew();
+      
         Contact GetContact();
     }
 }

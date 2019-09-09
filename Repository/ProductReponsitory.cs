@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class ProductReponsitory : IRepository<Product>, IDisposable
+    public class ProductReponsitory : IRepository<Product>, IDisposable, IListProduct<Product>
     {
         private DBEntityContext context;
         public ProductReponsitory(DBEntityContext context)
@@ -118,6 +118,12 @@ namespace Repository
         public Contact GetContact()
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> ListProductGetByCategory(int id, int pageIndex =1, int pageSize =2)
+        {
+            var total = context.Products.Where(x => x.Category_ID == id).Count();
+            return context.Products.Where(x => x.Category_ID == id).OrderByDescending(x=>x.Created).Skip((pageIndex -1) *pageIndex).Take(pageSize).ToList();
         }
     }
 }

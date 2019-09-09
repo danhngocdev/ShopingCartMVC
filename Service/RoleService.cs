@@ -58,20 +58,7 @@ public	class RoleService:IServices<Role>
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Role> ListProductHot()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Role> ListProductSale()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Role> ListProductNew()
-		{
-			throw new NotImplementedException();
-		}
+		
 
 		public Contact GetContact()
 		{

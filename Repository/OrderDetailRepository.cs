@@ -104,20 +104,7 @@ namespace Repository
 			return 1;
 		}
 
-		public IEnumerable<OrderDetail> ListProductHot()
-		{
-			throw new NotImplementedException();
-		}
 
-		public IEnumerable<OrderDetail> ListProductNew()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<OrderDetail> ListProductSale()
-		{
-			throw new NotImplementedException();
-		}
 
 		public bool Login(string username, string password)
 		{

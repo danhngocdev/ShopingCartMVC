@@ -55,22 +55,6 @@ namespace Repository
 			context.Orders.Add(t);
 		return	context.SaveChanges();
 		}
-
-		public IEnumerable<Order> ListProductHot()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Order> ListProductNew()
-		{
-			throw new NotImplementedException();
-		}
-
-		public IEnumerable<Order> ListProductSale()
-		{
-			throw new NotImplementedException();
-		}
-
 		public bool Login(string username, string password)
 		{
 			throw new NotImplementedException();

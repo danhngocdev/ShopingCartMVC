@@ -26,17 +26,27 @@ namespace ShopingCart.Controllers
             ViewBag.ListProduct = productService.GetAll();
             return View();
         }
-        public ActionResult CategoryViewDetail(int id)
+        public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 1)
         {
+
             ViewBag.ListCategory = categoryService.GetAll();
+
+            var total = productService.GetAll().Count();
             var category = categoryService.GetById(id);
-            ViewBag.category = category;
-            List<Product> lst = new List<Product>();
-            using (var context = new DBEntityContext())
-            {
-                lst = context.Products.Where(s => s.Category_ID == id).ToList();
-            }
-            return View(lst);
+            ViewBag.Category = category;
+            var model = productService.ListProductGetByCategory(id,pageIndex,pageSize);
+            ViewBag.Total = total;
+            ViewBag.Page = pageIndex;
+            int maxPage = 5;
+            int totalPage = 0;
+            totalPage = (int)Math.Ceiling((double)(total / pageSize));
+            ViewBag.TotalPage = totalPage;
+            ViewBag.Maxpage = maxPage;
+            ViewBag.First = 1;
+            ViewBag.Last = totalPage;
+            ViewBag.Next = pageIndex + 1;
+            ViewBag.Prev = pageIndex - 1;
+            return View(model);
         }
         public ActionResult Detail(int id)
         {

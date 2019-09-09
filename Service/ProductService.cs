@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public class ProductService : IServices<Product>
+    public class ProductService : IServices<Product>, IListProductService<Product>
     {
         private IRepository<Product> repository;
+        private IListProduct<Product> rep;
         public ProductService()
         {
+            rep = new ProductReponsitory(new DBEntityContext());
             repository = new ProductReponsitory(new DBEntityContext());
         }
         public int Delete(int id)
@@ -51,20 +53,25 @@ namespace Service
             return repository.Insert(t);
         }
 
+        public IEnumerable<Product> ListProductGetByCategory(int id, int pageIndex, int pageSize)
+        {
+            return rep.ListProductGetByCategory(id,pageIndex,pageSize);
+        }
+
         public IEnumerable<Product> ListProductHot()
         {
-            return repository.ListProductHot();
+            return rep.ListProductHot();
         }
 
         public IEnumerable<Product> ListProductNew()
         {
-            return repository.ListProductNew();
+            return rep.ListProductNew();
         }
 
         public IEnumerable<Product> ListProductSale()
         {
-            return repository.ListProductSale();
 
+            return rep.ListProductSale();
         }
 
         public bool Login(string username, string password)

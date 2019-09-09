@@ -48,20 +48,7 @@ namespace Service
             return repository.Insert(t);
         }
 
-        public IEnumerable<FeedBack> ListProductHot()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<FeedBack> ListProductNew()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<FeedBack> ListProductSale()
-        {
-            throw new NotImplementedException();
-        }
+ 
 
         public bool Login(string username, string password)
         {
