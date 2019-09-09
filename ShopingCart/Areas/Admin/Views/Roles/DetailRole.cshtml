@@ -64,7 +64,7 @@
 				</table>
 			</div>
 		}
-		@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
+		@Html.PagedListPager(Model, Page => Url.Action("DetailRole", new { Page, @searchString = @ViewBag.searchString }))
 		<div>
 			<a class="btn btn-primary" href="@Url.Action("Index")">Back to List</a>
 		</div>
