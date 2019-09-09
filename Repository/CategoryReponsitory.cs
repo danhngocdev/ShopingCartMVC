@@ -20,15 +20,15 @@ namespace Repository
         public int Delete(int id)
         {
 			var productList = context.Products.ToList();
-			var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
+			var item = context.Categories.FirstOrDefault(c => c.ID == id);
 			if (productList.Any(x => x.Category_ID == id)) return -1;
             
-            if (item.Status == false)
+            if ( item!=null&&item.Status == false)
             {
                 context.Categories.Remove(item);
               return  context.SaveChanges();
             }
-            return 0;
+            return -1;
         }
 
         private bool disposed = false;
@@ -59,7 +59,7 @@ namespace Repository
 
         public Category GetById(int id)
         {
-            return context.Categories.Where(c => c.ID == id).SingleOrDefault();
+            return context.Categories.FirstOrDefault(c => c.ID == id);
         }
 
         public int Insert(Category t)
@@ -86,17 +86,18 @@ namespace Repository
 			categories.Remove(currentItem);
 
 			if (categories.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
-
-			currentItem.ModifileDate = DateTime.Now;
-			currentItem.Name = t.Name;
-			currentItem.ParentID = t.ParentID;
-			currentItem.Slug = t.Slug;
-			currentItem.Status = t.Status;
+			if (currentItem != null)
+			{
+				currentItem.ModifileDate = DateTime.Now;
+				currentItem.Name = t.Name;
+				currentItem.ParentID = t.ParentID;
+				currentItem.Slug = t.Slug;
+				currentItem.Status = t.Status;
+			}
+			
             context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }
-
-        
 
         public Category GetByUserName(string UserName)
         {

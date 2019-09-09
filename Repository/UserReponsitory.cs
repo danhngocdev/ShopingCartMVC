@@ -39,8 +39,6 @@ namespace Repository
             GC.SuppressFinalize(this);
         }
 
-       
-
         public IEnumerable<User> GetAll()
         {
 	        return context.Users.ToList();
@@ -53,36 +51,53 @@ namespace Repository
 
         public User GetByUserName(string UserName)
         {
-            return context.Users.Where(s => s.UserName == UserName).SingleOrDefault();
+            return context.Users.FirstOrDefault(s => s.UserName == UserName);
         }
 
         public int Insert(User user)
         {
 			var userList = context.Users.ToList();
 			if (userList.Any(x => x.UserName.ToLower().Equals(user.UserName.ToLower()))) return -1;
-			user.Role = context.Roles.Where(s => s.RoleId == user.RoleId).SingleOrDefault();
-			user.Status = true;
-			user.CreatedDate = DateTime.Now;
-            context.Users.Add(user);
-            return context.SaveChanges();
+			var currentRole = context.Roles.OrderBy(x=>x.RoleId).FirstOrDefault();
+			if (currentRole != null)
+			{
+				var currentUser=new User
+				{
+					RoleId = currentRole.RoleId,
+					Password = user.Password,
+					UserName = user.UserName,
+					Address = user.Address,
+					CreatedDate = DateTime.Now,
+					Email = user.Email,
+					FullName = user.FullName,
+					Phone = user.Phone,
+					Status = true,
+					ConfirmPassword = user.Password,
+				};
+				context.Users.Add(currentUser);
+			}
 
+			try
+			{
+				return context.SaveChanges();
+			}
+			catch (Exception e)
+			{
+				return 0;
+			}
         }
-
-        
 
         public bool Login(string username, string password)
         {
             var res = context.Users.Count(s => s.UserName == username && s.Password == password);
             if (res>0)
             {
-
                 return true;
             }
             else
             {
                 return false;
             }
-
         }
 
 		public IEnumerable<User> Search(string searchString, int Page, int Pagesize)

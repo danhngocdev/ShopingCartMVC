@@ -9,7 +9,7 @@ using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class ProductController : Controller
+	public class ProductController : BaseController
 	{
 		private ProductService product;
 		private CategoryService category;
@@ -19,25 +19,27 @@ namespace ShopingCart.Areas.Admin.Controllers
 			product = new ProductService();
 		}
 		// GET: Admin/Category
-		//[HasCredential(ActionId = 1)]
+		[HasCredential(ActionId = 9)]
 		public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
 		{
 			ViewBag.searchString = searchString;
 			return View(product.Search(searchString,Page,PageSize));
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 10)]
 		public ActionResult Create()
 		{
 			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
 			return View();
 		}
-		public ActionResult Detail(int id)
-		{
-			return View(product.GetById(id));
-		}
+		//public ActionResult Detail(int id)
+		//{
+		//	return View(product.GetById(id));
+		//}
 		[HttpPost]
 		[ValidateInput(false)]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 10)]
 		public ActionResult Create(Product p)
 		{
 			if (ModelState.IsValid)
@@ -58,12 +60,14 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "false";
 				}
+				
 				return RedirectToAction("Index");
 			}
 			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
 			return View();
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 11)]
 		public ActionResult Edit(int id)
 		{
 			ViewBag.Category_ID = new SelectList(product.GetAll(), "ID", "Name", product.GetById(id).Category_ID);
@@ -72,6 +76,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpPost]
 		[ValidateInput(false)]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 11)]
 		public ActionResult Edit(Product p)
 		{
 			if (ModelState.IsValid)
@@ -97,6 +102,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View();
 
 		}
+		[HasCredential(ActionId = 12)]
 		public ActionResult Delete(int id)
 		{
 			var result = product.Delete(id);

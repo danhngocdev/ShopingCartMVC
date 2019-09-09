@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ShopingCart.Common;
 
 namespace ShopingCart.Controllers
 {
@@ -27,6 +28,7 @@ namespace ShopingCart.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				user.Password = Encryptor.MD5Hash(user.Password);
 				var result = userService.Insert(user);
 				if (result > 0)
 				{
@@ -41,8 +43,10 @@ namespace ShopingCart.Controllers
 				{
 					TempData["message"] = "false";
 				}
+				return RedirectToAction("Index","Home");
 			}
-			return RedirectToAction("Index");
+			return View();
+			
 		}
 	}
 }

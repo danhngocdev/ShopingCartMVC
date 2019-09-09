@@ -10,7 +10,7 @@ using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
 	    private RoleService roleService;
         private UserService userService;
@@ -19,8 +19,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 			roleService=new RoleService();
             userService = new UserService();
         }
-        // GET: Admin/User
-        public ActionResult Index(string searchString, int Page = 1, int PageSize = 15)
+		// GET: Admin/User
+		[HasCredential(ActionId = 23)]
+		public ActionResult Index(string searchString, int Page = 1, int PageSize = 15)
         {
 	        ViewBag.searchString = searchString;
 			return View(userService.Search(searchString,Page,PageSize));
@@ -52,6 +53,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View();
         }
 		[HttpGet]
+		[HasCredential(ActionId = 24)]
 		public ActionResult Edit(int id)
 		{
 			var user = userService.GetById(id);
@@ -62,6 +64,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpPost]
 		[ValidateInput(false)]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 24)]
 		public ActionResult Edit(User user)
 		{
 			if (ModelState.IsValid)

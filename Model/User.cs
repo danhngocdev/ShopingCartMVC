@@ -11,6 +11,7 @@ namespace Model
 	public class User
 	{
 		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int UserId { get; set; }
 		[ForeignKey("Role")]
 		public int RoleId { get; set; }

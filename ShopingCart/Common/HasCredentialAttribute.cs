@@ -16,6 +16,7 @@ namespace ShopingCart.Common
 			var session = (LoginModel)HttpContext.Current.Session[CommonConstants.USER_SESSION];
 			if (session == null)
 			{
+				httpContext.Response.Redirect("Login");
 				return false;
 			}
 			List<int> privilegeLevels = this.GetCredentialByLoggedInUser(); // Call another method to get rights of the user from DB

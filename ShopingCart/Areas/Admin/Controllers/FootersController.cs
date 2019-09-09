@@ -9,24 +9,27 @@ using System.Web.Mvc;
 using DAL;
 using Model;
 using Service;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-    public class FootersController : Controller
+    public class FootersController : BaseController
     {
 		private FooterService footerService;
 		public FootersController()
 		{
 			footerService = new FooterService();
 		}
-        // GET: Admin/Footers
-        public ActionResult Index()
+		// GET: Admin/Footers
+		[HasCredential(ActionId = 5)]
+		public ActionResult Index()
         {
             return View(footerService.GetAll());
         }
 
-        // GET: Admin/Footers/Create
-        public ActionResult Create()
+		// GET: Admin/Footers/Create
+		[HasCredential(ActionId = 6)]
+		public ActionResult Create()
         {
             return View();
         }
@@ -34,7 +37,8 @@ namespace ShopingCart.Areas.Admin.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Content,Status")] Footer footer)
+        [HasCredential(ActionId = 6)]
+		public ActionResult Create([Bind(Include = "ID,Content,Status")] Footer footer)
         {
             if (ModelState.IsValid)
             {
@@ -53,8 +57,9 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View(footer);
         }
 
-        // GET: Admin/Footers/Edit/5
-        public ActionResult Edit(int id)
+		// GET: Admin/Footers/Edit/5
+		[HasCredential(ActionId = 7)]
+		public ActionResult Edit(int id)
         {
             Footer footer = footerService.GetById(id);
             if (footer == null)
@@ -69,7 +74,8 @@ namespace ShopingCart.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Content,Status")] Footer footer)
+        [HasCredential(ActionId = 7)]
+		public ActionResult Edit([Bind(Include = "ID,Content,Status")] Footer footer)
         {
             if (ModelState.IsValid)
             {
@@ -87,8 +93,9 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View(footer);
         }
 
-        // GET: Admin/Footers/Delete/5
-        public ActionResult Delete(int id)
+		// GET: Admin/Footers/Delete/5
+		[HasCredential(ActionId = 8)]
+		public ActionResult Delete(int id)
         {
 			var result= footerService.Delete(id);
 			if (result > 0)

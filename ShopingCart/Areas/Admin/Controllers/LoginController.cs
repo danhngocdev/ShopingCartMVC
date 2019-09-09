@@ -55,6 +55,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 			}
 			return View("Index");
 		}
+		public ActionResult LogOut()
+		{
+			Session[CommonConstants.USER_SESSION] = null;
+			return Redirect("/Admin/Login");
+		}
 
 	}
 }

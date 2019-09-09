@@ -27,15 +27,15 @@ namespace Repository
 
 			if (wishList.Any(x => x.ProductID == id)) return -1;
 
-			var item = context.Products.Where(c => c.Id == id).SingleOrDefault();
+			var item = context.Products.FirstOrDefault(c => c.Id == id);
 
-			if (item.Status == false)
+			if (item!=null&& item.Status == false)
 			{
 				context.Products.Remove(item);
 				return context.SaveChanges();
 			}
 
-			return 0;
+			return -1;
 		}
 
 		private bool disposed = false;
@@ -58,7 +58,7 @@ namespace Repository
 
 		public Product GetById(int id)
 		{
-			return context.Products.Where(s => s.Id == id).FirstOrDefault();
+			return context.Products.FirstOrDefault(s => s.Id == id);
 		}
 
 		public Product GetByUserName(string UserName)
@@ -86,18 +86,22 @@ namespace Repository
 			var currentItem = context.Products.Find(t.Id);
 			productList.Remove(currentItem);
 			if (productList.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
-			currentItem.ModifileDate = DateTime.Now;
-			currentItem.Images = t.Images;
-			currentItem.MoreImages = t.MoreImages;
-			currentItem.Name = t.Name;
-			currentItem.Price = t.Price;
-			currentItem.Sale_Price = t.Sale_Price;
-			currentItem.Slug = t.Slug;
-			currentItem.Status = t.Status;
-			currentItem.TopHot = t.TopHot;
-			currentItem.Content = t.Content;
-			currentItem.Category_ID = t.Category_ID;
-			context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+			if (currentItem != null)
+			{
+				currentItem.ModifileDate = DateTime.Now;
+				currentItem.Images = t.Images;
+				currentItem.MoreImages = t.MoreImages;
+				currentItem.Name = t.Name;
+				currentItem.Price = t.Price;
+				currentItem.Sale_Price = t.Sale_Price;
+				currentItem.Slug = t.Slug;
+				currentItem.Status = t.Status;
+				currentItem.TopHot = t.TopHot;
+				currentItem.Content = t.Content;
+				currentItem.Category_ID = t.Category_ID;
+				context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+			}
+			
 			return context.SaveChanges();
 		}
 

@@ -1,14 +1,11 @@
 ﻿using Model;
 using Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class SliderController : Controller
+	public class SliderController : BaseController
 	{
 		private SliderService sliderService;
 		public SliderController()
@@ -16,16 +13,19 @@ namespace ShopingCart.Areas.Admin.Controllers
 			sliderService = new SliderService();
 		}
 		// GET: Admin/Slider
+		[HasCredential(ActionId = 19)]
 		public ActionResult Index()
 		{
 			return View(sliderService.GetAll());
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 20)]
 		public ActionResult Create()
 		{
 			return View();
 		}
 		[HttpPost]
+		[HasCredential(ActionId = 20)]
 		public ActionResult Create(Slider s)
 		{
 			if (ModelState.IsValid)
@@ -39,15 +39,17 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "false";
 				}
-			return	RedirectToAction("Index");
+				return RedirectToAction("Index");
 			}
 			return View();
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 21)]
 		public ActionResult Edit(int id)
 		{
 			return View(sliderService.GetById(id));
 		}
+		[HasCredential(ActionId = 21)]
 		public ActionResult Edit(Slider s)
 		{
 			if (ModelState.IsValid)
@@ -61,10 +63,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "false";
 				}
-			return	RedirectToAction("Index");
+				return RedirectToAction("Index");
 			}
 			return View();
 		}
+		[HasCredential(ActionId = 22)]
 		public ActionResult Delete(int id)
 		{
 			var result = sliderService.Delete(id);

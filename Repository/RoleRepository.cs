@@ -57,9 +57,9 @@ public	class RoleRepository:IRepository<Role>
 			var usersList = context.Users.ToList();
 			var currentItem = context.Roles.Find(id);
 
-			if (usersList.Any(x => x.RoleId == currentItem.RoleId)) return -1;
+			if (usersList.Any(x => x.RoleId == id)) return -1;
 
-			if (roleActionList.Any(x => x.RoleId == currentItem.RoleId)) return -1;
+			if (roleActionList.Any(x => x.RoleId == id)) return -1;
 
 			if(currentItem!=null)context.Roles.Remove(currentItem);
 			return context.SaveChanges();

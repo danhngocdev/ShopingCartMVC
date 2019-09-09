@@ -9,10 +9,11 @@ using System.Web.Mvc;
 using DAL;
 using Model;
 using Service;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class RolesController : Controller
+	public class RolesController : BaseController
 	{
 		private RoleActionService roleActionService;
 		private RoleService roleService;
@@ -25,11 +26,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Roles
+		[HasCredential(ActionId = 13)]
 		public ActionResult Index()
 		{
 			return View(roleService.GetAll());
 		}
-
+		[HasCredential(ActionId = 17)]
 		public ActionResult DetailRole(int id, string searchString, int Page = 1, int PageSize = 10)
 		{
 			Session["RoleIdDelete"] = id;
@@ -38,7 +40,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			ViewBag.searchString = searchString;
 			return View(roleActionService.ListCurrentRole(id,searchString,Page,PageSize));
 		}
-
+		[HasCredential(ActionId = 18)]
 		public ActionResult Actions(int id, string searchString, int Page = 1, int PageSize = 10)
 		{
 			Session["RoleIdAddNew"] = id;
@@ -47,6 +49,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View(roleActionService.ListActions(id,searchString,Page,PageSize));
 		}
 		[HttpPost]
+		[HasCredential(ActionId = 18)]
 		public ActionResult AddActions(int[] checkbox)
 		{
 			int roleId = int.Parse(Session["RoleIdAddNew"].ToString());
@@ -73,6 +76,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return RedirectToAction("Actions", new { id = roleId });
 		}
 		[HttpPost]
+		[HasCredential(ActionId = 17)]
 		public ActionResult RemoveActions(int[] checkbox)
 		{
 			int roleId = int.Parse(Session["RoleIdDelete"].ToString());
@@ -100,6 +104,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return RedirectToAction("DetailRole", new { id = roleId });
 		}
 		// GET: Admin/Roles/Create
+		[HasCredential(ActionId = 14)]
 		public ActionResult Create()
 		{
 			return View();
@@ -110,6 +115,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 14)]
 		public ActionResult Create([Bind(Include = "RoleId,RoleName,Description")] Role role)
 		{
 			if (ModelState.IsValid)
@@ -135,6 +141,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Roles/Edit/5
+		[HasCredential(ActionId = 15)]
 		public ActionResult Edit(int id)
 		{
 			Role role = roleService.GetById(id);
@@ -148,6 +155,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 15)]
 		public ActionResult Edit([Bind(Include = "RoleId,RoleName,Description")] Role role)
 		{
 			if (ModelState.IsValid)
@@ -172,6 +180,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Roles/Delete/5
+		[HasCredential(ActionId = 16)]
 		public ActionResult Delete(int id)
 		{
 			var result = roleService.Delete(id);
