@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Contact
-    {
-           
-            [Key]
-            public int ID { get; set; }
-            public string Content { get; set; }
-            public bool Status { get; set; }
-        
-    }
+	public class Contact
+	{
+		[Key]
+		public int ID { get; set; }
+		public string Content { get; set; }
+		public bool Status { get; set; }
+	}
 }

@@ -29,7 +29,7 @@ namespace Repository
 			}
 			if (!string.IsNullOrEmpty(searchString))
 			{
-				listActions = listActions.Where(x => x.ActionName.ToLower().Contains(searchString)).ToList();
+				listActions = listActions.Where(x => x.ActionName.ToLower().Contains(searchString.ToLower())).ToList();
 			}
 		
 			return listActions.OrderByDescending(x => x.ActionId).ToPagedList(Page, Pagesize);
@@ -47,7 +47,7 @@ namespace Repository
 			}
 			if (!string.IsNullOrEmpty(searchString))
 			{
-				listActions = listActions.Where(x => x.ActionName.ToLower().Contains(searchString)).ToList();
+				listActions = listActions.Where(x => x.ActionName.ToLower().Contains(searchString.ToLower())).ToList();
 			}
 			var list = context.Actions.ToList();
 			return listActions.OrderByDescending(x => x.ActionId).ToPagedList(Page, Pagesize);

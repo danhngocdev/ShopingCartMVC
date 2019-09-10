@@ -45,6 +45,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		{
 			Session["RoleIdAddNew"] = id;
 			ViewBag.RoleId = id;
+			ViewBag.Role = roleService.GetById(id);
 			ViewBag.searchString = searchString;
 			return View(roleActionService.ListActions(id,searchString,Page,PageSize));
 		}
