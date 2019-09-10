@@ -9,6 +9,9 @@
 <div class="box">
 	<div class="box-header">
 		<h2 style="text-align:center" >Quản Lý thành viên</h2>
+		<p>
+			<a class="btn btn-primary" href="@Url.Action("Create")">Tạo mới</a>
+		</p>
 		@using (Html.BeginForm("Index", "User", FormMethod.Get))
 		{
 			<div class="row">
@@ -93,7 +96,8 @@
 					</td>
 					<td>
 						<a class="btn btn-primary" style="margin-left:30px;font-size:10px;" href="@Url.Action("Edit", new { id=item.UserId })"><i class="fa fa-fw  fa-pencil"></i></a>
-					
+						<a class="btn btn-danger" style="margin-left:10px;font-size:10px;" href="@Url.Action("Delete", new { id=item.UserId })"><i class="fa fa-fw fa-trash"></i></a>
+
 					</td>
 				</tr>
 			}

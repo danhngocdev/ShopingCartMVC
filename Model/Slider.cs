@@ -23,7 +23,9 @@ namespace Model
 		public string Description { get; set; }
 		[DisplayName("Trạng thái")]
 		public bool Status { get; set; }
+		[DisplayName("Ngày tạo")]
 		public DateTime? Created { get; set; }
+		[DisplayName("Ngày sửa")]
 		public DateTime? ModifileDate { get; set; }
 	}
 

@@ -11,7 +11,7 @@ using Service.Interface;
 
 namespace Service
 {
-public	class LoginService:ILoginService
+	public class LoginService : ILoginService
 	{
 		private ILoginRepository repository;
 		public LoginService()
@@ -20,7 +20,12 @@ public	class LoginService:ILoginService
 		}
 		public List<int> GetListAction(string userName)
 		{
-		return	repository.GetListAction(userName);
+			return repository.GetListAction(userName);
+		}
+
+		public int AddUser(User user)
+		{
+			return repository.AddUser(user);
 		}
 	}
 }

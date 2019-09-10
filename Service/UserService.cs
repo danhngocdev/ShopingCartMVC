@@ -21,7 +21,7 @@ namespace Service
 
 		public int Delete(int id)
 		{
-			throw new NotImplementedException();
+			return repository.Delete(id);
 		}
 
 
@@ -78,7 +78,7 @@ namespace Service
 
 		public int Update(User t)
 		{
-		return	repository.Update(t);
+			return repository.Update(t);
 		}
 	}
 }

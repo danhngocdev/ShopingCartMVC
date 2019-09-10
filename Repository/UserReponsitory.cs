@@ -19,7 +19,13 @@ namespace Repository
 		}
 		public int Delete(int id)
 		{
-			throw new NotImplementedException();
+			var wishLists = context.wishLists.ToList();
+			if (wishLists.Any(x => x.UserID.Equals(id))) return -1;
+
+			if (GetById(id).Status) return -1;
+
+			context.Users.Remove(GetById(id));
+			return context.SaveChanges();
 		}
 		private bool disposed = false;
 		public void Dispose(bool disposing)

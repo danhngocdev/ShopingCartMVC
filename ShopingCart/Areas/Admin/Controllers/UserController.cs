@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ShopingCart.Common;
@@ -14,8 +15,10 @@ namespace ShopingCart.Areas.Admin.Controllers
 	{
 		private RoleService roleService;
 		private UserService userService;
+		private LoginService loginService;
 		public UserController()
 		{
+			loginService=new LoginService();
 			roleService = new RoleService();
 			userService = new UserService();
 		}
@@ -30,6 +33,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpGet]
 		public ActionResult Create()
 		{
+			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 			return View();
 		}
 
@@ -39,7 +43,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			if (ModelState.IsValid)
 			{
 				user.Password = Encryptor.MD5Hash(user.Password);
-				var result = userService.Insert(user);
+				var result = loginService.AddUser(user);
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
@@ -66,6 +70,8 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "false";
 				}
+				ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
+
 				return RedirectToAction("Index");
 			}
 			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
@@ -77,8 +83,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 		public ActionResult Edit(int id)
 		{
 			var user = userService.GetById(id);
+			
 			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName", user.RoleId);
-			ViewBag.user = userService.GetById(id);
+			ViewBag.user = user;
 			return View(user);
 		}
 		[HttpPost]
@@ -89,7 +96,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				user.Password = Encryptor.MD5Hash(user.Password);
+				var userDetail = userService.GetById(user.UserId);
+				if(!userDetail.Password.Equals(user.Password)) user.Password = Encryptor.MD5Hash(user.Password);
+
 				var result = userService.Update(user);
 				if (result > 0)
 				{
@@ -124,5 +133,24 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View();
 		}
 
+		public ActionResult Delete(int id)
+		{
+			var result = userService.Delete(id);
+			if (result > 0)
+			{
+				TempData["message"] = "Added";
+			}
+			else if (result == -1)
+			{
+				TempData["message"] = "Ex";
+				TempData["data"] = "Tài khoản đang được sử dụng! Bạn không thể xóa";
+			}
+			else
+			{
+				TempData["message"] = "false";
+			}
+
+			return RedirectToAction("Index");
+		}
 	}
 }
