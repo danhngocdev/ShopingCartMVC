@@ -81,16 +81,23 @@ namespace ShopingCart.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult Create(WishList c)
+        public ActionResult Create(WishList c)
         {
             if(Session["User"]!= null)
             {
+                var data = (Model.User)Session["User"];
+                c.UserID = data.UserId;
                 wishListService.Insert(c);
+                return Json(new
+                {
+                    status = true
+                });
             }
            
             return Json(new
             {
-                status = true
+                status = false
+                
             });
         }
 

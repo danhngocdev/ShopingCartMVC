@@ -2,31 +2,26 @@
     init: function () {
         WishList.regEvents();
     },
-    $('.pe-7s-like').off('click').on('click', function () {
-            var listproduct = $('.quantity');
-            var list = [];
-            $.each(listproduct, function (i, item) {
-                list.push({
-                    Quantity: $(item).val(),
-                    Product: {
-                        Id: $(item).data('id')
-                    }
-                });
-            });
+    regEvents: function () {
+        $('#wishlist').off('click').on('click', function () {
+            debugger;
             $.ajax({
-                url: '/Create',
-                data: { listp: JSON.stringify(list) },
+                url: '/Home/Create',
+                data: { ProductID: $(this).data('id')},
                 dataType: 'json',
                 type: 'POST',
                 success: (res) => {
                     if (res.status == true) {
-                        window.location.href = "/";
+                        window.location.href = "/Home";
+                    } else {
+                        window.location.href = "/Login";
                     }
                 }
             })
         });
+    }
+      
     
     }
 
-}
 WishList.init();

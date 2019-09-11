@@ -47,6 +47,7 @@
                             @foreach (var item in listproducthot)
                             {
                                 var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
+                                
                                 <div class="col-md-3">
                                     <div class="product-wrapper mb-40">
                                         <div class="product-img">
@@ -60,10 +61,12 @@
                                                     <span>OOOOO</span>
                                                 }
                                             }
-                                            <div class="product-action">
-                                                <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                            </div>
+                                        <div class="product-action">
+                                            <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
+                                            <a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+                                            <a id="wishlistDisLike" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+                                        </div>
                                         </div>
                                         <div class="product-content">
                                             <div class="pro-title">
@@ -113,7 +116,7 @@
                                             <span class="new-label">New</span>
                                             <div class="product-action">
                                                 <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+                                                <a href="@url" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">

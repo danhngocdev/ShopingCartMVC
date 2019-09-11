@@ -108,7 +108,7 @@
                                 <ul class="shop-pagi display-inline">
                                     @if (cureentPage > ViewBag.First)
                                     {
-                                        <li><a href="@url?page=@ViewBag.First"><i class="fa fa-angle-left"></i>Trang Đầu</a></li>
+                                        
                                         <li><a href="@url?page=@ViewBag.Prev"><i class="fa fa-angle-left"></i></a></li>
                                     }
 
@@ -129,7 +129,7 @@
                                     @if (cureentPage < totalpage)
                                     {
                                         <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-right"></i></a></li>
-                                        <li><a href="@url?page=@ViewBag.Last"><i class="fa fa-angle-right"></i>Trang Cuối</a></li>
+                    
                                     }
 
                                 </ul>

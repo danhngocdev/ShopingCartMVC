@@ -23,6 +23,9 @@ namespace Model
 		public string Email { get; set; }
 		public string Address { get; set; }
 		public bool Status { get; set; }
+        public string RessetPasswordCode { get; set; }
 		public virtual Role Role { get; set; }
+
+       
 	}
 }

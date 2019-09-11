@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+
 
 namespace Repository
 {
@@ -91,8 +93,16 @@ namespace Repository
 
         public IEnumerable<Product> ListProductHot()
         {
+
             return context.Products.Where(s => s.TopHot == true && s.Status == true).OrderByDescending(s => s.Created).Take(8).ToList();
         }
+        //public IEnumerable<Product> ListWishLists( int id)
+        //{
+
+        //    return context.wishLists.Where(s => s.UserID == id).ToList();
+
+        //    //return context.Products.Include(x => x.w).Where(s => s.TopHot == true && s.Status == true).OrderByDescending(s => s.Created).Take(8).ToList();
+        //}
 
         public IEnumerable<Product> ListProductSale()
         {
