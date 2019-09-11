@@ -1,9 +1,5 @@
 ﻿using Model;
 using Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ShopingCart.Common;
 
@@ -37,6 +33,16 @@ namespace ShopingCart.Controllers
 				else if (result == -1)
 				{
 					ModelState.AddModelError("Username", "Tài Khoản Đã Tồn Tại");
+					return View();
+				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Email", "Email Đã Tồn Tại");
+					return View();
+				}
+				else if (result == -3)
+				{
+					ModelState.AddModelError("Phone", "Số điện thoại Đã Tồn Tại");
 					return View();
 				}
 				else

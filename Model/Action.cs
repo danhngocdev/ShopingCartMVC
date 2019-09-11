@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,10 @@ namespace Model
     {
         [Key]
         public int ActionId { get; set; }
-        public string ActionName { get; set; }
-        public string Description { get; set; }
+        [DisplayName("Tên action")]
+		public string ActionName { get; set; }
+		[DisplayName("Mô tả")]
+		public string Description { get; set; }
         public virtual ICollection<RoleAction> RoleActions { get; set; }
 
     }
