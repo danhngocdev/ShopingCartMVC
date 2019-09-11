@@ -1,15 +1,11 @@
 ﻿using Model;
 using Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class ProductController : Controller
+	public class ProductController : BaseController
 	{
 		private ProductService product;
 		private CategoryService category;
@@ -19,24 +15,27 @@ namespace ShopingCart.Areas.Admin.Controllers
 			product = new ProductService();
 		}
 		// GET: Admin/Category
-		[HasCredential(ActionId = 1)]
-		public ActionResult Index()
+		[HasCredential(ActionId = 9)]
+		public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
 		{
-			return View(product.GetAll());
+			ViewBag.searchString = searchString;
+			return View(product.Search(searchString,Page,PageSize));
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 10)]
 		public ActionResult Create()
 		{
 			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
 			return View();
 		}
-		public ActionResult Detail(int id)
-		{
-			return View(product.GetById(id));
-		}
+		//public ActionResult Detail(int id)
+		//{
+		//	return View(product.GetById(id));
+		//}
 		[HttpPost]
 		[ValidateInput(false)]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 10)]
 		public ActionResult Create(Product p)
 		{
 			if (ModelState.IsValid)
@@ -47,16 +46,24 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "Added";
 				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "Product Name Đã Tồn Tại");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
+				}
 				else
 				{
 					TempData["message"] = "false";
 				}
+				
 				return RedirectToAction("Index");
 			}
 			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
 			return View();
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 11)]
 		public ActionResult Edit(int id)
 		{
 			ViewBag.Category_ID = new SelectList(product.GetAll(), "ID", "Name", product.GetById(id).Category_ID);
@@ -65,6 +72,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HttpPost]
 		[ValidateInput(false)]
 		[ValidateAntiForgeryToken]
+		[HasCredential(ActionId = 11)]
 		public ActionResult Edit(Product p)
 		{
 			if (ModelState.IsValid)
@@ -73,6 +81,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
+				}
+				else if (result == -2)
+				{
+					ModelState.AddModelError("Name", "Product Name Đã Tồn Tại");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
 				}
 				else
 				{
@@ -84,12 +98,18 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View();
 
 		}
+		[HasCredential(ActionId = 12)]
 		public ActionResult Delete(int id)
 		{
 			var result = product.Delete(id);
 			if (result > 0)
 			{
 				TempData["message"] = "Added";
+			}
+			else if (result == -1)
+			{
+				TempData["message"] = "Ex";
+				TempData["data"] = "Role đang được sử dụng! Bạn không thể xóa";
 			}
 			else
 			{

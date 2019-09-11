@@ -1,167 +1,143 @@
-﻿
+﻿@model Model.User
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
 <div class="breadcrumb-area">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Shop</a></li>
-            <li class="active">Wishlist</li>
-        </ol>
-    </div>
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-home"></i></a></li>
+			<li><a href="#">Shop</a></li>
+			<li class="active">Wishlist</li>
+		</ol>
+	</div>
 </div>
 <!-- breadcrumb end -->
 <!-- login-area start -->
 <div class="login-area mb-50">
-    <div class="container">
-        <div class="row">
-            <div class="centered-title text-center mb-40">
-                <h2>Sign <span class="light-font">Up</span></h2>
-                <div class="clear"></div>
-                <em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
-            </div>
-            <div class="clear"></div>
-            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                <div class="billing-fields row">
-                    <p class="form-row col-sm-6">
-                        <label for="billing_first_name">First Name<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_first_name" id="billing_first_name" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-6">
-                        <label for="billing_last_name">Last Name<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_last_name" id="billing_last_name" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-12">
-                        <label for="billing_company">Company Name</label>
-                        <input type="text" name="billing_company" id="billing_company" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-6">
-                        <label for="billing_email">Email Address<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_email" id="billing_email" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-6">
-                        <label for="billing_email">Phone<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_phone" id="billing_phone" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-12">
-                        <label for="billing_country">Country<abbr title="required" class="required">*</abbr></label>
-                        <select class="billing_country" id="billing_country" name="billing_country">
-                            <option value="">Select a country</option>
-                            <option value="AX">Aland Islands</option>
-                            <option value="AF">Afghanistan</option>
-                            <option value="AL">Albania</option>
-                            <option value="DZ">Algeria</option>
-                            <option value="AS">American Samoa</option>
-                            <option value="AD">Andorra</option>
-                            <option value="AO">Angola</option>
-                            <option value="AI">Anguilla</option>
-                            <option value="AQ">Antarctica</option>
-                            <option value="AG">Antigua and Barbuda</option>
-                        </select>
-                    </p>
-                    <p class="form-row col-sm-12">
-                        <label for="billing_address_1">Address<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_address_1" id="billing_address_1" placeholder="Street address" class="form-controller">
-                        <input type="text" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-12">
-                        <label for="billing_city">Town/City<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_city" id="billing_city" class="form-controller">
-                    </p>
-                    <p class="form-row col-sm-6">
-                        <label for="billing_state">State<abbr title="required" class="required">*</abbr></label>
-                        <select class="billing_state" id="billing_state" name="billing_state">
-                            <option value="">Select a State</option>
-                            <option value="AP">Andhra Pradesh</option>
-                            <option value="AR">Arunachal Pradesh</option>
-                            <option value="DL">Delhi</option>
-                            <option value="LD">Lakshadeep</option>
-                            <option value="PY">Pondicherry (Puducherry)</option>
-                        </select>
-                    </p>
-                    <p class="form-row col-sm-6">
-                        <label for="billing_postcode">Postcode/zip<abbr title="required" class="required">*</abbr></label>
-                        <input type="text" name="billing_postcode" id="billing_postcode" placeholder="Postcode/zip" class="form-controller">
-                    </p>
-                    <p class="col-sm-12">
-                        <label class="" for="account_password">Account password<abbr title="required" class="required">*</abbr></label>
-                        <input type="password" value="" placeholder="Password" id="account_password" name="account_password" class="form-controller">
-                    </p>
-                    <p class="col-sm-12">
-                        <label class="" for="confirm_password">Confirm password<abbr title="required" class="required">*</abbr></label>
-                        <input type="password" value="" placeholder="Password" id="confirm_password" name="confirm_password" class="form-controller">
-                    </p>
-                    <p class="col-sm-12">
-                        <input type="checkbox" value="forever" id="rememberme" name="rememberme">
-                        <label class="inline" for="rememberme">I agree <a href="#">Terms & Condition</a></label>
-                    </p>
-                    <p class="col-sm-12">
-                        <input type="submit" value="Register" name="signup" class="theme-button marL0">
-                    </p>
-                </div>
-            </div>
-            <!-- /.col-md-6 -->
-            <div class="col-md-6 marTB30"></div>
-            <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="centered-title text-center mb-40">
+				<h2>Sign <span class="light-font">Up</span></h2>
+				<div class="clear"></div>
+				<em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
+			</div>
+			<div class="clear"></div>
+			@using (Html.BeginForm())
+			{
+				@Html.AntiForgeryToken()
+				<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+					<div class="billing-fields row">
+						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+						<input type="text" name="Status" value="true" hidden/>
+						<input type="text" name="UserId" value="1" hidden/>
+						<input type="text" name="RoleId" value="1" hidden/>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+							@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+						</p>
+
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+
+						</p>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+						</p>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+						</p>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+						</p>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+						</p>
+						<p class="form-row col-sm-12">
+							@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+							@Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+							@Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+						</p>
+
+						<p class="col-sm-12">
+							<input type="submit" value="Register" name="signup" class="theme-button marL0">
+						</p>
+					</div>
+				</div>
+				<!-- /.col-md-6 -->
+			}
+			<div class="col-md-6 marTB30"></div>
+			<!-- /.col-md-6 -->
+		</div>
+		<!-- /.row -->
+	</div>
 </div>
 <!-- login-area end -->
 <!-- service-area start -->
 <div class="service-area pt-70 pb-40 gray-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-world"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE SHIPPING</h3>
-                        <p>Free shipping on all UK orders</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-refresh"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE EXCHANGE</h3>
-                        <p>30 days return on all items</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-headphones"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>PREMIUM SUPPORT</h3>
-                        <p>We support online 24 hours a day</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 xs-mrg sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-gift"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>BLACK FRIDAY</h3>
-                        <p>Shocking discount on every friday</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-world"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE SHIPPING</h3>
+						<p>Free shipping on all UK orders</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-refresh"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE EXCHANGE</h3>
+						<p>30 days return on all items</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-headphones"></i>
+					</div>
+					<div class="service-title">
+						<h3>PREMIUM SUPPORT</h3>
+						<p>We support online 24 hours a day</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 xs-mrg sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-gift"></i>
+					</div>
+					<div class="service-title">
+						<h3>BLACK FRIDAY</h3>
+						<p>Shocking discount on every friday</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 

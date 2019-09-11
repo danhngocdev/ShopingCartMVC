@@ -10,8 +10,8 @@ namespace Service.Interface
 {
 	public interface IRoleActionService
 	{
-		List<Action> ListActions(int id);
-		List<Action> ListCurrentRole(int id);
+		IEnumerable<Action> ListActions(int id, string searchString, int Page, int Pagesize);
+		IEnumerable<Action> ListCurrentRole(int id, string searchString, int Page, int Pagesize);
 		int AddActions(List<RoleAction> items);
 		int RemoveActions(List<RoleAction> items);
 	}

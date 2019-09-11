@@ -37,7 +37,7 @@ namespace Repository
 
 		public Order GetById(int id)
 		{
-			return context.Orders.Where(x => x.ID == id).SingleOrDefault();
+			return context.Orders.FirstOrDefault(x => x.ID == id);
 		}
 
 		public Order GetByUserName(string UserName)
@@ -67,14 +67,18 @@ namespace Repository
 
 		public int Update(Order t)
 		{
-			var currentItem = context.Orders.Where(s=>s.ID==t.ID).FirstOrDefault();
-			currentItem.ID = t.ID;
-			currentItem.Name = t.Name;
-			currentItem.Phone = t.Phone;
-			currentItem.Status = t.Status;
-			currentItem.Email = t.Email;
-			currentItem.Created = t.Created;
-			currentItem.Address = t.Address;
+			var currentItem = context.Orders.FirstOrDefault(s => s.ID==t.ID);
+			if (currentItem != null)
+			{
+				currentItem.ID = t.ID;
+				currentItem.Name = t.Name;
+				currentItem.Phone = t.Phone;
+				currentItem.Status = t.Status;
+				currentItem.Email = t.Email;
+				currentItem.Created = t.Created;
+				currentItem.Address = t.Address;
+			}
+			
 			context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
 			return context.SaveChanges();
 		}

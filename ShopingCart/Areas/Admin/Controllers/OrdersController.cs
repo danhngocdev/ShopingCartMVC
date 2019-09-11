@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Model;
 using Service;
-using ShopingCart.Models;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-    public class OrdersController : Controller
+    public class OrdersController : BaseController
     {
 		private OrderService _orderService;
 		private OrderDetailService _orderDetailService;
@@ -23,11 +16,13 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Orders
+		[HasCredential(ActionId = 25)]
 		public ActionResult Index()
         {
             return View(_orderService.GetAll());
         }
 		[HttpPost]
+		[HasCredential(ActionId = 26)]
 		public ActionResult Details(Order order)
 		{
 			var result= _orderService.Update(order);
@@ -40,13 +35,11 @@ namespace ShopingCart.Areas.Admin.Controllers
 				TempData["message"] = "false";
 			}
 			return RedirectToAction("Details");
-			
-			
 		}
 		// GET: Admin/Orders/Details/5
+		[HasCredential(ActionId = 26)]
 		public ActionResult Details(int id)
         {  
-			
            var orderDetail = _orderDetailService.GetAll(id);
 			ViewBag.Order = _orderService.GetById(orderDetail[0].Oder_ID);
 			double total = 0;
@@ -55,14 +48,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 				total += item.ToltalPrice;
 			}
 			ViewBag.ToltalPrice = total;
-			if (orderDetail == null)
-            {
-                return HttpNotFound();
-            }
             return View(orderDetail);
         }
-
-        
-       
     }
 }

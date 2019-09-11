@@ -1,9 +1,6 @@
 ﻿using System;
 using Service.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Model;
 using Repository.Interface;
 using DAL;
@@ -21,7 +18,7 @@ namespace Service
 
 		public int Delete(int id)
 		{
-			throw new NotImplementedException();
+			return repository.Delete(id);
 		}
 
 
@@ -65,7 +62,7 @@ namespace Service
 
 		public int Update(User t)
 		{
-		return	repository.Update(t);
+			return repository.Update(t);
 		}
 	}
 }

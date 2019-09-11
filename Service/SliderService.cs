@@ -5,9 +5,7 @@ using Repository.Interface;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 namespace Service
 {
     public class SliderService : IServices<Slider>
@@ -55,14 +53,11 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Slider> Search(string searchString)
-        {
-            throw new NotImplementedException();
-        }
+      
 
 		public IEnumerable<Slider> Search(string searchString, int Page, int Pagesize)
 		{
-			throw new NotImplementedException();
+			return repository.Search(searchString, Page, Pagesize);
 		}
 
 		public int Update(Slider t)

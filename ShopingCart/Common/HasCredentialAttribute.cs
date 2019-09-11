@@ -16,6 +16,7 @@ namespace ShopingCart.Common
 			var session = (LoginModel)HttpContext.Current.Session[CommonConstants.USER_SESSION];
 			if (session == null)
 			{
+				httpContext.Response.Redirect("Login");
 				return false;
 			}
 			List<int> privilegeLevels = this.GetCredentialByLoggedInUser(); // Call another method to get rights of the user from DB
@@ -26,6 +27,13 @@ namespace ShopingCart.Common
 			}
 
 			return false;
+		}
+		protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+		{
+			filterContext.Result = new ViewResult
+			{
+				ViewName = "~/Areas/Admin/Views/Shared/Error401.cshtml"
+			};
 		}
 		private List<int> GetCredentialByLoggedInUser( )
 		{

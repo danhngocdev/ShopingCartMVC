@@ -4,8 +4,6 @@ using Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -18,7 +16,7 @@ namespace Repository
         }
         public int Delete(int id)
         {
-            var item = context.wishLists.Where(c => c.ID == id).SingleOrDefault();
+            var item = context.wishLists.SingleOrDefault(c => c.ID == id);
             context.wishLists.Remove(item);
             return context.SaveChanges();
         }

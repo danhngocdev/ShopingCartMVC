@@ -20,8 +20,5 @@ namespace Repository.Interface
         bool Login(string username,string password);
     
         Contact GetContact();
-
-
-
     }
 }

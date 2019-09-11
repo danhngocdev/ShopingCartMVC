@@ -19,13 +19,16 @@ namespace Repository
 
         public int Delete(int id)
         {
-            var item = context.Categories.Where(c => c.ID == id).SingleOrDefault();
-            if (item.Status == false)
+			var productList = context.Products.ToList();
+			var item = context.Categories.FirstOrDefault(c => c.ID == id);
+			if (productList.Any(x => x.Category_ID == id)) return -1;
+            
+            if ( item!=null&&item.Status == false)
             {
                 context.Categories.Remove(item);
-                context.SaveChanges();
+              return  context.SaveChanges();
             }
-            return 0;
+            return -1;
         }
 
         private bool disposed = false;
@@ -56,13 +59,18 @@ namespace Repository
 
         public Category GetById(int id)
         {
-            return context.Categories.Where(c => c.ID == id).SingleOrDefault();
+            return context.Categories.FirstOrDefault(c => c.ID == id);
         }
 
         public int Insert(Category t)
         {
-            t.CreatedDate = DateTime.Now;
+			var categories = context.Categories.ToList();
+
+			if (categories.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
+
+			t.CreatedDate = DateTime.Now;
             context.Categories.Add(t);
+
             return context.SaveChanges();
         }
 
@@ -73,12 +81,23 @@ namespace Repository
 
         public int Update(Category t)
         {
-            t.ModifileDate = DateTime.Now;
-            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+			var currentItem = context.Categories.Find(t.ID);
+			var categories = context.Categories.ToList();
+			categories.Remove(currentItem);
+
+			if (categories.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
+			if (currentItem != null)
+			{
+				currentItem.ModifileDate = DateTime.Now;
+				currentItem.Name = t.Name;
+				currentItem.ParentID = t.ParentID;
+				currentItem.Slug = t.Slug;
+				currentItem.Status = t.Status;
+			}
+			
+            context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
             return context.SaveChanges();
         }
-
-        
 
         public Category GetByUserName(string UserName)
         {

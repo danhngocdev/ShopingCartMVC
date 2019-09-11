@@ -5,9 +5,6 @@ using Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
 
 
 namespace Repository
@@ -21,14 +18,23 @@ namespace Repository
         }
         public int Delete(int id)
         {
-            var item = context.Products.Where(c => c.Id == id).SingleOrDefault();
-            if (item.Status == false)
-            {
-                context.Products.Remove(item);
-                context.SaveChanges();
-            }
-            return 0;
-        }
+			var orderDetailList = context.OrderDetails.ToList();
+			var wishList = context.wishLists.ToList();
+
+			if (orderDetailList.Any(x => x.Product_Id == id)) return -1;
+
+			if (wishList.Any(x => x.ProductID == id)) return -1;
+
+			var item = context.Products.FirstOrDefault(c => c.Id == id);
+
+			if (item != null && item.Status == false)
+			{
+				context.Products.Remove(item);
+				return context.SaveChanges();
+			}
+
+			return -1;
+		}
 
 
         private bool disposed = false;
@@ -53,7 +59,7 @@ namespace Repository
 
         public Product GetById(int id)
         {
-            return context.Products.Where(s => s.Id == id).SingleOrDefault();
+            return context.Products.SingleOrDefault(s => s.Id == id);
         }
 
         public Product GetByUserName(string UserName)
@@ -63,10 +69,12 @@ namespace Repository
 
         public int Insert(Product product)
         {
-			product.Created = DateTime.Now;
-            context.Products.Add(product);
-            return context.SaveChanges();
-        }
+	        var productList = context.Products.ToList();
+	        if (productList.Any(x => x.Name.ToLower().Equals(product.Name.ToLower()))) return -2;
+	        product.Created = DateTime.Now;
+	        context.Products.Add(product);
+	        return context.SaveChanges();
+		}
 
         public bool Login(string username, string password)
         {
@@ -80,10 +88,28 @@ namespace Repository
 
         public int Update(Product t)
         {
-			t.ModifileDate = DateTime.Now;
-            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
-            return context.SaveChanges();
-        }
+	        var productList = context.Products.ToList();
+	        var currentItem = context.Products.Find(t.Id);
+	        productList.Remove(currentItem);
+	        if (productList.Any(x => x.Name.ToLower().Equals(t.Name.ToLower()))) return -2;
+	        if (currentItem != null)
+	        {
+		        currentItem.ModifileDate = DateTime.Now;
+		        currentItem.Images = t.Images;
+		        currentItem.MoreImages = t.MoreImages;
+		        currentItem.Name = t.Name;
+		        currentItem.Price = t.Price;
+		        currentItem.Sale_Price = t.Sale_Price;
+		        currentItem.Slug = t.Slug;
+		        currentItem.Status = t.Status;
+		        currentItem.TopHot = t.TopHot;
+		        currentItem.Content = t.Content;
+		        currentItem.Category_ID = t.Category_ID;
+		        context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+	        }
+
+	        return context.SaveChanges();
+		}
 
         public void Dispose()
         {
