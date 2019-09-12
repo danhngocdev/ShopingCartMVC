@@ -14,12 +14,7 @@ namespace Repository
         {
             this.context = context;
         }
-        public int Delete(int id)
-        {
-            var item = context.wishLists.SingleOrDefault(c => c.ID == id);
-            context.wishLists.Remove(item);
-            return context.SaveChanges();
-        }
+      
 
         public IEnumerable<WishList> GetById(int id)
         {
@@ -54,6 +49,12 @@ namespace Repository
             }
             this.disposed = true;
         }
-        
-    }
+
+		public int Delete(WishList item)
+		{
+			var obj = context.wishLists.FirstOrDefault(c => c.UserID == item.UserID&& c.UserID==item.UserID);
+			if(obj!=null) context.wishLists.Remove(obj);
+			return context.SaveChanges();
+		}
+	}
 }

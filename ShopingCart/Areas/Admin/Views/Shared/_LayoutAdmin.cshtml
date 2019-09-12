@@ -629,7 +629,7 @@
 
 <script type="text/javascript">
 	
-	$(function () {
+	function message() {
 		if ('@TempData["message"]' == "Added" ) {
 			$(".alert-success").show();
 			window.setTimeout(function () {
@@ -652,7 +652,9 @@
 				$("#exampleModalCenter").modal();
 			}, 200);
 		};
-	});
+	};
+
+	message();
 </script>
 
 </body>

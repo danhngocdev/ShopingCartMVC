@@ -11,7 +11,7 @@ namespace Service.Interface
     {
         IEnumerable<T> GetAll();
         int Insert(T t);
-        int Delete(int id);
-        IEnumerable<WishList> GetById(int id);
+		int Delete(WishList item);
+		IEnumerable<WishList> GetById(int id);
 	}
 }

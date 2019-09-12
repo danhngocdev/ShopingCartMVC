@@ -70,11 +70,11 @@
 												
 													@if (user == null)
 													{
-														<a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+														<a class="wishlist" id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
 													}
 													else if (wishList.Any(x =>x.ProductID.Equals(item.Id) ))
 													{
-														<a id="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+														<a class="wishlistDisLike" id="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
 													}
 													else
 													{

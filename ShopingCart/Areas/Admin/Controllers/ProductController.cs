@@ -66,7 +66,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HasCredential(ActionId = 11)]
 		public ActionResult Edit(int id)
 		{
-			ViewBag.Category_ID = new SelectList(product.GetAll(), "ID", "Name", product.GetById(id).Category_ID);
+			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name", product.GetById(id).Category_ID);
 			return View(product.GetById(id));
 		}
 		[HttpPost]

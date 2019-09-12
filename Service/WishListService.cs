@@ -14,9 +14,11 @@ namespace Service
         {
             repository = new WishListReponsitory(new DBEntityContext());
         }
-        public int Delete(int id)
+
+
+        public int Delete(WishList item)
         {
-            return repository.Delete(id);
+	        return repository.Delete(item);
         }
 
         public IEnumerable<WishList> GetById(int id)
