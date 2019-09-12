@@ -59,8 +59,12 @@ namespace ShopingCart.Controllers
 				var res = _userService.Login(model.UserName, Encryptor.MD5Hash(model.Password));
 				if (res)
 				{
-
 					var user = _userService.GetByUserName(model.UserName);
+					if (!user.Status)
+					{
+						ModelState.AddModelError("", "Tài khoản của bạn hiện đang bị khóa");
+						return View("Index");
+					}
 					Session["User"] = user;
 					return RedirectToAction("Index", "Order");
 				}
