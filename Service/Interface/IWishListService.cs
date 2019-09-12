@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
 namespace Service.Interface
 {
@@ -11,6 +12,6 @@ namespace Service.Interface
         IEnumerable<T> GetAll();
         int Insert(T t);
         int Delete(int id);
-
-    }
+        IEnumerable<WishList> GetById(int id);
+	}
 }

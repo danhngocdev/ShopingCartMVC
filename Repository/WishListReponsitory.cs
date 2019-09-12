@@ -21,6 +21,11 @@ namespace Repository
             return context.SaveChanges();
         }
 
+        public IEnumerable<WishList> GetById(int id)
+        {
+	        return context.wishLists.Where(x => x.UserID.Equals(id)).ToList();
+        }
+
         public void Dispose()
         {
             Dispose(true);

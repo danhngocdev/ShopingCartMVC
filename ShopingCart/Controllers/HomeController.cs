@@ -27,11 +27,13 @@ namespace ShopingCart.Controllers
         }
         public ActionResult Index()
         {
+	         var user=(User)Session["User"];
+			 if(user!=null) ViewBag.wishList = wishListService.GetById(user.UserId);
 
-            ViewBag.ListProductHot = productService.ListProductHot();
-            ViewBag.ListProductNew = productService.ListProductNew();
+			//ViewBag.ListProductHot = productService.ListProductHot();
+			ViewBag.ListProductNew = productService.ListProductNew();
             ViewBag.ListProductSale = productService.ListProductSale();
-            return View();
+            return View(productService.ListProductHot());
         }
         public PartialViewResult LoadChilden(int parentID)
         {

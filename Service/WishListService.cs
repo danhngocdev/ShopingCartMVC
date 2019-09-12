@@ -19,6 +19,11 @@ namespace Service
             return repository.Delete(id);
         }
 
+        public IEnumerable<WishList> GetById(int id)
+        {
+	        return repository.GetById(id);
+        }
+
         public IEnumerable<WishList> GetAll()
         {
             return repository.GetAll();

@@ -1,11 +1,15 @@
-﻿@{
-    ViewBag.Title = "Trang Chủ";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
-    var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
+﻿@using Model
+@model IEnumerable<Model.Product>
+@{
+	ViewBag.Title = "Trang Chủ";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
+	var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
+	var wishList = (List<Model.WishList>)ViewBag.wishList;
+	var user = (User)Session["User"];
 }
 @section footer{
-    <script src="~/Asset/FrontEnd/js/WishList.js"></script>
+	<script src="~/Asset/FrontEnd/js/WishList.js"></script>
 }
 <!-- header end -->
 <!-- slider-container start -->
@@ -13,301 +17,312 @@
 <!-- slider-container end -->
 <!-- banner-area start -->
 <div class="banner-area pt-70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="single-banner">
-                    <a href="shop.html"><img src="~/asset/frontend/img/banner/1.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="single-banner">
-                    <a href="shop.html"><img src="~/asset/frontend/img/banner/2.jpg" alt="" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<div class="single-banner">
+					<a href="shop.html"><img src="~/asset/frontend/img/banner/1.jpg" alt="" /></a>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="single-banner">
+					<a href="shop.html"><img src="~/asset/frontend/img/banner/2.jpg" alt="" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- banner-area end -->
 <!-- new-arrival-area start -->
 <div class="new-arrival-area pt-100">
-    <div class="container">
-        <div class="row">
-            <div class="section-title text-center mb-20">
-                <h2>Sản Phẩm Nổi Bật</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-tab">
-                    <!-- Nav tabs -->
-                    <!-- Tab panes -->
-                    <div class="row">
-                        <div class="tab-content">
-                            @foreach (var item in listproducthot)
-                            {
-                                var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
-                                
-                                <div class="col-md-3">
-                                    <div class="product-wrapper mb-40">
-                                        <div class="product-img">
-                                            <a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
-                                            @{ if (item.TopHot.HasValue == true)
-                                                {
-                                                    <span class="new-label-hot">Hot</span>
-                                                }
-                                                else
-                                                {
-                                                    <span>OOOOO</span>
-                                                }
-                                            }
-                                        <div class="product-action">
-                                            <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-                                            <a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
-                                            <a id="wishlistDisLike" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
-                                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                        </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-title">
-                                                <h3><a href="@url">@item.Name</a></h3>
-                                            </div>
-                                            <div class="price-reviews">
-                                                <div class="price-box">
-                                                    <span class="price product-price">@item.Price </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="section-title text-center mb-20">
+				<h2>Sản Phẩm Nổi Bật</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-tab">
+					<!-- Nav tabs -->
+					<!-- Tab panes -->
+					<div class="row">
+						<div class="tab-content">
+							@foreach (var item in Model)
+							{
+								var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
+
+								<div class="col-md-3">
+									<div class="product-wrapper mb-40">
+										<div class="product-img">
+											<a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
+											@{ if (item.TopHot.HasValue == true)
+												{
+													<span class="new-label-hot">Hot</span>
+												}
+												else
+												{
+													<span>OOOOO</span>
+												}
+											}
+											<div class="product-action">
+												<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
+												
+													@if (user == null)
+													{
+														<a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+													}
+													else if (wishList.Any(x =>x.ProductID.Equals(item.Id) ))
+													{
+														<a id="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+													}
+													else
+													{
+														<a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a> }
+												
+												<a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<div class="pro-title">
+												<h3><a href="@url">@item.Name</a></h3>
+											</div>
+											<div class="price-reviews">
+												<div class="price-box">
+													<span class="price product-price">@item.Price </span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- new-arrival-area end -->
 <!-- newsletter-area start -->
 <!-- newsletter-area end -->
 <!-- best-sell-area start -->
 <div class="best-sell-area pt-30">
-    <div class="container">
-        <div class="row">
-            <div class="section-title text-center mb-50">
-                <h2>Sản Phẩm Mới Nhất</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-tab">
-                    <!-- Nav tabs -->
-                    <!-- Tab panes -->
-                    <div class="row">
-                        <div class="tab-content">
-                            @foreach (var item in ListProductNew)
-                            {
-                                var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
-                                <div class="col-md-3">
-                                    <div class="product-wrapper mb-40">
-                                        <div class="product-img">
-                                            <a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
-                                            <span class="new-label">New</span>
-                                            <div class="product-action">
-                                                <a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-                                                <a href="@url" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-title">
-                                                <h3><a href="@url">@item.Name</a></h3>
-                                            </div>
-                                            <div class="price-reviews">
-                                                <div class="price-box">
-                                                    <span class="price product-price">@item.Price </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="section-title text-center mb-50">
+				<h2>Sản Phẩm Mới Nhất</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-tab">
+					<!-- Nav tabs -->
+					<!-- Tab panes -->
+					<div class="row">
+						<div class="tab-content">
+							@foreach (var item in ListProductNew)
+							{
+								var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
+								<div class="col-md-3">
+									<div class="product-wrapper mb-40">
+										<div class="product-img">
+											<a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
+											<span class="new-label">New</span>
+											<div class="product-action">
+												<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
+												<a href="@url" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+											</div>
+										</div>
+										<div class="product-content">
+											<div class="pro-title">
+												<h3><a href="@url">@item.Name</a></h3>
+											</div>
+											<div class="price-reviews">
+												<div class="price-box">
+													<span class="price product-price">@item.Price </span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- best-sell-area end -->
 <!-- latest-blog-area start -->
 <div class="latest-blog-area ptb-60">
-    <div class="container">
-        <div class="row">
-            <div class="section-title text-center mb-50">
-                <h2>latest blog</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="blog-active">
-                <div class="col-lg-12">
-                    <div class="blog-wrapper mb-40">
-                        <div class="blog-img">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
-                        </div>
-                        <div class="blog-info">
-                            <h3><a href="#">What is Bootstrap? – The History...</a></h3>
-                            <div class="blog-meta">
-                                <span class="f-left">2016-04-20 21:50:35</span>
-                                <span class="f-right"><a href="blog-details.html">Read More </a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="blog-wrapper mb-40">
-                        <div class="blog-img">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
-                        </div>
-                        <div class="blog-info">
-                            <h3><a href="#">From Now we are certified web...</a></h3>
-                            <div class="blog-meta">
-                                <span class="f-left">2016-04-20 21:50:35</span>
-                                <span class="f-right"><a href="blog-details.html">Read More </a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="blog-wrapper mb-40">
-                        <div class="blog-img">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
-                        </div>
-                        <div class="blog-info">
-                            <h3><a href="#">Answers to your Questions about...</a></h3>
-                            <div class="blog-meta">
-                                <span class="f-left">2016-04-20 21:50:35</span>
-                                <span class="f-right"><a href="blog-details.html">Read More </a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="blog-wrapper mb-40">
-                        <div class="blog-img">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
-                        </div>
-                        <div class="blog-info">
-                            <h3><a href="#">Share the Love for PrestaShop 1.6</a></h3>
-                            <div class="blog-meta">
-                                <span class="f-left">2016-04-20 21:50:35</span>
-                                <span class="f-right"><a href="blog-details.html">Read More </a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="section-title text-center mb-50">
+				<h2>latest blog</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="blog-active">
+				<div class="col-lg-12">
+					<div class="blog-wrapper mb-40">
+						<div class="blog-img">
+							<a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
+						</div>
+						<div class="blog-info">
+							<h3><a href="#">What is Bootstrap? – The History...</a></h3>
+							<div class="blog-meta">
+								<span class="f-left">2016-04-20 21:50:35</span>
+								<span class="f-right"><a href="blog-details.html">Read More </a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="blog-wrapper mb-40">
+						<div class="blog-img">
+							<a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
+						</div>
+						<div class="blog-info">
+							<h3><a href="#">From Now we are certified web...</a></h3>
+							<div class="blog-meta">
+								<span class="f-left">2016-04-20 21:50:35</span>
+								<span class="f-right"><a href="blog-details.html">Read More </a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="blog-wrapper mb-40">
+						<div class="blog-img">
+							<a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
+						</div>
+						<div class="blog-info">
+							<h3><a href="#">Answers to your Questions about...</a></h3>
+							<div class="blog-meta">
+								<span class="f-left">2016-04-20 21:50:35</span>
+								<span class="f-right"><a href="blog-details.html">Read More </a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<div class="blog-wrapper mb-40">
+						<div class="blog-img">
+							<a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
+						</div>
+						<div class="blog-info">
+							<h3><a href="#">Share the Love for PrestaShop 1.6</a></h3>
+							<div class="blog-meta">
+								<span class="f-left">2016-04-20 21:50:35</span>
+								<span class="f-right"><a href="blog-details.html">Read More </a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- latest-blog-area end -->
 <!-- brand-area start -->
 <div class="brand-area">
-    <div class="container">
-        <div class="brand-sep ptb-50">
-            <div class="row">
-                <div class="brand-active">
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="brand-sep ptb-50">
+			<div class="row">
+				<div class="brand-active">
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="single-brand">
+							<a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
 <div class="service-area pt-70 pb-40 gray-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-world"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE SHIPPING</h3>
-                        <p>Free shipping on all UK orders</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30">
-                    <div class="service-icon">
-                        <i class="pe-7s-refresh"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>FREE EXCHANGE</h3>
-                        <p>30 days return on all items</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-headphones"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>PREMIUM SUPPORT</h3>
-                        <p>We support online 24 hours a day</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-service mb-30 xs-mrg sm-mrg">
-                    <div class="service-icon">
-                        <i class="pe-7s-gift"></i>
-                    </div>
-                    <div class="service-title">
-                        <h3>BLACK FRIDAY</h3>
-                        <p>Shocking discount on every friday</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-world"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE SHIPPING</h3>
+						<p>Free shipping on all UK orders</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30">
+					<div class="service-icon">
+						<i class="pe-7s-refresh"></i>
+					</div>
+					<div class="service-title">
+						<h3>FREE EXCHANGE</h3>
+						<p>30 days return on all items</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-headphones"></i>
+					</div>
+					<div class="service-title">
+						<h3>PREMIUM SUPPORT</h3>
+						<p>We support online 24 hours a day</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="single-service mb-30 xs-mrg sm-mrg">
+					<div class="service-icon">
+						<i class="pe-7s-gift"></i>
+					</div>
+					<div class="service-title">
+						<h3>BLACK FRIDAY</h3>
+						<p>Shocking discount on every friday</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- service-area end -->
 <!-- footer start -->
