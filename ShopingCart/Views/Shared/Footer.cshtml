@@ -1,0 +1,65 @@
+﻿@model Model.Footer
+
+<footer class="black-bg">
+    <div class="footer-top-area ptb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Liên Hệ Với Chúng Tôi</h3>
+                        <div class="footer-contact">
+                            <ul>
+                                @Html.Raw(Model.Content)
+                                <li><em class="fa fa-map-marker"></em>Cầu Giấy <span>Hà Nội</span></li>
+                                <li><em class="fa fa-phone"></em>Telephones: 0985.846.554 <span></span></li>
+                                <li><em class="fa fa-envelope-o"></em>Email: support@posthemes.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Về Chúng Tôi</h3>
+                        <ul class="block-content">
+                            <li><a href="#">My orders</a></li>
+                            <li><a href="#">My credit slips</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">My addresses</a></li>
+                            <li><a href="#">My personal info</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-widget">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="block-content">
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Discount</a></li>
+                            <li><a href="#">Site map</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Custom service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-bootom-area start -->
+    <div class="footer-bootom-area ptb-15">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <!-- <div class="copyright">
+                        <p>Copyright <a href="#">HasTech</a>. All Rights Reserved</p>
+                    </div> -->
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="payment">
+                        <img src="~/Asset/FrontEnd/img/p" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-bootom-area end -->
+</footer>

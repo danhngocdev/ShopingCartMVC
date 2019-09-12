@@ -62,6 +62,16 @@ namespace ShopingCart.Controllers
         {
             return PartialView(sliderService.GetAll());
         }
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new Footer();
+            using (var context = new DBEntityContext())
+            {
+                 model = context.Footers.Single(x => x.Status == true);
+            }
+            return PartialView(model);
+        }
 
         [ChildActionOnly]
         public ActionResult HeaderCart()

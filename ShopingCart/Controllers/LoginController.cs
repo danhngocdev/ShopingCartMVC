@@ -97,7 +97,7 @@ namespace ShopingCart.Controllers
                     acc.RessetPasswordCode = resetCode;
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.SaveChanges();
-                    mesage = "";
+                    mesage = "Chúng tôi đã gửi 1 đường link về tài khoản của bạn để đặt lại mật khẩu";
                 }
                 else
                 {
@@ -110,7 +110,7 @@ namespace ShopingCart.Controllers
         [NonAction]
         public void SendVerificationLinkEmail(string EmailAddress, string activationCode, string emailFor = "VerifyAccount")
         {
-            var verifyUrl = "/User/" + emailFor + "/" + activationCode;
+            var verifyUrl = "/Login/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
             var fromEmail = new MailAddress("danhminhhm@gmail.com", "Nội Thất Đồ Gỗ");
@@ -141,6 +141,7 @@ namespace ShopingCart.Controllers
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
+                Timeout = 10000,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
 
@@ -185,13 +186,13 @@ namespace ShopingCart.Controllers
                         user.RessetPasswordCode = "";
                         db.Configuration.ValidateOnSaveEnabled = false;
                         db.SaveChanges();
-                        message = "New password update successfully";
+                        message = "Cập Nhập Mật Khẩu Thành Công";
                     }
                 }
             }
             else
             {
-                message = "Invalid";
+                message = "Cập Nhập Mật Khẩu Thất Bại";
             }
             ViewBag.Message = message;
             return View(model);
