@@ -13,5 +13,6 @@ namespace Repository.Interface
         int Insert(T t);
         int Delete(WishList item);
         IEnumerable<WishList> GetById(int id);
+        int AddMutiple(List<WishList> items);
     }
 }

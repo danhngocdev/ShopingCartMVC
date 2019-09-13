@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Service;
 using System.Web.Mvc;
 using Model;
@@ -20,6 +21,12 @@ namespace ShopingCart.Controllers
 		[HttpPost]
 		public ActionResult Remove(WishList c)
 		{
+			if (Session["User"] == null)
+			{
+				var wishList = (List<int>)Session[Common.CommonConstants.DATA_WISH];
+				wishList.Remove(c.ProductID);
+				Session[Common.CommonConstants.DATA_WISH] = wishList;
+			}
 			if (Session["User"] != null)
 			{
 				var data = (User)Session["User"];

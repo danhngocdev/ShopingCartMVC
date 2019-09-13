@@ -21,6 +21,12 @@ namespace Repository
 	        return context.wishLists.Where(x => x.UserID.Equals(id)).ToList();
         }
 
+        public int AddMutiple(List<WishList> items)
+        {
+	        context.wishLists.AddRange(items);
+	        return context.SaveChanges();
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -52,7 +58,7 @@ namespace Repository
 
 		public int Delete(WishList item)
 		{
-			var obj = context.wishLists.FirstOrDefault(c => c.UserID == item.UserID&& c.UserID==item.UserID);
+			var obj = context.wishLists.FirstOrDefault(c => c.UserID == item.UserID&& c.ProductID==item.ProductID);
 			if(obj!=null) context.wishLists.Remove(obj);
 			return context.SaveChanges();
 		}

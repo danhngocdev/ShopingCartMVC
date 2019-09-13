@@ -9,5 +9,6 @@ namespace ShopingCart.Common
 	{
 		public static string USER_SESSION = "USER_SESSION";
 		public static string SESSION_CREDENTIALS = "SESSION_CREDENTIALS";
+		public static string DATA_WISH = "DATA_WISH";
 	}
 }

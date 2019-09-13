@@ -109,7 +109,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			else if (result == -1)
 			{
 				TempData["message"] = "Ex";
-				TempData["data"] = "Role đang được sử dụng! Bạn không thể xóa";
+				TempData["data"] = "Sản phẩm đang được sử dụng! Bạn không thể xóa";
 			}
 			else
 			{

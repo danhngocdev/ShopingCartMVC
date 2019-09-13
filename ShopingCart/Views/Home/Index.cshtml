@@ -7,6 +7,7 @@
 	var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
 	var wishList = (List<Model.WishList>)ViewBag.wishList;
 	var user = (User)Session["User"];
+	var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
 }
 @section footer{
 	<script src="~/Asset/FrontEnd/js/WishList.js"></script>
@@ -47,13 +48,13 @@
 					<!-- Nav tabs -->
 					<!-- Tab panes -->
 					<div class="row">
-						<div class="tab-content">
+						<div class="tab-content reload-wish">
 							@foreach (var item in Model)
 							{
 								var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
 
 								<div class="col-md-3">
-									<div class="product-wrapper mb-40">
+									<div class="product-wrapper mb-40  ">
 										<div class="product-img">
 											<a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
 											@{ if (item.TopHot.HasValue == true)
@@ -65,23 +66,31 @@
 													<span>OOOOO</span>
 												}
 											}
-											<div class="product-action">
-												<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-												
-													@if (user == null)
-													{
-														<a class="wishlist" id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
-													}
-													else if (wishList.Any(x =>x.ProductID.Equals(item.Id) ))
-													{
-														<a class="wishlistDisLike" id="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
-													}
-													else
-													{
-														<a id="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a> }
-												
-												<a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-											</div>
+										<div class="product-action">
+											<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
+
+											@if (user == null)
+											{
+												if (ListNotInUser != null && ListNotInUser.Any(x => x.Equals(item.Id)))
+												{
+													<a class="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+												}
+												else
+												{
+													<a class="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+												}
+
+											}
+											else if (wishList.Any(x => x.ProductID.Equals(item.Id)))
+											{
+												<a class="wishlistDisLike" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+											}
+											else
+											{
+												<a class="wishlist" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>}
+
+											<a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+										</div>
 										</div>
 										<div class="product-content">
 											<div class="pro-title">

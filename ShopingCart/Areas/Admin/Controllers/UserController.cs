@@ -101,18 +101,21 @@ namespace ShopingCart.Areas.Admin.Controllers
 				else if (result == -1)
 				{
 					ModelState.AddModelError("Username", "Tài Khoản Đã Tồn Tại");
+					ViewBag.user = userService.GetById(user.UserId);
 					ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 					return View();
 				}
 				else if (result == -2)
 				{
 					ModelState.AddModelError("Email", "Email Đã Tồn Tại");
+					ViewBag.user = userService.GetById(user.UserId);
 					ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 					return View();
 				}
 				else if (result == -3)
 				{
 					ModelState.AddModelError("Phone", "Số điện thoại Đã Tồn Tại");
+					ViewBag.user = userService.GetById(user.UserId);
 					ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
 					return View();
 				}

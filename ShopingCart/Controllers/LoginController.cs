@@ -5,6 +5,7 @@ using Model.ViewModel;
 using Service;
 using ShopingCart.Common;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -15,9 +16,11 @@ namespace ShopingCart.Controllers
     public class LoginController : Controller
     {
 		private UserService _userService;
+		private WishListService wishListService;
 		public LoginController()
 		{
 			_userService = new UserService();
+			wishListService=new WishListService();
 		}
 
 
@@ -64,6 +67,25 @@ namespace ShopingCart.Controllers
 					{
 						ModelState.AddModelError("", "Tài khoản của bạn hiện đang bị khóa");
 						return View("Index");
+					}
+
+					if (Session[Common.CommonConstants.DATA_WISH] != null)
+					{
+						var wishList = new List<WishList>();
+						var productList = (List<int>)Session[Common.CommonConstants.DATA_WISH];
+						foreach (var item in productList)
+						{
+							wishList.Add(new WishList
+							{
+								UserID = user.UserId,
+								ProductID = item
+							});
+						}
+
+						var currentWishList = wishListService.GetById(user.UserId);
+						var checkExist = wishList.Where(x => !currentWishList.Any(w => w.ProductID.Equals(x.ProductID))).ToList();
+						Session[Common.CommonConstants.DATA_WISH] = null;
+						wishListService.AddMutiple(checkExist);
 					}
 					Session["User"] = user;
 					return RedirectToAction("Index", "Order");

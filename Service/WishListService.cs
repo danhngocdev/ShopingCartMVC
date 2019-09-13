@@ -26,6 +26,11 @@ namespace Service
 	        return repository.GetById(id);
         }
 
+        public int AddMutiple(List<WishList> items)
+        {
+	        return repository.AddMutiple(items);
+        }
+
         public IEnumerable<WishList> GetAll()
         {
             return repository.GetAll();
