@@ -11,7 +11,7 @@
 				dataType: 'json',
 				type: 'POST',
 				success: (res) => {
-					$('.reload-wish').load('/Home/Index .reload-wish');
+					$('.reload-wish').load('/Home/Index .reload-wish'); 
 				}
 			});
 		}
