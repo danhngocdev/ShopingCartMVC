@@ -56,6 +56,16 @@ namespace ShopingCart.Controllers
 			}
 			return PartialView(lst);
 		}
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new Footer();
+            using (var context = new DBEntityContext())
+            {
+                 model = context.Footers.FirstOrDefault(x => x.Status == true);
+            }
+            return PartialView(model);
+        }
 
 		[ChildActionOnly]
 		public ActionResult Slider()
@@ -85,7 +95,7 @@ namespace ShopingCart.Controllers
 		{
 			if (Session["User"] == null)
 			{
-				
+
 				if (Session[Common.CommonConstants.DATA_WISH] == null)
 				{
 					var listWish = new List<int>();

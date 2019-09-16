@@ -1,5 +1,7 @@
 ﻿using Model;
 using Service;
+using ShopingCart.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -36,7 +38,8 @@ namespace ShopingCart.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var cart =(List<CartItem>) Session["CartSession"];
+                var currentUser = (User)Session["User"];
+                var cart =(List<CartItem>) Session["CartSession"];
 				var orderDetails = new List<OrderDetail>();
 				foreach (var item in cart)
 				{
@@ -47,10 +50,15 @@ namespace ShopingCart.Controllers
 					Total= float.Parse(item.Product.Price.ToString())*item.Quantity
 					};
 					orderDetails.Add(orderDetail);
+
 				}
-			var result=	_orderDetailService.Inserts(order,orderDetails);
+			    var result=	_orderDetailService.Inserts(order,orderDetails);
 				if (result > 0)
 				{
+                    Helper.SendEmail(currentUser.Email, "danhminhhm@gmail.com", "danhngoc99", "Thông Tin giỏ hàng của bạn", @"
+                     <h1>Tạo đơn hàng thành công</>
+                      
+                    ");
 					TempData["message"] = "Added";
 					Session["CartSession"] = null;
 				}
