@@ -563,7 +563,12 @@
 		</div>
 	</div>
 	<!-- ./wrapper -->
-	<!-- jQuery 3 -->
+<!-- jQuery 3 -->
+<script>
+	if(performance.navigation.type == 2){
+		location.reload(true);
+	}
+</script>
 	<script src="~/Asset/Backend/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
 	<script src="~/Asset/Backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -590,36 +595,37 @@
 			})
 		});
 	</script>
-	<script>
-		$(".Listdeletes").change(function () {
-			var checkboxes = document.getElementsByName('checkbox');
-			if (this.checked) {
+<script>
 
-				// Lặp và thiết lập checked
-				for (var i = 0; i < checkboxes.length; i++) {
-					checkboxes[i].checked = true;
-				}
-			} else {
-				for (var i = 0; i < checkboxes.length; i++) {
-					checkboxes[i].checked = false;
-				}
-			}
-		});
-		$(".ListAdd").change(function () {
-			var checkboxes = document.getElementsByName('checkbox');
-			if (this.checked) {
-				// Lặp và thiết lập checked
-				for (var i = 0; i < checkboxes.length; i++) {
-					checkboxes[i].checked = true;
-				}
-			} else {
-				for (var i = 0; i < checkboxes.length; i++) {
-					checkboxes[i].checked = false;
-				}
-			}
-		});
+	$(".Listdeletes").change(function () {
+		var checkboxes = document.getElementsByName('checkbox');
+		if (this.checked) {
 
-	</script>
+			// Lặp và thiết lập checked
+			for (var i = 0; i < checkboxes.length; i++) {
+				checkboxes[i].checked = true;
+			}
+		} else {
+			for (var i = 0; i < checkboxes.length; i++) {
+				checkboxes[i].checked = false;
+			}
+		}
+	});
+	$(".ListAdd").change(function () {
+		var checkboxes = document.getElementsByName('checkbox');
+		if (this.checked) {
+			// Lặp và thiết lập checked
+			for (var i = 0; i < checkboxes.length; i++) {
+				checkboxes[i].checked = true;
+			}
+		} else {
+			for (var i = 0; i < checkboxes.length; i++) {
+				checkboxes[i].checked = false;
+			}
+		}
+	});
+
+</script>
 	@RenderSection("Scripts", required: false);
 	<script>
 		$(document).ready(function () {
