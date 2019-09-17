@@ -3780,6 +3780,7 @@
     <Content Include="Areas\Admin\Views\News\GetById.cshtml" />
     <Content Include="Areas\Admin\Views\News\Create.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Error.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3824,6 +3825,8 @@
     <Content Include="Views\Login\ResetPassword.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\News\GetById.cshtml" />
+    <Content Include="Views\Home\Error404.cshtml" />
+    <Content Include="Views\Home\Error500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

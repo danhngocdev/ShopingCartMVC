@@ -11,7 +11,7 @@
 
 	<div class="box-body">
 
-		@using (Html.BeginForm())
+		@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "create" }))
 		{
 			@Html.AntiForgeryToken()
 

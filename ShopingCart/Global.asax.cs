@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ShopingCart.Common;
 
 namespace ShopingCart
 {
@@ -17,5 +18,25 @@ namespace ShopingCart
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-    }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+	        var error = Server.GetLastError() as HttpException;
+	        if (!string.IsNullOrWhiteSpace(error.Message))
+	        {
+				if (error.GetHttpCode() == 404)
+				{
+					Server.ClearError();
+					Context.Response.Redirect("/Home/Error404");
+				}
+				else
+				{
+					Context.ClearError();
+					if (Session[CommonConstants.USER_SESSION] != null) Context.Response.Redirect("https://localhost:44347/Admin/HomeAdmin/Error");
+					Context.Response.Redirect("https://localhost:44347/Home/Error500");
+				}
+				
+				
+			}
+        }
+	}
 }

@@ -60,14 +60,14 @@ namespace Repository
 				context.Users.Add(currentUser);
 			
 
-			try
-			{
+			//try
+			//{
 				return context.SaveChanges();
-			}
-			catch (Exception e)
-			{
-				return 0;
-			}
+			//}
+			//catch (Exception e)
+			//{
+			//	return 0;
+			//}
 		}
 	}
 }

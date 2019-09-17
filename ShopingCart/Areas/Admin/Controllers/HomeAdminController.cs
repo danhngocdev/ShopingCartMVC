@@ -9,5 +9,11 @@ namespace ShopingCart.Areas.Admin.Controllers
         {
             return View();
         }
-    }
+        public ActionResult Error()
+        {
+
+	        return View();
+        }
+
+	}
 }

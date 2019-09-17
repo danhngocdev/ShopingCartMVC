@@ -553,7 +553,7 @@
 						<h4 style="color:red" class="modal-title">Cảnh báo</h4>
 					</div>
 					<div class="modal-body">
-						@TempData["data"]
+						@TempData["data"] 
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
@@ -568,6 +568,7 @@
 	if(performance.navigation.type == 2){
 		location.reload(true);
 	}
+	
 </script>
 	<script src="~/Asset/Backend/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
@@ -658,6 +659,23 @@
 				$("#exampleModalCenter").modal();
 			}, 200);
 		};
+		
+		$(document).ready(function () {
+			var somethingChanged = false;
+
+				$('#create').change(function () { 
+					debugger 
+					somethingChanged = true; 
+				}); 
+
+			$('#create').data('initial-state', $('#create').serialize());
+			
+			$(window).on('beforeunload', function() {
+				if (somethingChanged && $('#create').serialize() != $('#create').data('initial-state')){
+					return 'You have unsaved changes which will not be saved.'
+				}
+			});
+		})
 	};
 
 	message();

@@ -63,6 +63,6 @@ namespace ShopingCart.Areas.Admin.Controllers
 			Session[CommonConstants.USER_SESSION] = null;
 			return Redirect("/Admin/Login");
 		}
-
+		
 	}
 }
