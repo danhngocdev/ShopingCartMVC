@@ -29,6 +29,7 @@ namespace DAL
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<WishList> wishLists { get; set; }
-	}
+        public DbSet<News> News { get; set; }
+    }
 
 }

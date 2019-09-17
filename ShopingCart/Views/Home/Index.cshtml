@@ -1,13 +1,15 @@
 ﻿@using Model
 @model IEnumerable<Model.Product>
 @{
-	ViewBag.Title = "Trang Chủ";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
-	var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
-	var wishList = (List<Model.WishList>)ViewBag.wishList;
-	var user = (User)Session["User"];
-	var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
+    var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
+    var wishList = (List<Model.WishList>)ViewBag.wishList;
+    var user = (User)Session["User"];
+    var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
+    var listNews = (List<Model.News>)ViewBag.ListNews;
+
 }
 @section footer{
 	<script src="~/Asset/FrontEnd/js/WishList.js"></script>
@@ -173,64 +175,26 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="blog-active">
-				<div class="col-lg-12">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img">
-							<a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
-						</div>
-						<div class="blog-info">
-							<h3><a href="#">What is Bootstrap? – The History...</a></h3>
-							<div class="blog-meta">
-								<span class="f-left">2016-04-20 21:50:35</span>
-								<span class="f-right"><a href="blog-details.html">Read More </a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img">
-							<a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
-						</div>
-						<div class="blog-info">
-							<h3><a href="#">From Now we are certified web...</a></h3>
-							<div class="blog-meta">
-								<span class="f-left">2016-04-20 21:50:35</span>
-								<span class="f-right"><a href="blog-details.html">Read More </a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img">
-							<a href="#"><img src="~/Asset/FrontEnd/img/blog/1.jpg" alt="" /></a>
-						</div>
-						<div class="blog-info">
-							<h3><a href="#">Answers to your Questions about...</a></h3>
-							<div class="blog-meta">
-								<span class="f-left">2016-04-20 21:50:35</span>
-								<span class="f-right"><a href="blog-details.html">Read More </a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="blog-wrapper mb-40">
-						<div class="blog-img">
-							<a href="#"><img src="~/Asset/FrontEnd/img/blog/2.jpg" alt="" /></a>
-						</div>
-						<div class="blog-info">
-							<h3><a href="#">Share the Love for PrestaShop 1.6</a></h3>
-							<div class="blog-meta">
-								<span class="f-left">2016-04-20 21:50:35</span>
-								<span class="f-right"><a href="blog-details.html">Read More </a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="blog-active">
+                @foreach (var item in listNews)
+                {
+                    var url = "/chi-tiet-tin-tuc/" + item.Slug + "-" + item.ID;
+                    <div class="col-lg-12">
+                        <div class="blog-wrapper mb-40">
+                            <div class="blog-img">
+                                <a href="@url"><img src="@item.Images" alt="" /></a>
+                            </div>
+                            <div class="blog-info">
+                                <h3><a href="@url">@item.Summary</a></h3>
+                                <div class="blog-meta">
+                                    <span class="f-left">@item.CreateDate</span>
+                                    <span class="f-right"><a href="@url">Xem Thêm </a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
 		</div>
 	</div>
 </div>
