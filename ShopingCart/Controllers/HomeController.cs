@@ -15,10 +15,11 @@ namespace ShopingCart.Controllers
 		private SliderService sliderService;
 		private CategoryService categoryService;
 		private WishListService wishListService;
-
+        private NewsService newsService;
 		public HomeController()
 		{
-			sliderService = new SliderService();
+            newsService = new NewsService();
+            sliderService = new SliderService();
 			productService = new ProductService();
 			menuService = new MenuService();
 			categoryService = new CategoryService();
@@ -32,6 +33,7 @@ namespace ShopingCart.Controllers
 			if (user == null) ViewBag.ListNotInUser = Session[Common.CommonConstants.DATA_WISH];
 			//ViewBag.ListProductHot = productService.ListProductHot();
 			ViewBag.ListProductNew = productService.ListProductNew();
+            ViewBag.ListNews = newsService.GetAll();
 			ViewBag.ListProductSale = productService.ListProductSale();
 			return View(productService.ListProductHot());
 		}

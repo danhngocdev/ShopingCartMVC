@@ -57,6 +57,7 @@
     <Compile Include="Footer.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="News.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Product.cs" />

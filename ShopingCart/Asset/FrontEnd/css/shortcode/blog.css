@@ -3,7 +3,9 @@
   overflow: hidden;
 }
 .blog-img {
-  overflow: hidden;
+    overflow: hidden;
+    max-width: 555px;
+    max-height: 300px;
 }
 .blog-img img {
   transition: all 0.3s ease 0s;
@@ -162,26 +164,3 @@ blockquote  p{
   margin-top: 30px;
   text-transform: uppercase;
 }
-
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
-.{}
