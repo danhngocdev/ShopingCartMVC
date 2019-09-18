@@ -18,6 +18,7 @@ namespace ShopingCart.Controllers
         // GET: Product
         public ActionResult Index()
         {
+            
             ViewBag.ListCategory = categoryService.GetAll();
             ViewBag.ListProduct = productService.GetAll();
             return View();
@@ -46,6 +47,7 @@ namespace ShopingCart.Controllers
         }
         public ActionResult Detail(int id)
         {
+            ViewBag.ListProductOther = productService.ListProductSale();
             var product = productService.GetById(id);
             ViewBag.Category = productService.GetById(product.Category_ID);
             return View(product);
