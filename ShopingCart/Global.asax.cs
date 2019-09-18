@@ -31,11 +31,8 @@ namespace ShopingCart
 				else
 				{
 					Context.ClearError();
-					if (Session[CommonConstants.USER_SESSION] != null) Context.Response.Redirect("https://localhost:44347/Admin/HomeAdmin/Error");
 					Context.Response.Redirect("https://localhost:44347/Home/Error500");
 				}
-				
-				
 			}
         }
 	}

@@ -662,9 +662,17 @@
 		
 		$(document).ready(function () {
 			var somethingChanged = false;
-
+			var formElements=document.getElementById("create").elements;    
+			var postData={};
+			for (var i=0; i<formElements.length; i++)
+					postData[formElements[i].name]=formElements[i].value;
 				$('#create').change(function () { 
-					debugger 
+					var oldData={};
+					for (var i=0; i<formElements.length; i++)
+						oldData[formElements[i].name]=formElements[i].value;
+					if (oldData === postData) {
+						somethingChanged = false;
+					}
 					somethingChanged = true; 
 				}); 
 
