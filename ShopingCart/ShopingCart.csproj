@@ -3395,6 +3395,7 @@
     <Content Include="Asset\FrontEnd\css\bootstrap.min.css" />
     <Content Include="Asset\FrontEnd\css\core.css" />
     <Content Include="Asset\FrontEnd\css\custom.css" />
+    <Content Include="Asset\FrontEnd\css\error500.css" />
     <Content Include="Asset\FrontEnd\css\font-awesome.min.css" />
     <Content Include="Asset\FrontEnd\css\magnific-popup.css" />
     <Content Include="Asset\FrontEnd\css\nivo-slider.css" />
@@ -3429,6 +3430,7 @@
     <Content Include="Asset\FrontEnd\css\shortcode\shortcodes.css" />
     <Content Include="Asset\FrontEnd\css\shortcode\slider.css" />
     <Content Include="Asset\FrontEnd\css\shortcode\testimonial.css" />
+    <Content Include="Asset\FrontEnd\css\error404.css" />
     <Content Include="Asset\FrontEnd\elements-blog.html" />
     <Content Include="Asset\FrontEnd\elements-products.html" />
     <Content Include="Asset\FrontEnd\fonts\fontawesome-webfont3295.svg" />
@@ -3444,6 +3446,7 @@
     <Content Include="Asset\FrontEnd\images\bg\7.jpg" />
     <Content Include="Asset\FrontEnd\images\bg\8.jpg" />
     <Content Include="Asset\FrontEnd\images\bg\9.jpg" />
+    <Content Include="Asset\FrontEnd\images\emoji.png" />
     <Content Include="Asset\FrontEnd\images\logo.png" />
     <Content Include="Asset\FrontEnd\images\pattern\pattern-bg.png" />
     <Content Include="Asset\FrontEnd\img\banner\1.jpg" />

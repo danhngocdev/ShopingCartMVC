@@ -84,7 +84,6 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 		[HttpPost]
 		[ValidateInput(false)]
-		[ValidateAntiForgeryToken]
 		[HasCredential(ActionId = 24)]
 		public ActionResult Edit(User user)
 		{
