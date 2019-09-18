@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using Model;
+using PagedList;
 
 namespace ShopingCart.Controllers
 {
@@ -9,19 +11,25 @@ namespace ShopingCart.Controllers
     {
         private ProductService productService;
         private CategoryService categoryService;
+        private WishListService wishListService;
 
-        public ProductController()
+
+		public ProductController()
         {
             categoryService = new CategoryService();
             productService = new ProductService();
+			wishListService=new WishListService();
         }
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
         {
-            
-            ViewBag.ListCategory = categoryService.GetAll();
-            ViewBag.ListProduct = productService.GetAll();
-            return View();
+	        var user = (User)Session["User"];
+	        if (user != null) ViewBag.wishList = wishListService.GetById(user.UserId).ToList();
+	        if (user == null) ViewBag.ListNotInUser = Session[Common.CommonConstants.DATA_WISH];
+			ViewBag.searchString = searchString;
+			ViewBag.ListCategory = categoryService.GetAll();
+            ViewBag.ListProduct = productService.Search(searchString,Page,PageSize);
+            return View(productService.Search(searchString, Page, PageSize).Where(x=>x.Status==true).ToPagedList(Page, PageSize));
         }
         public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 1)
         {

@@ -78,7 +78,42 @@
           });
          }, 5000);
 			}
-    });
+		});
+
+		$(document).ready(function() {
+
+			$(document).on('click',
+				'.wishlists',
+				function() {
+					debugger;
+
+					$.ajax({
+						url: '/Home/Create',
+						data: { ProductID: $(this).data('id') },
+						dataType: 'json',
+						type: 'POST',
+						success: (res) => {
+							$('.reload-wish').load('/Product/Index .reload-wish');
+						}
+					});
+				}
+			);
+			$(document).on('click',
+				'.wishlistDisLikes',
+				function() {
+					debugger;
+					$.ajax({
+						url: '/WishList/Remove',
+						data: { ProductID: $(this).data('id') },
+						dataType: 'json',
+						type: 'POST',
+						success: (res) => {
+							$('.reload-wish').load('/Product/Index .reload-wish');
+						}
+					})
+				});
+
+		});
     </script>
     @RenderSection("footer", required: false)
     @RenderSection("scripts", required: false)

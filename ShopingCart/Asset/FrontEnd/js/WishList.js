@@ -3,16 +3,18 @@
 		WishList.regEvents();
 	},
 	regEvents: function () {
+
 		$(document).on('click', '.wishlist', function () {
-				debugger;
+			debugger;
+			
 			$.ajax({
 				url: '/Home/Create',
 				data: { ProductID: $(this).data('id') },
 				dataType: 'json',
 				type: 'POST',
 				success: (res) => {
-					$('.reload-wish').load('/Home/Index .reload-wish'); 
-				}
+					$('.reload-wish').load('/Home/Index .reload-wish');
+					}
 			});
 		}
 		);
@@ -28,6 +30,7 @@
 				}
 			})
 		});
+		
 	}
 }
 

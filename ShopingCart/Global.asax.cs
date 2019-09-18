@@ -20,8 +20,7 @@ namespace ShopingCart
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-	        var error = Server.GetLastError() as HttpException;
-	        if (!string.IsNullOrWhiteSpace(error.Message))
+	        if (Server.GetLastError() is HttpException error && !string.IsNullOrWhiteSpace( error.Message))
 	        {
 				if (error.GetHttpCode() == 404)
 				{
