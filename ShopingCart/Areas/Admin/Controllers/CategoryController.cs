@@ -91,6 +91,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HasCredential(ActionId = 4)]
 		public ActionResult Delete(int id)
 		{
+           
 			var result = category.Delete(id);
 			if (result > 0)
 			{

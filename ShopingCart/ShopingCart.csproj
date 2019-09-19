@@ -159,6 +159,7 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
+    <Compile Include="Common\HelpMail.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -177,6 +178,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Start\footer.txt" />
+    <Content Include="App_Start\header.txt" />
     <Content Include="Asset\Backend\css\sb-admin-2.css" />
     <Content Include="Asset\Backend\css\sb-admin-2.min.css" />
     <Content Include="Asset\Backend\js\demo\chart-area-demo.js" />

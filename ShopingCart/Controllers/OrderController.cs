@@ -1,5 +1,6 @@
 ﻿using Model;
 using Service;
+using ShopingCart.Common;
 using ShopingCart.Models;
 using System;
 using System.Collections.Generic;
@@ -55,11 +56,53 @@ namespace ShopingCart.Controllers
 			    var result=	_orderDetailService.Inserts(order,orderDetails);
 				if (result > 0)
 				{
-                    Helper.SendEmail(currentUser.Email, "danhminhhm@gmail.com", "danhngoc99", "Thông Tin giỏ hàng của bạn", @"
-                     <h1>Tạo đơn hàng thành công</>
-                      
-                    ");
-					TempData["message"] = "Added";
+                    string header = System.IO.File.ReadAllText(Server.MapPath(@"~/App_Start/header.txt"));
+                    string footer = System.IO.File.ReadAllText(Server.MapPath(@"~/App_Start/footer.txt"));
+                    string main = String.Format(@"<h2 class='title'>ĐƠN HÀNG NỘI THẤT</h2>
+                <p>
+					<b>Họ tên người nhận</b>
+					<span>{0}</span>
+				</p>
+				<p>
+					<b>Email</b>
+					<span>{1}</span>
+				</p>
+				<p>
+					<b>SĐT</b>
+					<span>{2}</span>
+				</p>
+				<p>
+					<b>Địa chỉ</b>
+					<span>{3}</span>
+				</p>
+				<p>
+					<b>Ngày mua</b>
+					<span>{4}</span>
+				</p>", currentUser.FullName, currentUser.Email, currentUser.Phone, currentUser.Address, currentUser.CreatedDate);
+                    main += @"<table class='table text-center'>
+					<thead>
+						<tr>
+							<th>Sản phẩm</th>
+							<th>Đơn giá</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+						</tr>
+					</thead>
+					<tbody>";
+                    foreach (var item in cart)
+                    {
+                        main += "< tr>";
+                        main += "	<td>" + item.Product.Name + "</td>";
+                        main += "    < td>" + item.Product.Price + " VNĐ</td>";
+                        main += "    < td>" + item.Quantity + "</td>";
+                        main += "    < td>" + (item.Quantity * item.Product.Price) + "</td>";
+                        main += "</tr>";
+                    }
+                    main += @"</tbody>
+				</table>";
+                    HelpMail.SendEmail(currentUser.Email, "danhminhhm@gmail.com", "danhngoc99", "[CASTAR]_Đơn hàng", header + main + footer);
+
+                    TempData["message"] = "Added";
 					Session["CartSession"] = null;
 				}
 				else
