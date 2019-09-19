@@ -1,6 +1,7 @@
 ﻿using Model;
 using Service;
 using System.Web.Mvc;
+using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
@@ -12,6 +13,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			newsService = new NewsService();
 		}
 		// GET: Admin/News
+		[HasCredential(ActionId = 31)]
 		public ActionResult Index()
 		{
 			return View(newsService.GetAll());
@@ -21,11 +23,13 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View(newsService.GetById(id));
 		}
 		[HttpGet]
+		[HasCredential(ActionId = 32)]
 		public ActionResult Create()
 		{
 			return View();
 		}
 		[HttpPost]
+		[HasCredential(ActionId = 32)]
 		public ActionResult Create(News n)
 		{
 			if (ModelState.IsValid)
@@ -42,11 +46,12 @@ namespace ShopingCart.Areas.Admin.Controllers
 			}
 			return RedirectToAction("Index");
 		}
-
+		[HasCredential(ActionId = 33)]
 		public ActionResult Edit(int id)
 		{
 			return View(newsService.GetById(id));
 		}
+		[HasCredential(ActionId = 33)]
 		public ActionResult Edit(News n)
 		{
 			if (ModelState.IsValid)
@@ -63,6 +68,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			}
 			return RedirectToAction("Index");
 		}
+		[HasCredential(ActionId = 34)]
 		public ActionResult Delete(int id)
 		{
 			var result = newsService.Delete(id);

@@ -21,21 +21,23 @@ namespace ShopingCart.Controllers
         // GET: Order
         public ActionResult Index()
         {
-			var t = Session["CartSession"];
-			if (Session["User"] != null)
+	        if (Session["User"] != null)
 			{
 				var currentUser =(User)Session["User"];
-				int id = currentUser.UserId;
-				var user =_userService.GetById(id);
+				var user =_userService.GetById(currentUser.UserId);
 				ViewBag.User = user;
 			}
-			
-
             return View();
         }
 		[HttpPost]
 		public ActionResult Index(Order order)
 		{
+			if (Session["User"] != null)
+			{
+				var currentUser = (User)Session["User"];
+				var user = _userService.GetById(currentUser.UserId);
+				ViewBag.User = user;
+			}
 			if (ModelState.IsValid)
 			{
                 var currentUser = (User)Session["User"];
@@ -68,7 +70,7 @@ namespace ShopingCart.Controllers
 				}
 				return RedirectToAction("Index","Home");
 			}
-			return View("Index");
+			return View();
 		}
     }
 }

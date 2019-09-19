@@ -26,7 +26,6 @@ namespace Model
 		[Required(ErrorMessage = "Trường này không được để trống")]
 		[DisplayName("Địa chỉ")]
 		public string Address { get; set; }
-		[Required(ErrorMessage = "Trường này không được để trống")]
 		[DisplayName("Ngày tạo")]
 		public DateTime? Created { get; set; }
 		[DisplayName("Trạng thái")]

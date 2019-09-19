@@ -25,6 +25,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		[HttpGet]
+		[HasCredential(ActionId = 24)]
 		public ActionResult Create()
 		{
 			ViewBag.RoleId = new SelectList(roleService.GetAll(), "RoleId", "RoleName");
@@ -32,6 +33,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		[HttpPost]
+		[HasCredential(ActionId = 24)]
 		public ActionResult Create(User user)
 		{
 			if (ModelState.IsValid)
@@ -73,7 +75,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View();
 		}
 		[HttpGet]
-		[HasCredential(ActionId = 24)]
+		[HasCredential(ActionId = 25)]
 		public ActionResult Edit(int id)
 		{
 			var user = userService.GetById(id);
@@ -84,7 +86,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 		[HttpPost]
 		[ValidateInput(false)]
-		[HasCredential(ActionId = 24)]
+		[HasCredential(ActionId = 25)]
 		public ActionResult Edit(User user)
 		{
 			if (ModelState.IsValid)
@@ -128,7 +130,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			ViewBag.user = userService.GetById(user.UserId);
 			return View();
 		}
-
+		[HasCredential(ActionId = 26)]
 		public ActionResult Delete(int id)
 		{
 			var result = userService.Delete(id);
