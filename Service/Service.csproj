@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutService.cs" />
     <Compile Include="CategoryService.cs" />
     <Compile Include="ContactService.cs" />
     <Compile Include="FeedBackService.cs" />

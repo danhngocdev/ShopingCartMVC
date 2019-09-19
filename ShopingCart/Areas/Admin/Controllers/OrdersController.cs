@@ -16,13 +16,13 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 
 		// GET: Admin/Orders
-		[HasCredential(ActionId = 25)]
+		[HasCredential(ActionId = 35)]
 		public ActionResult Index()
         {
             return View(_orderService.GetAll());
         }
 		[HttpPost]
-		[HasCredential(ActionId = 26)]
+		[HasCredential(ActionId = 36)]
 		public ActionResult Details(Order order)
 		{
 			var result= _orderService.Update(order);
@@ -37,7 +37,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return RedirectToAction("Details");
 		}
 		// GET: Admin/Orders/Details/5
-		[HasCredential(ActionId = 26)]
+		[HasCredential(ActionId = 36)]
 		public ActionResult Details(int id)
         {  
            var orderDetail = _orderDetailService.GetAll(id);
