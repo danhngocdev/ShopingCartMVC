@@ -20,19 +20,22 @@ namespace ShopingCart
         }
         protected void Application_Error(object sender, EventArgs e)
         {
-	        if (Server.GetLastError() is HttpException error && !string.IsNullOrWhiteSpace( error.Message))
+			var errors = Server.GetLastError();
+
+			var error = Server.GetLastError() as HttpException;
+	        if (errors!=null || error != null&&!string.IsNullOrWhiteSpace( error.Message))
 	        {
-				if (error.GetHttpCode() == 404)
-				{
-					Server.ClearError();
-					Context.Response.Redirect("/Home/Error404");
-				}
-				else
-				{
+		        if (error!=null&& error.GetHttpCode() == 404)
+		        {
+			        Server.ClearError();
+			        Context.Response.Redirect("/Home/Error404");
+		        }
+		        else
+		        {
 					Context.ClearError();
 					Context.Response.Redirect("https://localhost:44347/Home/Error500");
 				}
 			}
-        }
+		}
 	}
 }

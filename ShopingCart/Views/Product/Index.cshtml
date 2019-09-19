@@ -110,12 +110,14 @@
 														</div>
 														<div class="price-reviews">
 															<div class="price-box">
-																<span class="price product-price">@item.Price VND</span>
-																@if (item.Sale_Price < item.Price)
+																@if (item.Sale_Price != null)
 																{
-																	<span class="old-price product-price">@item.Sale_Price VND</span>
+																	<span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
 																}
-
+																else
+																{
+																	<span class="price product-price">Giá gốc:@item.Price VND</span>
+																}
 															</div>
 
 														</div>

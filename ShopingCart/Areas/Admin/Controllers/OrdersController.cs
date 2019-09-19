@@ -42,13 +42,7 @@ namespace ShopingCart.Areas.Admin.Controllers
         {  
            var orderDetail = _orderDetailService.GetAll(id);
 			ViewBag.Order = _orderService.GetById(orderDetail[0].Oder_ID);
-			double total = 0;
-			foreach (var item in orderDetail)
-			{
-				total += item.ToltalPrice;
-			}
-			ViewBag.ToltalPrice = total;
-            return View(orderDetail);
+			return View(orderDetail);
         }
     }
 }

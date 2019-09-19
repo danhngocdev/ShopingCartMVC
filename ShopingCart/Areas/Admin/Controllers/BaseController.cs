@@ -18,11 +18,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 
             base.OnActionExecuting(filterContext);
         }
-        protected override void OnException(ExceptionContext filterContext)
-        {
-	        var a= filterContext.Exception.Message;
-	        base.OnException(filterContext);
-        }
+        
 
 	}
 }

@@ -3,10 +3,11 @@
 @{
 	ViewBag.Title = "Details";
 	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+	double total = 0;
 }
 
 	<div class="box">
-		<h2 style="text-align:center">Chi tiết đơn hàng</h2>
+		<h2 style="text-align:center"><div class="panel-heading">Thông tin khách Hàng</div></h2>
 
 		<div class="box-body">
 
@@ -14,7 +15,7 @@
 				<div>
 					<form method="POST">
 						<div class="panel panel-title">
-							<div class="panel-heading">Thông tin khách Hàng</div>
+							
 							<div class="panel-body">
 								<table class="table">
 
@@ -50,7 +51,7 @@
 							<input hidden name="Status" value="1" />
 							<p>
 								Trạng thái giao hàng: <label class="btn btn-primary">Đang chờ</label>
-								<button type="submit" value="1" class="btn btn-primary">Xác nhận</button>
+								Xử lý <button type="submit" value="1" class="btn btn-primary">Xác nhận</button>
 							</p>
 						}
 						else if (ViewBag.Order.Status == 1)
@@ -58,7 +59,7 @@
 							<input hidden name="Status" value="2" />
 							<p>
 								Trạng thái giao hàng:  <label class="btn btn-primary">Xác Nhận</label>
-								<button type="submit" value="2" class="btn btn-primary">Đang giao</button>
+								Xử lý <button type="submit" value="2" class="btn btn-primary">Đang giao</button>
 							</p>
 						}
 						else if (ViewBag.Order.Status == 2)
@@ -66,7 +67,7 @@
 							<input hidden name="Status" value="3" />
 							<p>
 								Trạng thái giao hàng:  <label class="btn btn-primary">Đang giao</label>
-								<button type="submit" class="btn btn-primary">Đã giao</button>
+								Xử lý <button type="submit" class="btn btn-primary">Đã giao</button>
 							</p>
 						}
 						else
@@ -79,6 +80,7 @@
 
 					</form>
 				</div>
+				<h2 style="text-align:center">Chi tiết đơn hàng</h2>
 				<table class="table table-hover">
 					<tr>
 						<th>
@@ -94,16 +96,18 @@
 							@Html.DisplayNameFor(model => model.Price)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Sale_Price)
+							@Html.DisplayNameFor(model => model.Quantity)
 						</th>
 						<th>
-							@Html.DisplayNameFor(model => model.Total)
+							Tổng tiền
 						</th>
 
 					</tr>
 
 					@foreach (var item in Model)
 					{
+						total += item.Price * item.Quantity;
+						var currentTotal = item.Price * item.Quantity;
 						<tr>
 							<td>
 								@Html.DisplayFor(modelItem => item.Oder_ID)
@@ -115,24 +119,19 @@
 								<img style="width:150px" src="@Html.DisplayFor(modelItem => item.Images)" alt="Alternate Text" />
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Price)
+								@Html.DisplayFor(modelItem => item.Price) VND
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Sale_Price)
+								@Html.DisplayFor(modelItem => item.Quantity)
 							</td>
 							<td>
-								@Html.DisplayFor(modelItem => item.Total)
+								@currentTotal VND
 							</td>
-							<td hidden="hidden">
-								@Html.DisplayFor(modelItem => item.ToltalPrice)
-							</td>
-
-
 						</tr>
 					}
 
 				</table>
-				<span>Tổng tiền:@ViewBag.ToltalPrice </span>
+				<h4 style="text-align: right">Tổng tiền đơn hàng:@total VND </h4>
 
 			</div>
 			<div>

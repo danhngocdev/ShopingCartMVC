@@ -33,12 +33,9 @@ namespace Repository
 							  Images = p.Images,
 							  NameProduct = p.Name,
 							  Oder_ID = c.Oder_ID,
-							  Price = p.Price,
-							  Sale_Price = p.Sale_Price,
+							  Price = c.Price,
 							  Quantity = c.Quantity,
-							  Total = c.Total,
 							  Product_Id = p.Id,
-							  ToltalPrice=p.Price*c.Total
 						  }).ToList();
 		
 			return result;

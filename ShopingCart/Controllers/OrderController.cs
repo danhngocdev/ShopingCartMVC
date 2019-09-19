@@ -47,10 +47,10 @@ namespace ShopingCart.Controllers
 				foreach (var item in cart)
 				{
 					var orderDetail = new OrderDetail {
-						Price =float.Parse( item.Product.Price.ToString()),
+						Price = (item.Product.Sale_Price !=null&&item.Product.Sale_Price<item.Product.Price) ? float.Parse(item.Product.Sale_Price.ToString()): float.Parse( item.Product.Price.ToString()),
 					Product_Id=item.Product.Id,
 					Quantity=item.Quantity,
-					Total= float.Parse(item.Product.Price.ToString())*item.Quantity
+					
 					};
 					orderDetails.Add(orderDetail);
 

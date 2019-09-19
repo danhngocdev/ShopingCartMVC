@@ -19,7 +19,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
 		{
 			ViewBag.searchString = searchString;
-			return View(product.Search(searchString,Page,PageSize));
+			return View(product.Search(searchString, Page, PageSize));
 		}
 		[HttpGet]
 		[HasCredential(ActionId = 10)]
@@ -40,8 +40,14 @@ namespace ShopingCart.Areas.Admin.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-
+				if (p.Sale_Price != null && p.Sale_Price > p.Price)
+				{
+					ModelState.AddModelError("Price", "Giá gốc không được nhỏ hơn giá khuyến mãi");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
+				}
 				var result = product.Insert(p);
+				
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
@@ -56,7 +62,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 				{
 					TempData["message"] = "false";
 				}
-				
+
 				return RedirectToAction("Index");
 			}
 			ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
@@ -77,7 +83,14 @@ namespace ShopingCart.Areas.Admin.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				if (p.Sale_Price != null && p.Sale_Price > p.Price)
+				{
+					ModelState.AddModelError("Price", "Giá gốc không được nhỏ hơn giá khuyến mãi");
+					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
+					return View();
+				}
 				var result = product.Update(p);
+				
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
@@ -88,6 +101,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 					ViewBag.Category_ID = new SelectList(category.GetAll(), "ID", "Name");
 					return View();
 				}
+
 				else
 				{
 					TempData["message"] = "false";
