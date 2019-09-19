@@ -139,6 +139,7 @@ else
 									<thead>
 										<tr>
 											<th class="product-name">Product</th>
+											<th class="product-total">Image</th>
 											<th class="product-total">Total</th>
 										</tr>
 									</thead>
@@ -148,14 +149,17 @@ else
 										{
 
 											TotalMoney += (item.Product.Price * item.Quantity);
-											<tr class="cart_item">
-												<td class="product-name">
-													@item.Product.Name <strong class="product-quantity"> × @item.Quantity</strong>
-												</td>
-												<td class="product-total">
-													<span class="amount">@item.Product.Price*@item.Quantity</span>
-												</td>
-											</tr>
+										<tr class="cart_item">
+											<td class="product-name">
+												@item.Product.Name <strong class="product-quantity"> × @item.Quantity</strong>
+											</td>
+											<td class="product-name">
+												<img src="@item.Product.Images" alt="Alternate Text" />
+											</td>
+											<td class="product-total">
+												<span class="amount">@item.Product.Price*@item.Quantity</span>
+											</td>
+										</tr>
 										}
 									</tbody>
 									<tfoot>
