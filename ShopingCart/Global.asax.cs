@@ -18,8 +18,8 @@ namespace ShopingCart
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-        protected void Application_Error(object sender, EventArgs e)
-        {
+		protected void Application_Error(object sender, EventArgs e)
+		{
 			var errors = Server.GetLastError();
 
 			var error = Server.GetLastError() as HttpException;

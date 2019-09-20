@@ -106,6 +106,7 @@ namespace ShopingCart.Controllers
                     HelpMail.SendEmail(currentUser.Email, "danhminhhm@gmail.com", "danhngoc99", "[CASTAR]_Đơn hàng", header + main + footer);
 
                     TempData["message"] = "Added";
+                    TempData["DataSuccess"] = "Đặt hàng thành công";
 					Session["CartSession"] = null;
 				}
 				else

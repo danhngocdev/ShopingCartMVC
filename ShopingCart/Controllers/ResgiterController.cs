@@ -29,6 +29,7 @@ namespace ShopingCart.Controllers
 				if (result > 0)
 				{
 					TempData["message"] = "Added";
+					TempData["DataSuccess"] = "Đăng ký thành công";
 				}
 				else if (result == -1)
 				{
