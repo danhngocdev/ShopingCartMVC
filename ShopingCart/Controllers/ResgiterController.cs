@@ -1,6 +1,7 @@
 ﻿using Model;
 using Service;
 using System.Web.Mvc;
+using BotDetect.Web.Mvc;
 using ShopingCart.Common;
 
 namespace ShopingCart.Controllers
@@ -19,7 +20,7 @@ namespace ShopingCart.Controllers
 			return View();
 		}
 		[HttpPost]
-		
+		[CaptchaValidationActionFilter("CaptchaCode", "registerCaptcha", "Mã Xác Nhận Không Đúng!")]
 		public ActionResult Index(User user)
 		{
 			if (ModelState.IsValid)
