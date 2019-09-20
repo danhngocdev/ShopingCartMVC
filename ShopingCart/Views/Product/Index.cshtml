@@ -28,150 +28,159 @@
 <!-- shop-area start -->
 <div class="shop-area">
 	<div class="container">
-		<div class="row ">
-			<div class="col-md-3 col-sm-4 ">
-				<div class="panel panel-default">
-					<h2 style="background: #444; width: 100%; color: white;text-align: center" class="title-block">Danh Mục Sản Phẩm</h2>
-					<div class="sidebar-widget">
-						<ul class="sidebar-menu">
-							@foreach (var item in ListCategory)
-							{
-								var url = "/danh-muc-san-pham/" + item.Slug + "-" + item.ID;
-								<li><a style="margin-left: 15px;" href="@url">@item.Name </a></li>
-							}
+        <div class="row ">
+            <div class="col-md-3 col-sm-4">
+                <div class="column">
+                    <h2 class="title-block">Danh Mục Sản Phẩm</h2>
+                    @foreach (var item in ListCategory.Where(x=>x.ParentID == null))
+                    {
+                        var url = "/danh-muc-san-pham/" + item.Slug + "-" + item.ID;
+                        var child = ListCategory.Where(x => x.ParentID == item.ID);
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-title"><a href="@url">@item.Name</a> </h3>
+                    @if (child.Count() > 0)
+                    {
+                <ul class="sidebar-menu">
+                    @foreach (var submenu in child)
+                    {
+                        <li><a href="@url">@submenu.Name</a></li>
+                    }
+                </ul>
+                    }
+
+                </div>
+                    }
 
 
-						</ul>
-					</div>
-				</div>
-			</div>
-			@if (Model.Count > 0)
-			{
-				<div class="col-md-9 col-sm-8">
-					@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-					{
-						<div class="row">
-							<div class="col-md-2">
-								<input type="text" placeholder="tìm kiếm theo tên" name="searchString" value="@ViewBag.searchString" />
-							</div>
-							<div class="col-md-2">
-								<button class="btn btn-primary" type="submit">Tìm kiếm</button>
-							</div>
-							<div class="col-md-6">
+                </div>
+            </div>
+            @if (Model.Count > 0)
+            {
+                <div class="col-md-9 col-sm-8">
+                    @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+                    {
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="text" placeholder="tìm kiếm theo tên" name="searchString" value="@ViewBag.searchString" />
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                            </div>
+                            <div class="col-md-6">
 
-							</div>
-						</div>
-					}
-					<h2 class="page-heading mt-40">
-						<span class="cat-name">Tất Cả Sản Phẩm</span>
-						<span class="heading-counter">Có Tất Cả @Model.Count() Sản Phẩm</span>
-					</h2>
-					<div class="shop-page-bar">
-						<div>
-							<!-- Tab panes -->
-							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="home">
-									<div class="row reload-wish" >
-										@foreach (var item in Model)
-										{
-											<div class="col-md-4 col-sm-6">
-												<div class="product-wrapper mb-40">
-													<div class="product-img">
+                            </div>
+                        </div>
+                    }
+                    <h2 class="page-heading mt-40">
+                        <span class="cat-name">Tất Cả Sản Phẩm</span>
+                        <span class="heading-counter">Có Tất Cả @Model.Count() Sản Phẩm</span>
+                    </h2>
+                    <div class="shop-page-bar">
+                        <div>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home">
+                                    <div class="row reload-wish">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="product-wrapper mb-40">
+                                                    <div class="product-img">
 
-														<a href="#"><img src="@item.Images" alt="" /></a>
-														<span class="new-label">New</span>
-														<div class="product-action">
-															<a href="cart.html"><i class="pe-7s-cart"></i></a>
-															@if (user == null)
-															{
-																if (ListNotInUser != null && ListNotInUser.Any(x => x.Equals(item.Id)))
-																{
-																	<a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
-																}
-																else
-																{
-																	<a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
-																}
+                                                        <a href="#"><img src="@item.Images" alt="" /></a>
+                                                        <span class="new-label">New</span>
+                                                        <div class="product-action">
+                                                            <a href="cart.html"><i class="pe-7s-cart"></i></a>
+                                                            @if (user == null)
+                                                            {
+                                                                if (ListNotInUser != null && ListNotInUser.Any(x => x.Equals(item.Id)))
+                                                                {
+                                                                    <a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
+                                                                }
 
-															}
-															else if (wishList.Any(x => x.ProductID.Equals(item.Id)))
-															{
-																<a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
-															}
-															else
-															{
-																<a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>}
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-														</div>
-													</div>
-													<div class="product-content">
-														<div class="pro-title">
-															<h3><a href="product-details.html">@item.Name</a></h3>
-														</div>
-														<div class="price-reviews">
-															<div class="price-box">
-																@if (item.Sale_Price != null)
-																{
-																	<span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
-																}
-																else
-																{
-																	<span class="price product-price">Giá gốc:@item.Price VND</span>
-																}
-															</div>
+                                                            }
+                                                            else if (wishList.Any(x => x.ProductID.Equals(item.Id)))
+                                                            {
+                                                                <a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>}
+                                                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-content">
+                                                        <div class="pro-title">
+                                                            <h3><a href="product-details.html">@item.Name</a></h3>
+                                                        </div>
+                                                        <div class="price-reviews">
+                                                            <div class="price-box">
+                                                                @if (item.Sale_Price != null)
+                                                                {
+                                                                    <span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="price product-price">Giá gốc:@item.Price VND</span>
+                                                                }
+                                                            </div>
 
-														</div>
-													</div>
-												</div>
-											</div>
-										}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
 
 
-									</div>
-								</div>
+                                    </div>
+                                </div>
 
-								<div class="content-sortpagibar">
-									<div class="product-count display-inline">Showing 1 - 12 of 13 items</div>
-									@*<ul class="shop-pagi display-inline">
-											<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-											<li class="active"><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-										</ul>*@
-									@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
+                                <div class="content-sortpagibar">
+                                    <div class="product-count display-inline">Showing 1 - 12 of 13 items</div>
+                                    @*<ul class="shop-pagi display-inline">
+                                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>*@
+                                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
 
-									@*<div class="selector-field f-right">
-											<form action="#">
-												<button class="compare">Compare (1)</button>
-											</form>
-										</div>*@
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			}
-			else
-			{
-				using (Html.BeginForm("Index", "Product", FormMethod.Get))
-				{
-					<div class="row">
-						<div class="col-md-2">
-							<input type="text" placeholder="tìm kiếm theo tên" name="searchString" value="@ViewBag.searchString" />
-						</div>
-						<div class="col-md-2">
-							<button class="btn btn-primary" type="submit">Tìm kiếm</button>
-						</div>
-						<div class="col-md-6">
+                                    @*<div class="selector-field f-right">
+                                    <form action="#">
+                                        <button class="compare">Compare (1)</button>
+                                    </form>
+                                </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm("Index", "Product", FormMethod.Get))
+                {
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" placeholder="tìm kiếm theo tên" name="searchString" value="@ViewBag.searchString" />
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                        </div>
+                        <div class="col-md-6">
 
-						</div>
-					</div>
-				}
-				<p>Không có sản phẩm</p>
-			}
+                        </div>
+                    </div>
+                }
+                <p>Không có sản phẩm</p>
+            }
 
-		</div>
+        </div>
 	</div>
 </div>
 <!-- shop-area end -->
@@ -223,54 +232,5 @@
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
-<div class="service-area pt-70 pb-40 gray-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<div class="single-service mb-30">
-					<div class="service-icon">
-						<i class="pe-7s-world"></i>
-					</div>
-					<div class="service-title">
-						<h3>FREE SHIPPING</h3>
-						<p>Free shipping on all UK orders</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="single-service mb-30">
-					<div class="service-icon">
-						<i class="pe-7s-refresh"></i>
-					</div>
-					<div class="service-title">
-						<h3>FREE EXCHANGE</h3>
-						<p>30 days return on all items</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="single-service mb-30 sm-mrg">
-					<div class="service-icon">
-						<i class="pe-7s-headphones"></i>
-					</div>
-					<div class="service-title">
-						<h3>PREMIUM SUPPORT</h3>
-						<p>We support online 24 hours a day</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="single-service mb-30 xs-mrg sm-mrg">
-					<div class="service-icon">
-						<i class="pe-7s-gift"></i>
-					</div>
-					<div class="service-title">
-						<h3>BLACK FRIDAY</h3>
-						<p>Shocking discount on every friday</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 

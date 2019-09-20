@@ -68,41 +68,48 @@ namespace ShopingCart.Controllers
         {
             var product = productService.GetById(productID);
             var cart = Session[CartSession];
-            if (cart !=null)
-            {
-                var list = (List<CartItem>)cart;
-                if (list.Exists(x=>x.Product.Id == productID))
+           
+                if (cart != null)
                 {
-                    foreach (var item in list)
+                    var list = (List<CartItem>)cart;
+                    if (list.Exists(x => x.Product.Id == productID))
                     {
-                        if (item.Product.Id == productID)
+                        foreach (var item in list)
                         {
-                            item.Quantity += quantity;
+                            if (item.Product.Id == productID)
+                            {
+                                item.Quantity += quantity;
+                            }
+
                         }
 
                     }
+                    else
+                    {
+                        var item = new CartItem();
+                            item.Product = product;
+                            item.Quantity = quantity;
 
+                            list.Add(item);
+                        
+                   
+                        
+                       
+                    }
+
+                    Session[CartSession] = list;
                 }
                 else
                 {
                     var item = new CartItem();
                     item.Product = product;
                     item.Quantity = quantity;
-                    
+                    var list = new List<CartItem>();
                     list.Add(item);
+                    Session[CartSession] = list;
                 }
-
-                Session[CartSession] = list;
-            }
-            else
-            {
-                var item = new CartItem();
-                item.Product = product;
-                item.Quantity = quantity;
-                var list = new List<CartItem>();
-                list.Add(item);
-                Session[CartSession] = list;
-            }
+            
+            
             return RedirectToAction("Index");
         }
         

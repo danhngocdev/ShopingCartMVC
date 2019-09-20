@@ -1,4 +1,4 @@
-/* Normal desktop :992px. */
+﻿/* Normal desktop :992px. */
 @media (min-width: 1200px) and (max-width: 1500px) {
 
 header.header-4 {
@@ -9,7 +9,63 @@ header.header-4 {
 }
 
 }
+* {
+    padding: 0;
+    margin: 0;
+}
 
+#menu ul {
+    background: #545454;
+    width: 200px;
+    list-style-type: none;
+    text-align: left;
+}
+
+#menu li {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 15px;
+}
+
+    #menu li a {
+        text-decoration: none;
+        color: #FFF;
+        font-weight: bold;
+        display: block;
+    }
+
+    #menu li:hover {
+        background: #D42328;
+    }
+
+        #menu li:hover a {
+            color: #333;
+        }
+/*=== Quy định cho menu con ===*/
+#menu ul li {
+    position: relative;
+}
+
+#menu .sub-menu {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    display: none;
+    z-index:1;
+}
+
+    #menu .sub-menu li a {
+        color: #FFF;
+    }
+
+    #menu .sub-menu li:hover a {
+        color: #333;
+    }
+
+#menu li:hover .sub-menu {
+    display: block;
+}
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1169px) {
 .main-menu ul li .mega-menu {

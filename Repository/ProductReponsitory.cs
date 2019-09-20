@@ -54,7 +54,7 @@ namespace Repository
 
         public IEnumerable<Product> GetAll()
         {
-            return context.Products.Where(s=>s.Status == true).ToList();
+            return context.Products.ToList();
         }
 
         public Product GetById(int id)

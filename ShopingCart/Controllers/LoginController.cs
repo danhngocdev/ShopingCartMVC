@@ -88,7 +88,7 @@ namespace ShopingCart.Controllers
 						wishListService.AddMutiple(checkExist);
 					}
 					Session["User"] = user;
-					return RedirectToAction("Index", "Order");
+					return RedirectToAction("Index", "Home");
 				}
 				else
 				{

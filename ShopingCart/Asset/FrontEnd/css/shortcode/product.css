@@ -205,14 +205,19 @@ text-transform: uppercase;}
 .sidebar-widget {
   margin-bottom: 20px;
 }
-.sidebar-title{border-bottom: 1px solid #ebebeb;
-color: #000;
-display: block;
-font-size: 13px;
-font-weight: 700;
-margin-bottom: 15px;
-padding-bottom: 10px;
-text-transform: uppercase;}
+.sidebar-title {
+    background: #545454;
+    border-bottom: 1px solid #ebebeb;
+    color: white;
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    /* padding-bottom: 10px; */
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
 ul.sidebar-menu {
   overflow: hidden;
 }

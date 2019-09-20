@@ -3523,6 +3523,7 @@
     <Content Include="Asset\FrontEnd\js\headroom.min.js" />
     <Content Include="Asset\FrontEnd\js\jquery-ui.min.js" />
     <Content Include="Asset\FrontEnd\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Asset\FrontEnd\js\jquery.validate.min.js" />
     <Content Include="Asset\FrontEnd\js\main.js" />
     <Content Include="Asset\FrontEnd\js\owl.carousel.min.js" />
     <Content Include="Asset\FrontEnd\js\plugins.js" />

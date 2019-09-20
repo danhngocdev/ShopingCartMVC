@@ -19,12 +19,12 @@ namespace ShopingCart.Controllers
         {
             return View(service.GetContact());
         }
-        public JsonResult Send(string name, string email,string phone,string message)
+        public JsonResult Send(string name, string email,int phone,string message)
         {
             var fb = new FeedBack();
             fb.FullName = name;
             fb.Email = email;
-            fb.Phone = int.Parse(phone);
+            fb.Phone = phone;
             fb.Content = message;
             fb.Createad = DateTime.Now;
             fb.Status = true;

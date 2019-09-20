@@ -80,7 +80,7 @@ namespace ShopingCart.Controllers
 				<p>
 					<b>Ngày mua</b>
 					<span>{4}</span>
-				</p>", currentUser.FullName, currentUser.Email, currentUser.Phone, currentUser.Address, currentUser.CreatedDate);
+				</p>", currentUser.FullName, currentUser.Email, currentUser.Phone, currentUser.Address, DateTime.Now);
                     main += @"<table class='table text-center'>
 					<thead>
 						<tr>
@@ -88,6 +88,7 @@ namespace ShopingCart.Controllers
 							<th>Đơn giá</th>
 							<th>Số lượng</th>
 							<th>Thành tiền</th>
+                            <th>Tổng Tiền </th>
 						</tr>
 					</thead>
 					<tbody>";
