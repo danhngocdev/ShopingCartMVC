@@ -69,7 +69,7 @@ namespace Repository
 
         public Contact GetContact()
         {
-            return context.Contacts.Single(x => x.Status == true);
+            return context.Contacts.FirstOrDefault(x => x.Status == true);
         }
 
         public int Insert(Contact t)

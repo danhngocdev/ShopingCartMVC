@@ -32,7 +32,7 @@ namespace ShopingCart.Controllers
             var SessionCart = (List<CartItem>)Session[CartSession];
             foreach (var item in SessionCart)
             {
-                var jsonitem = JsonCart.SingleOrDefault(x => x.Product.Id == item.Product.Id);
+                var jsonitem = JsonCart.FirstOrDefault(x => x.Product.Id == item.Product.Id);
                 if (jsonitem!=null)
                 {
                     item.Quantity = jsonitem.Quantity;
