@@ -59,7 +59,7 @@
 									<div class="product-wrapper mb-40  ">
 										<div class="product-img">
 											<a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
-											@{ if (item.TopHot.HasValue == true)
+											@{ if (item.TopHot)
 												{
 													<span class="new-label-hot">Hot</span>
 												}

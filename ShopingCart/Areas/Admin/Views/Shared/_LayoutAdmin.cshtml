@@ -655,6 +655,7 @@
 			var somethingChanged = false;
 			var formElements = document.getElementById("create").elements;
 			var postData = {};
+			var checkButton = true;
 			for (var i = 0; i < formElements.length; i++)
 				postData[formElements[i].name] = formElements[i].value;
 			$('#create').change(function() {
@@ -668,10 +669,13 @@
 			});
 
 			$('#create').data('initial-state', $('#create').serialize());
-
+			
+			$("#check-click").click(function() {
+				checkButton = false;
+			});
 			$(window).on('beforeunload',
 				function() {
-					if (somethingChanged && $('#create').serialize() != $('#create').data('initial-state')) {
+					if (checkButton&& somethingChanged && $('#create').serialize() != $('#create').data('initial-state')) {
 						return 'You have unsaved changes which will not be saved.'
 					}
 				});

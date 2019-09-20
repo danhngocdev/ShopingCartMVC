@@ -10,7 +10,7 @@
 
 		<div class="box-body">
 
-			@using (Html.BeginForm())
+			@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "create" }))
 			{
 				@Html.AntiForgeryToken()
 
@@ -39,7 +39,7 @@
 
 					<div class="form-group">
 						<div class="col-md-offset-2 col-md-10">
-							<input type="submit" value="Sửa" class="btn btn-default" />
+							<input type="submit" id="check-click" value="Sửa" class="btn btn-default" />
 						</div>
 					</div>
 				</div>

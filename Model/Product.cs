@@ -42,9 +42,9 @@ namespace Model
         [DisplayName("Ngày sửa")]
 		public DateTime? ModifileDate { get; set; }
 		[DisplayName("Trạng thái")]
-		public bool? Status { get; set; }
+		public bool Status { get; set; }
 		[DisplayName("Sản phẩm hot")]
-		public bool? TopHot { get; set; }
+		public bool TopHot { get; set; }
 
         [ForeignKey("Category_ID")]
         public virtual Category Categorys { get; set; }
