@@ -31,33 +31,35 @@ namespace ShopingCart.Controllers
             ViewBag.ListProduct = productService.Search(searchString,Page,PageSize);
             return View(productService.Search(searchString, Page, PageSize).Where(x=>x.Status==true).ToPagedList(Page, PageSize));
         }
-        public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 1)
+        public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 10)
         {
 
+            var index = Request.Params["page"];
+            double value;
             ViewBag.ListCategory = categoryService.GetAll();
-
-            var total = productService.GetAll().Count();
             var category = categoryService.GetById(id);
             ViewBag.Category = category;
-            var model = productService.ListProductGetByCategory(id,pageIndex,pageSize);
-            ViewBag.Total = total;
-            ViewBag.Page = pageIndex;
-            int maxPage = 5;
-            int totalPage = 0;
+            if (!double.TryParse(index, out value) && index != null) return Redirect("https://localhost:44347/danh-muc-san-pham/4321-" + TempData["categoryId"] + "?page=" + TempData["GoBack"]);
+            TempData["GoBack"] = index;
+            TempData["categoryId"] = id;
+            var totalPage = 0;
+            var total = productService.GetAll().Count();
             totalPage = (int)Math.Ceiling((double)(total / pageSize));
+            var convertIndex = 0;
+            if (index == null || double.Parse(index) <= 0) convertIndex = 1;
+            else convertIndex = (double.Parse(index) > totalPage) ? totalPage : int.Parse(index);
+            var model = productService.ListProductGetByCategory(id, convertIndex, pageSize).ToList();
+            ViewBag.Page = convertIndex;
             ViewBag.TotalPage = totalPage;
-            ViewBag.Maxpage = maxPage;
-            ViewBag.First = 1;
-            ViewBag.Last = totalPage;
-            ViewBag.Next = pageIndex + 1;
-            ViewBag.Prev = pageIndex - 1;
+            ViewBag.Next = convertIndex + 1;
+            ViewBag.Prev = convertIndex - 1;
             return View(model);
         }
         public ActionResult Detail(int id)
         {
             ViewBag.ListProductOther = productService.ListProductSale();
             var product = productService.GetById(id);
-            ViewBag.Category = productService.GetById(product.Category_ID);
+            ViewBag.Category = productService.GetById(id);
             return View(product);
         }
 

@@ -12,5 +12,6 @@ namespace Repository.Interface
         IEnumerable<T> ListProductSale();
         IEnumerable<T> ListProductNew();
         IEnumerable<T> ListProductGetByCategory(int id,int pageIndex,int pageSize);
+
     }
 }

@@ -70,7 +70,7 @@
 												}
 											}
 										<div class="product-action">
-											<a id="Addtocart" data-id="@item.Id" @*href="/them-vao-gio-hang?productID=@item.Id&quantity=1"*@><i class="pe-7s-cart"></i></a>
+											<a class="Addtocart" data-id="@item.Id" @*href="/them-vao-gio-hang?productID=@item.Id&quantity=1"*@><i class="pe-7s-cart"></i></a>
 
 											@if (user == null)
 											{
@@ -151,8 +151,8 @@
 											<a href="@url"><img src="@item.Images" alt="@item.Name" /></a>
 											<span class="new-label">New</span>
 											<div class="product-action">
-												<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
-												<a href="@url" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+												<a class="Addtocart" data-id="@item.Id"><i class="pe-7s-cart"></i></a>
+											
 											</div>
 										</div>
 										<div class="product-content">

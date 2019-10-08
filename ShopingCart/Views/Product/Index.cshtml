@@ -2,53 +2,53 @@
 @using Model
 @using PagedList.Mvc
 @{
-	ViewBag.Title = "Sản Phẩm";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var ListCategory = (List<Model.Category>)ViewBag.ListCategory;
-	var user = (User)Session["User"];
-	var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
-	var wishList = (List<Model.WishList>)ViewBag.wishList;
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ListCategory = (List<Model.Category>)ViewBag.ListCategory;
+    var user = (User)Session["User"];
+    var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
+    var wishList = (List<Model.WishList>)ViewBag.wishList;
 
 }
 @section footer{
-	<script src="~/Asset/FrontEnd/js/WishList.js"></script>
+    <script src="~/Asset/FrontEnd/js/WishList.js"></script>
 }
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
 <div class="breadcrumb-area">
-	<div class="container">
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-home"></i></a></li>
-			<li><a href="#">Trang Chủ</a></li>
-			<li class="active">Sản Phẩm</li>
-		</ol>
-	</div>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Trang Chủ</a></li>
+            <li class="active">Sản Phẩm</li>
+        </ol>
+    </div>
 </div>
 <!-- breadcrumb end -->
 <!-- shop-area start -->
 <div class="shop-area">
-	<div class="container">
+    <div class="container">
         <div class="row ">
             <div class="col-md-3 col-sm-4">
                 <div class="column">
                     <h2 class="title-block">Danh Mục Sản Phẩm</h2>
-                    @foreach (var item in ListCategory.Where(x=>x.ParentID == null))
+                    @foreach (var item in ListCategory.Where(x => x.ParentID == null))
                     {
                         var url = "/danh-muc-san-pham/" + item.Slug + "-" + item.ID;
                         var child = ListCategory.Where(x => x.ParentID == item.ID);
-                <div class="sidebar-widget">
-                    <h3 class="sidebar-title"><a href="@url">@item.Name</a> </h3>
-                    @if (child.Count() > 0)
-                    {
-                <ul class="sidebar-menu">
-                    @foreach (var submenu in child)
-                    {
-                        <li><a href="@url">@submenu.Name</a></li>
-                    }
-                </ul>
-                    }
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title"><a href="@url">@item.Name</a> </h3>
+                            @if (child.Count() > 0)
+                            {
+                                <ul class="sidebar-menu">
+                                    @foreach (var submenu in child)
+                                    {
+                                        <li><a href="@url">@submenu.Name</a></li>
+                                    }
+                                </ul>
+                            }
 
-                </div>
+                        </div>
                     }
 
 
@@ -142,19 +142,19 @@
                                 <div class="content-sortpagibar">
                                     <div class="product-count display-inline">Showing 1 - 12 of 13 items</div>
                                     @*<ul class="shop-pagi display-inline">
-                                    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                </ul>*@
+                                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>*@
                                     @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
 
                                     @*<div class="selector-field f-right">
-                                    <form action="#">
-                                        <button class="compare">Compare (1)</button>
-                                    </form>
-                                </div>*@
+                                            <form action="#">
+                                                <button class="compare">Compare (1)</button>
+                                            </form>
+                                        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -181,56 +181,54 @@
             }
 
         </div>
-	</div>
+    </div>
 </div>
 <!-- shop-area end -->
 <!-- brand-area start -->
 <div class="brand-area">
-	<div class="container">
-		<div class="brand-sep ptb-50">
-			<div class="row">
-				<div class="brand-active">
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="single-brand">
-							<a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="brand-sep ptb-50">
+            <div class="row">
+                <div class="brand-active">
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="single-brand">
+                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
-
-

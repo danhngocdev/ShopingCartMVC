@@ -157,10 +157,9 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> ListProductGetByCategory(int id, int pageIndex =1, int pageSize =2)
+        public IEnumerable<Product> ListProductGetByCategory(int id, int pageIndex , int pageSize )
         {
-            var total = context.Products.Where(x => x.Category_ID == id).Count();
-            return context.Products.Where(x => x.Category_ID == id).OrderByDescending(x=>x.Created).Skip((pageIndex -1) *pageIndex).Take(pageSize).ToList();
+            return context.Products.Where(x => x.Category_ID == id).OrderByDescending(x => x.Created).Skip((pageIndex - 1) * pageSize).Take(pageSize).AsQueryable();
         }
     }
 }

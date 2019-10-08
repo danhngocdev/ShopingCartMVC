@@ -83,7 +83,7 @@
                                                         <div class="price-reviews">
                                                             <div class="price-box">
                                                                 <span class="price product-price">
-                                                                    @item.Price/span>
+                                                                    @item.Price
                                                                     <span class="old-price product-price">$262.00</span>
                                                                 </span>
                                                             </div>
@@ -110,38 +110,46 @@
                                     <div class="product-count display-inline">Showing 1 - 12 of 13 items</div>
                                     @if (ViewBag.TotalPage > 1)
                                     {
-                                        var pageshow = (int)(ViewBag.MaxPage);
                                         int totalpage = (int)ViewBag.TotalPage;
                                         int cureentPage = ((int)ViewBag.Page);
-
-                                        var start = Math.Max(1, cureentPage - pageshow / 2);
-                                        var end = Math.Min(totalpage, cureentPage + pageshow / 2);
+	                                    var next20 = cureentPage + 20;
+	                                    var prev20 = cureentPage - 20;
+	                                    var start = cureentPage <= 3 ? 1 : cureentPage - 3;
+	                                    var end =totalpage==cureentPage?totalpage:cureentPage+3;
                                         var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
                                         <ul class="shop-pagi display-inline">
-                                            @if (cureentPage > ViewBag.First)
+                                            @if (cureentPage > 1)
                                             {
-
-                                                <li><a href="@url?page=@ViewBag.Prev"><i class="fa fa-angle-left"></i></a></li>
-                                            }
+	                                            if (cureentPage > 20)
+	                                            {
+		                                            <li><a href="@url?page=@prev20"><i class="fa fa-backward"></i></a></li>
+	                                            }
+	                                            <li><a href="@url?page=@ViewBag.Prev"><i class="fa fa-angle-left"></i></a></li>
+	                                           
+											}
 
                                             @for (int i = start; i <= end; i++)
                                             {
                                                 if (cureentPage == i)
                                                 {
-                                                    <li class="@i"><a href="@url?page=@i">@i</a></li>
-                                                }
-                                                else
-                                                {
-                                                    <li><a class="@i"  href="@url?page=@i">@i</a></li>
-                                                }
+                                                    <li><a style="background: blue" href="@url?page=@i">@i</a></li>
+                                                 }
+                                                 else
+                                                 {
+                                                     <li><a href="@url?page=@i">@i</a></li>
+                                                 }
                                             }
 
 
 
                                             @if (cureentPage < totalpage)
                                             {
-                                                <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-right"></i></a></li>
-
+	                                            <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-right"></i></a></li>
+	                                            if (totalpage > cureentPage + 20)
+	                                             {
+		                                             <li><a href="@url?page=@next20"><i class="fa fa-fast-forward"></i></a></li>
+	                                             }
+	                                            
                                             }
 
                                         </ul>
@@ -219,5 +227,3 @@
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
-
-
