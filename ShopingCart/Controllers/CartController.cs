@@ -64,7 +64,7 @@ namespace ShopingCart.Controllers
             });
 
         }
-        public ActionResult AddItem(int productID,int quantity)
+        public JsonResult AddItem(int productID,int quantity)
         {
             var product = productService.GetById(productID);
             var cart = Session[CartSession];
@@ -82,19 +82,13 @@ namespace ShopingCart.Controllers
                             }
 
                         }
-
                     }
                     else
                     {
                         var item = new CartItem();
                             item.Product = product;
                             item.Quantity = quantity;
-
                             list.Add(item);
-                        
-                   
-                        
-                       
                     }
 
                     Session[CartSession] = list;
@@ -108,10 +102,13 @@ namespace ShopingCart.Controllers
                     list.Add(item);
                     Session[CartSession] = list;
                 }
-            
-            
-            return RedirectToAction("Index");
+               
+            var a =  Json(new
+            {
+                status = true
+            },JsonRequestBehavior.AllowGet);
+            return a;
         }
-        
+
     }
 }

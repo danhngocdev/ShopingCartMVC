@@ -24,26 +24,78 @@
                 type: 'POST',
                 success: (res) => {
                     if (res.status == true) {
+                        Swal.fire({
+                            position: 'bot-end',
+                            type: 'success',
+                            title: 'Cập Nhập Giỏ Hàng Thành Công',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         window.location.href = "/Cart";
+                       
                     }
                 }
             })
         });
-      
-        $('#btnDelete').off('click').on('click', function () {
 
+        $('#Addtocart').off('click').on('click', function () {
+            $.ajax({
+                url: '/Cart/AddItem',
+                data: { productID: $(this).data('id'), quantity:1 },
+                datatype: 'json',
+                type: 'POST',
+                success: (res) => {
+                    if (res.status) {
+                        Swal.fire({
+                            position: 'bot-end',
+                            type: 'success',
+                            title: 'Thêm Sản Phẩm Thành Công',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        //$('#123').load(location.href + "#123");
+                    }
+                }
+
+            })
+        })
+
+        $('#btnDelete').off('click').on('click', function () {
             $.ajax({
                 url: '/Cart/DeleteAll',
                 dataType: 'json',
                 type: 'POST',
                 success: (res) => {
-                    if (res.status == true) {
+                    if (res.status) {
+                        Swal.fire({
+                            position: 'bot-end',
+                            type: 'success',
+                            title: 'Xóa Giỏ Hàng Thành Công',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                         window.location.href = "/Cart";
+                    }
+                   }
+            })
+        });
+  
+        $('.btn-delete').off('click').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                data: { id: $(this).data('id') },
+                url: '/Cart/Delete',
+                dataType: 'json',
+                type: 'POST',
+                success: (res) => {
+                    if (res.status == true) {
+                        window.location.href = "/";
                     }
                 }
             })
         });
-        $('.btn-delete').off('click').on('click', function (e) {
+
+        $('.btn-delete1').off('click').on('click', function (e) {
             e.preventDefault();
             $.ajax({
                 data: { id: $(this).data('id') },

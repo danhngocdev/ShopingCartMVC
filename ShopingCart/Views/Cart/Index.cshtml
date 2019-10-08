@@ -54,7 +54,7 @@
 				                    <td class="product-price"><span  class="amount">@price VND</span></td>
 				                    <td class="product-quantity"><input style="width: 150px" name="quantity" price = "@price" productId ="@item.Product.Id" class="quantity" min="1" data-id="@item.Product.Id" type="number" id="CartId" value="@item.Quantity" /></td>
 				                    <td class="product-subtotal" id="total_@item.Product.Id" >@total VND</td>
-				                    <td class="product-remove"><a data-id="@item.Product.Id" class="btn-delete" href="#"><i class="fa fa-times"></i></a></td>
+				                    <td class="product-remove"><a data-id="@item.Product.Id" class="btn-delete1" href="#"><i class="fa fa-times"></i></a></td>
 			                    </tr>
 		                    }
 
@@ -98,13 +98,18 @@
                 </div>
             </div>
         </div>
+
     </div>
 }
 else
 {
-   <p class="alert-danger">chưa có sản phẩm</p>
-}
+<div class="container">
+    <p class="">giỏ hàng chưa có sản phẩm mời bạn mua hàng</p>
+    <a href="/" class="btn btn-success">Về Trang Chủ</a>
+ 
+</div>
+    }
 
-<!-- cart-main-area end -->
-<!-- service-area start -->
+    <!-- cart-main-area end -->
+    <!-- service-area start -->
 

@@ -13,6 +13,7 @@
 }
 @section footer{
 	<script src="~/Asset/FrontEnd/js/WishList.js"></script>
+    <script src="~/Asset/FrontEnd/js/CartJs.js"></script>
 }
 <!-- header end -->
 <!-- slider-container start -->
@@ -69,7 +70,7 @@
 												}
 											}
 										<div class="product-action">
-											<a href="/them-vao-gio-hang?productID=@item.Id&quantity=1"><i class="pe-7s-cart"></i></a>
+											<a id="Addtocart" data-id="@item.Id" @*href="/them-vao-gio-hang?productID=@item.Id&quantity=1"*@><i class="pe-7s-cart"></i></a>
 
 											@if (user == null)
 											{
@@ -187,7 +188,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="section-title text-center mb-50">
-				<h2>latest blog</h2>
+				<h2>Tin Tức Mới Nhất</h2>
 			</div>
 		</div>
 		<div class="row">
