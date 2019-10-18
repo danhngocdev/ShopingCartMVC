@@ -30,7 +30,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 		[HttpPost]
 		[HasCredential(ActionId = 32)]
-		public ActionResult Create(News n)
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(News n)
 		{
 			if (ModelState.IsValid)
 			{
@@ -52,7 +54,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View(newsService.GetById(id));
 		}
 		[HasCredential(ActionId = 33)]
-		public ActionResult Edit(News n)
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(News n)
 		{
 			if (ModelState.IsValid)
 			{

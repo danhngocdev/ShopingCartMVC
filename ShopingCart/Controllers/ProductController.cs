@@ -21,7 +21,7 @@ namespace ShopingCart.Controllers
 			wishListService=new WishListService();
         }
         // GET: Product
-        public ActionResult Index(string searchString, int Page = 1, int PageSize = 10)
+        public ActionResult Index(string searchString, int Page = 1, int PageSize = 2)
         {
 	        var user = (User)Session["User"];
 	        if (user != null) ViewBag.wishList = wishListService.GetById(user.UserId).ToList();
@@ -31,7 +31,7 @@ namespace ShopingCart.Controllers
             ViewBag.ListProduct = productService.Search(searchString,Page,PageSize);
             return View(productService.Search(searchString, Page, PageSize).Where(x=>x.Status==true).ToPagedList(Page, PageSize));
         }
-        public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 10)
+        public ActionResult CategoryViewDetail(int id, int pageIndex = 1, int pageSize = 4)
         {
 
             var index = Request.Params["page"];

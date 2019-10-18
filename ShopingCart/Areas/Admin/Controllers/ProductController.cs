@@ -33,8 +33,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 		//	return View(product.GetById(id));
 		//}
 		[HttpPost]
-		[ValidateInput(false)]
-		[ValidateAntiForgeryToken]
+	b
 		[HasCredential(ActionId = 10)]
 		public ActionResult Create(Product p)
 		{

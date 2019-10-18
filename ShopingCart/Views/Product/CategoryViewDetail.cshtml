@@ -107,7 +107,7 @@
                                 </div>
 
                                 <div class="content-sortpagibar">
-                                    <div class="product-count display-inline">Showing 1 - 12 of 13 items</div>
+                                    @*<div class="product-count display-inline">Showing 1 - 12 of 13 items</div>*@
                                     @if (ViewBag.TotalPage > 1)
                                     {
                                         int totalpage = (int)ViewBag.TotalPage;
@@ -156,14 +156,10 @@
                                     }
                                     else
                                     {
-                                        <p>Danh Mục Không Có Sản Phẩm</p>
+                                       
                                     }
 
-                                    <div class="selector-field f-right">
-                                        <form action="#">
-                                            <button class="compare">Compare (1)</button>
-                                        </form>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -227,3 +223,5 @@
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
+
+

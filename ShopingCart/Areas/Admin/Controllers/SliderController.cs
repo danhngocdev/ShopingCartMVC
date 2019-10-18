@@ -26,7 +26,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 		}
 		[HttpPost]
 		[HasCredential(ActionId = 20)]
-		public ActionResult Create(Slider s)
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Slider s)
 		{
 			if (ModelState.IsValid)
 			{
@@ -50,7 +52,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return View(sliderService.GetById(id));
 		}
 		[HasCredential(ActionId = 21)]
-		public ActionResult Edit(Slider s)
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Slider s)
 		{
 			if (ModelState.IsValid)
 			{
