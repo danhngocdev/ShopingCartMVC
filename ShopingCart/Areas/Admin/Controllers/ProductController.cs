@@ -5,7 +5,8 @@ using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class ProductController : BaseController
+    [ValidateInput(false)]
+    public class ProductController : BaseController
 	{
 		private ProductService product;
 		private CategoryService category;
@@ -33,8 +34,9 @@ namespace ShopingCart.Areas.Admin.Controllers
 		//	return View(product.GetById(id));
 		//}
 		[HttpPost]
-	b
-		[HasCredential(ActionId = 10)]
+
+        
+        [HasCredential(ActionId = 10)]
 		public ActionResult Create(Product p)
 		{
 			if (ModelState.IsValid)

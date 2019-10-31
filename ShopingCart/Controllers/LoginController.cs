@@ -29,31 +29,7 @@ namespace ShopingCart.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
-        [CaptchaValidationActionFilter("CaptchaCode", "registerCaptcha", "Mã Xác Nhận Không Đúng!")]
-        public ActionResult Register(RegisterUser r)
-        {
-            if (ModelState.IsValid)
-            {
-                User u = new User();
-    
-                u.UserName = r.UserName;
-                u.FullName = r.FullName;
-                u.Email = r.Email;
-                u.Phone = r.Phone;
-                u.Password = Encryptor.MD5Hash(r.PassWord);
-                u.Address = r.Address;
-                _userService.Insert(u);
-                return RedirectToAction("Login");
-
-            }
-            return View();
-        }
+       
 		[HttpPost]
 		public ActionResult Index(LoginModel model)
 		{
@@ -88,7 +64,8 @@ namespace ShopingCart.Controllers
 						wishListService.AddMutiple(checkExist);
 					}
 					Session["User"] = user;
-					return RedirectToAction("Index", "Home");
+                  
+					return RedirectToAction("Index", "Cart");
 				}
 				else
 				{
@@ -153,8 +130,8 @@ namespace ShopingCart.Controllers
             else if (emailFor == "ResetPassword")
             {
                 subject = "Reset Password";
-                body = "Hi,<br/>br/>We got request for reset your account password. Please click on the below link to reset your password" +
-                    "<br/><br/><a href=" + link + ">Reset Password link</a>";
+                body = "Xin Chào ,<br/><br/>Chúng tôi nhận được yêu cầu đặt lại mật khẩu tài khoản của bạn. Vui lòng nhấp vào liên kết dưới đây để thiết lập lại mật khẩu của bạn" +
+                    "<br/><br/><a href=" + link + ">Đặt Lại Mật Khẩu</a>";
             }
 
 
@@ -211,15 +188,19 @@ namespace ShopingCart.Controllers
                         db.Configuration.ValidateOnSaveEnabled = false;
                         db.SaveChanges();
                         message = "Cập Nhập Mật Khẩu Thành Công";
+                        
                     }
+
                 }
             }
             else
             {
                 message = "Cập Nhập Mật Khẩu Thất Bại";
+                
             }
             ViewBag.Message = message;
             return View(model);
+            
         }
 
 

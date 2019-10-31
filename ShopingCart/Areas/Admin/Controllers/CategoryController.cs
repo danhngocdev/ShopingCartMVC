@@ -23,8 +23,8 @@ namespace ShopingCart.Areas.Admin.Controllers
 		[HasCredential(ActionId = 2)]
 		public ActionResult Create()
 		{
-			ViewBag.ParentID = new SelectList(category.GetAll(), "ID", "Name");
-			return View();
+            ViewBag.ParentID = new SelectList(category.GetAll().Where(s => s.ParentID == null), "ID", "Name");
+            return View();
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -50,7 +50,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 				}
 				return RedirectToAction("Index");
 			}
-			ViewBag.ParentID = new SelectList(category.GetAll(), "ID", "Name");
+			ViewBag.ParentID = new SelectList(category.GetAll().Where(s=>s.ParentID == null), "ID", "Name");
 			return View();
 		}
 		[HttpGet]

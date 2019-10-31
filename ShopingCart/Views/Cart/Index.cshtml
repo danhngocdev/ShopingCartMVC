@@ -6,7 +6,7 @@
 }
 @section footer{
     <script src="~/Asset/FrontEnd/js/CartJs.js"></script>
-    }
+}
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
 <div class="breadcrumb-area">
@@ -27,42 +27,42 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <form id="form-cart" action="#">
-	                    <div class="table-content table-responsive">
-	                    
-	                    <table>
-		                    <thead>
-		                    <tr>
-			                    <th class="product-thumbnail">Hình ảnh</th>
-			                    <th class="product-name">Sản Phẩm</th>
-			                    <th class="product-price">giá</th>
-			                    <th class="product-quantity">Số Lượng</th>
-			                    <th class="product-subtotal">Tổng Tiền</th>
-			                    <th class="product-remove">Xóa</th>
-		                    </tr>
-		                    </thead>
-								
-		                    <tbody >
-		                    @foreach (var item in Model)
-		                    {
-			                    var price = (item.Product.Price > item.Product.Sale_Price) ? item.Product.Sale_Price : item.Product.Price;
-			                    <input hidden="" name="productId" value="@item.Product.Id" />
-			                    var total = (price * item.Quantity);
-			                    TotalMoney += total;
-			                    <tr>
-				                    <td class="product-thumbnail"><a href=""><img src="@item.Product.Images" alt="" /></a></td>
-				                    <td class="product-name"><a href="#">@item.Product.Name</a></td>
-				                    <td class="product-price"><span  class="amount">@price VND</span></td>
-				                    <td class="product-quantity"><input style="width: 150px" name="quantity" price = "@price" productId ="@item.Product.Id" class="quantity" min="1" data-id="@item.Product.Id" type="number" id="CartId" value="@item.Quantity" /></td>
-				                    <td class="product-subtotal" id="total_@item.Product.Id" >@total VND</td>
-				                    <td class="product-remove"><a data-id="@item.Product.Id" class="btn-delete1" href="#"><i class="fa fa-times"></i></a></td>
-			                    </tr>
-		                    }
+                        <div class="table-content table-responsive">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">Hình ảnh</th>
+                                        <th class="product-name">Sản Phẩm</th>
+                                        <th class="product-price">giá</th>
+                                        <th class="product-quantity">Số Lượng</th>
+                                        <th class="product-subtotal">Tổng Tiền</th>
+                                        <th class="product-remove">Xóa</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        var price = (item.Product.Price > item.Product.Sale_Price) ? item.Product.Sale_Price : item.Product.Price;
+                                        <input hidden="" name="productId" value="@item.Product.Id" />
+                                        var total = (price * item.Quantity);
+                                        TotalMoney += total;
+                                        <tr>
+                                            <td class="product-thumbnail"><a href=""><img src="@item.Product.Images" alt="" /></a></td>
+                                            <td class="product-name"><a href="#">@item.Product.Name</a></td>
+                                            <td class="product-price"><span class="amount">@price VND</span></td>
+                                            <td class="product-quantity"><input style="width: 150px" name="quantity" price="@price" productId="@item.Product.Id" class="quantity" min="1" data-id="@item.Product.Id" type="number" id="CartId" value="@item.Quantity" /></td>
+                                            <td class="product-subtotal" id="total_@item.Product.Id">@total VND</td>
+                                            <td class="product-remove"><a data-id="@item.Product.Id" class="btn-delete1" href="#"><i class="fa fa-times"></i></a></td>
+                                        </tr>
+                                    }
 
 
-		                    </tbody>
-								
-	                    </table>
-	                    
+                                </tbody>
+
+                            </table>
+
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-sm-7 col-xs-12">
@@ -70,16 +70,16 @@
                                     <a id="btnContinue" href="#">Tiếp Tục Mua Hàng</a>
                                     <a id="btnUpdate" href="#">Cập Nhập Giỏ Hàng</a>
                                     <a id="btnDelete" href="#">Xóa giỏ hàng</a>
-	                                <a id="btnDelete" href="#">Thanh Toán</a>
+                                   
                                 </div>
 
                             </div>
                             <div class="col-md-4 col-sm-5 col-xs-12">
                                 <div class="cart_totals">
-                                   
+
                                     <table>
                                         <tbody>
-                                          
+
                                             <tr class="order-total">
                                                 <th>Tổng Tiền</th>
                                                 <td>
@@ -88,9 +88,9 @@
                                             </tr>
                                         </tbody>
                                     </table>
-									<div class="wc-proceed-to-checkout">
-										@Html.ActionLink("Thanh Toán", "Index","Order")
-									</div>
+                                    <div class="wc-proceed-to-checkout">
+                                        @Html.ActionLink("Thanh Toán", "Index", "Order")
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -103,13 +103,17 @@
 }
 else
 {
-<div class="container">
-    <p class="">giỏ hàng chưa có sản phẩm mời bạn mua hàng</p>
-    <a href="/" class="btn btn-success">Về Trang Chủ</a>
- 
-</div>
-    }
+<div class="cart-main-area">
+    <div class="container">
+        <p class="">giỏ hàng chưa có sản phẩm mời bạn mua hàng</p>
+        <a href="/" class="btn btn-success">Về Trang Chủ</a>
 
-    <!-- cart-main-area end -->
-    <!-- service-area start -->
+    </div>
+
+</div>
+      
+        }
+
+        <!-- cart-main-area end -->
+        <!-- service-area start -->
 

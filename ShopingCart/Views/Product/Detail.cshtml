@@ -3,13 +3,17 @@
     ViewBag.Title = "Chi Tiết Sản Phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var category = (Model.Product)ViewBag.Category;
-    String str =Model.Images+ ";" + Model.MoreImages;
+    String str = Model.Images + ";" + Model.MoreImages;
 
-    // using the method 
+    // using the method
     String[] ListImages = new String[20];
     ListImages = str.Split(';');
     var listproductorther = (List<Model.Product>)ViewBag.ListProductOther;
 
+}
+@section footer{
+    <script src="~/Asset/FrontEnd/js/CartJs.js"></script>
+   
 }
 
 <div class="space-custom"></div>
@@ -39,7 +43,7 @@
             </div>
         </div>
     </div>
- 
+
     <div class="container">
 
         <div class="row">
@@ -110,25 +114,21 @@
                     <p>@Model.Content</p>
                 </div>
                 <div class="box-quantity">
-                    <form action="#">
+                    <form action="">
                         <label>Quantity</label>
-                        <input type="number" id="quantity" value="1" />
-                        <script>
-	                            function myFunction() {
-		                            var quantity = document.getElementById("quantity").value;
-		                            window.location.href = '/them-vao-gio-hang?productID=@Model.Id&quantity='+quantity
-	                            }
-                        </script>
-                        <button onclick="myFunction()">add to cart</button>
+                            <input type="number"  name="quantity" class="qty" value="1" min="1"/>
+                        <p style="visibility:hidden" class="pId">@Model.Id</p>
+                        <button class="AddToCartTest">Thêm Vào Giỏ Hàng</button>
 
                     </form>
+             
                 </div>
                 <a href="tel:0989318744" style="background:red;margin-top:20px" class="btn btn-danger" <i class="glyphicon glyphicon-earphone"></i>Gọi Tư Vấn</a>
             </div>
         </div>
     </div>
 </div>
-    
+
 
 <!-- shop-area end -->
 <!-- pro-info-area start -->
@@ -137,7 +137,7 @@
         <div class="pro-info-box">
             <!-- Nav tabs -->
             <!-- Tab panes -->
-         
+
         </div>
     </div>
 </div>
@@ -164,7 +164,7 @@
                                     <a href="cart.html"><i class="pe-7s-cart"></i></a>
                                     <a href="#"><i class="pe-7s-like"></i></a>
                                     <a href="#"><i class="pe-7s-folder"></i></a>
-                                 
+
                                 </div>
                             </div>
                             <div class="product-content">
@@ -173,16 +173,16 @@
                                 </div>
                                 <div class="price-reviews">
                                     <div class="price-box">
-	                                    @if (item.Sale_Price != null)
-	                                    {
-		                                    <span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
-	                                    }
-	                                    else
-	                                    {
-		                                    <span class="price product-price">Giá gốc:@item.Price VND</span>
-	                                    }
+                                        @if (item.Sale_Price != null)
+                                        {
+                                            <span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="price product-price">Giá gốc:@item.Price VND</span>
+                                        }
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -245,5 +245,3 @@
 </div>
 <!-- brand-area end -->
 <!-- service-area start -->
-
-

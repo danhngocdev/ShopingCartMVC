@@ -72,6 +72,7 @@
     <Compile Include="OrderDetailRepository.cs" />
     <Compile Include="OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BannerRepository.cs" />
     <Compile Include="RoleActionRepository.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="SliderReponsitory.cs" />

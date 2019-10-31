@@ -22,9 +22,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="centered-title text-center">
-				<h2>Login</h2>
+				<h2>Đăng Nhập</h2>
 				<div class="clear"></div>
-				<em>doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo <br>inventore veritatis et quasi architecto beatae</em>
+                <em>Hãy đăng nhập  để bắt đầu mua những sản phẩm mà bạn yêu thích</em>
 			</div>
 			<div class="clear"></div>
 			<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
@@ -32,15 +32,15 @@
 					<form action="#" method="post" class="login-form">
 						@Html.ValidationSummary(false, "", "error")
 						<p class="form-row pd-right">
-							<label for="username">Username or email <span class="required">*</span></label>
+							<label for="username">Tên Tài Khoản  <span class="required">*</span></label>
 							@Html.TextBoxFor(model => model.UserName, new { @class = "form-control form-control-user", @autofocus = "autofocus" })
 						</p>
 						<p class="form-row pd-left">
-							<label for="password">Passwords <span class="required">*</span></label>
+							<label for="password">Mật Khẩu <span class="required">*</span></label>
 							@Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user" })
 						</p>
 						<p class="form-row ">
-							<input type="submit" value="Login" name="login" class="theme-button marL0">
+							<input type="submit" value="Đăng Nhập" name="login" class="theme-button marL0">
 							<label class="inline" for="rememberme">
 								@Html.CheckBoxFor(model => model.RememberMe)
 							</label>

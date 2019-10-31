@@ -33,6 +33,7 @@ namespace Repository
 		public IEnumerable<Order> GetAll()
 		{
 		 return	context.Orders.ToList();
+
 		}
 
 		public Order GetById(int id)

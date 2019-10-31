@@ -1,36 +1,39 @@
 ﻿using DAL;
 using Model;
-using Repository;
 using Repository.Interface;
+using Repository.Properties;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Service
 {
-    public class FeedBackService : IServices<FeedBack>
+    public class BannerService : IServices<Banner>
     {
-        private IRepository<FeedBack> repository;
-        public FeedBackService()
+        private IRepository<Banner> repository;
+        public BannerService()
         {
-            repository = new FeedBackReponsitory(new DBEntityContext());
+            repository = new BannerRepository(new DBEntityContext());
         }
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            return repository.Delete(id);
         }
 
-        public IEnumerable<FeedBack> GetAll()
+        public IEnumerable<Banner> GetAll()
         {
             return repository.GetAll();
         }
 
-        public FeedBack GetById(int id)
+        public Banner GetById(int id)
         {
-            throw new NotImplementedException();
+            return repository.GetById(id);
         }
 
-        public FeedBack GetByUserName(string UserName)
+        public Banner GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
@@ -40,26 +43,24 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public int Insert(FeedBack t)
+        public int Insert(Banner t)
         {
             return repository.Insert(t);
         }
-
- 
 
         public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FeedBack> Search(string searchString, int Page, int Pagesize)
+        public IEnumerable<Banner> Search(string searchString, int Page, int Pagesize)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(FeedBack t)
+        public int Update(Banner t)
         {
-            throw new NotImplementedException();
+            return repository.Update(t);
         }
     }
 }

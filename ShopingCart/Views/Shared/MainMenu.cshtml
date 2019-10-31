@@ -41,8 +41,9 @@
 
                                     @foreach (var item in Model)
                                     {
+                                         var url = "/danh-muc-san-pham/" + item.Slug + "-" + item.ID;
                                         <li>
-                                            <a href="">@item.Name</a>
+                                            <a href="@url">@item.Name</a>
                                             @Html.Action("LoadChilden","Home", new {parentID = item.ID })
                                         </li>
                                     }
@@ -98,9 +99,9 @@
                                     </li>
                                     @foreach (var item in Model)
                                     {
-                                        
+                                             var url = "/danh-muc-san-pham/" + item.Slug + "-" + item.ID;
                                         <li>
-                                            <a href="">@item.Name</a>
+                                            <a href="@url">@item.Name</a>
                                             @Html.Action("LoadChilden", "Home", new { parentID = item.ID })
                                         </li>
                                     }

@@ -10,8 +10,8 @@ using Repository.Interface;
 
 namespace Repository
 {
-	public class AboutRepository:IRepository<About>
-	{
+	public class AboutRepository:IRepository<About>, IDisposable
+    { 
 		private DBEntityContext context;
 		public AboutRepository(DBEntityContext context)
 		{
@@ -71,5 +71,23 @@ namespace Repository
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+        private bool disposed = false;
+        public void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+    }
 }

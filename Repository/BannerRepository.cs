@@ -7,22 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace Repository.Properties
 {
-    public class FeedBackReponsitory : IRepository<FeedBack>, IDisposable
+   public class BannerRepository :IRepository<Banner>, IDisposable
     {
         private DBEntityContext context;
-        public FeedBackReponsitory(DBEntityContext context)
+        public BannerRepository(DBEntityContext context)
         {
             this.context = context;
         }
+        private bool disposed = false;
 
         public int Delete(int id)
         {
-            throw new NotImplementedException();
+            var item = context.Banners.FirstOrDefault(s=>s.ID == id);
+            if (item.Status)
+            {
+                context.Banners.Remove(item);
+                context.SaveChanges();
+            }
+            return 1;
+
         }
 
-        private bool disposed = false;
         public void Dispose(bool disposing)
         {
             if (!this.disposed)
@@ -40,17 +47,18 @@ namespace Repository
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<FeedBack> GetAll()
+        public IEnumerable<Banner> GetAll()
         {
-            return context.FeedBacks.ToList();
+         
+            return context.Banners.Where(s => s.Status).OrderByDescending(s => s.Created).Take(2).ToList();
         }
 
-        public FeedBack GetById(int id)
+        public Banner GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Banners.Where(s => s.ID == id).FirstOrDefault();
         }
 
-        public FeedBack GetByUserName(string UserName)
+        public Banner GetByUserName(string UserName)
         {
             throw new NotImplementedException();
         }
@@ -60,27 +68,29 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public int Insert(FeedBack t)
+        public int Insert(Banner t)
         {
-            context.FeedBacks.Add(t);
-            return context.SaveChanges();
+            t.Created = DateTime.Now;
+             context.Banners.Add(t);
+            return context.SaveChanges()
+                ;
         }
-
-        
 
         public bool Login(string username, string password)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FeedBack> Search(string searchString, int Page, int Pagesize)
+        public IEnumerable<Banner> Search(string searchString, int Page, int Pagesize)
         {
             throw new NotImplementedException();
         }
 
-        public int Update(FeedBack t)
+        public int Update(Banner t)
         {
-            throw new NotImplementedException();
+            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+            return context.SaveChanges();
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@using Model
 @model IEnumerable<Model.Product>
 @{
-    ViewBag.Title = "Trang Chủ";
+    ViewBag.Title = "Trang Chủ-Nội Thất Hồng Ngọc";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listproducthot = (List<Model.Product>)ViewBag.ListProductHot;
     var ListProductNew = (List<Model.Product>)ViewBag.ListProductNew;
@@ -9,6 +9,8 @@
     var user = (User)Session["User"];
     var ListNotInUser = (List<int>)ViewBag.ListNotInUser;
     var listNews = (List<Model.News>)ViewBag.ListNews;
+    var listbanner = (List<Model.Banner>)ViewBag.ListBanner;
+      
 
 }
 @section footer{
@@ -22,18 +24,18 @@
 <!-- banner-area start -->
 <div class="banner-area pt-70">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-sm-6">
-				<div class="single-banner">
-					<a href="shop.html"><img src="~/asset/frontend/img/banner/1.jpg" alt="" /></a>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-6">
-				<div class="single-banner">
-					<a href="shop.html"><img src="~/asset/frontend/img/banner/2.jpg" alt="" /></a>
-				</div>
-			</div>
-		</div>
+        <div class="row">
+            @foreach (var item in listbanner)
+            {
+                <div class="col-md-6 col-sm-6">
+                    <div class="single-banner">
+                        <a href="@item.Link"><img src="@item.Images" alt="" /></a>
+                    </div>
+                </div>
+            }
+
+
+        </div>
 	</div>
 </div>
 <!-- banner-area end -->

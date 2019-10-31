@@ -5,7 +5,7 @@ using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-    public class AboutsController : Controller
+    public class AboutsController : BaseController
     {
 		private AboutService _aboutService;
 		public AboutsController()

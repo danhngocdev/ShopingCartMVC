@@ -5,7 +5,8 @@ using ShopingCart.Common;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
-	public class NewsController : Controller
+    [ValidateInput(false)]
+    public class NewsController : BaseController
 	{
 		private NewsService newsService;
 		public NewsController()
