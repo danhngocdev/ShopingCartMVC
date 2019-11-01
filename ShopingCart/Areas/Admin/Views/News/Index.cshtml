@@ -3,7 +3,7 @@
 @model IEnumerable<Model.News>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh Sách Tin Tức";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Slug)
+                        @Html.DisplayNameFor(model => model.ID)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Images)
@@ -37,36 +37,46 @@
                         @Html.DisplayNameFor(model => model.Status)
                     </th>
 
-                    <th></th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            <img style="width:150px;" src="@Html.DisplayFor(modelItem => item.Images)" alt="Alternate Text" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Slug)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Summary)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Content)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreateDate)
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" style="font-size:10px;" href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-fw  fa-pencil"></i></a>
-                            <a class="btn btn-danger" style="margin-left:10px;font-size:10px;" href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-fw fa-trash"></i></a>
-                        </td>
-                    </tr>
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        <img style="width:150px;" src="@Html.DisplayFor(modelItem => item.Images)" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Summary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+
+                        @if (item.Status == true)
+                        {
+                            <span class="label label-success">Hiện</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Ẩn</span>
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" style="font-size:10px;" href="@Url.Action("Edit", new { id=item.ID })"><i class="fa fa-fw  fa-pencil"></i></a>
+                        <a class="btn btn-danger" style="margin-left:10px;font-size:10px;" href="@Url.Action("Delete", new { id=item.ID })"><i class="fa fa-fw fa-trash"></i></a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

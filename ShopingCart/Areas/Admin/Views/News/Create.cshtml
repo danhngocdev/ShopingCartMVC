@@ -1,7 +1,7 @@
 ﻿@model Model.News
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Thêm Mới Tin Tức";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -75,7 +75,7 @@
     <script src="~/Asset/ckfinder/ckfinder.js"></script>
     <script>
 					$(function () {
-						CKEDITOR.replace("Content");
+							CKEDITOR.replace("Content");
 						$(".uploadfile").click(function () {
 							var ip = $(this);
 							var finder = new CKFinder();

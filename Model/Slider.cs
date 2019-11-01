@@ -19,7 +19,8 @@ namespace Model
 		public int DisplayOrder { get; set; }
 		[DisplayName("Liên kết")]
 		public string Link { get; set; }
-		[DisplayName("Mô tả")]
+        [DataType(DataType.MultilineText)]
+        [DisplayName("Mô tả")]
 		public string Description { get; set; }
 		[DisplayName("Trạng thái")]
 		public bool Status { get; set; }

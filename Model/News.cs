@@ -21,11 +21,12 @@ namespace Model
 		[Required(ErrorMessage = "Trường này không được để trống")]
 		public string Summary { get; set; }
 		[DisplayName("Nội dung")]
-		[Required(ErrorMessage = "Trường này không được để trống")]
+        [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "Trường này không được để trống")]
 		public string Content { get; set; }
 		[DisplayName("Ngày tạo")]
-		public DateTime CreateDate { get; set; }
+		public DateTime? CreateDate { get; set; }
         [DisplayName("trạng thái")]
-		public bool Status { get; set; }
+		public bool? Status { get; set; }
     }
 }
