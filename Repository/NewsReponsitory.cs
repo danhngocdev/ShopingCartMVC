@@ -71,7 +71,19 @@ namespace Repository
         public int Update(News t)
         {
 
-            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+            var productnews = context.News.ToList();
+            var currentItem = context.News.Find(t.ID);
+            productnews.Remove(currentItem);
+            if (currentItem != null)
+            {
+                currentItem.Images = t.Images;
+                currentItem.Summary = t.Summary;
+                currentItem.Content = t.Content;
+                currentItem.Slug = t.Slug;
+                currentItem.Status = t.Status;
+                context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+            }
+
             return context.SaveChanges();
         }
         private bool disposed = false;

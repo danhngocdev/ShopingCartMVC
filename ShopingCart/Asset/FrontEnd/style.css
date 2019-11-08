@@ -127,6 +127,9 @@
 
 .banner-area {} .single-banner {} .single-banner img {
     width: 100%;
+    
+    height:277px;
+
 }
 .single-banner a {
     display: inline-block;

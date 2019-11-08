@@ -56,9 +56,16 @@
 						<td>
 							@Html.DisplayFor(modelItem => item.Description)
 						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.Status)
-						</td>
+                        <td>
+                            @if (item.Status)
+                            {
+                                <span class="label label-success">Hiện</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">Ẩn</span>
+                            }
+                        </td>
 						<td>
 							@Html.DisplayFor(modelItem => item.Created)
 						</td>

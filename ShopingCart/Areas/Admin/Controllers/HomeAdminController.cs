@@ -12,8 +12,10 @@ namespace ShopingCart.Areas.Admin.Controllers
         private FeedBackService backService;
         private UserService userService;
         private ProductService productService;
+        private NewsService newsService;
         public HomeAdminController()
         {
+            newsService = new NewsService();
             userService = new UserService();
             backService = new FeedBackService();
             _orderService = new OrderService();
@@ -29,6 +31,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             //var listordernew = _orderService.GetAll().Where(s => s.Status == 0).ToList();
 
             //var listorder = listordernew.Count();
+            ViewBag.ListNew = newsService.GetAll();
             ViewBag.ListPro = productService.GetAll();
             ViewBag.listUser = userService.GetAll().Where(a=>a.RoleId != 1).ToList();
             ViewBag.ListFeeback = backService.GetAll();

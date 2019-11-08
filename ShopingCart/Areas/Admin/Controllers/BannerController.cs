@@ -50,6 +50,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             }
             return View(b);
         }
+        [HttpGet]
         [HasCredential(ActionId = 33)]
         public ActionResult Edit(int id)
         {
@@ -61,6 +62,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View(banner);
 
         }
+        [HttpPost]
         [HasCredential(ActionId = 33)]
         public ActionResult Edit(Banner b)
         {

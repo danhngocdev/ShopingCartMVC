@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
     ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon"  href="~/Asset/FrontEnd/img/logo/logo_website.png">
+
 
     <!-- All css files are included here. -->
     <!-- Bootstrap framework main css -->
@@ -62,6 +63,9 @@
     <script src="~/Asset/FrontEnd/js/main.js"></script>
     <script src="~/Asset/FrontEnd/js/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <link rel='stylesheet' href="https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css">
+
+
     <script type="text/javascript">
 	$(document).ready(function () {
 		if ('@TempData["message"]' == "Added") {
@@ -150,6 +154,11 @@
     @RenderSection("scripts", required: false)
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0"></script>
+    <script src="https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
 </body>
 
 

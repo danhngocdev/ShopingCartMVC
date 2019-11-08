@@ -36,7 +36,7 @@ namespace ShopingCart.Controllers
 			ViewBag.ListProductNew = productService.ListProductNew();
             ViewBag.ListNews = newsService.GetAll();
 			ViewBag.ListProductSale = productService.ListProductSale();
-            ViewBag.ListBanner = bannerService.GetAll();
+            ViewBag.ListBanner = bannerService.GetAll().Where(s=>s.Status).OrderByDescending(s=>s.Created).Take(2).ToList();
 			return View(productService.ListProductHot());
 		}
 		public PartialViewResult LoadChilden(int parentID)

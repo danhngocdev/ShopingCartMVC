@@ -47,12 +47,13 @@
                 success: (res) => {
                     if (res.status) {
                         Swal.fire({
-                            position: 'bot-end',
+                            position: ' -end',
                             type: 'success',
                             title: 'Thêm Sản Phẩm Thành Công',
                             showConfirmButton: false,
                             timer: 1500
                         });
+                        
                         //$('#123').load(location.href + "#123");
                         $('.shopping-cart').load('/Home/Index .shopping-cart');
                         //window.location.href = "/";

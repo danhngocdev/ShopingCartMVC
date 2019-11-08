@@ -34,7 +34,11 @@
                             <span><a href="#"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> @Model.CreateDate</a></span>
                             
                         </div>
-                        <p>@Model.Content</p>
+                        <p>
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
+                        </p>
+
+                        @*@Model.Content*@
 
                     </div>
                     <h3 class="total-comments mb-30 pb-15">4 comments</h3>

@@ -79,11 +79,11 @@
 						<td>
 							@Html.DisplayFor(modelItem => item.Slug)
 						</td>
+                        <td>
+                            @Html.Raw(HttpUtility.HtmlDecode(item.Content))
+                        </td>
 						<td>
-							@Html.DisplayFor(modelItem => item.Content)
-						</td>
-						<td>
-							<img style="width:150px" src="@Html.DisplayFor(modelItem => item.Images)" alt="Alternate Text" />
+							<img style="width:150px" src="@Html.DisplayFor(modelItem => item.Images)" />
 						</td>
 						<td>
 							@Html.DisplayFor(modelItem => item.Price)
@@ -98,9 +98,16 @@
 						<td>
 							@Html.DisplayFor(modelItem => item.ModifileDate)
 						</td>
-						<td>
-							@Html.DisplayFor(modelItem => item.Status)
-						</td>
+                        <td>
+                            @if (item.Status)
+                            {
+                                <span class="label label-success">Hiện</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">Ẩn</span>
+                            }
+                        </td>
 						<td>
 							@Html.DisplayFor(modelItem => item.TopHot)
 						</td>

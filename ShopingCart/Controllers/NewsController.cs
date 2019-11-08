@@ -19,6 +19,7 @@ namespace ShopingCart.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult GetById(int id)
         {
             return View(news.GetById(id));

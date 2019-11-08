@@ -3393,10 +3393,6 @@
     <Content Include="Asset\ckfinder\skins\v1\uipanel.css" />
     <Content Include="Asset\ckfinder\translations.txt" />
     <Content Include="Asset\ckfinder\userfiles\.htaccess" />
-    <Content Include="Asset\FrontEnd\blog-details.html" />
-    <Content Include="Asset\FrontEnd\cart.html" />
-    <Content Include="Asset\FrontEnd\checkout.html" />
-    <Content Include="Asset\FrontEnd\contact.html" />
     <Content Include="Asset\FrontEnd\css\bootstrap.min.css" />
     <Content Include="Asset\FrontEnd\css\core.css" />
     <Content Include="Asset\FrontEnd\css\custom.css" />
@@ -3436,8 +3432,6 @@
     <Content Include="Asset\FrontEnd\css\shortcode\slider.css" />
     <Content Include="Asset\FrontEnd\css\shortcode\testimonial.css" />
     <Content Include="Asset\FrontEnd\css\error404.css" />
-    <Content Include="Asset\FrontEnd\elements-blog.html" />
-    <Content Include="Asset\FrontEnd\elements-products.html" />
     <Content Include="Asset\FrontEnd\fonts\fontawesome-webfont3295.svg" />
     <Content Include="Asset\FrontEnd\fonts\Pe-icon-7-strokebb1d.svg" />
     <Content Include="Asset\FrontEnd\fonts\slick.svg" />
@@ -3494,6 +3488,7 @@
     <Content Include="Asset\FrontEnd\img\index.html" />
     <Content Include="Asset\FrontEnd\img\logo\logo-white.jpg" />
     <Content Include="Asset\FrontEnd\img\logo\logo.jpg" />
+    <Content Include="Asset\FrontEnd\img\logo\logo_website.png" />
     <Content Include="Asset\FrontEnd\img\payment.png" />
     <Content Include="Asset\FrontEnd\img\product\1.jpg" />
     <Content Include="Asset\FrontEnd\img\product\10.jpg" />
@@ -3516,7 +3511,6 @@
     <Content Include="Asset\FrontEnd\img\slider\7.jpg" />
     <Content Include="Asset\FrontEnd\img\slider\8.jpg" />
     <Content Include="Asset\FrontEnd\img\test\1.jpg" />
-    <Content Include="Asset\FrontEnd\index.html" />
     <Content Include="Asset\FrontEnd\js\ajax-mail.js" />
     <Content Include="Asset\FrontEnd\js\bootstrap.min.js" />
     <Content Include="Asset\FrontEnd\js\CartJs.js" />
@@ -3531,10 +3525,6 @@
     <Content Include="Asset\FrontEnd\js\vendor\jquery-1.12.0.min.js" />
     <Content Include="Asset\FrontEnd\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Asset\FrontEnd\js\WishList.js" />
-    <Content Include="Asset\FrontEnd\login.html" />
-    <Content Include="Asset\FrontEnd\product-details.html" />
-    <Content Include="Asset\FrontEnd\register.html" />
-    <Content Include="Asset\FrontEnd\shop.html" />
     <Content Include="Asset\FrontEnd\style.css" />
     <Content Include="Contents\Uploads\files\download %281%29.jpg" />
     <Content Include="Contents\Uploads\files\download.jpg" />
@@ -3817,8 +3807,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Resgiter\Index.cshtml" />
@@ -3832,7 +3820,6 @@
     <Content Include="Views\Shared\Slider.cshtml" />
     <Content Include="Views\Shared\LoadChilden.cshtml" />
     <Content Include="Views\Product\CategoryViewDetail.cshtml" />
-    <Content Include="Views\WishList\Index.cshtml" />
     <Content Include="Views\Login\ForgotPassWord.cshtml" />
     <Content Include="Views\Login\ResetPassword.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
@@ -3843,6 +3830,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Views\WishList\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

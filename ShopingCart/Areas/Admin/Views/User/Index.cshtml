@@ -91,9 +91,16 @@
 					<td>
 						@Html.DisplayFor(modelItem => item.Address)
 					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Status)
-					</td>
+                    <td>
+                        @if (item.Status)
+                        {
+                            <span class="label label-success">Hoạt Động</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">Ẩn</span>
+                        }
+                    </td>
 					<td>
 						<a class="btn btn-primary" style="margin-left:30px;font-size:10px;" href="@Url.Action("Edit", new { id=item.UserId })"><i class="fa fa-fw  fa-pencil"></i></a>
 						<a class="btn btn-danger" style="margin-left:10px;font-size:10px;" href="@Url.Action("Delete", new { id=item.UserId })"><i class="fa fa-fw fa-trash"></i></a>

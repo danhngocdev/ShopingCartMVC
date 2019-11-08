@@ -86,10 +86,12 @@
                                             <div class="col-md-4 col-sm-6">
                                                 <div class="product-wrapper mb-40">
                                                     <div class="product-img">
-
-                                                        <a href="#"><img src="@item.Images" alt="" /></a>
-                                                        <span class="new-label">New</span>
-                                                        <div class="product-action">
+                                                        
+                                                            <figure>
+                                                                <img src="@item.Images" alt="@item.Name" />
+                                                            </figure>
+ 
+                                                        @*<div class="product-action">
                                                             <a href="cart.html"><i class="pe-7s-cart"></i></a>
                                                             @if (user == null)
                                                             {
@@ -111,7 +113,7 @@
                                                             {
                                                                 <a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>}
                                                             <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                        </div>
+                                                        </div>*@
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="pro-title">
@@ -119,17 +121,28 @@
                                                         </div>
                                                         <div class="price-reviews">
                                                             <div class="price-box">
+
                                                                 @if (item.Sale_Price != null)
                                                                 {
-                                                                    <span class="old-price product-price">Giá gốc:@item.Price VND</span> <span class="price product-price">Giá KM:@item.Sale_Price VND</span>
+                                                                    <span class="old-price product-price">
+                                                                        Giá : @Convert.ToDecimal(item.Price).ToString("#,##0")
+
+                                                                        VND
+                                                                    </span> <span class="price product-price">Giá KM:@Convert.ToDecimal(item.Sale_Price).ToString("#,##0") VND</span>
                                                                 }
                                                                 else
                                                                 {
-                                                                    <span class="price product-price">Giá gốc:@item.Price VND</span>
+                                                                    <span class="price product-price">Giá:@Convert.ToDecimal(item.Price).ToString("#,##0") VND</span>
                                                                 }
-                                                            </div>
 
+                                                            </div>
                                                         </div>
+                                                        <a class="buttonss detail_button" href="" title="Xem chi tiết">
+                                                            Xem chi tiết
+                                                        </a>
+                                                        <a class="buttonss Addtocart" data-id="@item.Id">
+                                                            Đặt Mua
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

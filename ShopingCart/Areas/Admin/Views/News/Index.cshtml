@@ -45,23 +45,24 @@
                 {
                 <tr>
 
-                    <td>
+                    <td width="50px">
                         @Html.DisplayFor(modelItem => item.ID)
                     </td>
-                    <td>
+                    <td width="200px">
                         <img style="width:150px;" src="@Html.DisplayFor(modelItem => item.Images)" alt="Alternate Text" />
                     </td>
-                    <td>
+                    <td width="400px">
                         @Html.DisplayFor(modelItem => item.Summary)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Content)
+                    <td width="400px">
+                        @Html.Raw(HttpUtility.HtmlDecode(item.Content))
+                        
                     </td>
 
-                    <td>
+                    <td width="100px">
                         @Html.DisplayFor(modelItem => item.CreateDate)
                     </td>
-                    <td>
+                    <td width="100px">
 
                         @if (item.Status == true)
                         {

@@ -49,8 +49,8 @@ namespace Repository.Properties
 
         public IEnumerable<Banner> GetAll()
         {
-         
-            return context.Banners.Where(s => s.Status).OrderByDescending(s => s.Created).Take(2).ToList();
+
+            return context.Banners.ToList();
         }
 
         public Banner GetById(int id)
@@ -88,7 +88,19 @@ namespace Repository.Properties
 
         public int Update(Banner t)
         {
-            context.Entry(t).State = System.Data.Entity.EntityState.Modified;
+
+            var banner = context.Banners.ToList();
+            var currentItem = context.Banners.Find(t.ID);
+            banner.Remove(currentItem);
+            if (currentItem != null)
+            {
+                currentItem.Images = t.Images;
+                currentItem.Link = t.Link;
+                currentItem.ModifileDate = DateTime.Now;
+                currentItem.Status = t.Status;
+                context.Entry(currentItem).State = System.Data.Entity.EntityState.Modified;
+            }
+
             return context.SaveChanges();
 
         }

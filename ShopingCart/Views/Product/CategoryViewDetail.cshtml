@@ -67,14 +67,9 @@
                                             <div class="col-md-4 col-sm-6">
                                                 <div class="product-wrapper mb-40">
                                                     <div class="product-img">
-
-                                                        <a href="#"><img src="@item.Images" alt="" /></a>
-                                                        <span class="new-label">New</span>
-                                                        <div class="product-action">
-                                                            <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                            <a href="#"><i class="pe-7s-like"></i></a>
-                                                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                        </div>
+                                                        <figure>
+                                                            <img src="@item.Images" alt="@item.Name" />
+                                                        </figure> 
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="pro-title">
@@ -82,19 +77,28 @@
                                                         </div>
                                                         <div class="price-reviews">
                                                             <div class="price-box">
-                                                                <span class="price product-price">
-                                                                    @item.Price
-                                                                    <span class="old-price product-price">$262.00</span>
-                                                                </span>
-                                                            </div>
-                                                            <div class="pro-rating">
-                                                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                                                <a href="#"><i class="fa fa-star-o"></i></a>
-                                                                <a href="#"><i class="fa fa-star-o"></i></a>
+
+                                                                @if (item.Sale_Price != null)
+                                                                {
+                                                                    <span class="old-price product-price">
+                                                                        Giá : @Convert.ToDecimal(item.Price).ToString("#,##0")
+
+                                                                        VND
+                                                                    </span> <span class="price product-price">Giá KM:@Convert.ToDecimal(item.Sale_Price).ToString("#,##0") VND</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="price product-price">Giá:@Convert.ToDecimal(item.Price).ToString("#,##0") VND</span>
+                                                                }
+
                                                             </div>
                                                         </div>
+                                                        <a class="buttonss detail_button" href="" title="Xem chi tiết">
+                                                            Xem chi tiết
+                                                        </a>
+                                                        <a class="buttonss Addtocart" data-id="@item.Id">
+                                                            Đặt Mua
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
