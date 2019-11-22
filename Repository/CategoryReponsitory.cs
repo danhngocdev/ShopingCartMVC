@@ -24,7 +24,7 @@ namespace Repository
             var item1 = context.Categories.ToList().Where(x => x.ParentID == id).Count() > 0;
 			if (productList.Any(x => x.Category_ID == id)) return -1;
             
-            if ( item1!=null && item!=null&&item.Status == false)
+            if ( item1 !=null && item!=null&&item.Status == false)
             {
                 context.Categories.Remove(item);
               return  context.SaveChanges();

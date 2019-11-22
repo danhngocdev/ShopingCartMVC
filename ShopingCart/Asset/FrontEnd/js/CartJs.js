@@ -47,7 +47,7 @@
                 success: (res) => {
                     if (res.status) {
                         Swal.fire({
-                            position: ' -end',
+                            position: ' bot-end',
                             type: 'success',
                             title: 'Thêm Sản Phẩm Thành Công',
                             showConfirmButton: false,

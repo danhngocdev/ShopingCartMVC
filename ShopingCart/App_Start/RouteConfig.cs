@@ -27,11 +27,23 @@ namespace ShopingCart
          namespaces: new[] { "ShopingCart.Controllers" }
      );
             routes.MapRoute(
+            name: "Projected",
+            url: "thi-cong/{Slug}-{Id}",
+            defaults: new { controller = "Projected", action = "Detail", id = UrlParameter.Optional },
+            namespaces: new[] { "ShopingCart.Controllers" }
+);
+            routes.MapRoute(
             name: "News Detail",
             url: "chi-tiet-tin-tuc/{Slug}-{ID}",
             defaults: new { controller = "News", action = "GetById", id = UrlParameter.Optional },
             namespaces: new[] { "ShopingCart.Controllers" }
             );
+            routes.MapRoute(
+              name: "du-an",
+              url: "du-an",
+              defaults: new { controller = "Projected", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ShopingCart.Controllers" }
+          );
             routes.MapRoute(
               name: "Lien He",
               url: "lien-he",
@@ -39,10 +51,10 @@ namespace ShopingCart
               namespaces: new[] { "ShopingCart.Controllers" }
           );
             routes.MapRoute(
-         name: "San Pham",
-         url: "san-pham",
-         defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
-         namespaces: new[] { "ShopingCart.Controllers" }
+            name: "San Pham",
+            url: "san-pham",
+            defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "ShopingCart.Controllers" }
      );
 //            routes.MapRoute(
 //   name: "Don Hang",
@@ -50,21 +62,19 @@ namespace ShopingCart
 //   defaults: new { controller = "Orders", action = "Index", id = UrlParameter.Optional },
 //   namespaces: new[] { "ShopingCart.Areas.Admin.Controllers" }
 //);
-            routes.MapRoute(
+             routes.MapRoute(
              name: "Danh Muc San Pham",
-           url: "danh-muc-san-pham/{Slug}-{Id}",
-    defaults: new { controller = "Product", action = "CategoryViewDetail", id = UrlParameter.Optional },
-    namespaces: new[] { "ShopingCart.Controllers" }
+             url: "danh-muc-san-pham/{Slug}-{Id}",
+             defaults: new { controller = "Product", action = "CategoryViewDetail", id = UrlParameter.Optional },
+             namespaces: new[] { "ShopingCart.Controllers" }
 );
 
-            routes.MapRoute(
+                routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] {"ShopingCart.Controllers"}
-            );
-     
-
+            );   
         }
     }
 }

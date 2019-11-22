@@ -20,6 +20,7 @@ namespace ShopingCart.Controllers
             return View();
         }
         [HttpGet]
+        [OutputCache(Duration = int.MaxValue, VaryByParam ="id")]
         public ActionResult GetById(int id)
         {
             return View(news.GetById(id));

@@ -22,8 +22,6 @@ namespace Service
             return repository.Delete(id);
         }
 
-      
-
         public IEnumerable<Product> GetAll()
         {
             return repository.GetAll();
@@ -65,9 +63,14 @@ namespace Service
             return rep.ListProductNew();
         }
 
-        public IEnumerable<Product> ListProductSale()
+        public IEnumerable<Product> ListProductrRadom()
         {
 
+            return rep.ListProductrRadom();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {
             return rep.ListProductSale();
         }
 

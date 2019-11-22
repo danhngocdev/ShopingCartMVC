@@ -17,8 +17,10 @@ namespace ShopingCart.Controllers
 		private WishListService wishListService;
         private NewsService newsService;
         private BannerService bannerService;
+        private ProjectService projectService; 
 		public HomeController()
 		{
+            projectService = new ProjectService();
             newsService = new NewsService();
             sliderService = new SliderService();
 			productService = new ProductService();
@@ -32,14 +34,18 @@ namespace ShopingCart.Controllers
 			var user = (User)Session["User"];
 			if (user != null) ViewBag.wishList = wishListService.GetById(user.UserId).ToList();
 			if (user == null) ViewBag.ListNotInUser = Session[Common.CommonConstants.DATA_WISH];
-			//ViewBag.ListProductHot = productService.ListProductHot();
+            //ViewBag.ListProductHot = productService.ListProductHot();
+            ViewBag.ListProject = projectService.GetAll();
 			ViewBag.ListProductNew = productService.ListProductNew();
             ViewBag.ListNews = newsService.GetAll();
 			ViewBag.ListProductSale = productService.ListProductSale();
             ViewBag.ListBanner = bannerService.GetAll().Where(s=>s.Status).OrderByDescending(s=>s.Created).Take(2).ToList();
 			return View(productService.ListProductHot());
 		}
-		public PartialViewResult LoadChilden(int parentID)
+
+
+
+        public PartialViewResult LoadChilden(int parentID)
 		{
 			List<Category> lst = new List<Category>();
 			using (var context = new DBEntityContext())
@@ -50,7 +56,15 @@ namespace ShopingCart.Controllers
 			return PartialView("LoadChilden", lst);
 		}
 
+
+        [ChildActionOnly]
+        public ActionResult ShowProject()
+        {
+            return PartialView(projectService.GetAll());
+        }
+
 		[ChildActionOnly]
+  
 		public ActionResult MainMenu()
 		{
 			List<Category> lst = new List<Category>();
@@ -72,13 +86,14 @@ namespace ShopingCart.Controllers
         }
 
 		[ChildActionOnly]
-		public ActionResult Slider()
+        public ActionResult Slider()
 		{
 			return PartialView(sliderService.GetAll());
 		}
 
 		[ChildActionOnly]
-		public ActionResult HeaderCart()
+     
+        public ActionResult HeaderCart()
 		{
 			var cart = Session[CartSession];
 			var list = new List<CartItem>();

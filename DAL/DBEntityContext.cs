@@ -31,6 +31,7 @@ namespace DAL
         public DbSet<WishList> wishLists { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<Projected> Projecteds { get; set; }
             
     }
 

@@ -70,19 +70,19 @@ figure {
 }
 }
 
-.new-label {
-  background: #6dcff6 none repeat scroll 0 0;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  left: 0;
-  line-height: 25px;
-  min-width: 60px;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  top: 18px;
-  z-index: 100;
+.new-label-new {
+    background: #6dcff6 none repeat scroll 0 0;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    left: 0;
+    line-height: 25px;
+    min-width: 60px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 18px;
+    z-index: 100;
 }
 .new-label-hot {
     background: #f71111 none repeat scroll 0 0;
@@ -98,6 +98,48 @@ figure {
     top: 18px;
     z-index: 100;
 }
+.sale {
+    position: absolute;
+    display: inline-block;
+    background: #f44336;
+    color: white;
+    height: 3.0rem;
+    width: 3.0rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2.5rem;
+    top: 18px;
+    z-index: 100;
+    transform: rotate(-20deg);
+    animation: beat 1s ease infinite alternate;
+    margin-left: 10px;
+}
+    .sale:before, .sale:after {
+        content: "";
+        position: absolute;
+        background: inherit;
+        height: inherit;
+        width: inherit;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transform: rotate(30deg);
+    }
+
+    .sale:after {
+        transform: rotate(60deg);
+    }
+
+@keyframes beat {
+    from {
+        transform: rotate(-20deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-20deg) scale(1.1);
+    }
+}
+ 
 
 .product-action {
   background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;

@@ -61,6 +61,7 @@
     <Compile Include="Interface\IServices.cs" />
     <Compile Include="Interface\IWishListService.cs" />
     <Compile Include="NewsService.cs" />
+    <Compile Include="ProjectService.cs" />
     <Compile Include="WishListService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="ProductService.cs" />

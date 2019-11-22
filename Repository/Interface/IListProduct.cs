@@ -9,9 +9,10 @@ namespace Repository.Interface
     public interface IListProduct<T> where T : class
     {
         IEnumerable<T> ListProductHot();
-        IEnumerable<T> ListProductSale();
+        IEnumerable<T> ListProductrRadom();
         IEnumerable<T> ListProductNew();
         IEnumerable<T> ListProductGetByCategory(int id,int pageIndex,int pageSize);
+        IEnumerable<T> ListProductSale();
 
     }
 }

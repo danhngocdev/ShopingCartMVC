@@ -13,7 +13,7 @@
 }
 @section footer{
     <script src="~/Asset/FrontEnd/js/CartJs.js"></script>
-   
+
 }
 
 <div class="space-custom"></div>
@@ -31,18 +31,18 @@
 <!-- shop-area start -->
 <div class="shop-area">
     @*<div class="row">
-        <div class="col-md-2 hidden-xs" style="float:right; margin-right:40px">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Hỗ Trợ-Liên Hệ</div>
-                <div class="panel-body">
-                    <h3>
-                        <a href="tel:0985846554" class="btn btn-danger">0985.846.554</a>
-                        <a href="tel:0989318744" class="btn btn-danger">0989.318.744</a>
-                    </h3>
+            <div class="col-md-2 hidden-xs" style="float:right; margin-right:40px">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Hỗ Trợ-Liên Hệ</div>
+                    <div class="panel-body">
+                        <h3>
+                            <a href="tel:0985846554" class="btn btn-danger">0985.846.554</a>
+                            <a href="tel:0989318744" class="btn btn-danger">0989.318.744</a>
+                        </h3>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 
     <div class="container">
 
@@ -110,18 +110,22 @@
                     <span class="price product-price">@Convert.ToDecimal(Model.Price).ToString("#,##0") VND</span>
                 </div>
                 <div class="short-desc">
-                    
-                        @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
-                    
+                    @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
                 </div>
                 <div class="box-quantity">
                     <form action="">
                         <label>Số Lượng:</label>
-                            <input type="number"  name="quantity" class="qty" value="1" min="1"/>
-                        <p style="visibility:hidden" class="pId">@Model.Id</p>
+                        <input type="number" name="quantity" class="qty" value="1" min="1" />
+
+                        <span style="visibility:hidden" class="pId">@Model.Id</span>
                         <button class="AddToCartTest">Thêm Vào Giỏ Hàng</button>
                     </form>
-             
+                    @*<form action="#">
+                            <label>Quantity</label>
+                            <input type="number" value="1">
+                            <button>add to cart</button>
+                        </form>*@
+
                 </div>
                 <a href="tel:0989318744" style="background:red;margin-top:20px" class="btn btn-danger" <i class="glyphicon glyphicon-earphone"></i>Gọi Tư Vấn</a>
             </div>
@@ -201,50 +205,6 @@
 <!-- best-sell-area start -->
 <!-- best-sell-area end -->
 <!-- brand-area start -->
-<div class="brand-area">
-    <div class="container">
-        <div class="brand-sep ptb-50">
-            <div class="row">
-                <div class="brand-active">
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@{Html.RenderAction("ShowProject", "Home");}
 <!-- brand-area end -->
 <!-- service-area start -->

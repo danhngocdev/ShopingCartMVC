@@ -71,6 +71,7 @@
     <Compile Include="ProductReponsitory.cs" />
     <Compile Include="OrderDetailRepository.cs" />
     <Compile Include="OrderRepository.cs" />
+    <Compile Include="ProjectedReponsitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BannerRepository.cs" />
     <Compile Include="RoleActionRepository.cs" />

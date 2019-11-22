@@ -86,34 +86,11 @@
                                             <div class="col-md-4 col-sm-6">
                                                 <div class="product-wrapper mb-40">
                                                     <div class="product-img">
-                                                        
-                                                            <figure>
-                                                                <img src="@item.Images" alt="@item.Name" />
-                                                            </figure>
- 
-                                                        @*<div class="product-action">
-                                                            <a href="cart.html"><i class="pe-7s-cart"></i></a>
-                                                            @if (user == null)
-                                                            {
-                                                                if (ListNotInUser != null && ListNotInUser.Any(x => x.Equals(item.Id)))
-                                                                {
-                                                                    <a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>
-                                                                }
 
-                                                            }
-                                                            else if (wishList.Any(x => x.ProductID.Equals(item.Id)))
-                                                            {
-                                                                <a class="wishlistDisLikes" data-id="@item.Id" href="#"><i style="color: red" class="pe-7s-like"></i></a>
-                                                            }
-                                                            else
-                                                            {
-                                                                <a class="wishlists" data-id="@item.Id" href="#"><i class="pe-7s-like"></i></a>}
-                                                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
-                                                        </div>*@
+                                                        <figure>
+                                                            <img src="@item.Images" alt="@item.Name" />
+                                                        </figure>
+
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="pro-title">
@@ -161,7 +138,8 @@
                                             <li><a href="#">3</a></li>
                                             <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                                         </ul>*@
-                                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @searchString = @ViewBag.searchString }))
+                                    @Html.PagedListPager(Model, Page => Url.Action("Index",
+                                             new { Page, @searchString = @ViewBag.searchString }))
 
                                     @*<div class="selector-field f-right">
                                             <form action="#">
@@ -198,50 +176,6 @@
 </div>
 <!-- shop-area end -->
 <!-- brand-area start -->
-<div class="brand-area">
-    <div class="container">
-        <div class="brand-sep ptb-50">
-            <div class="row">
-                <div class="brand-active">
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@{Html.RenderAction("ShowProject", "Home");}
 <!-- brand-area end -->
 <!-- service-area start -->

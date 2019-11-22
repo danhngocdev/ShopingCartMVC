@@ -4,12 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ListCategory = (List<Model.Category>)ViewBag.ListCategory;
     var category = (Model.Category)ViewBag.Category;
-    
+
 }
 
 <div class="space-custom"></div>
 <!-- breadcrumb start -->
-<div  class="breadcrumb-area ">
+<div class="breadcrumb-area ">
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
@@ -37,7 +37,7 @@
                                 <ul class="sidebar-menu">
                                     @foreach (var submenu in child)
                                     {
-                                     var url1 = "/danh-muc-san-pham/" + submenu.Slug + "-" + submenu.ID;
+                                        var url1 = "/danh-muc-san-pham/" + submenu.Slug + "-" + submenu.ID;
                                         <li><a href="@url1">@submenu.Name</a></li>
                                     }
                                 </ul>
@@ -69,7 +69,7 @@
                                                     <div class="product-img">
                                                         <figure>
                                                             <img src="@item.Images" alt="@item.Name" />
-                                                        </figure> 
+                                                        </figure>
                                                     </div>
                                                     <div class="product-content">
                                                         <div class="pro-title">
@@ -110,60 +110,105 @@
                                     </div>
                                 </div>
 
-                                <div class="content-sortpagibar">
-                                    @*<div class="product-count display-inline">Showing 1 - 12 of 13 items</div>*@
+
+
+                                @*@if (ViewBag.TotalPage > 1)
+                                        {
+                                            var pagDisplay = (int)(ViewBag.MaxPage);
+                                            int totalPage = (int)ViewBag.TotalPage;
+                                            int currentPage = ((int)ViewBag.Page);
+                                            var start = Math.Max(1, currentPage - pagDisplay / 2);
+                                            var end = Math.Min(totalPage, currentPage + pagDisplay / 2);
+
+                                            var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
+
+
+                                    <div class="content-sortpagiba0r">
+                                        @if (currentPage > ViewBag.First)
+                                        {
+                                            <li><a href="@url?page=@ViewBag.First"><i class="fa fa-angle-left"></i></a></li>
+                                            <li><a href="@url?Page=@ViewBag.Prev"><i class="fa fa-angle-right"></i></a></li>
+                                        }
+                                        @for (int i = start; i < end; i++)
+                                        {
+                                            if (currentPage == i)
+                                            {
+                                                <li class="active"><a href="@url?page=@i">@i</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a href="@url?page=@i">@i</a></li>
+                                            }
+                                        }
+                                        @if (currentPage < totalPage)
+                                        {
+                                            <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-left"></i></a></li>
+                                            <li><a href="@url?Page=@ViewBag.Last"><i class="fa fa-angle-right"></i></a></li>
+                                        }
+
+                                    </div>
+
+
+                                        }
+                                        else
+                                        {
+                                            <p>Danh Mục Không Có Sản Phẩm</p>
+                                        }*@
+
+
+
+
+
+                                <div style="text-align:center" class="content-sortpagiba0r">
+
+
                                     @if (ViewBag.TotalPage > 1)
                                     {
-                                        int totalpage = (int)ViewBag.TotalPage;
-                                        int cureentPage = ((int)ViewBag.Page);
-	                                    var next20 = cureentPage + 20;
-	                                    var prev20 = cureentPage - 20;
-	                                    var start = cureentPage <= 3 ? 1 : cureentPage - 3;
-	                                    var end =totalpage==cureentPage?totalpage:cureentPage+3;
+                                        var pagDisplay = (int)(ViewBag.MaxPage);
+                                        int totalPage = (int)ViewBag.TotalPage;
+                                        int currentPage = ((int)ViewBag.Page);
+                                        var start = Math.Max(1, currentPage - pagDisplay / 2);
+                                        var end = Math.Min(totalPage, currentPage + pagDisplay / 2);
+                                        var pageSide = (int)ViewBag.PageSize;
+                                        var total = (int)ViewBag.Total;
                                         var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
+                                        <div class="product-count display-inline">Hiển Thị @pageSide - Trên Tổng Số @total Sản Phẩm</div>
                                         <ul class="shop-pagi display-inline">
-                                            @if (cureentPage > 1)
+                                            @if (currentPage > ViewBag.First)
                                             {
-	                                            if (cureentPage > 20)
-	                                            {
-		                                            <li><a href="@url?page=@prev20"><i class="fa fa-backward"></i></a></li>
-	                                            }
-	                                            <li><a href="@url?page=@ViewBag.Prev"><i class="fa fa-angle-left"></i></a></li>
-	                                           
-											}
+
+                                                <li><a href="@url?page=@ViewBag.First"><i class=""></i>&laquo;</a></li>
+
+                                                <li><a href="@url?Page=@ViewBag.Prev"><i class="fa fa-angle-left"></i></a></li>
+
+                                            }
 
                                             @for (int i = start; i <= end; i++)
                                             {
-                                                if (cureentPage == i)
+                                                if (currentPage == i)
                                                 {
-                                                    <li><a style="background: blue" href="@url?page=@i">@i</a></li>
-                                                 }
-                                                 else
-                                                 {
-                                                     <li><a href="@url?page=@i">@i</a></li>
-                                                 }
+                                                    <li><a style="background: #444444 none repeat scroll 0 0; color:orange" href="@url?page=@i">@i</a></li>
+                                                }
+                                                else
+                                                {
+
+                                                    <li><a href="@url?page=@i">@i</a></li>
+                                                }
                                             }
 
-
-
-                                            @if (cureentPage < totalpage)
+                                            @if (currentPage < totalPage)
                                             {
-	                                            <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-right"></i></a></li>
-	                                            if (totalpage > cureentPage + 20)
-	                                             {
-		                                             <li><a href="@url?page=@next20"><i class="fa fa-fast-forward"></i></a></li>
-	                                             }
-	                                            
+                                                <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-right"></i></a></li>
+                                                <li><a href="@url?Page=@ViewBag.Last"><i class=""></i>&raquo;</a></li>
                                             }
 
                                         </ul>
+
                                     }
                                     else
                                     {
-                                       
-                                    }
 
-                                   
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -180,52 +225,6 @@
 </div>
 <!-- shop-area end -->
 <!-- brand-area start -->
-<div class="brand-area">
-    <div class="container">
-        <div class="brand-sep ptb-50">
-            <div class="row">
-                <div class="brand-active">
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/3.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/4.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/5.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/1.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="single-brand">
-                            <a href="#"><img src="~/Asset/FrontEnd/img/brand/2.jpg" alt="" /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@{Html.RenderAction("ShowProject", "Home");}
 <!-- brand-area end -->
 <!-- service-area start -->
-
-

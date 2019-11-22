@@ -133,5 +133,15 @@ namespace ShopingCart.Areas.Admin.Controllers
 			return RedirectToAction("Index");
 		}
 
-	}
+        [HasCredential(ActionId = 41)]
+        public ActionResult Details(int id)
+        {
+            var products = product.GetById(id);
+            ViewBag.Category = product.GetById(id);
+
+            return View(products);
+        }
+
+
+    }
 }

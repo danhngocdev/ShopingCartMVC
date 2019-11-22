@@ -130,7 +130,7 @@ namespace Repository
         //    //return context.Products.Include(x => x.w).Where(s => s.TopHot == true && s.Status == true).OrderByDescending(s => s.Created).Take(8).ToList();
         //}
 
-        public IEnumerable<Product> ListProductSale()
+        public IEnumerable<Product> ListProductrRadom()
         {
             var randomItem = context.Products.OrderBy(x => Guid.NewGuid()).Take(4).ToList();
             return randomItem;
@@ -159,7 +159,12 @@ namespace Repository
 
         public IEnumerable<Product> ListProductGetByCategory(int id, int pageIndex , int pageSize )
         {
-            return context.Products.Where(x => x.Category_ID == id).OrderByDescending(x => x.Created).Skip((pageIndex - 1) * pageSize).Take(pageSize).AsQueryable();
+            return context.Products.Where(x => x.Category_ID == id).OrderByDescending(x => x.Created).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+        }
+
+        public IEnumerable<Product> ListProductSale()
+        {    
+           return  context.Products.Where(s => s.Sale_Price != null && s.Sale_Price < s.Price).Take(8).ToList();
         }
     }
 }

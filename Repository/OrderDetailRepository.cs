@@ -95,6 +95,7 @@ namespace Repository
 				catch (Exception ex)
 				{
 					transaction.Rollback();
+                    throw ex;
 					return 0;
 				}
 			}

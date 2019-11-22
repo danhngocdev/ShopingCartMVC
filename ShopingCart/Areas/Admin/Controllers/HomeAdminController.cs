@@ -24,22 +24,15 @@ namespace ShopingCart.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-            //using (DBEntityContext db = new DBEntityContext())
-            //{
-            //    var listordernew = db.Orders.Where(s => s.Status == 0).ToList().Count();
-            //}
-            //var listordernew = _orderService.GetAll().Where(s => s.Status == 0).ToList();
-
-            //var listorder = listordernew.Count();
             ViewBag.ListNew = newsService.GetAll();
             ViewBag.ListPro = productService.GetAll();
             ViewBag.listUser = userService.GetAll().Where(a=>a.RoleId != 1).ToList();
             ViewBag.ListFeeback = backService.GetAll();
+            ViewBag.ListOrder = _orderService.GetAll().Where(s => s.Status == 0).ToList();
             return View(_orderService.GetAll().Where(s=>s.Status ==0));
         }
         public ActionResult Error()
         {
-
 	        return View();
         }
 
