@@ -21,17 +21,17 @@ namespace ShopingCart
               namespaces: new[] { "ShopingCart.Controllers" }
           );
             routes.MapRoute(
-         name: "Product Detail",
-         url: "chi-tiet-san-pham/{Slug}-{Id}",
-         defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
-         namespaces: new[] { "ShopingCart.Controllers" }
-     );
+             name: "Product Detail",
+             url: "chi-tiet-san-pham/{Slug}-{Id}",
+             defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
+             namespaces: new[] { "ShopingCart.Controllers" }
+          );
             routes.MapRoute(
             name: "Projected",
             url: "thi-cong/{Slug}-{Id}",
             defaults: new { controller = "Projected", action = "Detail", id = UrlParameter.Optional },
             namespaces: new[] { "ShopingCart.Controllers" }
-);
+           );
             routes.MapRoute(
             name: "News Detail",
             url: "chi-tiet-tin-tuc/{Slug}-{ID}",
@@ -44,6 +44,13 @@ namespace ShopingCart
               defaults: new { controller = "Projected", action = "Index", id = UrlParameter.Optional },
               namespaces: new[] { "ShopingCart.Controllers" }
           );
+            routes.MapRoute(
+              name: "gioi-thieu",
+              url: "gioi-thieu",
+              defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ShopingCart.Controllers" }
+          );
+
             routes.MapRoute(
               name: "Lien He",
               url: "lien-he",

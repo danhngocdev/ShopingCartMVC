@@ -27,7 +27,7 @@
 		<div class="container">
 			<header class="clearfix">
 				<div class="col-6">
-					<img class="img_logo" src="https://bachkhoa-aptech.edu.vn/upload/image/logo-trang-01(1).png" alt="">
+					<img class="img_logo" src="~/Asset/FrontEnd/img/logo/logo_website.png" alt="">
 				</div>
 			</header>
 			<main>

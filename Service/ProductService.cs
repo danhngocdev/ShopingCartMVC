@@ -89,7 +89,12 @@ namespace Service
 			return repository.Search(searchString, Page, Pagesize);
 		}
 
-		public int Update(Product t)
+        //public IEnumerable<Product> SearchName(string searchString, int? Page)
+        //{
+        //    return rep.SearchName(searchString, Page);
+        //}
+
+        public int Update(Product t)
         {
             return repository.Update(t);
         }

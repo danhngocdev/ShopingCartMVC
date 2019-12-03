@@ -12,6 +12,7 @@ namespace Repository.Interface
         IEnumerable<T> ListProductrRadom();
         IEnumerable<T> ListProductNew();
         IEnumerable<T> ListProductGetByCategory(int id,int pageIndex,int pageSize);
+        //IEnumerable<T> SearchName(string searchString, int? Page);
         IEnumerable<T> ListProductSale();
 
     }

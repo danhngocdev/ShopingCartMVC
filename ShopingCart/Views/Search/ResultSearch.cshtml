@@ -3,7 +3,7 @@
 @using PagedList.Mvc;
 @using PagedList;
 @{
-    ViewBag.Title = "Sản Phẩm";
+    ViewBag.Title = "Kết Quả Tìm Kiếm";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ListCategory = (List<Model.Category>)ViewBag.ListCategory;
 }
@@ -51,25 +51,15 @@
 
                 </div>
             </div>
-            @if (Model.Count > 0)
+            @*@if (Model.Count > 0)
+
+        {*@
+            @if (Model.Count() > 0)
             {
                 <div class="col-md-9 col-sm-8">
-                    @*@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-                {
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input type="text" placeholder="Nhập Tên Sản Phẩm..." name="searchString" value="@ViewBag.searchString" />
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                        </div>
-                        <div class="col-md-6">
 
-                        </div>
-                    </div>
-                }*@
                     <h2 class="page-heading mt-40">
-                        <span class="cat-name">Tất Cả Sản Phẩm</span>
+                        <span class="cat-name">Kết Quả Tìm Kiếm</span>
                         <span class="heading-counter">Có Tất Cả @Model.Count() Sản Phẩm</span>
                     </h2>
                     <div class="shop-page-bar">
@@ -78,7 +68,7 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="home">
                                     <div class="row reload-wish">
-                                        @foreach (var item in Model)
+                                        @foreach (var item in Model.OrderBy(x => x.Name))
                                         {
                                             var url = "/chi-tiet-san-pham/" + item.Slug + "-" + item.Id;
                                             <div class="col-md-4 col-sm-6">
@@ -128,7 +118,7 @@
 
                                 <div style="text-align:center" class="dlink">
                                     Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                                    @Html.PagedListPager(Model, page => Url.Action("ResultSearch", new { page = page, @searchString = ViewBag.searchString }))
 
                                 </div>
 
@@ -155,38 +145,44 @@
                         </div>
                     </div>
                 </div>
-                @*}
-            else
-            {
-                using (Html.BeginForm("Index", "Product", FormMethod.Get))
-                {
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input type="text" placeholder="Nhập Tên Sản Phẩm..." name="searchString" value="@ViewBag.searchString" />
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                        </div>
-                        <div class="col-md-6">
-
-                        </div>
-                    </div>
-                }*@
-                @*<div class="row">
-                <div class="col-md-12">
-                    <p style="text-align:center">Không Tìm Thấy Sản Phẩm Thích Hợp</p>
-                </div>
-            </div>*@
-
             }
             else
+            {
+                <p style="text-align:center">Không Tìm Thấy Sản Phẩm Phù Hợp Vui Lòng Thử Lại</p>
+            }
+
+            @*}
+        else
+        {
+            using (Html.BeginForm("Index", "Product", FormMethod.Get))
             {
                 <div class="row">
-                    <div class="col-md-12">
-                        <p style="text-align:center">Không Có Sản Phẩm</p>
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Nhập Tên Sản Phẩm..." name="searchString" value="@ViewBag.searchString" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    </div>
+                    <div class="col-md-6">
+
                     </div>
                 </div>
-            }
+            }*@
+            @*<div class="row">
+            <div class="col-md-12">
+                <p style="text-align:center">Không Tìm Thấy Sản Phẩm Thích Hợp</p>
+            </div>
+        </div>*@
+
+            @*}
+        else
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="text-align:center">Không Có Sản Phẩm</p>
+                </div>
+            </div>
+        }*@
 
         </div>
     </div>

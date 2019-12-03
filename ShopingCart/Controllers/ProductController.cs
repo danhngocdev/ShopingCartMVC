@@ -22,15 +22,19 @@ namespace ShopingCart.Controllers
 			wishListService=new WishListService();
         }
         // GET: Product
-        public ActionResult Index(string searchString, int Page = 1, int PageSize = 1)
+        public ActionResult Index(int?Page)
         {
-	        var user = (User)Session["User"];
-	        if (user != null) ViewBag.wishList = wishListService.GetById(user.UserId).ToList();
-	        if (user == null) ViewBag.ListNotInUser = Session[Common.CommonConstants.DATA_WISH];
-			ViewBag.searchString = searchString;
-			ViewBag.ListCategory = categoryService.GetAll();
-            ViewBag.ListProduct = productService.Search(searchString,Page,PageSize);
-            return View(productService.Search(searchString, Page, PageSize).Where(x=>x.Status==true).ToPagedList(Page, PageSize));
+            var listP = productService.GetAll().Where(S => S.Status).ToList();
+            if (listP.Count() ==0)
+            {
+                return HttpNotFound();
+            }
+            int PageSize = 9;
+            int PageNumber = (Page ?? 1);
+         
+            ViewBag.ListCategory = categoryService.GetAll();
+
+            return View(listP.ToPagedList(PageNumber,PageSize));
         }
         public ActionResult CategoryViewDetail(int id, int page = 1, int pageSize = 12)
         {

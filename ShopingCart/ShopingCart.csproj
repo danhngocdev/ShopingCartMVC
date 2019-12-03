@@ -163,6 +163,7 @@
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Common\HelpMail.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProjectedController.cs" />
     <Compile Include="Controllers\ResgiterController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3834,6 +3836,9 @@
     <Content Include="Views\Projected\Index.cshtml" />
     <Content Include="Views\Shared\ShowProject.cshtml" />
     <Content Include="Views\Projected\Detail.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Search\ResultSearch.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

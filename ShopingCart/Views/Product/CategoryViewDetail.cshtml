@@ -7,14 +7,14 @@
 
 }
 
-<div class="space-custom"></div>
+<<div class="space-custom"></div>
 <!-- breadcrumb start -->
-<div class="breadcrumb-area ">
+<div class="breadcrumb-area">
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#">Danh Mục Sản Phẩm</a></li>
-            <li class="active">@category.Name</li>
+            <li><a href="#">Trang Chủ</a></li>
+            <li class="active">Sản Phẩm</li>
         </ol>
     </div>
 </div>
@@ -22,7 +22,7 @@
 <!-- shop-area start -->
 <div class="shop-area">
     <div class="container">
-        <div class="row " style="height: 500px">
+        <div class="row ">
             <div class="col-md-3 col-sm-4">
                 <div class="column">
                     <h2 class="title-block">Danh Mục Sản Phẩm</h2>
@@ -37,8 +37,7 @@
                                 <ul class="sidebar-menu">
                                     @foreach (var submenu in child)
                                     {
-                                        var url1 = "/danh-muc-san-pham/" + submenu.Slug + "-" + submenu.ID;
-                                        <li><a href="@url1">@submenu.Name</a></li>
+                                        <li><a href="@url">@submenu.Name</a></li>
                                     }
                                 </ul>
                             }
@@ -113,47 +112,47 @@
 
 
                                 @*@if (ViewBag.TotalPage > 1)
-                                        {
-                                            var pagDisplay = (int)(ViewBag.MaxPage);
-                                            int totalPage = (int)ViewBag.TotalPage;
-                                            int currentPage = ((int)ViewBag.Page);
-                                            var start = Math.Max(1, currentPage - pagDisplay / 2);
-                                            var end = Math.Min(totalPage, currentPage + pagDisplay / 2);
+                                {
+                                    var pagDisplay = (int)(ViewBag.MaxPage);
+                                    int totalPage = (int)ViewBag.TotalPage;
+                                    int currentPage = ((int)ViewBag.Page);
+                                    var start = Math.Max(1, currentPage - pagDisplay / 2);
+                                    var end = Math.Min(totalPage, currentPage + pagDisplay / 2);
 
-                                            var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
-
-
-                                    <div class="content-sortpagiba0r">
-                                        @if (currentPage > ViewBag.First)
-                                        {
-                                            <li><a href="@url?page=@ViewBag.First"><i class="fa fa-angle-left"></i></a></li>
-                                            <li><a href="@url?Page=@ViewBag.Prev"><i class="fa fa-angle-right"></i></a></li>
-                                        }
-                                        @for (int i = start; i < end; i++)
-                                        {
-                                            if (currentPage == i)
-                                            {
-                                                <li class="active"><a href="@url?page=@i">@i</a></li>
-                                            }
-                                            else
-                                            {
-                                                <li><a href="@url?page=@i">@i</a></li>
-                                            }
-                                        }
-                                        @if (currentPage < totalPage)
-                                        {
-                                            <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-left"></i></a></li>
-                                            <li><a href="@url?Page=@ViewBag.Last"><i class="fa fa-angle-right"></i></a></li>
-                                        }
-
-                                    </div>
+                                    var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
 
 
-                                        }
-                                        else
-                                        {
-                                            <p>Danh Mục Không Có Sản Phẩm</p>
-                                        }*@
+                            <div class="content-sortpagiba0r">
+                                @if (currentPage > ViewBag.First)
+                                {
+                                    <li><a href="@url?page=@ViewBag.First"><i class="fa fa-angle-left"></i></a></li>
+                                    <li><a href="@url?Page=@ViewBag.Prev"><i class="fa fa-angle-right"></i></a></li>
+                                }
+                                @for (int i = start; i < end; i++)
+                                {
+                                    if (currentPage == i)
+                                    {
+                                        <li class="active"><a href="@url?page=@i">@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@url?page=@i">@i</a></li>
+                                    }
+                                }
+                                @if (currentPage < totalPage)
+                                {
+                                    <li><a href="@url?page=@ViewBag.Next"><i class="fa fa-angle-left"></i></a></li>
+                                    <li><a href="@url?Page=@ViewBag.Last"><i class="fa fa-angle-right"></i></a></li>
+                                }
+
+                            </div>
+
+
+                                }
+                                else
+                                {
+                                    <p>Danh Mục Không Có Sản Phẩm</p>
+                                }*@
 
 
 
@@ -174,6 +173,7 @@
                                         var url = "/danh-muc-san-pham/" + category.Slug + "-" + category.ID;
                                         <div class="product-count display-inline">Hiển Thị @pageSide - Trên Tổng Số @total Sản Phẩm</div>
                                         <ul class="shop-pagi display-inline">
+
                                             @if (currentPage > ViewBag.First)
                                             {
 
@@ -219,6 +219,7 @@
             {
                 <p>Danh Mục Không Có Sản Phẩm</p>
             }
+
 
         </div>
     </div>

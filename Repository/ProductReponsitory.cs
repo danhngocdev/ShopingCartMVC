@@ -166,5 +166,15 @@ namespace Repository
         {    
            return  context.Products.Where(s => s.Sale_Price != null && s.Sale_Price < s.Price).Take(8).ToList();
         }
+
+        //public IEnumerable<Product> SearchName(string searchString, int? Page)
+        //{
+        //    var model = context.Products.ToList();
+        //    if (!string.IsNullOrEmpty(searchString))
+        //    {
+        //        model = model.Where(x => x.Name.Contains(searchString)).ToList();
+        //    }
+        //    return model.OrderByDescending(x => x.Created).ToList().ToPagedList(Page ?? 1,3);
+        //}
     }
 }
