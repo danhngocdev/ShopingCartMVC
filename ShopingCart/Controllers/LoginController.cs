@@ -87,7 +87,7 @@ namespace ShopingCart.Controllers
         public ActionResult ForgotPassWord(string EmailAddress)
         {
             string mesage = "";
-            bool status = false;
+            //bool status = false;
             using (DBEntityContext db = new DBEntityContext())
             {
                 var acc = db.Users.Where(x => x.Email == EmailAddress).FirstOrDefault();

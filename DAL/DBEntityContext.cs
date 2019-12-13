@@ -32,6 +32,7 @@ namespace DAL
         public DbSet<News> News { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Projected> Projecteds { get; set; }
+        public DbSet<Baogia> Baogias { get; set; }
             
     }
 

@@ -62,7 +62,7 @@ namespace ShopingCart
             url: "san-pham",
             defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "ShopingCart.Controllers" }
-     );
+          ); 
 //            routes.MapRoute(
 //   name: "Don Hang",
 //   url: "admin/don-hang",

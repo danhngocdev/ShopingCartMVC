@@ -51,6 +51,7 @@
     <Compile Include="About.cs" />
     <Compile Include="Action.cs" />
     <Compile Include="Banner.cs" />
+    <Compile Include="Baogia.cs" />
     <Compile Include="CartItem.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Contact.cs" />

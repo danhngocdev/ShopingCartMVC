@@ -93,6 +93,8 @@ namespace Repository
 			catch (Exception e)
 			{
 				return 0;
+				throw e;
+				
 			}
 		}
 

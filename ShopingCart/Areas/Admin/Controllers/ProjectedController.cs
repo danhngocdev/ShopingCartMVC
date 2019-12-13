@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ShopingCart.Areas.Admin.Controllers
 {
+    [ValidateInput(false)]
     public class ProjectedController : BaseController
     {
         private ProjectService projject;

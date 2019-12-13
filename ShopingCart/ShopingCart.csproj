@@ -164,6 +164,7 @@
     <Compile Include="Common\HasCredentialAttribute.cs" />
     <Compile Include="Common\HelpMail.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BaogiaController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -2761,6 +2762,7 @@
     <Content Include="Asset\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Asset\ckeditor\styles.js" />
     <Content Include="Asset\ckeditor\vendor\promise.js" />
+    <Content Include="Asset\ckfinder\bin\CKFinder.dll" />
     <Content Include="Asset\ckfinder\changelog.txt" />
     <Content Include="Asset\ckfinder\ckfinder.html" />
     <Content Include="Asset\ckfinder\ckfinder.js" />
@@ -3516,6 +3518,7 @@
     <Content Include="Asset\FrontEnd\img\slider\8.jpg" />
     <Content Include="Asset\FrontEnd\img\test\1.jpg" />
     <Content Include="Asset\FrontEnd\js\ajax-mail.js" />
+    <Content Include="Asset\FrontEnd\js\Baogia.js" />
     <Content Include="Asset\FrontEnd\js\bootstrap.min.js" />
     <Content Include="Asset\FrontEnd\js\CartJs.js" />
     <Content Include="Asset\FrontEnd\js\Contact.js" />
@@ -3843,6 +3846,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Views\Baogia\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
