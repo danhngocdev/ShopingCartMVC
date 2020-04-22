@@ -8,6 +8,7 @@
     var listuser = (List<Model.User>)ViewBag.listUser;
     var listpro = (List<Model.Product>)ViewBag.ListPro;
     var listnew = (List<Model.News>)ViewBag.ListNew;
+    var listbaogia = (List<Model.Baogia>)ViewBag.ListBaogia;
 }
 <div class="row">
     <div class="col-lg-3 col-xs-6">
@@ -153,7 +154,7 @@
                                 }
                             </td>
                             <td>
-                                <a class="btn btn-primary" style="font-size:10px;" href="@Url.Action("Details", new { id=item.ID })"><i class="fa fa-fw  fa-pencil"></i></a>
+                                <a class="btn btn-primary" style="font-size:10px;" href="@Url.Action("Details","Orders",new { id=item.ID })"><i class="fa fa-fw  fa-pencil"></i></a>
                             </td>
                         </tr>
                     }
@@ -183,14 +184,14 @@
             @foreach (var item in listfeedback)
             {
                 <div class="item" style="margin-top:50px">
-                   
+
 
                     <p class="message">
                         <a href="#" class="name">
                             <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> @item.Createad</small>
-                           @item.FullName
+                            @item.FullName
                         </a>
-                       @item.Content
+                        @item.Content
                     </p>
                 </div>
             }
@@ -200,7 +201,58 @@
         </div>
         <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 224.82px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
     </div>
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Khách Hàng Yêu Cầu Báo Giá</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="">
+            <div class="table-responsive">
+                <table class="table no-margin">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Nội dung</th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in listbaogia)
+                        {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Content</td>
+                            <td><a href="@Url.Action("Edit","Baogia" ,new { id=item.ID })">
+                                <span class="label label-success">Tiếp Nhận</span>
+                               </a>
+                            </td>
+                        </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <!-- /.box-footer -->
+    </div>
     <!-- /.chat -->
-   
+
 </div>
 

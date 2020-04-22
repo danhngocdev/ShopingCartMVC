@@ -603,6 +603,7 @@ h4.text-project {
 .single-brand img {
     height:150px;
     max-width:100%;
+    opacity:0.5;
 }
 .single-brand:hover img {
     opacity: 1;

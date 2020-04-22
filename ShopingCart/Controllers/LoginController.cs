@@ -63,13 +63,18 @@ namespace ShopingCart.Controllers
 						Session[Common.CommonConstants.DATA_WISH] = null;
 						wishListService.AddMutiple(checkExist);
 					}
+
+                    if (Session[Common.CommonConstants.SESSION_CART] != null)
+                    {
+                        return RedirectToAction("Index", "Cart");
+                    }
 					Session["User"] = user;
                   
-					return RedirectToAction("Index", "Cart");
+					return RedirectToAction("Index", "Home");
 				}
 				else
 				{
-					ModelState.AddModelError("", "Login sai");
+					ModelState.AddModelError("", "Tên Tài Khoản Hoặc Mật Khẩu Không Chính Xác");
 				}
 			}
 			return View("Index");
@@ -152,6 +157,7 @@ namespace ShopingCart.Controllers
                 Body = body,
                 IsBodyHtml = true
             })
+
                 smtp.Send(message);
         }
         public ActionResult ResetPassword(string id)

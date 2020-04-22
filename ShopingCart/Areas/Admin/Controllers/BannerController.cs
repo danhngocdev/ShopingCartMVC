@@ -18,7 +18,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             banners = new BannerService();
         }
         // GET: Admin/Banner
-        [HasCredential(ActionId = 31)]
+        [HasCredential(ActionId = 37)]
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,13 +26,13 @@ namespace ShopingCart.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [HasCredential(ActionId = 32)]
+        [HasCredential(ActionId = 38)]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        [HasCredential(ActionId = 32)]
+        [HasCredential(ActionId = 38)]
         public ActionResult Create(Banner b)
         {
             if (ModelState.IsValid)
@@ -51,7 +51,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             return View(b);
         }
         [HttpGet]
-        [HasCredential(ActionId = 33)]
+        [HasCredential(ActionId = 39)]
         public ActionResult Edit(int id)
         {
             Banner banner = banners.GetById(id);
@@ -63,7 +63,7 @@ namespace ShopingCart.Areas.Admin.Controllers
 
         }
         [HttpPost]
-        [HasCredential(ActionId = 33)]
+        [HasCredential(ActionId = 39)]
         public ActionResult Edit(Banner b)
         {
             if (ModelState.IsValid)
@@ -81,7 +81,7 @@ namespace ShopingCart.Areas.Admin.Controllers
             }
             return View(b);
         }
-        [HasCredential(ActionId = 34)]
+        [HasCredential(ActionId = 40)]
         public ActionResult Delete(int id)
         {
             var result = banners.Delete(id);

@@ -14,11 +14,11 @@ namespace ShopingCart.Controllers
             productService = new ProductService();
           
         }
-        private const string CartSession = "CartSession";
+        //private const string CartSession = "CartSession";
         // GET: Cart
         public ActionResult Index()
         {
-            var cart = Session[CartSession];
+            var cart = Session[Common.CommonConstants.SESSION_CART];
             var list = new List<CartItem>();
             if (cart!=null)
             {
@@ -29,7 +29,7 @@ namespace ShopingCart.Controllers
         public JsonResult Update(string cartModel)
         {
             var JsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-            var SessionCart = (List<CartItem>)Session[CartSession];
+            var SessionCart = (List<CartItem>)Session[Common.CommonConstants.SESSION_CART];
             foreach (var item in SessionCart)
             {
                 var jsonitem = JsonCart.FirstOrDefault(x => x.Product.Id == item.Product.Id);
@@ -38,7 +38,7 @@ namespace ShopingCart.Controllers
                     item.Quantity = jsonitem.Quantity;
                 }
             }
-            Session[CartSession] = SessionCart;
+            Session[Common.CommonConstants.SESSION_CART] = SessionCart;
             return Json(new
             {
                 status = true
@@ -46,9 +46,9 @@ namespace ShopingCart.Controllers
         }
         public JsonResult Delete(int id)
         {
-            var SessionCart = (List<CartItem>)Session[CartSession];
+            var SessionCart = (List<CartItem>)Session[Common.CommonConstants.SESSION_CART];
             SessionCart.RemoveAll(x => x.Product.Id == id);
-            Session[CartSession] = SessionCart;
+            Session[Common.CommonConstants.SESSION_CART] = SessionCart;
             return Json(new
             {
                 status = true
@@ -57,7 +57,7 @@ namespace ShopingCart.Controllers
         }
         public JsonResult DeleteAll()
         {
-            Session[CartSession] = null;
+            Session[Common.CommonConstants.SESSION_CART] = null;
             return Json(new
             {
                 status = true
@@ -67,7 +67,7 @@ namespace ShopingCart.Controllers
         public JsonResult AddItem(int productID,int quantity)
         {
             var product = productService.GetById(productID);
-            var cart = Session[CartSession];
+            var cart = Session[Common.CommonConstants.SESSION_CART];
            
                 if (cart != null)
                 {
@@ -91,7 +91,7 @@ namespace ShopingCart.Controllers
                             list.Add(item);
                     }
 
-                    Session[CartSession] = list;
+                    Session[Common.CommonConstants.SESSION_CART] = list;
                 }
                 else
                 {
@@ -100,7 +100,7 @@ namespace ShopingCart.Controllers
                     item.Quantity = quantity;
                     var list = new List<CartItem>();
                     list.Add(item);
-                    Session[CartSession] = list;
+                    Session[Common.CommonConstants.SESSION_CART] = list;
                 }
                
             var a =  Json(new

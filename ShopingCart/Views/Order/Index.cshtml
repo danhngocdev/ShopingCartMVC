@@ -72,9 +72,7 @@ else
 										<label>Email</label>
 										<input type="text" name="Email" id="email" value="@ViewBag.User.Email" placeholder="" />
 										@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                        <script>
-                                            document.getElementById("email").disabled = true;
-                                        </script>
+                                        
 									</div>
 								</div>
 								<div class="col-md-12">

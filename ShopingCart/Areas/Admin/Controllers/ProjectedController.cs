@@ -63,7 +63,6 @@ namespace ShopingCart.Areas.Admin.Controllers
         public ActionResult Delete(int Id)
         {
             projject.Delete(Id);
-
             return RedirectToAction("Index");
         }
 

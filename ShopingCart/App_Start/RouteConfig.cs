@@ -62,14 +62,20 @@ namespace ShopingCart
             url: "san-pham",
             defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "ShopingCart.Controllers" }
-          ); 
-//            routes.MapRoute(
-//   name: "Don Hang",
-//   url: "admin/don-hang",
-//   defaults: new { controller = "Orders", action = "Index", id = UrlParameter.Optional },
-//   namespaces: new[] { "ShopingCart.Areas.Admin.Controllers" }
-//);
-             routes.MapRoute(
+          );
+          //  routes.MapRoute(
+          //  name: "Bao Gia",
+          //  url: "bao-gia",
+          //  defaults: new { controller = "Baogia", action = "Index", id = UrlParameter.Optional },
+          //  namespaces: new[] { "ShopingCart.Areas.Admin.Controllers" }
+          //);
+            //            routes.MapRoute(
+            //   name: "Don Hang",
+            //   url: "admin/don-hang",
+            //   defaults: new { controller = "Orders", action = "Index", id = UrlParameter.Optional },
+            //   namespaces: new[] { "ShopingCart.Areas.Admin.Controllers" }
+            //);
+            routes.MapRoute(
              name: "Danh Muc San Pham",
              url: "danh-muc-san-pham/{Slug}-{Id}",
              defaults: new { controller = "Product", action = "CategoryViewDetail", id = UrlParameter.Optional },

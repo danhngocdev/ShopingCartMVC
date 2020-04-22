@@ -37,7 +37,8 @@
                                 <ul class="sidebar-menu">
                                     @foreach (var submenu in child)
                                     {
-                                        <li><a href="@url">@submenu.Name</a></li>
+                                        var link = "/danh-muc-san-pham/" + submenu.Slug + "-" + submenu.ID;
+                                        <li><a href="@link">@submenu.Name</a></li>
                                     }
                                 </ul>
                             }
