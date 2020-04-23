@@ -63,7 +63,6 @@ namespace ShopingCart.Controllers
 						Session[Common.CommonConstants.DATA_WISH] = null;
 						wishListService.AddMutiple(checkExist);
 					}
-
                     if (Session[Common.CommonConstants.SESSION_CART] != null)
                     {
                         return RedirectToAction("Index", "Cart");

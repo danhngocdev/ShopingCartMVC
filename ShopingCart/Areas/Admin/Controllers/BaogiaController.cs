@@ -57,7 +57,8 @@ namespace ShopingCart.Areas.Admin.Controllers
             }
             return View(b);
         }
-        [HttpDelete]
+        [HasCredential(ActionId = 48)]
+   
         public ActionResult Delete(int id)
         {
             var result = service.Delete(id);
