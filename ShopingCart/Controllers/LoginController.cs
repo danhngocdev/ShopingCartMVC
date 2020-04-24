@@ -68,7 +68,6 @@ namespace ShopingCart.Controllers
                         return RedirectToAction("Index", "Cart");
                     }
 					Session["User"] = user;
-                  
 					return RedirectToAction("Index", "Home");
 				}
 				else

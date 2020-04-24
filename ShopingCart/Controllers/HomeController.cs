@@ -9,7 +9,7 @@ namespace ShopingCart.Controllers
 {
 	public class HomeController : Controller
 	{
-		private const string CartSession = "CartSession";
+
 		private MenuService menuService;
 		private ProductService productService;
 		private SliderService sliderService;
@@ -95,7 +95,7 @@ namespace ShopingCart.Controllers
      
         public ActionResult HeaderCart()
 		{
-			var cart = Session[CartSession];
+			var cart = Session[Common.CommonConstants.SESSION_CART];
 			var list = new List<CartItem>();
 			if (cart != null)
 			{

@@ -1,8 +1,7 @@
 ﻿@using Model;
 @model List<Model.Category>
 	@{ 
-        var user = (Model.User)Session["User"];
-        
+            var user = (User)Session["User"];
 	}
 
 	<header class="header-pos">
@@ -74,10 +73,10 @@
                         </div>
 
                         <div class="search-block-top display-inline">
-                            @if (Session["User"] != null)
+                            @if(@user != null)
                             {
 
-                                <div><p style="font-weight:700;color:#2c2c2c">Chào! @user.FullName | <a style="color:#2c2c2c" href="@Url.Action("LogOut","Login")">Đăng xuất</a></p></div>
+                                <div><p style="font-weight:700;color:#2c2c2c">Chào!@user.FullName| <a style="color:#2c2c2c" href="@Url.Action("LogOut","Login")">Đăng xuất</a></p></div>
                             }
                             else
                             {
