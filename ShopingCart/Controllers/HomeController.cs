@@ -14,7 +14,7 @@ namespace ShopingCart.Controllers
 		private ProductService productService;
 		private SliderService sliderService;
 		private CategoryService categoryService;
-		private WishListService wishListService;
+
         private NewsService newsService;
         private BannerService bannerService;
         private ProjectService projectService; 
@@ -26,13 +26,13 @@ namespace ShopingCart.Controllers
 			productService = new ProductService();
 			menuService = new MenuService();
 			categoryService = new CategoryService();
-			wishListService = new WishListService();
+	
             bannerService = new BannerService();
 		}
 		public ActionResult Index()
 		{
 			var user = (User)Session["User"];
-			if (user != null) ViewBag.wishList = wishListService.GetById(user.UserId).ToList();
+			
 			if (user == null) ViewBag.ListNotInUser = Session[Common.CommonConstants.DATA_WISH];
             //ViewBag.ListProductHot = productService.ListProductHot();
             ViewBag.ListProject = projectService.GetAll();
@@ -109,43 +109,7 @@ namespace ShopingCart.Controllers
 
 			return View();
 		}
-		[HttpPost]
-		public ActionResult Create(WishList c)
-		{
-			if (Session["User"] == null)
-			{
-
-				if (Session[Common.CommonConstants.DATA_WISH] == null)
-				{
-					var listWish = new List<int>();
-					listWish.Add(c.ProductID);
-					Session[Common.CommonConstants.DATA_WISH] = listWish;
-				}
-				else
-				{
-					var listWishs = (List<int>)Session[Common.CommonConstants.DATA_WISH];
-					listWishs.Add(c.ProductID);
-					Session[Common.CommonConstants.DATA_WISH] = listWishs;
-				}
-			}
-			if (Session["User"] != null)
-			{
-				var data = (Model.User)Session["User"];
-				c.UserID = data.UserId;
-				wishListService.Insert(c);
-				return Json(new
-				{
-					status = true
-				});
-			}
-
-			return Json(new
-			{
-				status = false
-
-			});
-		}
-
+		
 		public ActionResult Contact()
 		{
 			ViewBag.Message = "Your contact page.";

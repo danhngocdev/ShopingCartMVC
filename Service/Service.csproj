@@ -60,10 +60,8 @@
     <Compile Include="Interface\IOrderDetailService.cs" />
     <Compile Include="Interface\IRoleActionService.cs" />
     <Compile Include="Interface\IServices.cs" />
-    <Compile Include="Interface\IWishListService.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="ProjectService.cs" />
-    <Compile Include="WishListService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="MenuService.cs" />

@@ -65,7 +65,6 @@
     <Compile Include="Interface\IOrderDetailRepository.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="Interface\IRoleActionRepository.cs" />
-    <Compile Include="Interface\IWishListReponsitory.cs" />
     <Compile Include="LoginRepository.cs" />
     <Compile Include="MenuReponsitory.cs" />
     <Compile Include="NewsReponsitory.cs" />
@@ -79,7 +78,6 @@
     <Compile Include="RoleRepository.cs" />
     <Compile Include="SliderReponsitory.cs" />
     <Compile Include="UserReponsitory.cs" />
-    <Compile Include="WishListReponsitory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

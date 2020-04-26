@@ -12,14 +12,14 @@ namespace ShopingCart.Controllers
     {
         private ProductService productService;
         private CategoryService categoryService;
-        private WishListService wishListService;
+     
 
 
 		public ProductController()
         {
             categoryService = new CategoryService();
             productService = new ProductService();
-			wishListService=new WishListService();
+		
         }
         // GET: Product
         public ActionResult Index(int?Page)

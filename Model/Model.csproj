@@ -72,7 +72,6 @@
     <Compile Include="ViewModel\OrderDetailDTO.cs" />
     <Compile Include="ViewModel\RegisterUser.cs" />
     <Compile Include="ViewModel\ResetPassWord.cs" />
-    <Compile Include="WishList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

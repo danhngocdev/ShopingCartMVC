@@ -49,7 +49,7 @@ namespace Model
         [ForeignKey("Category_ID")]
         public virtual Category Categorys { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ICollection<WishList> wishLists { get; set; }
+    
 
     }
 }

@@ -19,11 +19,11 @@ namespace Repository
         public int Delete(int id)
         {
 			var orderDetailList = context.OrderDetails.ToList();
-			var wishList = context.wishLists.ToList();
+	
 
 			if (orderDetailList.Any(x => x.Product_Id == id)) return -1;
 
-			if (wishList.Any(x => x.ProductID == id)) return -1;
+
 
 			var item = context.Products.FirstOrDefault(c => c.Id == id);
 

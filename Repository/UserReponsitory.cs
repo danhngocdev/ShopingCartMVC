@@ -17,8 +17,6 @@ namespace Repository
 		}
 		public int Delete(int id)
 		{
-			var wishLists = context.wishLists.ToList();
-			if (wishLists.Any(x => x.UserID.Equals(id))) return -1;
 
 			if (GetById(id).Status) return -1;
 
