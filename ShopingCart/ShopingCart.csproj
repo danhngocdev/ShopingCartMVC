@@ -3399,6 +3399,7 @@
     <Content Include="Asset\ckfinder\skins\v1\uipanel.css" />
     <Content Include="Asset\ckfinder\translations.txt" />
     <Content Include="Asset\ckfinder\userfiles\.htaccess" />
+    <Content Include="Asset\FrontEnd\css\about.css" />
     <Content Include="Asset\FrontEnd\css\bootstrap.min.css" />
     <Content Include="Asset\FrontEnd\css\core.css" />
     <Content Include="Asset\FrontEnd\css\custom.css" />

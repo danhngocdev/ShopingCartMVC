@@ -42,7 +42,7 @@ namespace ShopingCart.Controllers
 			if (ModelState.IsValid)
 			{
                 var currentUser = (User)Session["User"];
-                var cart =(List<CartItem>) Session["CartSession"];
+                var cart =(List<CartItem>) Session[Common.CommonConstants.SESSION_CART];
 				var orderDetails = new List<OrderDetail>();
 				foreach (var item in cart)
 				{
@@ -111,7 +111,7 @@ namespace ShopingCart.Controllers
                     HelpMail.SendEmail(currentUser.Email, "danhminhhm@gmail.com", "danhngoc99", "[Nội Thất Hồng Ngọc]_Đơn hàng", header + main + footer);
                     TempData["message"] = "Added";
                     TempData["DataSuccess"] = "Đặt hàng thành công";
-					Session["CartSession"] = null;
+					Session[Common.CommonConstants.SESSION_CART] = null;
 				}
 				else
 				{

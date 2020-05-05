@@ -37,12 +37,12 @@ figure {
 .product-img:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
- .product-img img {
-        width: 100%;
-        min-height: 350px;
-        max-height: 350px;
-        width:350px;
-        height:350px; 
+.product-img img {
+    height: 270px;
+    max-width: 270px;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
 }
 .product-img .zoomOut img {
     -webkit-transition: .3s ease-in-out;

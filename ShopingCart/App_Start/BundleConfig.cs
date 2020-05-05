@@ -41,7 +41,9 @@ namespace ShopingCart
                         "~/Asset/FrontEnd/css/shortcode/shortcodes.css",
                         "~/Asset/FrontEnd/style.css",
                         "~/Asset/FrontEnd/css/responsive.css",
-                        "~/Asset/FrontEnd/css/custom.css"));
+                        "~/Asset/FrontEnd/css/custom.css",
+                        "~/Asset/FrontEnd/css/about.css"
+                        ));
 
 
 

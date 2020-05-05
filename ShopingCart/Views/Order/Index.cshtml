@@ -2,7 +2,7 @@
 @{
 	ViewBag.Title = "Chi Tiết Hóa Đơn";
 	Layout = "~/Views/Shared/_Layout.cshtml";
-	var items = (List<Model.CartItem>)Session["CartSession"];
+	var items = (List<Model.CartItem>)Session["SESSION_CART"];
 	double? TotalMoney = 0;
 	double? currentTotal = 0;
 	double? price;
@@ -28,7 +28,7 @@
 	
 	
 }
-else if (Session["CartSession"] == null)
+else if (Session["SESSION_CART"] == null)
 {
 	<div class="alert alert-warning">
 		<p style="text-align: center">Giỏ hàng trống! Mời bạn chọn sản phẩm</p>
@@ -71,7 +71,7 @@ else
 									<div class="checkout-form-list">
 										<label>Email</label>
 										<input type="text" name="Email" id="email" value="@ViewBag.User.Email" placeholder="" />
-										@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+										@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger",@readonly="readonly"})
                                         
 									</div>
 								</div>
